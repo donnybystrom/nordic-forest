@@ -1,0 +1,802 @@
+{
+  "schema_version": "0.1",
+  "checked_on": "2026-10-18",
+  "scope": "file_geometry_and_texture_header_measurements_only",
+  "source": {
+    "path": "/Users/donnybystrom/code/Nordic-3D-forest/data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/source/Oak pack.fbx",
+    "sha256": "dab0a11ee6ade237bfa5b0a55f38b04a142a12c6afce5491a2056fe62f64eed5",
+    "bytes": 20157980
+  },
+  "converted_glb": {
+    "path": "/Users/donnybystrom/code/Nordic-3D-forest/data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/glb-20261018T120540032619Z-498fd5/asset.glb",
+    "sha256": "45c831d896ea1829f4a64becaa83a89a802aaba883c1e6c25cb4b0dadb1c4027",
+    "bytes": 63405656
+  },
+  "fbx_mesh_objects": 75,
+  "fbx_all_display_objects_triangles": 409422,
+  "glb_mesh_objects": 131,
+  "glb_all_display_objects_triangles": 409422,
+  "canonical_tree_family_count": 17,
+  "lod_triangle_counts_from_fbx": {
+    "Big_oak_tree__001": {
+      "Billboard": 28,
+      "LOD0": 11016,
+      "LOD1": 4859,
+      "LOD2": 3193
+    },
+    "Big_oak_tree__002": {
+      "Billboard": 28,
+      "LOD0": 9150,
+      "LOD1": 4716,
+      "LOD2": 3108
+    },
+    "Big_oak_tree__003": {
+      "Billboard": 28,
+      "LOD0": 11352,
+      "LOD1": 5147,
+      "LOD2": 3356
+    },
+    "Big_oak_tree__004": {
+      "Billboard": 28,
+      "LOD0": 18440,
+      "LOD1": 9041,
+      "LOD2": 5917
+    },
+    "Large_oak_tree_001": {
+      "Billboard": 28,
+      "LOD0": 24309,
+      "LOD1": 9853,
+      "LOD2": 6385
+    },
+    "Large_oak_tree_002": {
+      "Billboard": 28,
+      "LOD0": 21945,
+      "LOD1": 9716,
+      "LOD2": 6352
+    },
+    "Large_oak_tree_003": {
+      "Billboard": 28,
+      "LOD0": 37684,
+      "LOD1": 15139,
+      "LOD2": 9886
+    },
+    "Large_oak_tree_004": {
+      "Billboard": 28,
+      "LOD0": 18790,
+      "LOD1": 7790,
+      "LOD2": 4965
+    },
+    "Medium_oak_tree__001": {
+      "Billboard": 28,
+      "LOD0": 5122,
+      "LOD1": 1854,
+      "LOD2": 1071
+    },
+    "Medium_oak_tree__002": {
+      "Billboard": 28,
+      "LOD0": 6786,
+      "LOD1": 2378,
+      "LOD2": 1394
+    },
+    "Medium_oak_tree__003": {
+      "Billboard": 28,
+      "LOD0": 6513,
+      "LOD1": 2612,
+      "LOD2": 1494
+    },
+    "Sapling_oak_tree_001": {
+      "Billboard": 28,
+      "LOD0": 170,
+      "LOD1": 116,
+      "LOD2": 40
+    },
+    "Sapling_oak_tree_002": {
+      "Billboard": 28,
+      "LOD0": 189,
+      "LOD1": 135,
+      "LOD2": 40
+    },
+    "Sapling_oak_tree_003": {
+      "Billboard": 28,
+      "LOD0": 159,
+      "LOD1": 109,
+      "LOD2": 37
+    },
+    "Small_oak_tree__001": {
+      "Billboard": 28,
+      "LOD0": 1217,
+      "LOD1": 763,
+      "LOD2": 163
+    },
+    "Small_oak_tree__002": {
+      "Billboard": 28,
+      "LOD0": 1333,
+      "LOD1": 826,
+      "LOD2": 205
+    },
+    "Small_oak_tree__003": {
+      "Billboard": 28,
+      "LOD0": 1275,
+      "LOD1": 797,
+      "LOD2": 248
+    }
+  },
+  "fbx_missing_image_paths": 12,
+  "fbx_referenced_images": 12,
+  "source_archive_png_files": [
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Big_oak_tree__001_Billboard_Normal.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1084710,
+      "sha256": "dd6fde8911d50a172e0b406bd3a3064125b9a4de651bca3bd70823fe90cc6a20"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Big_oak_tree__001_Billboard_RGBA.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1064736,
+      "sha256": "d3fd9063b6c1c06b3003c3eff0cfce138175a8b68f409e2930bc1340d63fdeea"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Big_oak_tree__002_Billboard_Normal.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1093688,
+      "sha256": "bfa094f09446dd83f03054532031c70f1dd4077d806e5be9c63552f3695ced75"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Big_oak_tree__002_Billboard_RGBA.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1072614,
+      "sha256": "7c043c957051478b306c5d636eb50bbaa466417cd20d118d30c699c7d8d2951e"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Big_oak_tree__003_Billboard_Normal.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1131518,
+      "sha256": "8c9470ac0e1219bc0be3fd8315e4dde1b0870bea228b65ec0a3374b51d1543c5"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Big_oak_tree__003_Billboard_RGBA.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1102145,
+      "sha256": "0113f45f7fa385f135aee33fd66f915b8563ba5c8537d5e9e95dcea48667bfa1"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Big_oak_tree__004_Billboard_Normal.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1237918,
+      "sha256": "026f48434909f4c73baca3cefd2a24a3855a9adf1e743f938550109951d84656"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Big_oak_tree__004_Billboard_RGBA.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1204970,
+      "sha256": "ea967f31f8eb485de790101485b139b433925e886e0022dd9faf506af68881ef"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Checker_texture.png",
+      "width": 2048,
+      "height": 2048,
+      "bytes": 202941,
+      "sha256": "9b27bf49ef30b744bac9a285ae98d68cf3fe667d6be5b8c1f6d117d3f30a0f64"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Early_Autumn_Big_oak_tree__002_Billboard_M.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 861063,
+      "sha256": "3f4df6526ecb4c66dcdf4a860bf90ff680680753a1c6271c7ff6754a0273923d"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Large_oak_tree_001_Billboard_Normal.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1131384,
+      "sha256": "7aee5757d3c9086b10d9d806bc947e9f5bb8392b442591f23f8d1564c32d2b05"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Large_oak_tree_001_Billboard_RGBA.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1100673,
+      "sha256": "37aa3a8a7b923dc9ee34873e3d403c679b1674a6b864c785ab83c19b68c70ef1"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Large_oak_tree_002_Billboard_Normal.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1168092,
+      "sha256": "73fda38978de7a50c28c35c3dc1f02401e49349b6b134c0733a1e0799803fcda"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Large_oak_tree_002_Billboard_RGBA.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1136726,
+      "sha256": "c7dd32a986ac0c985d1ba503706175283cb82c11eb3d3ddb0ca9751177fade60"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Large_oak_tree_003_Billboard_Normal.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1313914,
+      "sha256": "475b752b1b002cfc54b12648b7d625df6be016cc5ef26616201d05236f953518"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Large_oak_tree_003_Billboard_RGBA.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1276617,
+      "sha256": "eaae15dbaf49df62d0a0957399c838514b4cfe42391ced1c0c665f04d6970cf6"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Large_oak_tree_004_Billboard_Normal.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1160602,
+      "sha256": "04938bb6ff44c7d257756c904fa87e91514514497af1abb85d25c8691e1a9c33"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Large_oak_tree_004_Billboard_RGBA.png",
+      "width": 1024,
+      "height": 1024,
+      "bytes": 1132426,
+      "sha256": "3845a5aa7a2636444ea1ecefa3e1cda2d439c231442b5b68e836561a1138cb3a"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Medium_oak_tree__001_Billboard_Normal.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 215733,
+      "sha256": "d22c462bc607c811debef9e20d4b5586488e0057a23005ef2df3b15c82775e80"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Medium_oak_tree__001_Billboard_RGBA.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 214468,
+      "sha256": "d8ba994a66bc25d509d31d320641cdd6484828d19054d48271a3b914fe925e20"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Medium_oak_tree__002_Billboard_Normal.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 276647,
+      "sha256": "f8d9438e7fdb9b8c987860bc447011e6f98007111ff1093b33ca7f3eb23d1b18"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Medium_oak_tree__002_Billboard_RGBA.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 272612,
+      "sha256": "24acd59e11e4a586ac9c427009745d6650107dd22fb0f9b52c0d80f953c3908e"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Medium_oak_tree__003_Billboard_Normal.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 238229,
+      "sha256": "181245812068f05cb3793485b0930ca8a855f931ee4829736d96f03ff0cf20e3"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Medium_oak_tree__003_Billboard_RGBA.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 237054,
+      "sha256": "0c80e3dab3942403a71c72f0542ca3723a561c721e333812f76a2e79257012a4"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_bark_tex_AO.png",
+      "width": 1024,
+      "height": 2048,
+      "bytes": 3396522,
+      "sha256": "0868bb4d022a88a8388c8a5728c5c3fb3a68dc8dbfd84491ed297b637b1173e9"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_bark_tex_Basecolor.png",
+      "width": 1024,
+      "height": 2048,
+      "bytes": 4900912,
+      "sha256": "3fca22f55b2b9de1fb0b9983edab688a047601a904b7bbe60d3b9fca70a1469e"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_bark_tex_Normal.png",
+      "width": 1024,
+      "height": 2048,
+      "bytes": 5050818,
+      "sha256": "6903a2a9b8bfcf3500f5d4f0c51fdc3b47b24e319f82413bda109833ca421816"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_bark_tex_roughness.png",
+      "width": 1024,
+      "height": 2048,
+      "bytes": 881030,
+      "sha256": "6ab46f1e1fee3737fc88742a17cde1889b511ef49c83c184196ebd3b02973e2f"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_autumn_early_AO.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 4233703,
+      "sha256": "8b5ef05bc5c21560a57d3e1e598119cc3a6cfaf68b4e8c0a61e925410a17b228"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_autumn_early_Normal.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 8791614,
+      "sha256": "0f6043f9ac5333921f1effaf4490763ee262ecc31f02cdcb43f8e3382a879746"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_autumn_early_RGBA.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 12474615,
+      "sha256": "c7b290acfd79034aebd04ca2fa8f3f8629a377c68e14020a486fd96e7f139e50"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_autumn_early_Roughness.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 3132331,
+      "sha256": "bf9ebe1036db6dc2a085829b06a16f033774d40914abdbf96c01186715c24069"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_autumn_early_SubsurfaceAmount.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 802439,
+      "sha256": "46580196ea354a9f4cb8bc40edfec5ac7ebb7d37a2aac6baad4308ee357656dc"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_autumn_late_AO.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 3660276,
+      "sha256": "23941e7686d96b499a8ec1a9f597d27baad4cee79646595229bf87a8a6619d17"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_autumn_late_Normal.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 5906764,
+      "sha256": "d3ebd11358d721be4bf40a5aaacb8616dedca89b141bea3746e16168551f6889"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_autumn_late_RGBA.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 8274174,
+      "sha256": "6f3553b8975bf968e6c5169166ecb3893edac2af48f143008722d1a7e4467d7c"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_autumn_late_Roughness.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 2556436,
+      "sha256": "1277113071e200a4e8a073cba7f02bb3f7a97e9948e9d16b8cd6e8f4a8ae491e"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_autumn_late_SubsurfaceAmount.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 518991,
+      "sha256": "da29d166b33294c37945c96f8360e2c835df50b46095c3445e5079ea3ce86ab3"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_spring_AO.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 4164220,
+      "sha256": "850d9d2fbc7d50d085f86648130c2fe0e9c71727e649c224dd559fdba4560ae4"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_spring_Normal.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 9021571,
+      "sha256": "b4fba861e9c32ab03c8ee31f4060f667aadd2a2ee438d910a93a9ad671917c90"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_spring_RGBA.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 11003692,
+      "sha256": "554a3d0d5c3f33edc9d231708e0ac96e431b3154d0d0c8633e51ea6a1b5b5184"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_spring_Roughness.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 3249995,
+      "sha256": "ce3aaec7af4879b93f20a94617db6f57a6c23a4723952862a2b397f72852b60b"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_spring_SubsurfaceAmount.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 686138,
+      "sha256": "ef895bdad2a29357be094882e783d2760f452dfce9a5ff4e74702fd94b2df955"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_summer_AO.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 4205238,
+      "sha256": "638b6468d6b1179093ad0487aa5437706b7082e815999516be98ca8cffa949c9"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_summer_Normal.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 8801930,
+      "sha256": "b187a3a0be36049d6e37831b835a044ec048a6da12343849a0fa39a805229c7d"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_summer_RGBA.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 11508572,
+      "sha256": "724a9613bcf3b9a169bb474c4027e3b16d363e8b935155e8a7eb9ec416a244a8"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_summer_Roughness.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 3210621,
+      "sha256": "82a93f34f77c1162bd99863ecc145e5807b1952ab6038670898929ef8d41f13c"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_summer_SubsurfaceAmount.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 681806,
+      "sha256": "ea00dbd9338d6e6a356b26540c93da2745152719defdd2a241059cac087c8dcd"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_winter_AO.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 3372520,
+      "sha256": "a7208bdbdd6b5811205ea085efc90e30eb052fde4e0efa2b6b937b192bda735c"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_winter_Normal.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 4494563,
+      "sha256": "96677de319de1154ffd91b992cf5d5295f85fc0bd0456cb61ddf93213656b8bb"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_winter_RGBA.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 6134656,
+      "sha256": "38e81f7c060a2767dc6281082295f04aaaa90c348604bc9df56d03079c619fdf"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_winter_Roughness.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 2146819,
+      "sha256": "0f10b8bf1c2d72e21f826524ea95c1f702c0e868b28a6dac5ce17d3a9fb97fe9"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Oak_cluster_winter_SubsurfaceAmount.png",
+      "width": 4096,
+      "height": 4096,
+      "bytes": 49073,
+      "sha256": "33d54003abdb2519fdd2eea1f0a7ba02ae34abc76d66dccae9965ad87b3024d9"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Sapling_oak_tree_001_Billboard_Normal.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 32085,
+      "sha256": "5adf3f7bfe4c141c264cc6dc86034b356e4d06e55071463efb9ca3cf71b209a8"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Sapling_oak_tree_001_Billboard_RGBA.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 32387,
+      "sha256": "27d6908638d49405c5fbce51a561147518c9d846cf36a5fbf98af634b7731b16"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Sapling_oak_tree_002_Billboard_Normal.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 29218,
+      "sha256": "11590a935a723fe5529e5375149e77bcfa514cbece0dcb21e1356a897ad0fe99"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Sapling_oak_tree_002_Billboard_RGBA.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 30253,
+      "sha256": "3bbf408a4df8fa65fb43d346d9955d8cb8b822416b1888d7c469ede403822799"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Sapling_oak_tree_003_Billboard_Normal.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 31881,
+      "sha256": "0936720d0c0c88389ef5e07c620cc764c9abb1fdeda99d1573d716150c8215d9"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Sapling_oak_tree_003_Billboard_RGBA.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 32241,
+      "sha256": "3dc3a8732de4a9980d05e6b1502938c6575ecee1295162bf63c4fb8cdee7527f"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Small_oak_tree__001_Billboard_Normal.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 153086,
+      "sha256": "f46130140a1f4689727ccca977d236344937ecfd25f8f5637efde6507b7b7b16"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Small_oak_tree__001_Billboard_RGBA.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 154557,
+      "sha256": "6d02c1ce89905b9e94ecd9810fd3d73f73a0549e54b108c4bf600e156ed545ce"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Small_oak_tree__002_Billboard_Normal.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 177091,
+      "sha256": "a0ecfc42fe0e0d0c18ce2231c30909cd36e68b3ef0a1dbe1997966b6cf45748e"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Small_oak_tree__002_Billboard_RGBA.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 177983,
+      "sha256": "0f3f242e240c165cf2305ae7b95f6047dc07a907358f5d6bf413ad1c6adc6382"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Small_oak_tree__003_Billboard_Normal.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 167183,
+      "sha256": "71e17b800f86cb13ccaa039894dc1bfbbfa39a12592b4a57923658f3fab05b78"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/Small_oak_tree__003_Billboard_RGBA.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 169064,
+      "sha256": "ca590b55633e0e33b47940e1166a798926958ca24c1d9f5799acdd72283f38d1"
+    },
+    {
+      "file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/textures/man_ref.png",
+      "width": 720,
+      "height": 1280,
+      "bytes": 254774,
+      "sha256": "f091a9b96bcd4d8b21a72de79c560892762f8b725ac93bdd40924e522f415bf4"
+    }
+  ],
+  "converted_glb_image_datablocks": 72,
+  "billboard_example": {
+    "object": "Big_oak_tree__001_Billboard",
+    "components": {
+      "status": "complete",
+      "component_count": 7,
+      "sample_count": 7,
+      "sampling": "first components by vertex index; not a representative crown sample",
+      "interpretation": "Planarity does not establish foliage, camera-facing behavior, or intended orientation.",
+      "samples": [
+        {
+          "first_vertex": 0,
+          "vertices": 6,
+          "vertex_centroid_world": [
+            119.99999996168133,
+            119.12337268799827,
+            9.598091695940315
+          ],
+          "material_slots": [
+            0
+          ],
+          "pca_plane_normal_world": [
+            0.9999999999999989,
+            -4.3711388241919966e-08,
+            1.0783903140321794e-14
+          ],
+          "pca_plane_normal_sign": "largest absolute axis is positive; front/back not inferred",
+          "pca_extents_world_units": [
+            3.836734601890555e-14,
+            14.727638524892406,
+            24.42887185539393
+          ],
+          "plane_residual_over_longest_span": 7.831695538849639e-16,
+          "nearly_planar_hint": true,
+          "planarity_threshold": 0.005
+        },
+        {
+          "first_vertex": 6,
+          "vertices": 6,
+          "vertex_centroid_world": [
+            120.23636551698048,
+            120.13646830529258,
+            9.598091543303731
+          ],
+          "material_slots": [
+            0
+          ],
+          "pca_plane_normal_world": [
+            -0.5000000436540982,
+            0.8660253785807075,
+            -2.061560392238094e-07
+          ],
+          "pca_plane_normal_sign": "largest absolute axis is positive; front/back not inferred",
+          "pca_extents_world_units": [
+            3.8371125119088223e-07,
+            20.65424689326297,
+            27.373197183855083
+          ],
+          "plane_residual_over_longest_span": 5.036430136843981e-09,
+          "nearly_planar_hint": true,
+          "planarity_threshold": 0.005
+        },
+        {
+          "first_vertex": 12,
+          "vertices": 6,
+          "vertex_centroid_world": [
+            119.43125295639038,
+            120.32836907516209,
+            9.598091527871613
+          ],
+          "material_slots": [
+            0
+          ],
+          "pca_plane_normal_world": [
+            0.5000002063648302,
+            0.8660252846395893,
+            -2.1261415696366394e-07
+          ],
+          "pca_plane_normal_sign": "largest absolute axis is positive; front/back not inferred",
+          "pca_extents_world_units": [
+            4.1142101957997437e-07,
+            21.80773200761336,
+            22.686546828636097
+          ],
+          "plane_residual_over_longest_span": 4.931287486186831e-09,
+          "nearly_planar_hint": true,
+          "planarity_threshold": 0.005
+        },
+        {
+          "first_vertex": 18,
+          "vertices": 6,
+          "vertex_centroid_world": [
+            119.99999999141556,
+            119.28012575120017,
+            9.59809166667671
+          ],
+          "material_slots": [
+            0
+          ],
+          "pca_plane_normal_world": [
+            1.0,
+            -1.1924881617901551e-08,
+            3.0427456596664704e-15
+          ],
+          "pca_plane_normal_sign": "largest absolute axis is positive; front/back not inferred",
+          "pca_extents_world_units": [
+            5.348432121627831e-15,
+            14.72763475035622,
+            24.428871768513673
+          ],
+          "plane_residual_over_longest_span": 3.0419062625359746e-16,
+          "nearly_planar_hint": true,
+          "planarity_threshold": 0.005
+        },
+        {
+          "first_vertex": 24,
+          "vertices": 6,
+          "vertex_centroid_world": [
+            120.40944127241771,
+            120.23639298886347,
+            9.598091524540408
+          ],
+          "material_slots": [
+            0
+          ],
+          "pca_plane_normal_world": [
+            -0.4999997492699327,
+            0.8660255485434374,
+            -2.081320723592077e-07
+          ],
+          "pca_plane_normal_sign": "largest absolute axis is positive; front/back not inferred",
+          "pca_extents_world_units": [
+            2.3169101366664744e-07,
+            20.65424559331484,
+            27.373196316900398
+          ],
+          "plane_residual_over_longest_span": 4.731213550591695e-09,
+          "nearly_planar_hint": true,
+          "planarity_threshold": 0.005
+        },
+        {
+          "first_vertex": 30,
+          "vertices": 6,
+          "vertex_centroid_world": [
+            119.60344672203064,
+            120.2289527397383,
+            9.598091546552117
+          ],
+          "material_slots": [
+            0
+          ],
+          "pca_plane_normal_world": [
+            0.5000004822405376,
+            0.866025125362532,
+            -2.022295651564369e-07
+          ],
+          "pca_plane_normal_sign": "largest absolute axis is positive; front/back not inferred",
+          "pca_extents_world_units": [
+            2.3801964465280315e-07,
+            21.80773353496943,
+            22.686549436273747
+          ],
+          "plane_residual_over_longest_span": 7.146290966545915e-09,
+          "nearly_planar_hint": true,
+          "planarity_threshold": 0.005
+        },
+        {
+          "first_vertex": 36,
+          "vertices": 6,
+          "vertex_centroid_world": [
+            119.98967053741217,
+            118.54860544601236,
+            10.755940355731482
+          ],
+          "material_slots": [
+            0
+          ],
+          "pca_plane_normal_world": [
+            2.0397566522891334e-08,
+            2.7543058550288095e-07,
+            0.9999999999999618
+          ],
+          "pca_plane_normal_sign": "largest absolute axis is positive; front/back not inferred",
+          "pca_extents_world_units": [
+            4.992092684721259e-07,
+            16.557254741588174,
+            21.833091695824507
+          ],
+          "plane_residual_over_longest_span": 7.766073327932971e-09,
+          "nearly_planar_hint": true,
+          "planarity_threshold": 0.005
+        }
+      ]
+    }
+  },
+  "raw_reports": [
+    {
+      "path": "runs/oak-source-fbx-audit.json",
+      "sha256": "6917dbfbc7002576f14497eace6ee8b9088237f60fe7a0757aabf2f997ed6102"
+    },
+    {
+      "path": "runs/oak-glb-audit.json",
+      "sha256": "bd0f01120692c7d4f3bdad99bf9f03c766c5fd7259219b7e56906eaeeff8c49a"
+    }
+  ],
+  "limitations": [
+    "No neutral-light visual acceptance, source relinking, shader reconstruction, variation generator or Godot scene performed.",
+    "Displayed source variants may duplicate geometry; aggregate scene count is not per-tree cost.",
+    "Connectivity/PCA samples do not establish intended material behavior or camera-facing code.",
+    "Custom-normal flags and color attribute presence do not verify semantic channel preservation.",
+    "Image datablock count and on-disk bytes are not GPU memory or frame-time measurements."
+  ]
+}

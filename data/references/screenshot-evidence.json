@@ -1,0 +1,23 @@
+[
+  {
+    "id": "stump-mushrooms",
+    "path": "assets/references/screenshots/stump-mushrooms.png",
+    "sha256": "a55713c290d7c30e4ed675c9d53fe0f6e445c248f4adf037b562adb8cc91dea7",
+    "kind": "user_supplied_screenshot",
+    "source_path": "/var/folders/n5/gk7cs8qn6ml2dq2xyqbct96w0000gn/T/codex-clipboard-714f21e7-b44a-4d25-a558-77db3fac96fb.png"
+  },
+  {
+    "id": "old-tree-stump",
+    "path": "assets/references/screenshots/old-tree-stump.png",
+    "sha256": "4e835a39e73817c1c8992b0a3ec19f4121d2204f11c7d3b2fdebacd6ed193522",
+    "kind": "user_supplied_screenshot",
+    "source_path": "/var/folders/n5/gk7cs8qn6ml2dq2xyqbct96w0000gn/T/codex-clipboard-73ff41ba-4d2b-4750-afdd-527d03b715f9.png"
+  },
+  {
+    "id": "wood-stick-02",
+    "path": "assets/references/screenshots/wood-stick-02.png",
+    "sha256": "7c35b3c491e58e6c42c1772215d6ea6f9b26f4894a22aec1b158358a544130b6",
+    "kind": "user_supplied_screenshot",
+    "source_path": "/var/folders/n5/gk7cs8qn6ml2dq2xyqbct96w0000gn/T/codex-clipboard-712831e2-2765-476f-bb7a-21af3c380bef.png"
+  }
+]

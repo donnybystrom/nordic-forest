@@ -1,0 +1,70 @@
+# Credentials and machine-local configuration
+**/*SECRET_KEY*
+**/*API_TOKEN*
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+/config/local*.json
+
+# Third-party reference payloads are acquired separately.
+# Keep only the small, reproducible JSON catalogs/metadata and analysis summaries.
+/data/references/*
+!/data/references/*.json
+!/data/references/analysis/
+/data/references/analysis/*
+!/data/references/analysis/*.json
+
+# Raw archives/installers never belong in this source repository.
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
+*.dmg
+*.iso
+
+# Local jobs, service credentials, databases, logs and generated artifacts
+/runs/
+/assets/work/
+/assets/generated/
+/exports/
+/build/
+/dist/
+*.log
+*.sqlite
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Optional UI tooling and local Langflow state
+node_modules/
+.langflow/
+
+# Godot and Blender caches/backups; authored source assets remain deliberate inputs.
+.godot/
+*.blend1
+*.blend2
+*.blend[0-9]
+
+# OS/editor temporary files
+.DS_Store
+._*
+Thumbs.db
+*.swp
+*.swo
+*~

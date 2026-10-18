@@ -1,0 +1,6 @@
+Task ID: R0-001-PLAN
+Prepare one bounded tree-construction and photogrammetry conversion experiment for Nordic Forest.
+Inputs currently available: the checked reference catalog, author metadata for the oak pack, mushroom stump and Wood Stick 02, and three user screenshots. Actual mesh/texture packages, Gold River binaries and selected Skyrim mods have not been supplied to this planning run.
+Read the supplied reference pipeline and catalog. Identify what is metadata, what requires geometry, and what requires runtime evidence. Propose per-LOD inspection of one small, medium and large oak, and a reversible scan-to-game conversion of Wood Stick 02 or the mushroom stump. Preserve source, UVs/materials, custom normals and vertex colors; verify supplemental texture completeness.
+Deliverable: owned artifact list, limited analysis/generation recipe plan, independent acceptance comparisons, blockers and exact next measurements. Keep numerical generation coefficients uncalibrated until evidence exists.
+Non-goals: downloading/purchasing assets, editing original models, asserting performance, claiming binary analysis, copying an entire game's art or treating oak architecture/Pacific Northwest ecology as the northern Swedish biome.

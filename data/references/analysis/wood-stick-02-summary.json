@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.1",
+  "checked_on": "2026-10-18",
+  "scope": "converted_glb_geometry_audit_only",
+  "source": {
+    "path": "/Users/donnybystrom/code/Nordic-3D-forest/data/references/downloads/0ab534c493e14f67bac01ee94f20e43f/glb-20261018T144334575672Z-70be47/asset.glb",
+    "sha256": "9a870353c97235b13a5aef0f07ee503c0ef4c27fbedb89eb4a004b981a0642cb",
+    "bytes": 4913220
+  },
+  "mesh_objects": 1,
+  "triangles": 29988,
+  "image_count": 3,
+  "raw_report": {
+    "path": "runs/stick-glb-audit.json",
+    "sha256": "95c3b484da1916054577d675c60f2f0ed5be8e28caef911d98cb7e9fec27e0c6"
+  },
+  "limitations": [
+    "Sketchfab converted GLB, not the original author archive.",
+    "No optimization, bake, source/derivative visual acceptance or runtime test performed."
+  ]
+}

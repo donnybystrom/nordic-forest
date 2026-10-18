@@ -1,0 +1,21 @@
+name: Agent harness checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e .
+      - run: mkdir -p runs
+      - run: python -m unittest discover -s tests -v
+      - run: python -m compileall -q forest_agents integrations/langflow tools
+      - run: python tools/check_repository_inputs.py

@@ -1,0 +1,13 @@
+{
+  "schema_version": "0.1-draft",
+  "status": "proposed_reference_presets_not_a_generator",
+  "units": {"distance": "metres", "slope": "degrees", "density": "instances_per_square_metre"},
+  "field_semantics": "Moisture, fertility and shade are authored normalized proxies until measured inputs exist.",
+  "source_url": "https://www.skogskunskap.se/skota-skog/foryngra/planera-och-forbered-foryngringen/standortsanpassad-foryngring/",
+  "presets": [
+    {"id": "dry_pine", "name_sv": "Torr tallskog", "site": "Dry, nutrient-poor mineral-soil rise; not all pine forest is dry", "canopy_candidates": ["Pinus sylvestris"], "field_candidates": ["Vaccinium vitis-idaea", "Calluna vulgaris"], "ground_candidates": ["locally_referenced_lichen_group", "exposed_rock", "needle_litter"], "density_per_m2": null, "suitability_curves": null},
+    {"id": "mesic_mixed", "name_sv": "Frisk gran och blandskog", "site": "Mesic woodland with blueberry and moss layers; species mix requires local reference", "canopy_candidates": ["Picea abies", "Pinus sylvestris", "Betula pendula"], "field_candidates": ["Vaccinium myrtillus", "Vaccinium vitis-idaea"], "ground_candidates": ["locally_referenced_moss_group", "deadwood", "litter"], "density_per_m2": null, "suitability_curves": null},
+    {"id": "damp_hollow", "name_sv": "Fuktig gran och björksvacka", "site": "Damp woodland transition, excluding permanently waterlogged open mire", "canopy_candidates": ["Picea abies", "Betula pubescens"], "field_candidates": ["locally_referenced_fern_group", "locally_referenced_sedge_group"], "ground_candidates": ["locally_referenced_moss_group", "deadwood", "wet_litter"], "density_per_m2": null, "suitability_curves": null}
+  ],
+  "required_before_generation": ["Choose locality and season", "Validate species/groups against local references", "Measure or art-direct density with provenance", "Define curve knots and spacing", "Version seed/candidate algorithm", "Define mask transforms and exclusion precedence"]
+}

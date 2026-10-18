@@ -10,11 +10,13 @@ Start with [the project brief](docs/PROJECT.md), [the milestone roadmap](docs/RO
 - [Biome and asset production](docs/PRODUCTION-PIPELINES.md): procedural rules, painted overrides, textures, models, concept identity and animation.
 - [Reference asset analysis](docs/REFERENCE-ASSET-PIPELINE.md): scanned resources, tree construction/LOD recipes, game/mod evidence and a Blender mesh inspector.
 - [Sketchfab acquisition](docs/ASSET-ACQUISITION.md): token-backed downloads, source manifests and a bounded SDK download tool.
-- [Shared agent platform](docs/AGENT-PLATFORM.md): proposed multi-project control service, agent change review, scoped memory and Linear.
-- [Langflow integration](docs/LANGFLOW.md): a proposed visual interface around the same workflow, without duplicating orchestration.
+- [Indie work management](docs/INDIE-WORKFLOW.md): GitHub Projects, feature/story ownership, PR review and CI.
+- [Repository assets](docs/REPOSITORY-ASSETS.md): large reference files, staging cleanup and when to use LFS.
+- [Shared agent platform](docs/AGENT-PLATFORM.md): shared control architecture, agent change review and scoped memory.
+- [Langflow integration](docs/LANGFLOW.md): the installed three-flow pilot and local job service.
 - [Source register](docs/SOURCES.md): official technical documentation and starting points for ecology and regional folklore.
 
-This is a planning and pipeline foundation. There is no game scene, biome generator, paint editor, finished art, rig, animation importer or live Langflow integration yet. Local role prompts and platform configuration are separate artifacts; consult the agent workflow for the verification boundary.
+This is a planning and pipeline foundation. There is no game scene, biome generator, paint editor, finished art, rig, animation importer yet. The Langflow bridge and local job dashboard are installed; broader shared memory and agent publication remain future work. Local role prompts and platform configuration are separate artifacts; consult the agent workflow for the verification boundary.
 
 The OpenAI projects are separated: Nordic Forest contains the forest role catalog, and `proj_sBhh0dtFlUyaAAAKqMBy0jII` contains verified copies of all 16 original definitions. [The migration map](config/project-migration.json) preserves every old/new agent ID and configuration hash. The user confirmed the project display name is now **Nordic Forest**, without a hyphen.
 
@@ -40,3 +42,9 @@ The platform option retrieves saved agents' model/reasoning settings. The SDK ru
 
 Both service-account key files, `.env` files and `runs/` are ignored. Do not paste keys into prompts or commit them. Agent IDs, project IDs and instruction hashes are safe configuration references and do not provide authentication.
 # nordic-forest
+
+## Langflow bridge
+
+Open the **Nordic Forest** project in IBM Langflow Desktop. The installed flows are **01 — Plan Feature**, **02 — Collect and Audit Reference**, and **03 — Propose Agent Change**. Each connects Chat Input → Nordic Job Bridge → Chat Output and starts offline by default.
+
+Start the service with `tools/start_bridge.command`, then open [the local dashboard](http://127.0.0.1:8765/). Use `/opt/miniconda3/bin/python3 tools/manage_bridge.py status`, `stop` or `restart` to manage it. No login item or public tunnel was installed. On this Mac, Blender jobs require launching the local service with access to native system/Metal detection; a tightly sandboxed service crashed before its audit script.

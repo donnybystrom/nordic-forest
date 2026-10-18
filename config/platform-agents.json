@@ -1,0 +1,296 @@
+{
+  "organization_id": "org-mOUZocPcLddOyV1Bgcfj0inC",
+  "project_id": "proj_prCcGUHbiAHQGz8UmHcwjUKG",
+  "checked_on": "2026-10-18",
+  "has_more": false,
+  "agents": [
+    {
+      "id": "agent_4c12c22afbe344c8a2374fd8aa5b0825301eccc002a441b19c",
+      "name": "Delivery Coordinator",
+      "model": "gpt-6-luna",
+      "reasoning": {
+        "effort": "low",
+        "summary": "auto"
+      },
+      "instructions_chars": 4099,
+      "instructions_sha256": "3560ef90488e991f1e25feb981469bc47c5abbce0e5cbe2c9aa226b1fdba786d",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": true,
+        "max_concurrent_subagents": 6
+      }
+    },
+    {
+      "id": "agent_e48fecee9592438ebfca74d161ff6bfef989465af58f43b697",
+      "name": "Security Reviewer",
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "effort": "high",
+        "summary": "auto"
+      },
+      "instructions_chars": 4143,
+      "instructions_sha256": "8089555ba7b6f663ff4fedb34e1a2c26c5b93bee626de6b668c5ff4a528aa4e0",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": true,
+        "max_concurrent_subagents": 6
+      }
+    },
+    {
+      "id": "agent_f2095b3e71604cd59291942abcc89df974c5bc1843f744f2a1",
+      "name": "Rendering & Performance Engineer",
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "effort": "high",
+        "summary": "auto"
+      },
+      "instructions_chars": 4081,
+      "instructions_sha256": "f78e9424939dfe36a6fa5efbff32fef2e38539f7fdb1eddddff0b19a0b575167",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": true,
+        "max_concurrent_subagents": 6
+      }
+    },
+    {
+      "id": "agent_9792362564f0488f92ce9f40a3fcfd2d0d05b270510746cd8b",
+      "name": "Technical Artist",
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "effort": "high",
+        "summary": "auto"
+      },
+      "instructions_chars": 4087,
+      "instructions_sha256": "24314aae4fa6b418d7570321cbfded6256b8db429295b4371b1508e8694879ac",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": true,
+        "max_concurrent_subagents": 6
+      }
+    },
+    {
+      "id": "agent_a42fa0a5e7d24eedbb011bddd957bcdf200138f059354c1289",
+      "name": "Art Director",
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "effort": "medium",
+        "summary": "auto"
+      },
+      "instructions_chars": 4118,
+      "instructions_sha256": "c6011062aa0042c9d9f75dc747c9b833d7f7a7c3b0465a112cf131de780b0bac",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": true,
+        "max_concurrent_subagents": 6
+      }
+    },
+    {
+      "id": "agent_e06277060d094d92be3c934068567d2e7fdf6eef2a9847f299",
+      "name": "Tools & Modding Engineer",
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "effort": "high",
+        "summary": "auto"
+      },
+      "instructions_chars": 4118,
+      "instructions_sha256": "26c7211eb4a2046af1679bca868300770556fe0f125e655cfdd318e28f95b1c1",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": true,
+        "max_concurrent_subagents": 6
+      }
+    },
+    {
+      "id": "agent_6864c965cbaf4c3998ab12c39641fe30ef0a604ce57b4bd5aa",
+      "name": "Simulation & Networking Engineer",
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "effort": "high",
+        "summary": "auto"
+      },
+      "instructions_chars": 4236,
+      "instructions_sha256": "ddae4b6765a8e4167a914074cb279f8502aa2a4c8681319d21b63f73fee11edf",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": true,
+        "max_concurrent_subagents": 6
+      }
+    },
+    {
+      "id": "agent_fde53f66158b4a97ace3f1b6ea232508edfa8daa0d584c74bc",
+      "name": "Implementation Engineer",
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "effort": "medium",
+        "summary": "auto"
+      },
+      "instructions_chars": 4295,
+      "instructions_sha256": "f2e39a1b7abae95b573b7e2852d61da98b6ec685f161b41c392b4c50eab16a93",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": true,
+        "max_concurrent_subagents": 6
+      }
+    },
+    {
+      "id": "agent_80bf265633ce47279d348b554433972842e4cba91f07445aa8",
+      "name": "QA / Verification Engineer",
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "effort": "high",
+        "summary": "auto"
+      },
+      "instructions_chars": 4285,
+      "instructions_sha256": "c4bcae1877b453187a61ab6f30176aaeab0ef2e3a34b3d5e3b34b5e74727ded0",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": true,
+        "max_concurrent_subagents": 6
+      }
+    },
+    {
+      "id": "agent_ce0756962ff44ddda8e5d9f64ecb2f27fd3bdf76ab7a45efb1",
+      "name": "Knowledge Curator",
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "effort": "medium",
+        "summary": "auto"
+      },
+      "instructions_chars": 4346,
+      "instructions_sha256": "4e81546b179bc89a4a9b809fa28bbf1c8e7b875a7cc09b5fa0a01cb617d456ff",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": true,
+        "max_concurrent_subagents": 6
+      }
+    },
+    {
+      "id": "agent_352c5dab37ac416fac4b535ca927ea94dfc66ab8e79d4f17b2",
+      "name": "Reverse Engineering Analyst",
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "effort": "high",
+        "summary": "auto"
+      },
+      "instructions_chars": 4372,
+      "instructions_sha256": "4b07b6f1ef2a125335770c355d43d71b18719c52e82f712cf8923435d7db5ea6",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": true,
+        "max_concurrent_subagents": 6
+      }
+    },
+    {
+      "id": "agent_273a295f4e4b410394f6a53a42c17d266c9210dec66f4d8180",
+      "name": "Product Lead / PO",
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "effort": "medium",
+        "summary": "auto"
+      },
+      "instructions_chars": 4171,
+      "instructions_sha256": "88d5a9c7498231bf72426df1a0ec3db8c59195cdc824c8149af2ea64e4e6f881",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": true,
+        "max_concurrent_subagents": 6
+      }
+    },
+    {
+      "id": "agent_b6211bebe96242abb7afdd949eb0a65da4e194d324604a3283",
+      "name": "Technical Lead",
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "effort": "high",
+        "summary": "auto"
+      },
+      "instructions_chars": 4482,
+      "instructions_sha256": "d2c2e89af66083221a3dc5137c10e9653b7deda19fe36bbd304e58e990a1b8e5",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": true,
+        "max_concurrent_subagents": 6
+      }
+    },
+    {
+      "id": "agent_dfaabf6fa11c463382ccce68ef59505ccf9ddb0fc3d8444499",
+      "name": "Art Director",
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "effort": "high",
+        "summary": "auto"
+      },
+      "instructions_chars": 700,
+      "instructions_sha256": "f9ce4c7dfbd129a11962359e4addafbc5fdf51489622f94ec2e8f10c598b1cf4",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": true,
+        "max_concurrent_subagents": 6
+      }
+    },
+    {
+      "id": "agent_b9a759af47814063a8fa0b7f646f9376f9f2b7b608064118a2",
+      "name": "Developer Experience & Tooling Engineer",
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "effort": "high",
+        "summary": "auto"
+      },
+      "instructions_chars": 4191,
+      "instructions_sha256": "9146b9df5c0f5f0273b4fa7b5da9dc04392be5cfe7eebde199c2e73d2e4e8338",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": false,
+        "max_concurrent_subagents": null
+      }
+    },
+    {
+      "id": "agent_cb3d3755fa9346ca8bc08189a7e7d7247ab76f1e9ff347df86",
+      "name": "UI & UX designer",
+      "model": "gpt-6.1-sol",
+      "reasoning": {
+        "effort": "medium",
+        "summary": "auto"
+      },
+      "instructions_chars": 4122,
+      "instructions_sha256": "c61e56baac8a71a36d599c3d08f6090ac2e5f6cb7025b4004c46741c2cb9c976",
+      "tool_types": [
+        "web_search"
+      ],
+      "multi_agent": {
+        "enabled": true,
+        "max_concurrent_subagents": 6
+      }
+    }
+  ]
+}

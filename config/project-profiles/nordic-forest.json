@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "project": "nordic-forest",
+  "display_name": "Nordic Forest",
+  "board_provider": "github_projects",
+  "board_connection": "not_configured",
+  "release_train": null,
+  "feature_owner": "product_lead",
+  "technical_owner": "technical_lead",
+  "working_groups": {
+    "forest_experience": {
+      "purpose": "Own a playable, editable forest feature end to end",
+      "roles": ["product_lead", "implementation", "technical_artist", "rendering", "qa"]
+    },
+    "asset_pipeline": {
+      "purpose": "Own a reproducible source-to-runtime asset deliverable",
+      "roles": ["asset_analysis", "technical_artist", "ecology", "rendering", "qa"]
+    },
+    "tooling_enablement": {
+      "purpose": "Provide bounded job, artifact and integration capabilities to feature owners",
+      "roles": ["devx", "technical_lead", "qa"]
+    }
+  },
+  "handover_fields": ["objective", "owner", "input_revisions", "deliverables", "evidence", "limitations", "next_owner"],
+  "quality_dimensions": ["unit_and_contract_checks", "integration", "source_identity", "visual_acceptance", "performance_measurements"],
+  "human_decisions": ["product_direction", "visual_acceptance", "new_capabilities", "budget_expansion", "agent_publication"],
+  "policy_status": "organizational_profile_not_a_complete_runtime_authorization_engine"
+}

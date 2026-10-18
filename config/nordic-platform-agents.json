@@ -1,0 +1,102 @@
+{
+  "organization_id": "org-mOUZocPcLddOyV1Bgcfj0inC",
+  "project_id": "proj_prCcGUHbiAHQGz8UmHcwjUKG",
+  "schema_version": 1,
+  "roles": {
+    "product_lead": {
+      "id": "agent_45b634eef94e470aa89d652719a1967e53574487678a4a708f",
+      "name": "Product Lead",
+      "instruction_sha256": "fbec2ff4527594656424d50d7f9c7d4062a3d2f752b00095b5b23602a809de3e",
+      "verified": true
+    },
+    "technical_lead": {
+      "id": "agent_d5020b7769694ac7affb49a0d73c0c688fd2a7db90634ab3b0",
+      "name": "Technical Lead",
+      "instruction_sha256": "421d3d3fa1f45b56bf4f448beb7e065c6ae7d7bad6813b4f3153f6d7b3c0ce26",
+      "verified": true
+    },
+    "ecology": {
+      "id": "agent_8f163da9ab294205a965bd318ccd7a82593554cf6ab8455584",
+      "name": "Reference and Ecology Analyst",
+      "instruction_sha256": "ec715d2e0c735e792ff54b377dda74fe87b35025b1a6627cf832f9c5881bfc7c",
+      "verified": true,
+      "updated_on": "2026-10-18"
+    },
+    "folklore": {
+      "id": "agent_9fbeed71df8f4e24a94222cd1e18d78dee5d5dbfb3f3451e9c",
+      "name": "Folklore and Narrative Researcher",
+      "instruction_sha256": "bd0c650a4e7aaae0b4474b7f273341fa68b027d6b10ab725ffc06204bee2726d",
+      "verified": true
+    },
+    "art_director": {
+      "id": "agent_0a6b7667487a496ab20bca5a12945c6146754a39886845fea5",
+      "name": "Art Director",
+      "instruction_sha256": "324337bb3dea4019cb4ff5eee6a47e93b382332af1e5000a2dcd0eb1cd007354",
+      "verified": true,
+      "updated_on": "2026-10-18"
+    },
+    "technical_artist": {
+      "id": "agent_b3da539bd58049c08a326ab24601abbce0c5d6b8bfda47f6b4",
+      "name": "Technical Artist",
+      "instruction_sha256": "8314de367311c578690de13a8f0b945322431b04013a2554b4e47bf446b03025",
+      "verified": true,
+      "updated_on": "2026-10-18"
+    },
+    "rendering": {
+      "id": "agent_6c871dfe6d7048d98760ccaee922c5e0619cbc565c2a47c592",
+      "name": "Rendering and Performance Engineer",
+      "instruction_sha256": "7790df53979cfcbd023ce2c43be8e020c29ef287d9b6d83b9e99f5046d236b72",
+      "verified": true,
+      "updated_on": "2026-10-18"
+    },
+    "implementation": {
+      "id": "agent_c58481075ea4406d8e64a67f2216c26a610f0a1c138147f78c",
+      "name": "Implementation Engineer",
+      "instruction_sha256": "1f974e4e5c9f30c8cab03bf7be85debcaf03694220d5f8d5ea53c374773703a7",
+      "verified": true
+    },
+    "qa": {
+      "id": "agent_0455cf5770fa4675be7818a06b045dcf4495d4529d654a558a",
+      "name": "QA and Verification Engineer",
+      "instruction_sha256": "86f4517f03bee0fdeae4b6b8f96fa9f9ab71faa8b313203d9625f64aff867f75",
+      "verified": true
+    },
+    "curator": {
+      "id": "agent_b669abe6879d474fb0ad49c21f5b0611c2de120bdd8347bdbd",
+      "name": "Knowledge Curator",
+      "instruction_sha256": "8161f556764314d133329ea3bd5a820e4d7d34b861e753de16f8cacc0096c25c",
+      "verified": true
+    },
+    "devx": {
+      "id": "agent_f2e2cddae0e9427ea39972385b15eadadbbb674f89eb4dda95",
+      "name": "Developer Experience & Tooling Engineer",
+      "instruction_sha256": "cdac88adbc768771decf678eca408b6d444d60b4a0c188753d7bf2c567cb257c",
+      "verified": true
+    },
+    "uiux": {
+      "id": "agent_d3d97ae61bb64b64904cc7cf5d46608962c3ba382488474986",
+      "name": "UI & UX Designer",
+      "instruction_sha256": "a19abe3e89ad9240d70a0dd214d2e31105c02327d3c6c8ee59dcb765615335fe",
+      "verified": true
+    },
+    "delivery": {
+      "id": "agent_dde1bb428017435781e22d8eff6856b28289a05d07e4417d9c",
+      "name": "Delivery Coordinator",
+      "instruction_sha256": "c14d08647cf60a732b15bde80b115a189f1b2980a42da5cf174db13c5fcb9fb8",
+      "verified": true
+    },
+    "security": {
+      "id": "agent_936d139559ed4846bf4ae99b4ea828fc677fc0cd06c5459bbc",
+      "name": "Security Reviewer",
+      "instruction_sha256": "3047cdf922f0581dcbe55ebf370dd18d26feb161aa448cdca5c6174a80d2569f",
+      "verified": true
+    },
+    "asset_analysis": {
+      "id": "agent_97ce1424226e487bafb0d876ac279ed12f634aaf2a4c431a85",
+      "name": "Reference and Asset Analysis Engineer",
+      "instruction_sha256": "ef239fd3bffd1ea9c686ef843b873298b9dc0e3b563910474736ee93228168bf",
+      "verified": true,
+      "updated_on": "2026-10-18"
+    }
+  }
+}
