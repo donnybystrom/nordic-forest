@@ -10,6 +10,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from typing import Literal
 
 from .contracts import Handover
+from .pr_review import LocalPRReview, PRCommand, PROFILE
 from .job_store import canonical
 from .workflow import ROOT, SECRET_PATTERN, instructions_for, load_config, load_key, prepare, read_project_text, stage_payload
 
@@ -20,16 +21,22 @@ TERMINAL = {'completed', 'failed', 'cancelled'}
 class JobRequest(BaseModel):
     model_config = ConfigDict(extra='forbid', strict=True)
     project: Literal['nordic-forest'] = 'nordic-forest'
-    operation: Literal['plan_feature', 'collect_audit_reference', 'propose_agent_change', 'run_agent']
+    operation: Literal['plan_feature', 'collect_audit_reference', 'propose_agent_change', 'run_agent', 'github_pr', 'review_pr']
     request: str = Field(min_length=1, max_length=10000)
     live: bool = False
     specialists: list[str] = Field(default_factory=list, max_length=2)
     target_role: str = 'asset_analysis'
     shared_context: str = Field(default='', max_length=20000)
+    github_request: PRCommand | None = None
+    pr_number: int = Field(default=6,ge=1)
 
     def checked(self):
         config = load_config()
-        if SECRET_PATTERN.search(self.request + self.shared_context):
+        if self.operation == 'github_pr' and self.github_request is None:
+            raise ValueError('GitHub command required')
+        if self.operation == 'review_pr' and self.target_role not in {'curator','qa','technical_lead','devx','security'}:
+            raise ValueError('Unknown PR reviewer role')
+        if SECRET_PATTERN.search(canonical(self.model_dump())):
             raise ValueError('Credential-like input is not a task')
         if len(set(self.specialists)) != len(self.specialists) or any(r not in config['specialist_roles'] for r in self.specialists):
             raise ValueError('Unknown or repeated specialist')
@@ -39,9 +46,12 @@ class JobRequest(BaseModel):
         token_path = ROOT / 'SKETCHFAB_API_TOKEN.md'
         if token_path.exists():
             for token in re.findall(r'\b[0-9a-fA-F]{32}\b', token_path.read_text()):
-                if token in self.request + self.shared_context:
+                if token in canonical(self.model_dump()):
                     raise ValueError('Credential input rejected')
-        return self.model_dump()
+        result=self.model_dump()
+        if self.operation != 'github_pr': result.pop('github_request')
+        if self.operation != 'review_pr': result.pop('pr_number')
+        return result
 
 
 class Cancelled(RuntimeError):
@@ -79,13 +89,13 @@ class Runtime:
             time.sleep(.5)
         return 'unconfirmed'
 
-    def stage(self, jid, config, role, payload, key):
+    def stage(self, jid, config, role, payload, key, output_type=Handover, instructions_override=None):
         job = self.store.get(jid)
         result = job['result']
         stages = result.setdefault('sessions', {})
         state = stages.setdefault(key, {})
         if state.get('status') == 'completed':
-            return Handover.model_validate(state['handover']).model_dump(mode='json')
+            return output_type.model_validate(state['handover']).model_dump(mode='json')
         if state.get('status') == 'dispatching' and not state.get('session_id'):
             raise UncertainDispatch('Remote create outcome unknown; do not automatically repeat')
         self.check_cancel(jid)
@@ -106,13 +116,17 @@ class Runtime:
                 if saved.id != aid or actual != expected:
                     raise ValueError('Saved role changed since this job was prepared')
                 state.update(status='dispatching', role=role, agent_id=aid, instruction_sha256=actual,
-                             model=saved.model, reasoning_override='medium', spend_control='not_supported_by_current_endpoint')
+                             model=saved.model, reasoning_override='medium', output_schema=output_type.__name__,
+                             execution_profile_sha256=hashlib.sha256(instructions_override.encode()).hexdigest() if instructions_override else None, spend_control='not_supported_by_current_endpoint')
                 self.store.update(jid, result=result)
                 self.store.event(jid, role, 'session_dispatch', {'stage': key, 'agent_id': aid})
+                overrides = {'reasoning': {'effort': 'medium'}, 'tools': [], 'multi_agent': {'enabled': False}}
+                if instructions_override:
+                    overrides['instructions'] = instructions_override
                 session = client.beta.agents.sessions.create(
                     agent_id=aid, environment={'type': 'none'}, input=payload,
-                    agent={'reasoning': {'effort': 'medium'}, 'tools': [], 'multi_agent': {'enabled': False}},
-                    output_type=Handover,
+                    agent=overrides,
+                    output_type=output_type,
                     metadata={'local_job_id': jid, 'stage': key},
                     extra_headers={'Idempotency-Key': jid + ':' + key})
                 sid = session.id
@@ -158,15 +172,15 @@ class Runtime:
                                     texts.append(part['text'])
                     if not texts:
                         raise ValueError('Completed turn has no saved assistant output')
-                    handover = Handover.model_validate_json(texts[-1])
+                    handover = output_type.model_validate_json(texts[-1])
                     if SECRET_PATTERN.search(canonical(handover.model_dump())):
                         raise ValueError('Credential-like output rejected')
                     state.update(status='completed', handover=handover.model_dump(mode='json'),
                                  usage=turn.usage.model_dump(mode='json') if turn.usage else None)
                     self.store.update(jid, result=result)
                     self.store.event(jid, role, 'handover', {'stage': key, 'session_id': sid,
-                                                           'status': handover.status,
-                                                           'recommendation': handover.recommendation})
+                                                           'status': getattr(handover, 'status', getattr(handover, 'verdict', 'unknown')),
+                                                           'recommendation': getattr(handover, 'recommendation', getattr(handover, 'summary', ''))})
                     return state['handover']
                 time.sleep(1.5)
         except (Cancelled, UncertainDispatch):
@@ -205,6 +219,10 @@ class Runtime:
                 self.asset(jid)
             elif op == 'run_agent':
                 self.single_agent(jid)
+            elif op == 'github_pr':
+                self.github_pr(jid)
+            elif op == 'review_pr':
+                self.review_pr(jid)
             else:
                 self.proposal(jid)
         except Cancelled:
@@ -218,6 +236,56 @@ class Runtime:
             # Do not log raw provider errors, request headers, URLs or credentials.
             self.store.update(jid, status='failed')
             self.store.event(jid, 'runtime', 'failed', {'error_type': type(exc).__name__})
+
+    def github_pr(self, jid):
+        from . import pr_delivery as delivery
+        job=self.store.get(jid); command=job['request']['github_request']; action=command['action']
+        result={'scope':'github_delivery','repo':delivery.policy()['repo'],'action':action,'feature_acceptance':'not_performed'}
+        if not job['request']['live']:
+            self.store.update(jid,status='prepared_offline',result=dict(result,remote_writes=0,planned_command=command))
+            return
+        self.check_cancel(jid)
+        result['dispatch_state']='dispatching';self.store.update(jid,result=result)
+        try:
+            if action=='inspect': output=delivery.snapshot(command['number'])
+            elif action=='create': output=delivery.create(command['branch'],command['title'],command['body'])
+            elif action=='overview': output=delivery.publish_overview(command['number'])
+            elif action=='publish_review': output=delivery.publish_local_review(command['number'],command['review_job'])
+            else: output=delivery.merge_small(command['number'],command['review_jobs'],apply=True)
+        except (RuntimeError,subprocess.TimeoutExpired):
+            if action!='inspect': raise UncertainDispatch('GitHub write outcome needs reconciliation') from None
+            raise
+        result.update(output=output,dispatch_state='returned')
+        self.store.update(jid,status='github_complete',result=result)
+        self.store.event(jid,'delivery','github_result',{'action':action,'number':command['number'],'url':output.get('url'),'merged':output.get('merged',False)})
+
+    def review_pr(self, jid):
+        from .pr_delivery import snapshot,review_digest
+        job=self.store.get(jid);body=job['request'];result=job['result'];role=body['target_role']
+        if not body['live']:
+            self.store.update(jid,status='prepared_offline',result={'scope':'code_review_only','role':role,'pr_number':body['pr_number'],'remote_calls':0})
+            return
+        if 'pr_snapshot' not in result:
+            s=snapshot(body['pr_number']); config=load_config()
+            assignment={k:s[k] for k in ['repo','number','head_sha','base_sha']}
+            assignment.update(diff_sha256=review_digest(s),review_role=role)
+            payload=canonical({'assignment':assignment,'files':s['files'],'classification':s['classification']})
+            if len(payload)>65000 or any(not f.get('patch') for f in s['files']):
+                self.store.update(jid,status='review_needs_scope',result={'scope':'code_review_only','reason':'Complete diff exceeds review budget or contains unavailable patches; split the PR or assign explicit manual coverage. No approval produced.'})
+                return
+            result.update(pr_snapshot=s,assignment=assignment,payload=payload,config_snapshot=config,
+                          role_hashes={role:hashlib.sha256(instructions_for(role,config).encode()).hexdigest()},
+                          execution_instructions=PROFILE.format(role_name=config['roles'][role]['name']))
+            self.store.update(jid,result=result)
+        review=self.stage(jid,result['config_snapshot'],role,result['payload'],'pr_review_'+role,
+                          output_type=LocalPRReview,instructions_override=result['execution_instructions'])
+        if any(review[k]!=v for k,v in result['assignment'].items()):
+            raise ValueError('Reviewer returned a different assignment identity')
+        if any(f['path'] not in {p['filename'] for p in result['pr_snapshot']['files']} for f in review['findings']):
+            raise ValueError('Finding refers to a file outside this diff')
+        result=self.store.get(jid)['result'];result['review']=review
+        self.store.update(jid,status='pr_review_complete',result=result)
+        self.store.event(jid,role,'pr_review',{'verdict':review['verdict'],'head_sha':review['head_sha'],'findings':len(review['findings'])})
 
     def single_agent(self, jid):
         job = self.store.get(jid)

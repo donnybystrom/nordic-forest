@@ -14,4 +14,6 @@ What concrete behavior changes, and which feature/story does this satisfy?
 - Remaining limitations:
 - Human decision needed, if required by the feature's mandate:
 
-Planning completion is not feature acceptance. Agent review comments do not count as a human's GitHub approval. New commits must retain evidence for the reviewed revision.
+Planning completion is not feature acceptance. Local role reviews must name role, job/session, commit and diff identity. They may authorize delegated changes through the local broker; they do not impersonate a human GitHub approval. New commits must retain evidence for the reviewed revision.
+
+For each reviewer finding, reply with the fix commit and actual validation. The reviewer rechecks the new revision before resolving the thread.

@@ -1,0 +1,162 @@
+{
+  "folder_id": "7ce97d6f-f7c3-4c19-988c-fa353879b9cc",
+  "mcp_enabled": false,
+  "last_tested_version": "1.12.6",
+  "description": "Local PR creation, inspection, role reviews and gated small-documentation merge through one shared GitHub account. Preview by default.",
+  "name": "NF · PR Control",
+  "is_component": true,
+  "data": {
+    "nodes": [
+      {
+        "data": {
+          "node": {
+            "template": {
+              "_type": "Component",
+              "code": {
+                "type": "code",
+                "required": true,
+                "placeholder": "",
+                "list": false,
+                "show": true,
+                "multiline": true,
+                "value": "\"\"\"Narrow local PR broker tool for a Langflow orchestration flow.\"\"\"\nimport asyncio\nimport hashlib\nimport json\nimport time\nimport uuid\nimport urllib.request\nfrom pathlib import Path\nfrom lfx.custom.custom_component.component import Component\nfrom lfx.io import BoolInput, MessageTextInput, Output, StrInput\nfrom lfx.schema.message import Message\n\n\nclass NordicPRControl(Component):\n    display_name='NF · PR Control'\n    name='NordicPRControl'\n    icon='GitPullRequest'\n    description='Local PR creation, inspection, role reviews and gated small-documentation merge through one shared GitHub account. Preview by default.'\n    inputs=[MessageTextInput(name='request_json',display_name='PR command JSON',tool_mode=True,required=True,\n                value='{\"action\":\"inspect\",\"number\":6}',info='Actions: inspect, create, overview, review_pr (number, role), publish_review (number, review_job), merge_small (number, review_jobs). Repository is fixed by local policy.'),\n            BoolInput(name='live',display_name='Execute live',value=False,info='Allows GitHub reads/writes or a billed code-review session. Merge still requires the local policy and exact-revision evidence.'),\n            StrInput(name='run_key',display_name='Submission key',value='pr-1',advanced=True)]\n    outputs=[Output(name='message',display_name='PR result',method='execute')]\n\n    async def execute(self)->Message:\n        try: return await asyncio.to_thread(self._execute)\n        except (OSError,ValueError,KeyError,TypeError):\n            return Message(text=json.dumps({'status':'bridge_error','message':'Inspect the local dashboard; raw errors and credentials are withheld.'}))\n\n    def _execute(self)->Message:\n        c=json.loads(Path('/Users/donnybystrom/code/Nordic-3D-forest/runs/control/client.json').read_text())\n        if c['url']!='http://127.0.0.1:8765': raise ValueError('Unexpected bridge address')\n        def call(path,body=None,key=None):\n            headers={'Authorization':'Bearer '+c['token']}\n            if body is not None: headers['Content-Type']='application/json'\n            if key: headers['Idempotency-Key']=key\n            req=urllib.request.Request(c['url']+path,data=json.dumps(body).encode() if body is not None else None,headers=headers)\n            with urllib.request.urlopen(req,timeout=10) as r:return json.load(r)\n        command=json.loads(str(self.request_json))\n        if command.get('action')=='review_pr':\n            if set(command)!={'action','number','role'}:raise ValueError('Use only action, number and role for review_pr')\n            body={'operation':'review_pr','request':'Review the complete PR diff with the local code-review execution profile.',\n                  'target_role':command['role'],'pr_number':command['number'],'live':bool(self.live)}\n        else: body={'operation':'github_pr','request':'Execute the bounded local GitHub PR command.','github_request':command,'live':bool(self.live)}\n        key=hashlib.sha256(json.dumps({'body':body,'run_key':self.run_key},sort_keys=True).encode()).hexdigest()\n        if command.get('action')=='inspect': key=str(uuid.uuid4())  # Always read current GitHub state.\n        job=call('/jobs',body,key)['job'];deadline=time.monotonic()+180\n        while job['status'] in {'queued','running'} and time.monotonic()<deadline:\n            time.sleep(1);job=call('/jobs/'+job['id'])\n        result=job['result'];output=result.get('output',result.get('review'))\n        if command.get('action')=='inspect' and isinstance(output,dict) and 'files' in output:\n            output={k:output[k] for k in ['repo','number','url','state','draft','head_sha','base_sha','classification']}\n            output['message']='Full files, comments and review threads are retained in the local job and visible in GitHub.'\n        self.status=job['status']\n        return Message(text=json.dumps({'status':job['status'],'job_id':job['id'],'result':output,\n            'preview':result.get('planned_command'),'reason':result.get('reason'),\n            'message':'Pending jobs require inspection/reconciliation before any downstream action.' if job['status'] in {'queued','running','interrupted'} else None,\n            'dashboard':'http://127.0.0.1:8765/'},ensure_ascii=False))\n",
+                "fileTypes": [],
+                "file_path": "",
+                "password": false,
+                "name": "code",
+                "advanced": true,
+                "api_editable": false,
+                "dynamic": true,
+                "info": "",
+                "load_from_db": false,
+                "title_case": false
+              },
+              "live": {
+                "tool_mode": false,
+                "trace_as_metadata": true,
+                "list": false,
+                "list_add_label": "Add More",
+                "override_skip": false,
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "live",
+                "value": false,
+                "display_name": "Execute live",
+                "advanced": false,
+                "api_editable": false,
+                "dynamic": false,
+                "info": "Allows GitHub reads/writes or a billed code-review session. Merge still requires the local policy and exact-revision evidence.",
+                "title_case": false,
+                "track_in_telemetry": true,
+                "type": "bool",
+                "_input_type": "BoolInput"
+              },
+              "request_json": {
+                "tool_mode": true,
+                "trace_as_input": true,
+                "trace_as_metadata": true,
+                "load_from_db": false,
+                "list": false,
+                "list_add_label": "Add More",
+                "override_skip": false,
+                "required": true,
+                "placeholder": "",
+                "show": true,
+                "name": "request_json",
+                "value": "{\"action\":\"inspect\",\"number\":6}",
+                "display_name": "PR command JSON",
+                "advanced": false,
+                "api_editable": false,
+                "input_types": [
+                  "Message"
+                ],
+                "dynamic": false,
+                "info": "Actions: inspect, create, overview, review_pr (number, role), publish_review (number, review_job), merge_small (number, review_jobs). Repository is fixed by local policy.",
+                "title_case": false,
+                "track_in_telemetry": false,
+                "type": "str",
+                "_input_type": "MessageTextInput"
+              },
+              "run_key": {
+                "tool_mode": false,
+                "trace_as_metadata": true,
+                "load_from_db": false,
+                "list": false,
+                "list_add_label": "Add More",
+                "override_skip": false,
+                "required": false,
+                "placeholder": "",
+                "show": true,
+                "name": "run_key",
+                "value": "pr-1",
+                "display_name": "Submission key",
+                "advanced": true,
+                "api_editable": false,
+                "dynamic": false,
+                "info": "",
+                "title_case": false,
+                "track_in_telemetry": false,
+                "type": "str",
+                "_input_type": "StrInput"
+              }
+            },
+            "description": "Local PR creation, inspection, role reviews and gated small-documentation merge through one shared GitHub account. Preview by default.",
+            "icon": "GitPullRequest",
+            "base_classes": [
+              "Message"
+            ],
+            "display_name": "NF · PR Control",
+            "documentation": "",
+            "minimized": false,
+            "custom_fields": {},
+            "output_types": [],
+            "pinned": false,
+            "conditional_paths": [],
+            "frozen": false,
+            "outputs": [
+              {
+                "types": [
+                  "Message"
+                ],
+                "selected": "Message",
+                "name": "message",
+                "display_name": "PR result",
+                "method": "execute",
+                "value": "__UNDEFINED__",
+                "cache": true,
+                "allows_loop": false,
+                "group_outputs": false,
+                "tool_mode": true
+              }
+            ],
+            "field_order": [
+              "request_json",
+              "live",
+              "run_key"
+            ],
+            "beta": false,
+            "legacy": false,
+            "edited": false,
+            "metadata": {},
+            "tool_mode": false
+          },
+          "type": "NordicPRControl",
+          "id": "NordicPRControl-call"
+        },
+        "id": "NordicPRControl-call",
+        "type": "genericNode",
+        "position": {
+          "x": 450,
+          "y": 80
+        }
+      }
+    ],
+    "edges": [],
+    "viewport": {
+      "x": 20,
+      "y": 20,
+      "zoom": 0.8
+    }
+  }
+}

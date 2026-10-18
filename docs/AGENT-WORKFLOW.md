@@ -1,5 +1,7 @@
 # Agent workflow and project separation
 
+Current execution adapters: [Langflow and saved roles](LANGFLOW.md), [local PR delivery and review profiles](PR-DELIVERY.md). The earlier SDK-only stages below are historical checkpoints; they do not describe the full current bridge. Separate GitHub identities are not required for the local role model.
+
 The organization is `org-mOUZocPcLddOyV1Bgcfj0inC` (the user identified its display name as Personal). Use IDs rather than casing to distinguish it from the other personal organization.
 
 | Project | Purpose | Credential file |

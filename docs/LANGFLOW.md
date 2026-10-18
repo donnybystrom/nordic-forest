@@ -81,3 +81,7 @@ The current planning sessions have no tool access. The bridge performs the separ
 All three operations were exercised offline from imported Langflow flows; the proposal path was submitted from Playground. Plan Feature completed five actual saved-agent sessions. The reference path completed a real 29,988-triangle stick audit and repeated identical submission returned the same completed job. Unit tests cover authorization, idempotency, persistence, ambiguous dispatch, cached results, output validation and review hashes. Exact job IDs/results are recorded in `docs/bridge-verification.json`.
 
 The GitHub board and issue hierarchy are provisioned separately through the explicit adapter. Continuous board/job synchronization, authenticated agent GitHub App identities, enforced human merge gates, shared semantic memory, autonomous implementation and evaluated agent publication remain separate work. See [the indie workflow](INDIE-WORKFLOW.md) and [the broader architecture](AGENT-PLATFORM.md).
+
+## PR-verktyg · lokal orkestrering
+
+**NF · PR Control** och **04 — PR Control** är tillagda för ett gemensamt GitHub-konto, lokala rollgranskningar och styrda PR-operationer. Läs [PR-rutinen](PR-DELIVERY.md) för kommandon, mandat, ändringshantering och rollback. Den kompletterar de 15 rollkomponenterna; den ger dem inte en generell shell.
