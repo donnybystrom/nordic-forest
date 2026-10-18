@@ -48,3 +48,5 @@ Both service-account key files, `.env` files and `runs/` are ignored. Do not pas
 Open the **Nordic Forest** project in IBM Langflow Desktop. The installed flows are **01 — Plan Feature**, **02 — Collect and Audit Reference**, and **03 — Propose Agent Change**. Each connects Chat Input → Nordic Job Bridge → Chat Output and starts offline by default.
 
 Start the service with `tools/start_bridge.command`, then open [the local dashboard](http://127.0.0.1:8765/). Use `/opt/miniconda3/bin/python3 tools/manage_bridge.py status`, `stop` or `restart` to manage it. No login item or public tunnel was installed. On this Mac, Blender jobs require launching the local service with access to native system/Metal detection; a tightly sandboxed service crashed before its audit script.
+
+Alla 15 Nordic Forest-roller är nu installerade som sparade Langflow-komponenter och individuella flöden. Se [Langflow: individuella agenter](docs/LANGFLOW.md) för Task, Upstream context och Tool Mode. Alla 15 har genomfört riktiga integrationstest via Langflows verktygsgränssnitt; körvägen lämnar planeringsunderlag.

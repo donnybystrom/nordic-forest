@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "project_id": "proj_prCcGUHbiAHQGz8UmHcwjUKG",
+  "langflow_folder_id": "7ce97d6f-f7c3-4c19-988c-fa353879b9cc",
+  "generated_for_version": "1.12.6",
+  "roles": [
+    {
+      "role": "product_lead",
+      "name": "Product Lead",
+      "agent_id": "agent_45b634eef94e470aa89d652719a1967e53574487678a4a708f",
+      "component_class": "NordicProductLead",
+      "component_import_id": "08c71bed-4acc-5c8b-a098-69650a64aaa2",
+      "flow_import_id": "4589181f-3c1a-5aaf-8df2-a0010b0303ab"
+    },
+    {
+      "role": "technical_lead",
+      "name": "Technical Lead",
+      "agent_id": "agent_d5020b7769694ac7affb49a0d73c0c688fd2a7db90634ab3b0",
+      "component_class": "NordicTechnicalLead",
+      "component_import_id": "85ca97bf-e923-5c1d-b129-0ba661413495",
+      "flow_import_id": "3251e24a-0678-57ef-9b3d-e98c5948f237"
+    },
+    {
+      "role": "ecology",
+      "name": "Reference and Ecology Analyst",
+      "agent_id": "agent_8f163da9ab294205a965bd318ccd7a82593554cf6ab8455584",
+      "component_class": "NordicEcology",
+      "component_import_id": "0a0b64e2-15a8-547b-98a8-2ae57a402fba",
+      "flow_import_id": "54e99c12-ed57-5395-b579-754312fbc17a"
+    },
+    {
+      "role": "folklore",
+      "name": "Folklore and Narrative Researcher",
+      "agent_id": "agent_9fbeed71df8f4e24a94222cd1e18d78dee5d5dbfb3f3451e9c",
+      "component_class": "NordicFolklore",
+      "component_import_id": "69b29976-5e42-51c3-bedc-0ce1dedd1938",
+      "flow_import_id": "8964ebe4-db32-5550-8ea2-e63332fed544"
+    },
+    {
+      "role": "art_director",
+      "name": "Art Director",
+      "agent_id": "agent_0a6b7667487a496ab20bca5a12945c6146754a39886845fea5",
+      "component_class": "NordicArtDirector",
+      "component_import_id": "470f8161-1536-508c-ab6a-26cfe6de69db",
+      "flow_import_id": "b6a22a18-fb73-5b72-aac1-2fac9635f841"
+    },
+    {
+      "role": "technical_artist",
+      "name": "Technical Artist",
+      "agent_id": "agent_b3da539bd58049c08a326ab24601abbce0c5d6b8bfda47f6b4",
+      "component_class": "NordicTechnicalArtist",
+      "component_import_id": "bc68fa9e-44c5-5b98-8032-790111501018",
+      "flow_import_id": "0dc09535-4ed3-51ea-ad59-5a8c6c0b8c21"
+    },
+    {
+      "role": "rendering",
+      "name": "Rendering and Performance Engineer",
+      "agent_id": "agent_6c871dfe6d7048d98760ccaee922c5e0619cbc565c2a47c592",
+      "component_class": "NordicRendering",
+      "component_import_id": "77a65597-e6ee-59fa-bb4f-ad624c8ea43a",
+      "flow_import_id": "a7b37697-fd9d-5b72-b479-340832e71b20"
+    },
+    {
+      "role": "implementation",
+      "name": "Implementation Engineer",
+      "agent_id": "agent_c58481075ea4406d8e64a67f2216c26a610f0a1c138147f78c",
+      "component_class": "NordicImplementation",
+      "component_import_id": "6e0d9b0a-e97e-5373-bc63-b14810a3da78",
+      "flow_import_id": "36ac9033-9e07-586d-af0a-02bae2fde31d"
+    },
+    {
+      "role": "qa",
+      "name": "QA and Verification Engineer",
+      "agent_id": "agent_0455cf5770fa4675be7818a06b045dcf4495d4529d654a558a",
+      "component_class": "NordicQa",
+      "component_import_id": "008e2656-1ce0-5fef-a716-350e4c0ebaf4",
+      "flow_import_id": "12e798e1-5013-5224-a281-22265d98f5e1"
+    },
+    {
+      "role": "curator",
+      "name": "Knowledge Curator",
+      "agent_id": "agent_b669abe6879d474fb0ad49c21f5b0611c2de120bdd8347bdbd",
+      "component_class": "NordicCurator",
+      "component_import_id": "405c5c21-2f44-50da-932d-a7c23281c6f7",
+      "flow_import_id": "a182fc4d-c976-5847-b273-927525352325"
+    },
+    {
+      "role": "devx",
+      "name": "Developer Experience & Tooling Engineer",
+      "agent_id": "agent_f2e2cddae0e9427ea39972385b15eadadbbb674f89eb4dda95",
+      "component_class": "NordicDevx",
+      "component_import_id": "dc255cb2-13f4-541b-aacc-8791737eecf4",
+      "flow_import_id": "fb3b4676-da2d-561a-b6f5-bdd284c67b70"
+    },
+    {
+      "role": "uiux",
+      "name": "UI & UX Designer",
+      "agent_id": "agent_d3d97ae61bb64b64904cc7cf5d46608962c3ba382488474986",
+      "component_class": "NordicUiux",
+      "component_import_id": "2497f6a1-1925-5b98-bf77-0a6ee68ceb31",
+      "flow_import_id": "cc319d42-38bf-523e-bd5b-e02179530ed2"
+    },
+    {
+      "role": "delivery",
+      "name": "Delivery Coordinator",
+      "agent_id": "agent_dde1bb428017435781e22d8eff6856b28289a05d07e4417d9c",
+      "component_class": "NordicDelivery",
+      "component_import_id": "98bd3663-1489-5f19-b449-2310ddf727ca",
+      "flow_import_id": "73729987-8afb-5a80-9486-1d57556692b8"
+    },
+    {
+      "role": "security",
+      "name": "Security Reviewer",
+      "agent_id": "agent_936d139559ed4846bf4ae99b4ea828fc677fc0cd06c5459bbc",
+      "component_class": "NordicSecurity",
+      "component_import_id": "6c38b3ed-4d26-5de4-8379-9086fd90b5ed",
+      "flow_import_id": "bd3d07df-e6fe-515c-a124-90866ce64413"
+    },
+    {
+      "role": "asset_analysis",
+      "name": "Reference and Asset Analysis Engineer",
+      "agent_id": "agent_97ce1424226e487bafb0d876ac279ed12f634aaf2a4c431a85",
+      "component_class": "NordicAssetAnalysis",
+      "component_import_id": "68cc7599-4a79-5cd0-9712-9cb35e118dbd",
+      "flow_import_id": "dd18f702-3cc3-5d2f-bff4-3c6a138b2218"
+    }
+  ],
+  "id_note": "Desktop upload assigns new IDs; these are stable source-template IDs, not installed Desktop IDs."
+}

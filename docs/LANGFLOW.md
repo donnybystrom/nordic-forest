@@ -10,6 +10,29 @@ Installed and checked on 18 October 2026 in IBM Langflow Desktop **1.12.6**. Pro
 
 Portable import files are in `flows/langflow/`; Desktop assigns its own IDs when importing. The component source is `integrations/langflow/nordic_job_bridge.py`. It uses the local HTTP bridge and does not require installing the project's OpenAI packages inside Desktop.
 
+
+## Individuella agenter · installerat 2026-10-18
+
+Alla 15 roller finns i **Components → Saved → NF · …** i Langflow Desktop. Lägg en sådan komponent på valfritt canvas. Varje komponent har en fast roll och anropar motsvarande sparade agent i OpenAI-projektet Nordic Forest genom den lokala bryggan.
+
+Projektet innehåller också **Agent · [rollnamn]** för alla 15 roller, med Chat Input → agent → Chat Output, samt **00 — Agent Library · 15 roles** med alla komponenter samlade. Biblioteket är en översikt; välj ett individuellt flöde för Playground.
+
+1. Välj komponent under **Saved**, eller öppna ett **Agent · …**-flöde.
+2. Skriv ett avgränsat uppdrag i **Task**. Koppla föregående agents **Handover** till **Upstream context** för att föra dess svar vidare; ge även nästa agent en egen Task.
+3. Förhandsgranskning är standard. Slå på **Execute live** på varje komponent som ska göra ett riktigt, debiterat anrop.
+4. För att låta en Langflow Agent välja rollen som verktyg: markera rollkomponenten, aktivera **Tool Mode**, och koppla dess **Toolset** till Langflow-agentens **Tools**. Endast Task och Upstream context ingår i verktygets argument. Roll, körläge och submission key ställs av flödesförfattaren.
+5. Identisk Task, kontext, körläge och **Submission key** återanvänder jobbet. Ändra nyckeln under avancerade parametrar för en avsiktligt ny körning av samma uppdrag.
+
+Svaret är ett JSON-objekt i en Langflow Message: `status`, `job_id`, `role`, agentidentitet och `handover`. Bara `agent_complete` med ett validerat Handover betyder att konsultationen är färdig. Komponenten väntar upp till 180 sekunder vid live-anrop; ett köat/pågående jobb kan returneras utan handover. Upprepa samma anrop för att läsa samma jobb, eller inspektera/avbryt det i [den lokala kontrollpanelen](http://127.0.0.1:8765/). En köande komponent kan därför behöva en statuskontroll innan ett senare steg använder svaret. Det finns en arbetare, ingen obegränsad parallell delegation.
+
+Jobbet fryser rollens instruktionhash och ett begränsat projektunderlag; Upstream context är explicit, högst 20 000 tecken. Detta är ännu inte ett gemensamt semantiskt långtidsminne. Roller, även Implementation Engineer, lämnar planeringsunderlag i denna körväg; körvägen utför inte filändringar, publicering eller automatiska underagentanrop.
+
+**Verifierat:** samtliga 15 sparade konfigurationer matchade lokala instruktionhashar; alla 15 komponenter klarade offline-bindning och Tool Mode-schema; alla 15 genomförde riktiga anrop via Langflows `to_toolkit().ainvoke()`, med föregående överlämning som explicit kontext. Detta är ett integrationstest, inte kvalitetsacceptans av planerna. Jobb-/session-ID:n finns i [verifieringsunderlaget](individual-agent-verification.json).
+
+**Portabla källor:** `integrations/langflow/nordic_agent.py` är komponentmallen; `config/langflow-agents.json` mappar de 15 rollerna. `tools/build_langflow_agents.py` bygger komponenter och flöden med Langflows egen serialisering. Kör generatorn med Python från Langflow-installationen, exempelvis `/Users/donnybystrom/.langflow/.langflow-venv/bin/python tools/build_langflow_agents.py` på denna Mac. Bryggans workspace-sökväg är lokal och behöver ändras vid flytt till annan dator.
+
+För en ny installation kan **Upload a flow** läsa `flows/langflow/nordic-agent-library.json` som ett separat nytt bibliotekprojekt. För ett befintligt projekt importeras i stället de enskilda filerna under `integrations/langflow/agents/` och `flows/langflow/agents/`, plus `00-agent-library.json`. Desktop tilldelar nya ID:n vid import; importera inte samma paket igen utan att först hantera dubbletter. Template-ID:n i konfigurationen är inte Desktop-ID:n. MCP-exponering är avstängd för de nya flödena; lokala canvas- och verktygsanrop kräver ingen ny MCP-server. [Langflows anpassade komponenter](https://docs.langflow.org/components/custom/).
+
 ## Start and use
 
 Run `tools/start_bridge.command`, or:

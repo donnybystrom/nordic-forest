@@ -60,3 +60,7 @@ The first session-create request was rejected with HTTP 400 because this endpoin
 The private GitHub Project at https://github.com/users/donnybystrom/projects/2 contains five repository issues, three explicitly named visual views and two native story-to-feature parent links. Bootstrap preserves edited fields on existing items. Sprint is initially a portable text field; dated Iteration scheduling is not claimed. Continuous board synchronization and enforced human merge gates are not implemented.
 
 Git staging cleanup removed 2,235 raw Skyrim reference files (5,794,975,426 bytes on disk) from the index without deleting any working file. No such input was in the initial committed tree. The checkpoint left 76 indexed files, about 2.7 MB of blobs, with a largest blob of 899,736 bytes. The source-input guard and Git ignores prevent ordinary additions of the reference payloads; no history rewrite or LFS migration was performed.
+
+## Individuella Langflow-agenter · 2026-10-18
+
+15 sparade komponenter under Saved, 15 Agent-flöden och en canvasöversikt installerades i Nordic Forest. Alla 15 sparade OpenAI-konfigurationer verifierades mot lokala instruktionhashar. Alla 15 klarade offline-bindning och verktygsschema; samtliga 15 genomförde därefter separata verkliga anrop via Langflows to_toolkit/ainvoke, med överlämningskontext mellan rollerna. Detta verifierar integrationen, inte featureacceptans eller generell agentkvalitet. 44 lokala enhetstester och Python-kompilering passerade. Se [individuellt verifieringsunderlag](individual-agent-verification.json).
