@@ -1,0 +1,64 @@
+{
+  "checked_on": "2026-10-18",
+  "scope": "agent_configuration_planning_asset_acquisition_and_file_audit",
+  "platform_split": {
+    "nordic_forest": 15,
+    "beasts_and_bumpkins": 16
+  },
+  "tests_passed": 57,
+  "live_pilot": {
+    "packet": "runs/forest-plan-live-medium/packet.json",
+    "status": "planning_complete",
+    "stages": 5,
+    "calls": 5,
+    "returned_input_tokens": 37592,
+    "returned_output_tokens": 12288
+  },
+  "initial_pilot": "retained_partial_after_technical_lead_timeout",
+  "langflow": {
+    "desktop_version": "1.12.6",
+    "api_version": "1.12.6",
+    "bridge_implemented": true,
+    "desktop_build": "20261014.3171",
+    "ui_inspected": true,
+    "inference_tested": true,
+    "flows_installed": 20,
+    "individual_agent_flows_installed": 15,
+    "saved_role_components_installed": 15,
+    "library_flows_installed": 1,
+    "individual_live_tool_calls_completed": 15,
+    "pr_control_components_installed": 1,
+    "pr_control_flows_installed": 1
+  },
+  "engine_runtime_verified": false,
+  "project_display_rename": "user_confirmed_Nordic_Forest_without_hyphen_on_2026-10-18",
+  "asset_collection": {
+    "status": "collected",
+    "packet": "runs/sketchfab-live-collection/packet.json",
+    "actual_download_tool_calls": 1,
+    "returned_input_tokens": 1084,
+    "returned_output_tokens": 128
+  },
+  "file_audits": [
+    "data/references/analysis/oak-pack-summary.json",
+    "data/references/analysis/wood-stick-02-summary.json"
+  ],
+  "agent_platform_design": "bridge_and_proposal_pilot_implemented_broader_memory_and_publication_proposed",
+  "github_projects": {
+    "url": "https://github.com/users/donnybystrom/projects/2",
+    "issues": 5,
+    "native_parent_links": 2,
+    "views": [
+      "Board",
+      "Sprint Plan",
+      "Feature Map"
+    ],
+    "continuous_sync": false
+  },
+  "pr_delivery": {
+    "implemented": true,
+    "identity_model": "shared_github_account_with_local_role_jobs",
+    "automatic_merge_lane": "small_documentation_with_curator_qa_and_ci",
+    "actual_merge_performed": false
+  }
+}

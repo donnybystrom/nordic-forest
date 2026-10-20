@@ -1,0 +1,159 @@
+{
+  "checked_on": "2026-10-18",
+  "langflow_version": "1.12.6",
+  "flow_ids": {
+    "plan_feature": "8b3e1739-1731-46f8-896c-301b53cd0647",
+    "collect_audit_reference": "b60f81f9-6cb9-4782-9e9f-992a72f05ee4",
+    "propose_agent_change": "07941af9-0792-419e-b1d3-4caa34fe1409"
+  },
+  "jobs": [
+    {
+      "id": "79b8a734-6d2a-481b-8df8-19573820fad8",
+      "operation": "propose_agent_change",
+      "live": true,
+      "status": "awaiting_review",
+      "sessions": [
+        {
+          "role": "qa",
+          "agent_id": "agent_0455cf5770fa4675be7818a06b045dcf4495d4529d654a558a",
+          "session_id": "sess_0ecca5b63133842f006ad4e86138788198a2bc81042ada7ca3",
+          "status": "completed",
+          "instruction_sha256": "86f4517f03bee0fdeae4b6b8f96fa9f9ab71faa8b313203d9625f64aff867f75",
+          "model": "gpt-6.1-sol",
+          "usage": null
+        },
+        {
+          "role": "technical_lead",
+          "agent_id": "agent_d5020b7769694ac7affb49a0d73c0c688fd2a7db90634ab3b0",
+          "session_id": "sess_0cddd4f0e64da36c006ad4e82c99f48198a59b1cf09b51a73a",
+          "status": "completed",
+          "instruction_sha256": "421d3d3fa1f45b56bf4f448beb7e065c6ae7d7bad6813b4f3153f6d7b3c0ce26",
+          "model": "gpt-6.1-sol",
+          "usage": null
+        }
+      ],
+      "candidate_sha256": "9e7b6f81219748a04c2b3c85354aef7537b7c78126fad71838123dc05dbafb5c",
+      "publication": "not_performed",
+      "evaluation": "not_run",
+      "reviewers": [
+        "qa",
+        "technical_lead"
+      ]
+    },
+    {
+      "id": "c371ff8b-e92f-4f79-b8b5-edeb42f0f858",
+      "operation": "propose_agent_change",
+      "live": false,
+      "status": "awaiting_review",
+      "candidate_sha256": "9e7b6f81219748a04c2b3c85354aef7537b7c78126fad71838123dc05dbafb5c",
+      "publication": "not_performed",
+      "evaluation": "not_run",
+      "reviewers": []
+    },
+    {
+      "id": "4d3a670b-603d-46e8-a5f4-2fe09114594c",
+      "operation": "collect_audit_reference",
+      "live": true,
+      "status": "audit_complete",
+      "mesh_objects": 1,
+      "triangles": 29988,
+      "source_sha256": "9a870353c97235b13a5aef0f07ee503c0ef4c27fbedb89eb4a004b981a0642cb",
+      "visual_acceptance": "not_performed",
+      "runtime_performance": "not_measured"
+    },
+    {
+      "id": "1f847dee-770c-42c7-9441-710e59320fab",
+      "operation": "collect_audit_reference",
+      "live": false,
+      "status": "prepared_offline"
+    },
+    {
+      "id": "c87669b4-e0ec-4561-9f89-d93425c166b9",
+      "operation": "plan_feature",
+      "live": true,
+      "status": "planning_complete",
+      "sessions": [
+        {
+          "role": "qa",
+          "agent_id": "agent_0455cf5770fa4675be7818a06b045dcf4495d4529d654a558a",
+          "session_id": "sess_00964188e4f967f1006ad4e36a01e081999c62414a481fa725",
+          "status": "completed",
+          "instruction_sha256": "86f4517f03bee0fdeae4b6b8f96fa9f9ab71faa8b313203d9625f64aff867f75",
+          "model": "gpt-6.1-sol",
+          "usage": null
+        },
+        {
+          "role": "technical_lead",
+          "agent_id": "agent_d5020b7769694ac7affb49a0d73c0c688fd2a7db90634ab3b0",
+          "session_id": "sess_071c6a0c8c3ba105006ad4e388356c8199b5d300a772eb5cc9",
+          "status": "completed",
+          "instruction_sha256": "421d3d3fa1f45b56bf4f448beb7e065c6ae7d7bad6813b4f3153f6d7b3c0ce26",
+          "model": "gpt-6.1-sol",
+          "usage": null
+        },
+        {
+          "role": "curator",
+          "agent_id": "agent_b669abe6879d474fb0ad49c21f5b0611c2de120bdd8347bdbd",
+          "session_id": "sess_08ad441c46256625006ad4e3a801a08199b763d66433bad2ea",
+          "status": "completed",
+          "instruction_sha256": "8161f556764314d133329ea3bd5a820e4d7d34b861e753de16f8cacc0096c25c",
+          "model": "gpt-6.1-sol",
+          "usage": null
+        },
+        {
+          "role": "product_lead",
+          "agent_id": "agent_45b634eef94e470aa89d652719a1967e53574487678a4a708f",
+          "session_id": "sess_076990fc36350dcf006ad4e324744c819882ec7c71114b9c9b",
+          "status": "completed",
+          "instruction_sha256": "fbec2ff4527594656424d50d7f9c7d4062a3d2f752b00095b5b23602a809de3e",
+          "model": "gpt-6.1-sol",
+          "usage": null
+        },
+        {
+          "role": "technical_lead",
+          "agent_id": "agent_d5020b7769694ac7affb49a0d73c0c688fd2a7db90634ab3b0",
+          "session_id": "sess_0a905fc2458af45e006ad4e346957c8199a461975880d47104",
+          "status": "completed",
+          "instruction_sha256": "421d3d3fa1f45b56bf4f448beb7e065c6ae7d7bad6813b4f3153f6d7b3c0ce26",
+          "model": "gpt-6.1-sol",
+          "usage": null
+        }
+      ]
+    },
+    {
+      "id": "002d56c9-11e2-4086-af82-a5c89fc045e3",
+      "operation": "plan_feature",
+      "live": false,
+      "status": "prepared_offline"
+    },
+    {
+      "id": "32d3ee70-852c-49a7-bb74-5631a512a6ae",
+      "operation": "collect_audit_reference",
+      "live": false,
+      "status": "prepared_offline"
+    },
+    {
+      "id": "81945780-812e-4d64-a7db-f14d25a4662c",
+      "operation": "propose_agent_change",
+      "live": false,
+      "status": "awaiting_review",
+      "candidate_sha256": "675996071462ee532d0276bc21fc640bc30c4d10c7b711e9f198bbfe1dad936f",
+      "publication": "not_performed",
+      "evaluation": "not_run",
+      "reviewers": []
+    },
+    {
+      "id": "00f49ea0-844b-4040-90f4-09c2931f449f",
+      "operation": "plan_feature",
+      "live": false,
+      "status": "prepared_offline"
+    }
+  ],
+  "hard_usd_cap": false,
+  "github_board": "https://github.com/users/donnybystrom/projects/2",
+  "tests_passed": 38,
+  "known_failures": [
+    "Initial session create rejected unsupported spend_control parameter; no remote session listed",
+    "Two sandboxed Blender startup failures retained; subsequent native launch audit completed"
+  ]
+}

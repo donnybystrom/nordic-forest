@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "project": "nordic-forest",
+  "title": "Nordic Forest",
+  "provider": "github_projects",
+  "fields": {
+    "Kind": ["Feature", "Story", "Task", "Spike", "Bug"],
+    "Priority": ["P0", "P1", "P2"],
+    "Sprint": "TEXT",
+    "Feature": "TEXT",
+    "Evidence": "TEXT"
+  },
+  "items": [
+    {
+      "id": "NF-F001", "kind": "Feature", "title": "Visual agent workflows with durable local jobs", "sprint": "Pilot 1", "priority": "P0", "parent": null,
+      "goal": "Submit bounded work from Langflow and follow saved-agent sessions and evidence without duplicate starts.",
+      "acceptance": ["Three imported flows run offline", "One saved-agent planning chain completes", "One reference audit completes", "An agent proposal remains unpublished and reviewable", "Idempotency, authorization and interruption checks pass"]
+    },
+    {
+      "id": "NF-S001", "kind": "Story", "title": "Inspect and edit a feature plan before implementation", "sprint": "Pilot 1", "priority": "P0", "parent": "NF-F001",
+      "goal": "As project owner I can inspect scope, ownership and acceptance evidence before agents implement a feature.",
+      "acceptance": ["Planning output is marked planning_only", "Product, technical and QA handovers are visible", "A plan cannot certify a game feature as complete"]
+    },
+    {
+      "id": "NF-S002", "kind": "Story", "title": "Review an agent change without silently activating it", "sprint": "Pilot 1", "priority": "P0", "parent": "NF-F001",
+      "goal": "As project owner I can see the exact candidate diff, reviews and outstanding evaluation before deciding its direction.",
+      "acceptance": ["Decision is bound to the candidate result hash", "Stale decision is rejected", "No publication or self-approval endpoint exists"]
+    },
+    {
+      "id": "NF-F002", "kind": "Feature", "title": "R0-001: one tree family and one scan conversion", "sprint": "Pilot 2", "priority": "P1", "parent": null,
+      "goal": "Deliver a reusable measured asset recipe and a source/derivative comparison.",
+      "acceptance": ["Source and derivative hashes retained", "One oak family relinked and checked in neutral views", "One scan derivative compared against source", "Godot scene records visual and frame-time evidence"]
+    },
+    {
+      "id": "NF-F003", "kind": "Feature", "title": "M0: small playable Swedish forest benchmark", "sprint": "Unscheduled", "priority": "P1", "parent": null,
+      "goal": "Evaluate an editable forest scene and renderer choice on measured target hardware.",
+      "acceptance": ["Walkable small scene", "Reproducible biome seed and painted override", "Matched renderer comparison", "Actual hardware and measurement protocol recorded"]
+    }
+  ]
+}

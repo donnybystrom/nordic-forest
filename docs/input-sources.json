@@ -1,0 +1,15 @@
+{
+  "provided_on": "2026-10-18",
+  "references": [
+    {
+      "path": "/Users/donnybystrom/.codex/attachments/ab3d78ab-29da-40ae-a0dc-f8502c3e5b0c/Pasted text.txt",
+      "sha256": "225e0089e4502c8522cb2d7eefc8f0656cdfe4d21b2ea910c49c41b898f4b6cd",
+      "purpose": "Reference for role ownership and evidence contracts; OpenBumpkins scope is not adopted."
+    },
+    {
+      "path": "/Users/donnybystrom/.codex/attachments/5d1a4745-18c4-426d-b31c-de1f089f57eb/Pasted text.txt",
+      "sha256": "5502d48c5ba52aa91e133b41e0f80224a0ce64047934e221a712a7422576769a",
+      "purpose": "Reference for role ownership and evidence contracts; OpenBumpkins scope is not adopted."
+    }
+  ]
+}

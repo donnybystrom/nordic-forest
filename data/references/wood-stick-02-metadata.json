@@ -1,0 +1,306 @@
+{
+  "captured_at": "2026-10-18T11:49:13.005852+00:00",
+  "api_url": "https://api.sketchfab.com/v3/models/0ab534c493e14f67bac01ee94f20e43f",
+  "metadata": {
+    "animationCount": 0,
+    "categories": [
+      {
+        "uid": "1a99e2b67fc84de0b3ea0d3925208a04",
+        "name": "Nature & Plants",
+        "slug": "nature-plants",
+        "uri": "https://api.sketchfab.com/v3/categories/1a99e2b67fc84de0b3ea0d3925208a04",
+        "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/98a605cec9718b6f02f1a5759039a5ad-v2.svg",
+        "thumbnails": [
+          {
+            "width": "512",
+            "height": "288",
+            "url": "https://static.sketchfab.com/categories/1a99e2b67fc84de0b3ea0d3925208a04/512x288.png"
+          },
+          {
+            "width": "800",
+            "height": "450",
+            "url": "https://static.sketchfab.com/categories/1a99e2b67fc84de0b3ea0d3925208a04/800x450.png"
+          }
+        ]
+      }
+    ],
+    "commentCount": 17,
+    "createdAt": "2017-06-15T08:25:13.706656",
+    "embedUrl": "https://sketchfab.com/models/0ab534c493e14f67bac01ee94f20e43f/embed",
+    "faceCount": 29988,
+    "isAgeRestricted": false,
+    "license": {
+      "uri": "https://api.sketchfab.com/v3/licenses/322a749bcfa841b29dff1e8a1bb74b0b",
+      "label": "CC Attribution",
+      "fullName": "Creative Commons Attribution",
+      "requirements": "Author must be credited. Commercial use is allowed.",
+      "url": "http://creativecommons.org/licenses/by/4.0/",
+      "slug": "by"
+    },
+    "likeCount": 815,
+    "name": "Wood Stick 02",
+    "publishedAt": "2017-06-20T04:25:10.598030",
+    "soundCount": 0,
+    "staffpickedAt": null,
+    "tags": [
+      {
+        "name": "object",
+        "slug": "object",
+        "uri": "https://api.sketchfab.com/v3/tags/object"
+      },
+      {
+        "name": "wooden",
+        "slug": "wooden",
+        "uri": "https://api.sketchfab.com/v3/tags/wooden"
+      },
+      {
+        "name": "assets",
+        "slug": "assets",
+        "uri": "https://api.sketchfab.com/v3/tags/assets"
+      },
+      {
+        "name": "stick",
+        "slug": "stick",
+        "uri": "https://api.sketchfab.com/v3/tags/stick"
+      },
+      {
+        "name": "prop",
+        "slug": "prop",
+        "uri": "https://api.sketchfab.com/v3/tags/prop"
+      },
+      {
+        "name": "cz",
+        "slug": "cz",
+        "uri": "https://api.sketchfab.com/v3/tags/cz"
+      },
+      {
+        "name": "park",
+        "slug": "park",
+        "uri": "https://api.sketchfab.com/v3/tags/park"
+      },
+      {
+        "name": "reference",
+        "slug": "reference",
+        "uri": "https://api.sketchfab.com/v3/tags/reference"
+      },
+      {
+        "name": "bark",
+        "slug": "bark",
+        "uri": "https://api.sketchfab.com/v3/tags/bark"
+      },
+      {
+        "name": "props",
+        "slug": "props",
+        "uri": "https://api.sketchfab.com/v3/tags/props"
+      },
+      {
+        "name": "realistic",
+        "slug": "realistic",
+        "uri": "https://api.sketchfab.com/v3/tags/realistic"
+      },
+      {
+        "name": "real",
+        "slug": "real",
+        "uri": "https://api.sketchfab.com/v3/tags/real"
+      },
+      {
+        "name": "nature",
+        "slug": "nature",
+        "uri": "https://api.sketchfab.com/v3/tags/nature"
+      },
+      {
+        "name": "moss",
+        "slug": "moss",
+        "uri": "https://api.sketchfab.com/v3/tags/moss"
+      },
+      {
+        "name": "Czech",
+        "slug": "czech",
+        "uri": "https://api.sketchfab.com/v3/tags/czech"
+      },
+      {
+        "name": "realism",
+        "slug": "realism",
+        "uri": "https://api.sketchfab.com/v3/tags/realism"
+      },
+      {
+        "name": "Brno",
+        "slug": "brno",
+        "uri": "https://api.sketchfab.com/v3/tags/brno"
+      },
+      {
+        "name": "gameobject",
+        "slug": "gameobject",
+        "uri": "https://api.sketchfab.com/v3/tags/gameobject"
+      },
+      {
+        "name": "downloadable",
+        "slug": "downloadable",
+        "uri": "https://api.sketchfab.com/v3/tags/downloadable"
+      },
+      {
+        "name": "props-assets",
+        "slug": "props-assets",
+        "uri": "https://api.sketchfab.com/v3/tags/props-assets"
+      },
+      {
+        "name": "realitycapture",
+        "slug": "realitycapture",
+        "uri": "https://api.sketchfab.com/v3/tags/realitycapture"
+      },
+      {
+        "name": "render",
+        "slug": "render",
+        "uri": "https://api.sketchfab.com/v3/tags/render"
+      },
+      {
+        "name": "photogrammetry",
+        "slug": "photogrammetry",
+        "uri": "https://api.sketchfab.com/v3/tags/photogrammetry"
+      },
+      {
+        "name": "asset",
+        "slug": "asset",
+        "uri": "https://api.sketchfab.com/v3/tags/asset"
+      },
+      {
+        "name": "game",
+        "slug": "game",
+        "uri": "https://api.sketchfab.com/v3/tags/game"
+      },
+      {
+        "name": "gameart",
+        "slug": "gameart",
+        "uri": "https://api.sketchfab.com/v3/tags/gameart"
+      },
+      {
+        "name": "scan",
+        "slug": "scan",
+        "uri": "https://api.sketchfab.com/v3/tags/scan"
+      },
+      {
+        "name": "gameasset",
+        "slug": "gameasset",
+        "uri": "https://api.sketchfab.com/v3/tags/gameasset"
+      },
+      {
+        "name": "wood",
+        "slug": "wood",
+        "uri": "https://api.sketchfab.com/v3/tags/wood"
+      },
+      {
+        "name": "free",
+        "slug": "free",
+        "uri": "https://api.sketchfab.com/v3/tags/free"
+      },
+      {
+        "name": "download",
+        "slug": "download",
+        "uri": "https://api.sketchfab.com/v3/tags/download"
+      },
+      {
+        "name": "rendering",
+        "slug": "rendering",
+        "uri": "https://api.sketchfab.com/v3/tags/rendering"
+      }
+    ],
+    "thumbnails": {
+      "images": [
+        {
+          "uid": "67e1eb7cd03f4feabac809ab9429be1e",
+          "width": 1920,
+          "height": 1080,
+          "size": 437226,
+          "url": "https://media.sketchfab.com/models/0ab534c493e14f67bac01ee94f20e43f/thumbnails/e471b23f16bc48ee84ca17a317ce0050/f01795396d1843b9b9c83486c143f501.jpeg"
+        },
+        {
+          "uid": "a0a7e2ad8015443b97ec2dadc011a171",
+          "width": 1024,
+          "height": 576,
+          "size": 77320,
+          "url": "https://media.sketchfab.com/models/0ab534c493e14f67bac01ee94f20e43f/thumbnails/e471b23f16bc48ee84ca17a317ce0050/cb4ff2813d9042f7a0302cec9ccc1247.jpeg"
+        },
+        {
+          "uid": "72f73f5f183e42d7a1da9509de6a1461",
+          "width": 720,
+          "height": 405,
+          "size": 40686,
+          "url": "https://media.sketchfab.com/models/0ab534c493e14f67bac01ee94f20e43f/thumbnails/e471b23f16bc48ee84ca17a317ce0050/2be8ee4aea6b43c5b23c67c03f201c42.jpeg"
+        },
+        {
+          "uid": "0c11b55a9c7a4cd980313b3d938a3e30",
+          "width": 256,
+          "height": 144,
+          "size": 6658,
+          "url": "https://media.sketchfab.com/models/0ab534c493e14f67bac01ee94f20e43f/thumbnails/e471b23f16bc48ee84ca17a317ce0050/bcee7e5370164bf3aba858e5ed945d49.jpeg"
+        },
+        {
+          "uid": "c3b7c6741eb24409bb7a22ab5df748f8",
+          "width": 64,
+          "height": 36,
+          "size": 1000,
+          "url": "https://media.sketchfab.com/models/0ab534c493e14f67bac01ee94f20e43f/thumbnails/e471b23f16bc48ee84ca17a317ce0050/f2ca3a923dff49829592f0e20a65ddf7.jpeg"
+        }
+      ]
+    },
+    "uid": "0ab534c493e14f67bac01ee94f20e43f",
+    "uri": "https://api.sketchfab.com/v3/models/0ab534c493e14f67bac01ee94f20e43f",
+    "user": {
+      "uid": "56b017a4f5a94a12b029692e61ec3dab",
+      "username": "3dhdscan",
+      "displayName": "3dhdscan",
+      "account": "basic",
+      "profileUrl": "https://sketchfab.com/3dhdscan",
+      "avatar": {
+        "uid": "8a719802f04443328e6f851e04c97f0d",
+        "uri": "https://api.sketchfab.com/v3/avatars/8a719802f04443328e6f851e04c97f0d",
+        "images": [
+          {
+            "width": 32,
+            "height": 32,
+            "size": 1252,
+            "url": "https://media.sketchfab.com/avatars/8a719802f04443328e6f851e04c97f0d/651d16522ad54854bf2b9401855dae45.jpeg"
+          },
+          {
+            "width": 48,
+            "height": 48,
+            "size": 1803,
+            "url": "https://media.sketchfab.com/avatars/8a719802f04443328e6f851e04c97f0d/1e5ad91e53ed4b68b6cebeea44327471.jpeg"
+          },
+          {
+            "width": 90,
+            "height": 90,
+            "size": 4066,
+            "url": "https://media.sketchfab.com/avatars/8a719802f04443328e6f851e04c97f0d/6ae506f72563454e9dbc7c4fbc38984d.jpeg"
+          },
+          {
+            "width": 100,
+            "height": 100,
+            "size": 4600,
+            "url": "https://media.sketchfab.com/avatars/8a719802f04443328e6f851e04c97f0d/629d3393be2c48a1b6f244a5f661ebbb.jpeg"
+          }
+        ]
+      },
+      "uri": "https://api.sketchfab.com/v3/users/56b017a4f5a94a12b029692e61ec3dab"
+    },
+    "vertexCount": 14982,
+    "viewCount": 21744,
+    "viewerUrl": "https://sketchfab.com/3d-models/wood-stick-02-0ab534c493e14f67bac01ee94f20e43f",
+    "isDownloadable": true,
+    "isProtected": false,
+    "description": "Wood stick 02. A good reference or gameobject to a computer game. \n\nPhotogrammetry from 362 photos.",
+    "price": null,
+    "downloadCount": 8510,
+    "editorUrl": "https://sketchfab.com/models/0ab534c493e14f67bac01ee94f20e43f/edit",
+    "status": {
+      "warning": {},
+      "processing": "SUCCEEDED"
+    },
+    "source": "website-deflated",
+    "hasCommentsDisabled": false,
+    "updatedAt": "2022-07-20T12:10:33.980612",
+    "pbrType": null,
+    "textureCount": 3,
+    "materialCount": 1
+  }
+}

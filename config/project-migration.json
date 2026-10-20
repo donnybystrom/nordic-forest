@@ -1,0 +1,128 @@
+{
+  "source_project": "proj_prCcGUHbiAHQGz8UmHcwjUKG",
+  "target_project": "proj_sBhh0dtFlUyaAAAKqMBy0jII",
+  "organization_id": "org-mOUZocPcLddOyV1Bgcfj0inC",
+  "expected_count": 16,
+  "copies": {
+    "agent_4c12c22afbe344c8a2374fd8aa5b0825301eccc002a441b19c": {
+      "source_sha256": "22a6284a2f2bde9d5d44022a45903a3d5ba76fd835c0484f7b2458a2e7623e38",
+      "target_id": "agent_11ed33586a244fe2b68b5e4f38a7f47c3b00c0a36e4d471cae",
+      "target_verified_sha256": "22a6284a2f2bde9d5d44022a45903a3d5ba76fd835c0484f7b2458a2e7623e38",
+      "name": "Delivery Coordinator",
+      "source_removed": true
+    },
+    "agent_e48fecee9592438ebfca74d161ff6bfef989465af58f43b697": {
+      "source_sha256": "8fe3dd13ec3afdf4df00fe1ee4533f72259b0d9fe9c087cef2f8a9d45196ea28",
+      "target_id": "agent_2b8429d73017482bbe3d231b25d71b3d9aa13ebdbc2d434c80",
+      "target_verified_sha256": "8fe3dd13ec3afdf4df00fe1ee4533f72259b0d9fe9c087cef2f8a9d45196ea28",
+      "name": "Security Reviewer",
+      "source_removed": true
+    },
+    "agent_f2095b3e71604cd59291942abcc89df974c5bc1843f744f2a1": {
+      "source_sha256": "a5649fa01a8821d3658b776533a49f3f0826c56d425fc1e165df28e2e490a7ff",
+      "target_id": "agent_e951a9427282465c9bb6141eaad6264316f291c5ecba44d58f",
+      "target_verified_sha256": "a5649fa01a8821d3658b776533a49f3f0826c56d425fc1e165df28e2e490a7ff",
+      "name": "Rendering & Performance Engineer",
+      "source_removed": true
+    },
+    "agent_9792362564f0488f92ce9f40a3fcfd2d0d05b270510746cd8b": {
+      "source_sha256": "838f1861dd6275ba802bd66bca8125297412e0d0224608cf174c0dc337719a1f",
+      "target_id": "agent_c505d9f157c2446a996623e514a91de7c4ee1547747d49958e",
+      "target_verified_sha256": "838f1861dd6275ba802bd66bca8125297412e0d0224608cf174c0dc337719a1f",
+      "name": "Technical Artist",
+      "source_removed": true
+    },
+    "agent_a42fa0a5e7d24eedbb011bddd957bcdf200138f059354c1289": {
+      "source_sha256": "75dcc34f1f4bbfba4039786c4c5a860187c62bdf84992d86ef87519a1975919c",
+      "target_id": "agent_fd7114e1a028437c8e566ef5656a77aea2312b61240f436dae",
+      "target_verified_sha256": "75dcc34f1f4bbfba4039786c4c5a860187c62bdf84992d86ef87519a1975919c",
+      "name": "Art Director",
+      "source_removed": true
+    },
+    "agent_e06277060d094d92be3c934068567d2e7fdf6eef2a9847f299": {
+      "source_sha256": "9bc37ed2afdfda05e560fd0050029609732870c8c76be573d06e7d0b95d5ada3",
+      "target_id": "agent_6b42a91671fb4a02ae38b6ea0e91231dd2da7f45238f4cf591",
+      "target_verified_sha256": "9bc37ed2afdfda05e560fd0050029609732870c8c76be573d06e7d0b95d5ada3",
+      "name": "Tools & Modding Engineer",
+      "source_removed": true
+    },
+    "agent_6864c965cbaf4c3998ab12c39641fe30ef0a604ce57b4bd5aa": {
+      "source_sha256": "51098712d5b37f4288a797788b983f18352f586a6d8aa21955609907c92e22cd",
+      "target_id": "agent_13366b42ad1a434a870ff1b32c796bbe21f922f9c414486ebc",
+      "target_verified_sha256": "51098712d5b37f4288a797788b983f18352f586a6d8aa21955609907c92e22cd",
+      "name": "Simulation & Networking Engineer",
+      "source_removed": true
+    },
+    "agent_fde53f66158b4a97ace3f1b6ea232508edfa8daa0d584c74bc": {
+      "source_sha256": "6df4903f3ec0a6c21de65b4f699a8c1e5508ef555c092f1463305be6351baa45",
+      "target_id": "agent_25869ab57df646a0a7666a4ba146a40e7712407ed1304a66b5",
+      "target_verified_sha256": "6df4903f3ec0a6c21de65b4f699a8c1e5508ef555c092f1463305be6351baa45",
+      "name": "Implementation Engineer",
+      "source_removed": true
+    },
+    "agent_80bf265633ce47279d348b554433972842e4cba91f07445aa8": {
+      "source_sha256": "ceedc0f292a7023d069d1df9cea762a4a75b350c93ec2484c7ee91453b805e41",
+      "target_id": "agent_7847221670bc463cb9a8ffd74a0ad2013cb5c0def7bb481caa",
+      "target_verified_sha256": "ceedc0f292a7023d069d1df9cea762a4a75b350c93ec2484c7ee91453b805e41",
+      "name": "QA / Verification Engineer",
+      "source_removed": true
+    },
+    "agent_ce0756962ff44ddda8e5d9f64ecb2f27fd3bdf76ab7a45efb1": {
+      "source_sha256": "43aabaaa2c2b9b9fd30676b46b6ddc27160e5b7403df6c37058e0919a94e2ca7",
+      "target_id": "agent_948fcf806c364ed0901bbe10a2ac0dfdbb91241cdcd04ef0ba",
+      "target_verified_sha256": "43aabaaa2c2b9b9fd30676b46b6ddc27160e5b7403df6c37058e0919a94e2ca7",
+      "name": "Knowledge Curator",
+      "source_removed": true
+    },
+    "agent_352c5dab37ac416fac4b535ca927ea94dfc66ab8e79d4f17b2": {
+      "source_sha256": "4fc3d2e7483b4438b4a8e073dd078cd0790f78c1d63a0e63ddc65805633fdae7",
+      "target_id": "agent_ef9bc028b3b747a99bf724dab0653809dcd919682f724fa084",
+      "target_verified_sha256": "4fc3d2e7483b4438b4a8e073dd078cd0790f78c1d63a0e63ddc65805633fdae7",
+      "name": "Reverse Engineering Analyst",
+      "source_removed": true
+    },
+    "agent_273a295f4e4b410394f6a53a42c17d266c9210dec66f4d8180": {
+      "source_sha256": "d96d36d3245003b2e989aecf722fb61d6c6b909a446a71ba76ae82c8ebca9b81",
+      "target_id": "agent_297d3493b92b40e0a76f99be53e406dbe1bfa237c6494df1b6",
+      "target_verified_sha256": "d96d36d3245003b2e989aecf722fb61d6c6b909a446a71ba76ae82c8ebca9b81",
+      "name": "Product Lead / PO",
+      "source_removed": true
+    },
+    "agent_b6211bebe96242abb7afdd949eb0a65da4e194d324604a3283": {
+      "source_sha256": "88511ec75a28c1970f6043454e26629788f5e00740c69db536c9bf7da84c4594",
+      "target_id": "agent_a5c4b02a8dd14c258dcf65537fb472f0535ce2892601403d93",
+      "target_verified_sha256": "88511ec75a28c1970f6043454e26629788f5e00740c69db536c9bf7da84c4594",
+      "name": "Technical Lead",
+      "source_removed": true
+    },
+    "agent_dfaabf6fa11c463382ccce68ef59505ccf9ddb0fc3d8444499": {
+      "source_sha256": "4ef50f4b6b2614cf43a83a6f610f5342df1cbc0a9876f4edc130f36096b5b2c2",
+      "target_id": "agent_f1d474ef297048ee8d8fb8a89892ed524d8392ec92904a4eae",
+      "target_verified_sha256": "4ef50f4b6b2614cf43a83a6f610f5342df1cbc0a9876f4edc130f36096b5b2c2",
+      "name": "Art Director",
+      "source_removed": true
+    },
+    "agent_b9a759af47814063a8fa0b7f646f9376f9f2b7b608064118a2": {
+      "source_sha256": "7649d106ff983c123e7e5a43c4d9e0e4db71e2fe590c9ff2093208a0cdac7db8",
+      "target_id": "agent_29f5d16d3b12460b8c1d33be890224c638b3fdcbe5fc4f7ab1",
+      "target_verified_sha256": "7649d106ff983c123e7e5a43c4d9e0e4db71e2fe590c9ff2093208a0cdac7db8",
+      "name": "Developer Experience & Tooling Engineer",
+      "source_removed": true
+    },
+    "agent_cb3d3755fa9346ca8bc08189a7e7d7247ab76f1e9ff347df86": {
+      "source_sha256": "ddd1dfc50b11ec75b8313d5ff2ded465aef6626633f1af75a4ba7a764631944b",
+      "target_id": "agent_47608c9137ed4fb198710b81c4db7d1b38337bcc4e624c60bb",
+      "target_verified_sha256": "ddd1dfc50b11ec75b8313d5ff2ded465aef6626633f1af75a4ba7a764631944b",
+      "name": "UI & UX designer",
+      "source_removed": true
+    }
+  },
+  "phase": "complete",
+  "scope": "agent definitions only; session/environment history is not migrated",
+  "source_sessions_present": false,
+  "final_counts": {
+    "nordic_forest": 14,
+    "beasts_and_bumpkins": 16
+  },
+  "verification_note": "Final list readback matched exact ID sets and definition hashes after list consistency settled."
+}

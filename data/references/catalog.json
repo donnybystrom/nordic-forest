@@ -1,0 +1,123 @@
+{
+  "schema_version": "0.1",
+  "checked_on": "2026-10-18",
+  "scope": "Reference catalog with measured local oak FBX/GLB and stick GLB; other assets retain their explicit evidence states",
+  "assets": [
+    {
+      "id": "oak-pack",
+      "title": "Oak trees pack (17var, LODs, seasons, gameready)",
+      "creator": "LOLIPOP",
+      "source_url": "https://sketchfab.com/3d-models/oak-trees-pack-17var-lods-seasons-gameready-a5e4e64f9f1d4089bdcc6170a9333393",
+      "metadata_evidence": "data/references/oak-pack-metadata.json",
+      "license_reported": {
+        "label": "CC Attribution",
+        "url": "http://creativecommons.org/licenses/by/4.0/"
+      },
+      "source_file": "data/references/downloads/a5e4e64f9f1d4089bdcc6170a9333393/source-20261018T120446338500Z-e8c9cd/extracted/source/Oak pack.fbx",
+      "source_file_sha256": "dab0a11ee6ade237bfa5b0a55f38b04a142a12c6afce5491a2056fe62f64eed5",
+      "analysis_state": "file_geometry_audited",
+      "geometry_measurement_state": "blender_import_measured_not_runtime",
+      "role": "tree_technique_reference",
+      "reuse_state": "analysis_import_only_no_production_derivative",
+      "species_confirmation": "not_established",
+      "audit_evidence": "data/references/analysis/oak-pack-summary.json",
+      "source_representation": "author_source_fbx"
+    },
+    {
+      "id": "stump-mushrooms",
+      "title": "Mushrooms on tree stump",
+      "creator": "pancakesbassoondonut",
+      "source_url": "https://sketchfab.com/3d-models/mushrooms-on-tree-stump-ae6acfec0fe9486aba19e6523e4e537a",
+      "metadata_evidence": "data/references/stump-mushrooms-metadata.json",
+      "license_reported": {
+        "label": "CC Attribution",
+        "url": "http://creativecommons.org/licenses/by/4.0/"
+      },
+      "source_file": null,
+      "source_file_sha256": null,
+      "analysis_state": "metadata_only",
+      "geometry_measurement_state": "source_file_required",
+      "role": "photogrammetry_candidate",
+      "reuse_state": "candidate_not_imported",
+      "species_confirmation": "not_established"
+    },
+    {
+      "id": "wood-stick-02",
+      "title": "Wood Stick 02",
+      "creator": "3dhdscan",
+      "source_url": "https://sketchfab.com/3d-models/wood-stick-02-0ab534c493e14f67bac01ee94f20e43f",
+      "metadata_evidence": "data/references/wood-stick-02-metadata.json",
+      "license_reported": {
+        "label": "CC Attribution",
+        "url": "http://creativecommons.org/licenses/by/4.0/"
+      },
+      "source_file": "data/references/downloads/0ab534c493e14f67bac01ee94f20e43f/glb-20261018T144334575672Z-70be47/asset.glb",
+      "source_file_sha256": "9a870353c97235b13a5aef0f07ee503c0ef4c27fbedb89eb4a004b981a0642cb",
+      "analysis_state": "file_geometry_audited",
+      "geometry_measurement_state": "blender_import_measured_not_runtime",
+      "role": "photogrammetry_candidate",
+      "reuse_state": "analysis_import_only_no_production_derivative",
+      "species_confirmation": "not_established",
+      "audit_evidence": "data/references/analysis/wood-stick-02-summary.json",
+      "source_representation": "sketchfab_converted_glb"
+    },
+    {
+      "id": "old-tree-stump",
+      "title": "Old Tree Stump",
+      "creator": "Ninma (shown in screenshot)",
+      "source_url": null,
+      "metadata_evidence": "assets/references/screenshots/old-tree-stump.png",
+      "license_reported": null,
+      "source_file": null,
+      "source_file_sha256": null,
+      "analysis_state": "screenshot_only",
+      "geometry_measurement_state": "source_file_required",
+      "role": "photogrammetry_candidate",
+      "reuse_state": "unresolved_source_and_license",
+      "species_confirmation": "not_established"
+    }
+  ],
+  "game_references": [
+    {
+      "id": "gold-river",
+      "title": "The Gold River Project",
+      "developer_url": "https://fairviewgames.com/index.html",
+      "reference_region": "Pacific Northwest as described by developer",
+      "role": "visual_and_technical_reference",
+      "binary_path": null,
+      "binary_hash": null,
+      "binary_analysis_state": "not_started",
+      "photogrammetry_use": "user_visual_hypothesis_not_verified"
+    },
+    {
+      "id": "skyrim-mods",
+      "title": "Skyrim vegetation mods",
+      "selected_mods": [
+        {
+          "name": "Nature of the Wild Lands - forest and trees improvement mod",
+          "url": "https://www.nexusmods.com/skyrimspecialedition/mods/63604?tab=files&file_id=661793",
+          "mod_id": 63604,
+          "requested_file_id": 661793,
+          "archive_path": "data/references/skyrim-special-edition-mod_Nature-of-the-Wild-Lands/Nature of the Wild Lands-63604-3-14-1756825179.7z",
+          "sha256": "86b83a9a3b26d5a54dbb3ea40c4e638b18e7be4ba47f880fea6779ecb011054a",
+          "archive_version": "filename_only_not_independently_verified",
+          "state": "local_archive_and_extracted_files_present_not_analyzed",
+          "archive_bytes": 1713771466
+        },
+        {
+          "name": "Fabled Forests",
+          "url": "https://www.nexusmods.com/skyrimspecialedition/mods/94462",
+          "mod_id": 94462,
+          "requested_file_id": null,
+          "archive_path": "data/references/skyrim-special-edition-mod_Fabled-Forests/Fabled Forests-94462-2-1A-1707973326.zip",
+          "sha256": "f900d93bad99be43c4c5ea5697033872450e5d049dfdbf7d7d03a0069dbd7710",
+          "archive_version": "filename_only_not_independently_verified",
+          "state": "local_archive_and_extracted_files_present_not_analyzed",
+          "archive_bytes": 566627728
+        }
+      ],
+      "analysis_state": "not_started_local_inputs_present",
+      "incoming_directory": "/Users/donnybystrom/code/Nordic-3D-forest/data/references"
+    }
+  ]
+}

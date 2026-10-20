@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "project_id": "proj_prCcGUHbiAHQGz8UmHcwjUKG",
+  "remote_binding_status": "forest_agents_created_and_verified",
+  "model": "gpt-6.1-sol",
+  "limits": {
+    "max_specialists": 3,
+    "max_calls": 8,
+    "max_output_tokens_per_call": 4000,
+    "max_input_characters_per_call": 70000,
+    "call_timeout_seconds": 90,
+    "workflow_timeout_seconds": 480
+  },
+  "roles": {
+    "product_lead": {
+      "name": "Product Lead",
+      "reasoning": "medium",
+      "prompt": "prompts/product_lead.txt",
+      "platform_agent_id": "agent_45b634eef94e470aa89d652719a1967e53574487678a4a708f",
+      "source_agent_id": "agent_297d3493b92b40e0a76f99be53e406dbe1bfa237c6494df1b6",
+      "source_project_id": "proj_sBhh0dtFlUyaAAAKqMBy0jII"
+    },
+    "technical_lead": {
+      "name": "Technical Lead",
+      "reasoning": "high",
+      "prompt": "prompts/technical_lead.txt",
+      "platform_agent_id": "agent_d5020b7769694ac7affb49a0d73c0c688fd2a7db90634ab3b0",
+      "source_agent_id": "agent_a5c4b02a8dd14c258dcf65537fb472f0535ce2892601403d93",
+      "source_project_id": "proj_sBhh0dtFlUyaAAAKqMBy0jII"
+    },
+    "ecology": {
+      "name": "Reference and Ecology Analyst",
+      "reasoning": "high",
+      "prompt": "prompts/ecology.txt",
+      "platform_agent_id": "agent_8f163da9ab294205a965bd318ccd7a82593554cf6ab8455584"
+    },
+    "folklore": {
+      "name": "Folklore and Narrative Researcher",
+      "reasoning": "medium",
+      "prompt": "prompts/folklore.txt",
+      "platform_agent_id": "agent_9fbeed71df8f4e24a94222cd1e18d78dee5d5dbfb3f3451e9c"
+    },
+    "art_director": {
+      "name": "Art Director",
+      "reasoning": "medium",
+      "prompt": "prompts/art_director.txt",
+      "platform_agent_id": "agent_0a6b7667487a496ab20bca5a12945c6146754a39886845fea5",
+      "source_agent_id": "agent_fd7114e1a028437c8e566ef5656a77aea2312b61240f436dae",
+      "source_project_id": "proj_sBhh0dtFlUyaAAAKqMBy0jII"
+    },
+    "technical_artist": {
+      "name": "Technical Artist",
+      "reasoning": "high",
+      "prompt": "prompts/technical_artist.txt",
+      "platform_agent_id": "agent_b3da539bd58049c08a326ab24601abbce0c5d6b8bfda47f6b4",
+      "source_agent_id": "agent_c505d9f157c2446a996623e514a91de7c4ee1547747d49958e",
+      "source_project_id": "proj_sBhh0dtFlUyaAAAKqMBy0jII"
+    },
+    "rendering": {
+      "name": "Rendering and Performance Engineer",
+      "reasoning": "high",
+      "prompt": "prompts/rendering.txt",
+      "platform_agent_id": "agent_6c871dfe6d7048d98760ccaee922c5e0619cbc565c2a47c592",
+      "source_agent_id": "agent_e951a9427282465c9bb6141eaad6264316f291c5ecba44d58f",
+      "source_project_id": "proj_sBhh0dtFlUyaAAAKqMBy0jII"
+    },
+    "implementation": {
+      "name": "Implementation Engineer",
+      "reasoning": "medium",
+      "prompt": "prompts/implementation.txt",
+      "platform_agent_id": "agent_c58481075ea4406d8e64a67f2216c26a610f0a1c138147f78c",
+      "source_agent_id": "agent_25869ab57df646a0a7666a4ba146a40e7712407ed1304a66b5",
+      "source_project_id": "proj_sBhh0dtFlUyaAAAKqMBy0jII"
+    },
+    "qa": {
+      "name": "QA and Verification Engineer",
+      "reasoning": "high",
+      "prompt": "prompts/qa.txt",
+      "platform_agent_id": "agent_0455cf5770fa4675be7818a06b045dcf4495d4529d654a558a",
+      "source_agent_id": "agent_7847221670bc463cb9a8ffd74a0ad2013cb5c0def7bb481caa",
+      "source_project_id": "proj_sBhh0dtFlUyaAAAKqMBy0jII"
+    },
+    "curator": {
+      "name": "Knowledge Curator",
+      "reasoning": "medium",
+      "prompt": "prompts/curator.txt",
+      "platform_agent_id": "agent_b669abe6879d474fb0ad49c21f5b0611c2de120bdd8347bdbd",
+      "source_agent_id": "agent_948fcf806c364ed0901bbe10a2ac0dfdbb91241cdcd04ef0ba",
+      "source_project_id": "proj_sBhh0dtFlUyaAAAKqMBy0jII"
+    },
+    "devx": {
+      "name": "Developer Experience & Tooling Engineer",
+      "reasoning": "medium",
+      "prompt": "prompts/devx.txt",
+      "source_agent_id": "agent_29f5d16d3b12460b8c1d33be890224c638b3fdcbe5fc4f7ab1",
+      "source_project_id": "proj_sBhh0dtFlUyaAAAKqMBy0jII",
+      "platform_agent_id": "agent_f2e2cddae0e9427ea39972385b15eadadbbb674f89eb4dda95"
+    },
+    "uiux": {
+      "name": "UI & UX Designer",
+      "reasoning": "medium",
+      "prompt": "prompts/uiux.txt",
+      "source_agent_id": "agent_47608c9137ed4fb198710b81c4db7d1b38337bcc4e624c60bb",
+      "source_project_id": "proj_sBhh0dtFlUyaAAAKqMBy0jII",
+      "platform_agent_id": "agent_d3d97ae61bb64b64904cc7cf5d46608962c3ba382488474986"
+    },
+    "delivery": {
+      "name": "Delivery Coordinator",
+      "reasoning": "low",
+      "prompt": "prompts/delivery.txt",
+      "model": "gpt-6-luna",
+      "source_agent_id": "agent_11ed33586a244fe2b68b5e4f38a7f47c3b00c0a36e4d471cae",
+      "source_project_id": "proj_sBhh0dtFlUyaAAAKqMBy0jII",
+      "platform_agent_id": "agent_dde1bb428017435781e22d8eff6856b28289a05d07e4417d9c"
+    },
+    "security": {
+      "name": "Security Reviewer",
+      "reasoning": "high",
+      "prompt": "prompts/security.txt",
+      "source_agent_id": "agent_2b8429d73017482bbe3d231b25d71b3d9aa13ebdbc2d434c80",
+      "source_project_id": "proj_sBhh0dtFlUyaAAAKqMBy0jII",
+      "platform_agent_id": "agent_936d139559ed4846bf4ae99b4ea828fc677fc0cd06c5459bbc"
+    },
+    "asset_analysis": {
+      "name": "Reference and Asset Analysis Engineer",
+      "reasoning": "high",
+      "prompt": "prompts/asset_analysis.txt",
+      "source_agent_id": "agent_ef9bc028b3b747a99bf724dab0653809dcd919682f724fa084",
+      "source_project_id": "proj_sBhh0dtFlUyaAAAKqMBy0jII",
+      "context_files": [
+        "docs/REFERENCE-ASSET-PIPELINE.md",
+        "data/references/catalog.json"
+      ],
+      "platform_agent_id": "agent_97ce1424226e487bafb0d876ac279ed12f634aaf2a4c431a85"
+    }
+  },
+  "specialist_roles": [
+    "ecology",
+    "folklore",
+    "art_director",
+    "technical_artist",
+    "rendering",
+    "asset_analysis"
+  ],
+  "organization_id": "org-mOUZocPcLddOyV1Bgcfj0inC"
+}

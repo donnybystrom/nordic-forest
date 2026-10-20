@@ -1,0 +1,89 @@
+{
+  "checked_on": "2026-10-18",
+  "github_identity_model": "one_shared_account_local_role_provenance",
+  "local_tests_passed": 57,
+  "github_inspection": {
+    "status": "github_complete",
+    "job_id": "4248ed2a-7f00-4161-a7dc-a9cf2957fbd4",
+    "result": {
+      "repo": "donnybystrom/nordic-forest",
+      "number": 6,
+      "url": "https://github.com/donnybystrom/nordic-forest/pull/6",
+      "state": "open",
+      "draft": true,
+      "head_sha": "59adfa684c837087239485ed4341d59636abcfc2",
+      "base_sha": "90fb5dea823369060aff3f8dcff2a78512b6d2e6",
+      "classification": {
+        "changed_lines": 21660,
+        "files": 126,
+        "human_decision": true,
+        "merge_lane": "owned_review",
+        "review_roles": [
+          "asset_analysis",
+          "curator",
+          "devx",
+          "qa",
+          "security",
+          "technical_artist",
+          "technical_lead"
+        ],
+        "unclassified_files": [
+          "data/biomes/initial-presets.json",
+          "data/biomes/reference-transfer.template.json",
+          "data/github-project-plan.json",
+          "examples/first-request.txt",
+          "examples/langflow/agents-api-session-body.json",
+          "examples/reference-analysis-request.txt"
+        ],
+        "units": [
+          "agent_platform",
+          "asset_pipeline",
+          "knowledge",
+          "tooling_enablement"
+        ]
+      },
+      "message": "Full files, comments and review threads are retained in the local job and visible in GitHub."
+    },
+    "preview": null,
+    "reason": null,
+    "message": null,
+    "dashboard": "http://127.0.0.1:8765/"
+  },
+  "saved_agent_profile_live_fixtures": [
+    {
+      "role": "curator",
+      "job_id": "12b1ed03-76ff-45a8-a058-c02d54e4fcd6",
+      "status": "pr_review_complete",
+      "verdict": "approve",
+      "session_id": "sess_0806de95f3d285c6006ad4f8d4ac5c819a9e1a2e1fe62f036c",
+      "profile_sha256": "771234d15896ece84de603dc7fe7c0f3692a36b6c2d6959eaa1a3a3ee321d075",
+      "synthetic_fixture": true,
+      "actual_pr_approval": false
+    },
+    {
+      "role": "qa",
+      "job_id": "f54d9a7a-12c0-46c4-8d69-a9cf2beab72f",
+      "status": "pr_review_complete",
+      "verdict": "approve",
+      "session_id": "sess_01f332152d5500a5006ad4f8e311588199a00d45bb45230cf5",
+      "profile_sha256": "6c1ecc4120d575e6cb7084e4612fde94ebc3a0533b0684d7cbace384490b58e2",
+      "synthetic_fixture": true,
+      "actual_pr_approval": false
+    }
+  ],
+  "fixture_warning": "Synthetic head/base SHAs and diff, not approvals of the actual PR. Merge checks re-read real GitHub state.",
+  "native_desktop": {
+    "component": "NF · PR Control",
+    "flow": "04 — PR Control",
+    "flow_id": "678ad017-ee07-4b7a-a1d0-885b6ff5449c",
+    "installed": true
+  },
+  "merge_test": "policy unit tests only; no PR was merged",
+  "recovery": "durable job/config/session checkpoints; unknown writes require reconciliation; code rollback via a new revert PR",
+  "limits": [
+    "first merge lane is small ordinary documentation only",
+    "no unattended fix/review loop",
+    "no general shell granted to saved agents",
+    "local broker is not GitHub branch protection"
+  ]
+}

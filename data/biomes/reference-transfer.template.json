@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.1-draft",
+  "status": "uncalibrated_reference_transfer_not_runtime_input",
+  "preset_id": "replace_with_named_reference_family",
+  "reference_build_or_mod": {"name": null, "version": null, "archive_or_binary_sha256": null, "effective_overrides": []},
+  "source_evidence": [],
+  "measured_placement_sample": {"world_units": null, "region_bounds": null, "sample_area_m2": null, "instance_records": null, "visibility_bias": null},
+  "reference_visual_profile": {"canopy_silhouette": null, "ground_layer_structure": null, "deadwood_and_moss_associations": null, "light_and_atmosphere": null},
+  "placement_rules": {"species_family_weights": null, "density_instances_per_m2": null, "cluster_size_distribution": null, "spacing_metres": null, "age_mix": null, "site_suitability_curves": null, "exclusions": null},
+  "swedish_translation": {"target_locality": null, "species_mapping": [], "ecology_source_ids": [], "intentional_art_direction_changes": []},
+  "asset_recipe_ids": [],
+  "engine_quality_profile_id": null,
+  "unknowns": ["Screenshots do not uniquely establish physical density or placement causality", "Model/texture packs alone do not supply a placement sample", "Runtime renderer quality settings remain separate from ecological rules"],
+  "acceptance": {"source_vs_generated_views": [], "seed_reproduction": "pending", "paint_override_persistence": "pending", "runtime_trial_ids": []}
+}

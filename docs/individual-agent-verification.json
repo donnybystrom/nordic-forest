@@ -1,0 +1,281 @@
+{
+  "checked_on": "2026-10-18",
+  "scope": "saved_role_and_langflow_tool_integration_smoke_test",
+  "langflow_version": "1.12.6",
+  "saved_configs_hash_verified": 15,
+  "offline_bindings_verified": 15,
+  "tool_schemas_verified": 15,
+  "live_tool_calls_completed": 15,
+  "upstream_handover_forwarded": true,
+  "implementation_or_feature_acceptance": "not_performed",
+  "hard_usd_cap": "not_supported_by_current_endpoint",
+  "desktop_installation": {
+    "folder_id": "7ce97d6f-f7c3-4c19-988c-fa353879b9cc",
+    "saved_components": 15,
+    "individual_flows": 15,
+    "library_flow_id": "c407869f-4fba-44ef-a72b-5f7241e4f5d0",
+    "ui_saved_component_names_verified": 15,
+    "mcp_exposure_enabled": false,
+    "asset_analysis_flow_id": "54011dac-5182-40b9-ac3f-7060f57816d3",
+    "playground_offline_job_id": "12620978-f3d3-431b-a208-f6214aa405cf",
+    "playground_offline_status": "prepared_offline"
+  },
+  "roles": [
+    {
+      "role": "product_lead",
+      "job_id": "d930d310-79a4-4aef-995b-7b752ef9c3d1",
+      "agent_id": "agent_45b634eef94e470aa89d652719a1967e53574487678a4a708f",
+      "status": "prepared_offline",
+      "tool_name": "consult",
+      "tool_inputs": [
+        "request_text",
+        "shared_context"
+      ],
+      "live_job_id": "9df581d0-27be-4fe2-96eb-2017c0e61110",
+      "live_status": "agent_complete",
+      "session_id": "sess_0fe7bded89e0fa57006ad4ee442e4c819a9e036417971767ff",
+      "instruction_sha256": "fbec2ff4527594656424d50d7f9c7d4062a3d2f752b00095b5b23602a809de3e",
+      "model": "gpt-6.1-sol",
+      "usage": null
+    },
+    {
+      "role": "technical_lead",
+      "job_id": "d0cc1282-fe27-4830-ba11-c16ece7356bb",
+      "agent_id": "agent_d5020b7769694ac7affb49a0d73c0c688fd2a7db90634ab3b0",
+      "status": "prepared_offline",
+      "tool_name": "consult",
+      "tool_inputs": [
+        "request_text",
+        "shared_context"
+      ],
+      "live_job_id": "77927163-910c-4045-935e-0e9f619ea92d",
+      "live_status": "agent_complete",
+      "session_id": "sess_0b1344e9f6b86d9c006ad4ee58b960819b94bed2e06d953624",
+      "instruction_sha256": "421d3d3fa1f45b56bf4f448beb7e065c6ae7d7bad6813b4f3153f6d7b3c0ce26",
+      "model": "gpt-6.1-sol",
+      "usage": null
+    },
+    {
+      "role": "ecology",
+      "job_id": "436e8cdd-9da4-462c-a15c-bcb499fbb22f",
+      "agent_id": "agent_8f163da9ab294205a965bd318ccd7a82593554cf6ab8455584",
+      "status": "prepared_offline",
+      "tool_name": "consult",
+      "tool_inputs": [
+        "request_text",
+        "shared_context"
+      ],
+      "live_job_id": "94306d20-13ef-4368-8236-8f33897f1afb",
+      "live_status": "agent_complete",
+      "session_id": "sess_0d6903d59899e5d9006ad4ee66a064819aac9cc50a354d7e0b",
+      "instruction_sha256": "ec715d2e0c735e792ff54b377dda74fe87b35025b1a6627cf832f9c5881bfc7c",
+      "model": "gpt-6.1-sol",
+      "usage": null
+    },
+    {
+      "role": "folklore",
+      "job_id": "5b419471-0d87-42f2-b511-d1cadd243da6",
+      "agent_id": "agent_9fbeed71df8f4e24a94222cd1e18d78dee5d5dbfb3f3451e9c",
+      "status": "prepared_offline",
+      "tool_name": "consult",
+      "tool_inputs": [
+        "request_text",
+        "shared_context"
+      ],
+      "live_job_id": "68a7dbaa-1fc2-44af-94ee-d67d705eb406",
+      "live_status": "agent_complete",
+      "session_id": "sess_0d6994962c6f667c006ad4ee73d960819b9741083e398cf7c0",
+      "instruction_sha256": "bd0c650a4e7aaae0b4474b7f273341fa68b027d6b10ab725ffc06204bee2726d",
+      "model": "gpt-6.1-sol",
+      "usage": null
+    },
+    {
+      "role": "art_director",
+      "job_id": "0a1c476e-3bd7-4db8-b966-8c223567de4e",
+      "agent_id": "agent_0a6b7667487a496ab20bca5a12945c6146754a39886845fea5",
+      "status": "prepared_offline",
+      "tool_name": "consult",
+      "tool_inputs": [
+        "request_text",
+        "shared_context"
+      ],
+      "live_job_id": "a9554953-6763-4708-90ec-31652bc3393e",
+      "live_status": "agent_complete",
+      "session_id": "sess_08b813827f878dc2006ad4ee7fa80c819a97525f6542d2d552",
+      "instruction_sha256": "324337bb3dea4019cb4ff5eee6a47e93b382332af1e5000a2dcd0eb1cd007354",
+      "model": "gpt-6.1-sol",
+      "usage": null
+    },
+    {
+      "role": "technical_artist",
+      "job_id": "5e4c45a3-08ce-48a9-a28a-fd6e4fbfdd34",
+      "agent_id": "agent_b3da539bd58049c08a326ab24601abbce0c5d6b8bfda47f6b4",
+      "status": "prepared_offline",
+      "tool_name": "consult",
+      "tool_inputs": [
+        "request_text",
+        "shared_context"
+      ],
+      "live_job_id": "3e60d303-c082-4e2c-a7ae-2c3360007efd",
+      "live_status": "agent_complete",
+      "session_id": "sess_0831f2fe9b5df0c2006ad4ee9000548198b027462638915760",
+      "instruction_sha256": "8314de367311c578690de13a8f0b945322431b04013a2554b4e47bf446b03025",
+      "model": "gpt-6.1-sol",
+      "usage": null
+    },
+    {
+      "role": "rendering",
+      "job_id": "12e8628e-33de-4af6-9e25-2aae508d651c",
+      "agent_id": "agent_6c871dfe6d7048d98760ccaee922c5e0619cbc565c2a47c592",
+      "status": "prepared_offline",
+      "tool_name": "consult",
+      "tool_inputs": [
+        "request_text",
+        "shared_context"
+      ],
+      "live_job_id": "6448030b-42ff-44a6-a63d-517d97da0ccc",
+      "live_status": "agent_complete",
+      "session_id": "sess_00788c89238a97d1006ad4ee9ad2a0819b8e442475e70899d8",
+      "instruction_sha256": "7790df53979cfcbd023ce2c43be8e020c29ef287d9b6d83b9e99f5046d236b72",
+      "model": "gpt-6.1-sol",
+      "usage": null
+    },
+    {
+      "role": "implementation",
+      "job_id": "f876c8e6-2951-49b7-9991-0c79b903e872",
+      "agent_id": "agent_c58481075ea4406d8e64a67f2216c26a610f0a1c138147f78c",
+      "status": "prepared_offline",
+      "tool_name": "consult",
+      "tool_inputs": [
+        "request_text",
+        "shared_context"
+      ],
+      "live_job_id": "0b9317e3-3038-427d-8cb0-fd8922cb62ee",
+      "live_status": "agent_complete",
+      "session_id": "sess_03b14186acf3a96c006ad4eeaa00e8819aa1567bdb7230d86d",
+      "instruction_sha256": "1f974e4e5c9f30c8cab03bf7be85debcaf03694220d5f8d5ea53c374773703a7",
+      "model": "gpt-6.1-sol",
+      "usage": null
+    },
+    {
+      "role": "qa",
+      "job_id": "f4e21d84-65cc-4c33-a071-c4ed889e548f",
+      "agent_id": "agent_0455cf5770fa4675be7818a06b045dcf4495d4529d654a558a",
+      "status": "prepared_offline",
+      "tool_name": "consult",
+      "tool_inputs": [
+        "request_text",
+        "shared_context"
+      ],
+      "live_job_id": "48f51540-71f1-412a-9957-d2a950e6ba30",
+      "live_status": "agent_complete",
+      "session_id": "sess_011a65983be435a3006ad4eeb3fd9c8199bcfca96dd3f1afa3",
+      "instruction_sha256": "86f4517f03bee0fdeae4b6b8f96fa9f9ab71faa8b313203d9625f64aff867f75",
+      "model": "gpt-6.1-sol",
+      "usage": null
+    },
+    {
+      "role": "curator",
+      "job_id": "27541b33-c09e-4c5c-b10d-7fee14768598",
+      "agent_id": "agent_b669abe6879d474fb0ad49c21f5b0611c2de120bdd8347bdbd",
+      "status": "prepared_offline",
+      "tool_name": "consult",
+      "tool_inputs": [
+        "request_text",
+        "shared_context"
+      ],
+      "live_job_id": "edbf6a6c-b46d-45dc-ab2f-249c97007505",
+      "live_status": "agent_complete",
+      "session_id": "sess_0983b57d7295dd80006ad4eec0c9d081999c839d357bf56746",
+      "instruction_sha256": "8161f556764314d133329ea3bd5a820e4d7d34b861e753de16f8cacc0096c25c",
+      "model": "gpt-6.1-sol",
+      "usage": null
+    },
+    {
+      "role": "devx",
+      "job_id": "61ec7f77-0ba6-4ae4-8214-96a191f9dc21",
+      "agent_id": "agent_f2e2cddae0e9427ea39972385b15eadadbbb674f89eb4dda95",
+      "status": "prepared_offline",
+      "tool_name": "consult",
+      "tool_inputs": [
+        "request_text",
+        "shared_context"
+      ],
+      "live_job_id": "81c48d00-f218-43cd-8187-e4bacdc1b124",
+      "live_status": "agent_complete",
+      "session_id": "sess_010381749b15619d006ad4eecc32d081999b00898773459d21",
+      "instruction_sha256": "cdac88adbc768771decf678eca408b6d444d60b4a0c188753d7bf2c567cb257c",
+      "model": "gpt-6.1-sol",
+      "usage": null
+    },
+    {
+      "role": "uiux",
+      "job_id": "f4aed372-f1b7-4158-935e-67b05c403df6",
+      "agent_id": "agent_d3d97ae61bb64b64904cc7cf5d46608962c3ba382488474986",
+      "status": "prepared_offline",
+      "tool_name": "consult",
+      "tool_inputs": [
+        "request_text",
+        "shared_context"
+      ],
+      "live_job_id": "e92ae6a2-06f2-407d-894b-daca422bf8e9",
+      "live_status": "agent_complete",
+      "session_id": "sess_02535d940996b08d006ad4eed88ec4819998cfeb0446d991a7",
+      "instruction_sha256": "a19abe3e89ad9240d70a0dd214d2e31105c02327d3c6c8ee59dcb765615335fe",
+      "model": "gpt-6.1-sol",
+      "usage": null
+    },
+    {
+      "role": "delivery",
+      "job_id": "697d14ec-c846-4358-812c-6f95cee3ee1a",
+      "agent_id": "agent_dde1bb428017435781e22d8eff6856b28289a05d07e4417d9c",
+      "status": "prepared_offline",
+      "tool_name": "consult",
+      "tool_inputs": [
+        "request_text",
+        "shared_context"
+      ],
+      "live_job_id": "edeccf49-dea4-4e69-9702-5658670bf275",
+      "live_status": "agent_complete",
+      "session_id": "sess_08c4373b2668fb36006ad4eee35c9c819ba2a96dac11e410dc",
+      "instruction_sha256": "c14d08647cf60a732b15bde80b115a189f1b2980a42da5cf174db13c5fcb9fb8",
+      "model": "gpt-6-luna",
+      "usage": null
+    },
+    {
+      "role": "security",
+      "job_id": "18d04f9f-45a5-4b36-90d1-aa503e0ab33f",
+      "agent_id": "agent_936d139559ed4846bf4ae99b4ea828fc677fc0cd06c5459bbc",
+      "status": "prepared_offline",
+      "tool_name": "consult",
+      "tool_inputs": [
+        "request_text",
+        "shared_context"
+      ],
+      "live_job_id": "a9622e60-fcdc-4a9c-95ef-8ef809aa5ca3",
+      "live_status": "agent_complete",
+      "session_id": "sess_03de0a4556345198006ad4eef07e34819ab4efd3a502377042",
+      "instruction_sha256": "3047cdf922f0581dcbe55ebf370dd18d26feb161aa448cdca5c6174a80d2569f",
+      "model": "gpt-6.1-sol",
+      "usage": null
+    },
+    {
+      "role": "asset_analysis",
+      "job_id": "7b559c52-cfb8-4370-bb49-906daae2430a",
+      "agent_id": "agent_97ce1424226e487bafb0d876ac279ed12f634aaf2a4c431a85",
+      "status": "prepared_offline",
+      "tool_name": "consult",
+      "tool_inputs": [
+        "request_text",
+        "shared_context"
+      ],
+      "live_job_id": "27f592a6-aae4-4234-a2b6-dcb8f05f519f",
+      "live_status": "agent_complete",
+      "session_id": "sess_0552c4c46377a4f3006ad4eefd8014819890dbb852b0b4ae2a",
+      "instruction_sha256": "ef239fd3bffd1ea9c686ef843b873298b9dc0e3b563910474736ee93228168bf",
+      "model": "gpt-6.1-sol",
+      "usage": null
+    }
+  ],
+  "local_unit_tests_passed": 44
+}

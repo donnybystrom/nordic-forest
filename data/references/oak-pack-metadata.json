@@ -1,0 +1,246 @@
+{
+  "captured_at": "2026-10-18T11:49:12.271578+00:00",
+  "api_url": "https://api.sketchfab.com/v3/models/a5e4e64f9f1d4089bdcc6170a9333393",
+  "metadata": {
+    "animationCount": 0,
+    "categories": [
+      {
+        "uid": "1a99e2b67fc84de0b3ea0d3925208a04",
+        "name": "Nature & Plants",
+        "slug": "nature-plants",
+        "uri": "https://api.sketchfab.com/v3/categories/1a99e2b67fc84de0b3ea0d3925208a04",
+        "icon": "https://static.sketchfab.com/static/builds/web/dist/static/assets/images/icons/categories/98a605cec9718b6f02f1a5759039a5ad-v2.svg",
+        "thumbnails": [
+          {
+            "width": "512",
+            "height": "288",
+            "url": "https://static.sketchfab.com/categories/1a99e2b67fc84de0b3ea0d3925208a04/512x288.png"
+          },
+          {
+            "width": "800",
+            "height": "450",
+            "url": "https://static.sketchfab.com/categories/1a99e2b67fc84de0b3ea0d3925208a04/800x450.png"
+          }
+        ]
+      }
+    ],
+    "commentCount": 6,
+    "createdAt": "2026-09-04T10:07:01.939753",
+    "embedUrl": "https://sketchfab.com/models/a5e4e64f9f1d4089bdcc6170a9333393/embed",
+    "faceCount": 409422,
+    "isAgeRestricted": false,
+    "license": {
+      "uri": "https://api.sketchfab.com/v3/licenses/322a749bcfa841b29dff1e8a1bb74b0b",
+      "label": "CC Attribution",
+      "fullName": "Creative Commons Attribution",
+      "requirements": "Author must be credited. Commercial use is allowed.",
+      "url": "http://creativecommons.org/licenses/by/4.0/",
+      "slug": "by"
+    },
+    "likeCount": 147,
+    "name": "Oak trees pack (17var, LODs, seasons, gameready)",
+    "publishedAt": "2026-09-04T12:11:47.609364",
+    "soundCount": 0,
+    "staffpickedAt": null,
+    "tags": [
+      {
+        "name": "trees",
+        "slug": "trees",
+        "uri": "https://api.sketchfab.com/v3/tags/trees"
+      },
+      {
+        "name": "tree",
+        "slug": "tree",
+        "uri": "https://api.sketchfab.com/v3/tags/tree"
+      },
+      {
+        "name": "lod",
+        "slug": "lod",
+        "uri": "https://api.sketchfab.com/v3/tags/lod"
+      },
+      {
+        "name": "winter",
+        "slug": "winter",
+        "uri": "https://api.sketchfab.com/v3/tags/winter"
+      },
+      {
+        "name": "set",
+        "slug": "set",
+        "uri": "https://api.sketchfab.com/v3/tags/set"
+      },
+      {
+        "name": "oak",
+        "slug": "oak",
+        "uri": "https://api.sketchfab.com/v3/tags/oak"
+      },
+      {
+        "name": "pack",
+        "slug": "pack",
+        "uri": "https://api.sketchfab.com/v3/tags/pack"
+      },
+      {
+        "name": "spring",
+        "slug": "spring",
+        "uri": "https://api.sketchfab.com/v3/tags/spring"
+      },
+      {
+        "name": "summer",
+        "slug": "summer",
+        "uri": "https://api.sketchfab.com/v3/tags/summer"
+      },
+      {
+        "name": "foliage",
+        "slug": "foliage",
+        "uri": "https://api.sketchfab.com/v3/tags/foliage"
+      },
+      {
+        "name": "realistic",
+        "slug": "realistic",
+        "uri": "https://api.sketchfab.com/v3/tags/realistic"
+      },
+      {
+        "name": "nature",
+        "slug": "nature",
+        "uri": "https://api.sketchfab.com/v3/tags/nature"
+      },
+      {
+        "name": "optimized",
+        "slug": "optimized",
+        "uri": "https://api.sketchfab.com/v3/tags/optimized"
+      },
+      {
+        "name": "autumn",
+        "slug": "autumn",
+        "uri": "https://api.sketchfab.com/v3/tags/autumn"
+      },
+      {
+        "name": "seasons",
+        "slug": "seasons",
+        "uri": "https://api.sketchfab.com/v3/tags/seasons"
+      },
+      {
+        "name": "sapling",
+        "slug": "sapling",
+        "uri": "https://api.sketchfab.com/v3/tags/sapling"
+      },
+      {
+        "name": "lods",
+        "slug": "lods",
+        "uri": "https://api.sketchfab.com/v3/tags/lods"
+      },
+      {
+        "name": "lowpoly",
+        "slug": "lowpoly",
+        "uri": "https://api.sketchfab.com/v3/tags/lowpoly"
+      },
+      {
+        "name": "gameasset",
+        "slug": "gameasset",
+        "uri": "https://api.sketchfab.com/v3/tags/gameasset"
+      },
+      {
+        "name": "gameready",
+        "slug": "gameready",
+        "uri": "https://api.sketchfab.com/v3/tags/gameready"
+      }
+    ],
+    "thumbnails": {
+      "images": [
+        {
+          "uid": "6f7d3120c7ee4675aa4e67b25ff300ec",
+          "width": 1920,
+          "height": 1080,
+          "size": 231625,
+          "url": "https://media.sketchfab.com/models/a5e4e64f9f1d4089bdcc6170a9333393/thumbnails/e1cc5b109c9144368919fc8e710fa631/f0375f76a183467598dab6bad73cae4a.jpeg"
+        },
+        {
+          "uid": "7f991bfcda274ecb8c4be8c3ee533254",
+          "width": 1024,
+          "height": 576,
+          "size": 67224,
+          "url": "https://media.sketchfab.com/models/a5e4e64f9f1d4089bdcc6170a9333393/thumbnails/e1cc5b109c9144368919fc8e710fa631/5c21a8e9dc2f4cca9d2d92e9211f9b45.jpeg"
+        },
+        {
+          "uid": "6e489939364144f58f10bdae697da6ed",
+          "width": 720,
+          "height": 405,
+          "size": 37394,
+          "url": "https://media.sketchfab.com/models/a5e4e64f9f1d4089bdcc6170a9333393/thumbnails/e1cc5b109c9144368919fc8e710fa631/599f8fff2beb4ba09189930b8f5a4e1c.jpeg"
+        },
+        {
+          "uid": "0f2fc5e9e7244805b332e5bef4422373",
+          "width": 256,
+          "height": 144,
+          "size": 7089,
+          "url": "https://media.sketchfab.com/models/a5e4e64f9f1d4089bdcc6170a9333393/thumbnails/e1cc5b109c9144368919fc8e710fa631/b0fd024e64c74d2b82daae0595adaeaa.jpeg"
+        },
+        {
+          "uid": "63740e2363a74729860d2100dd9ada7c",
+          "width": 64,
+          "height": 36,
+          "size": 1402,
+          "url": "https://media.sketchfab.com/models/a5e4e64f9f1d4089bdcc6170a9333393/thumbnails/e1cc5b109c9144368919fc8e710fa631/0f86ab600a674a5c9448133b813a503c.jpeg"
+        }
+      ]
+    },
+    "uid": "a5e4e64f9f1d4089bdcc6170a9333393",
+    "uri": "https://api.sketchfab.com/v3/models/a5e4e64f9f1d4089bdcc6170a9333393",
+    "user": {
+      "uid": "eedc2ea8c939468aa0c08c17e9679484",
+      "username": "lolipop_1707",
+      "displayName": "LOLIPOP",
+      "account": "basic",
+      "profileUrl": "https://sketchfab.com/lolipop_1707",
+      "avatar": {
+        "uid": "5ffff02d93b040f0a0534aa7c2a933d8",
+        "uri": "https://api.sketchfab.com/v3/avatars/5ffff02d93b040f0a0534aa7c2a933d8",
+        "images": [
+          {
+            "width": 32,
+            "height": 32,
+            "size": 1126,
+            "url": "https://media.sketchfab.com/avatars/5ffff02d93b040f0a0534aa7c2a933d8/766d865f8ecf4f93985834617d7adb8d.jpeg"
+          },
+          {
+            "width": 48,
+            "height": 48,
+            "size": 1629,
+            "url": "https://media.sketchfab.com/avatars/5ffff02d93b040f0a0534aa7c2a933d8/9b2ae8eaaf8a45bbb6c2a43c7aec3dd4.jpeg"
+          },
+          {
+            "width": 90,
+            "height": 90,
+            "size": 3591,
+            "url": "https://media.sketchfab.com/avatars/5ffff02d93b040f0a0534aa7c2a933d8/08990facc0204452b3fa68d508c75913.jpeg"
+          },
+          {
+            "width": 100,
+            "height": 100,
+            "size": 4118,
+            "url": "https://media.sketchfab.com/avatars/5ffff02d93b040f0a0534aa7c2a933d8/72cdab66a8704aaea13f4b8f9a415d2a.jpeg"
+          }
+        ]
+      },
+      "uri": "https://api.sketchfab.com/v3/users/eedc2ea8c939468aa0c08c17e9679484"
+    },
+    "vertexCount": 395209,
+    "viewCount": 3988,
+    "viewerUrl": "https://sketchfab.com/3d-models/oak-trees-pack-17var-lods-seasons-gameready-a5e4e64f9f1d4089bdcc6170a9333393",
+    "isDownloadable": true,
+    "isProtected": false,
+    "description": "**Sketchfab deletes unused textures from file (season vars for billboards, MRAO vars)!** Uploaded all textures on [Google drive](https://drive.google.com/drive/folders/1h5BSaebMFbxedcDKRuokD_fvVOyvq2MO?usp=sharing) \n\n\n# Textures\n\nAll models share same texture sets:\n\n* Bark (1024x2048): Base Color, MRAO, Normal.\n\n* Branches (4096k -** 5 sets for summer, early and late autumn, winter, and spring**): Base Color (+Opacity), MRAO, Normal, SS amount.\n\nBillboards have their own texture sets from 1024k to 256. Billboard mat should be set to 1 sided.\n\n# Vertex Color\n\n* R - baked AO\n\n* G - gradient from 0 to 1  (starts at the base and fades out toward the tips)\n\n* B - blend for bark texture\n\n# Polycount (LOD0):\n\n* Large ~19-24k tris (double 37k)\n\n* Big ~10k tris (double 18k)\n\n* Medium ~6k tris\n\n* Small ~1.2k tris\n\n* Sapling ~170 tris\n\n# Other\n\n* **Vertex normals** setted up for more fluffy effect. Dont like it? Clear Custom Normals\n\n* Alt+G move all models to origin (Blender) - use on trees and empties\n\n* Done... (￣﹃￣)",
+    "price": null,
+    "downloadCount": 1614,
+    "editorUrl": "https://sketchfab.com/models/a5e4e64f9f1d4089bdcc6170a9333393/edit",
+    "status": {
+      "warning": {},
+      "processing": "SUCCEEDED"
+    },
+    "source": "website",
+    "hasCommentsDisabled": false,
+    "updatedAt": "2026-09-05T18:59:25.369406",
+    "pbrType": null,
+    "textureCount": 0,
+    "materialCount": 25
+  }
+}

@@ -1,0 +1,8 @@
+Task ID: M0-001-PLAN
+Prepare the implementation ticket for the first Nordic Forest engine and rendering experiment.
+Outcome: determine whether Godot Mobile and Forward+ can deliver the agreed Swedish forest identity on the target Mac before committing the production pipeline.
+Inputs: project brief, roadmap, engine decision proposal. No actual game scene or benchmark exists yet.
+Deliverable: dependency-ordered plan, artifact ownership, measurable visual/performance criteria, unknowns and exact experiments.
+Non-goals: implementing the game, asserting measured FPS, generating final assets, selecting the final folklore creature, creating remote sessions or changing OpenBumpkins.
+Include the complete milestone dependency graph in each proposed graph; do not reference missing milestone IDs.
+Human decisions needed: exact target Mac/RAM, region, period, visual reference approval and baseline frame-time target.

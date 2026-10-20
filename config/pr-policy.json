@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "repo": "donnybystrom/nordic-forest",
+  "base_branch": "main",
+  "required_check": "contracts",
+  "required_check_workflow": ".github/workflows/agent-harness.yml",
+  "automatic_merge": {
+    "allowed_prefixes": [
+      "docs/"
+    ],
+    "allowed_suffixes": [
+      ".md",
+      ".txt"
+    ],
+    "maximum_files": 6,
+    "maximum_changed_lines": 200,
+    "allow_deletions": false
+  },
+  "ownership": [
+    {
+      "prefixes": [
+        "prompts/",
+        "config/",
+        ".github/",
+        ".gitignore",
+        "forest_agents/bridge_",
+        "forest_agents/github_",
+        "forest_agents/pr_",
+        "docs/PROJECT.md",
+        "docs/ROADMAP.md",
+        "docs/decisions/",
+        "docs/AGENT-",
+        "docs/INDIE-WORKFLOW.md",
+        "docs/PR-DELIVERY.md"
+      ],
+      "unit": "agent_platform",
+      "review_roles": [
+        "technical_lead",
+        "qa",
+        "security"
+      ],
+      "human_decision": true
+    },
+    {
+      "prefixes": [
+        "integrations/",
+        "flows/",
+        "tools/",
+        "forest_agents/",
+        "tests/",
+        "pyproject.toml"
+      ],
+      "unit": "tooling_enablement",
+      "review_roles": [
+        "devx",
+        "qa"
+      ],
+      "human_decision": false
+    },
+    {
+      "prefixes": [
+        "data/references/",
+        "assets/"
+      ],
+      "unit": "asset_pipeline",
+      "review_roles": [
+        "asset_analysis",
+        "technical_artist",
+        "qa"
+      ],
+      "human_decision": false
+    },
+    {
+      "prefixes": [
+        "docs/",
+        "README.md"
+      ],
+      "unit": "knowledge",
+      "review_roles": [
+        "curator",
+        "qa"
+      ],
+      "human_decision": false
+    }
+  ],
+  "human_boundaries": [
+    "Permissions, credentials and execution capabilities",
+    "Agent instructions, governance and CI policy",
+    "Product direction, visual acceptance and licensing commitments",
+    "Unclassified changes"
+  ],
+  "note": "Local role reviews are validated from durable saved-agent jobs, not GitHub account identities or approval comments. One GitHub account may publish all role-labelled evidence. This local broker is not a repository-enforced security boundary.",
+  "required_review_roles": [
+    "curator",
+    "qa"
+  ],
+  "required_check_workflow_name": "Agent harness checks"
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": "0.1-draft",
+  "status": "uncalibrated_template_not_runtime_input",
+  "recipe_id": "replace_with_species_age_family",
+  "source_evidence": [],
+  "species": {"scientific_name": null, "locality": null, "age_class": null, "confidence": "unknown"},
+  "seed_contract": {
+    "algorithm_version": null,
+    "hierarchy": ["world_seed", "species_id", "tree_instance_id", "branch_id", "cluster_id"],
+    "requirement": "Editing one branch must not reroll unrelated branches or trees"
+  },
+  "architecture": {
+    "height_metres_distribution": null,
+    "crown_width_over_height_distribution": null,
+    "crown_start_normalized_height_distribution": null,
+    "trunk_radius_over_height_curve": null,
+    "lean_and_asymmetry_distribution": null,
+    "branch_order_profiles": [],
+    "generation_method": "to_be_selected_not_inferred_from_exported_mesh"
+  },
+  "bark": {
+    "texture_source_ids": [],
+    "uv_method": null,
+    "texels_per_metre": null,
+    "cut_end_material": null,
+    "channel_packing": null,
+    "source_vertex_channel_semantics": null
+  },
+  "foliage": {
+    "representation": "to_be_measured",
+    "allowed_representation_choices": ["fixed_cards", "bent_cards", "leaf_meshes", "camera_oriented_cards"],
+    "atlas_source_ids": [],
+    "atlas_variant_weights": null,
+    "terminal_cluster_profiles": [],
+    "placement_along_parent_distribution": null,
+    "card_scale_relative_to_cluster_distribution": null,
+    "inclination_azimuth_roll_distributions_degrees": null,
+    "orientation_frame": "branch tangent and outward crown direction; deterministic parallel-axis fallback",
+    "shading_normal_method": null,
+    "alpha_and_mipmap_policy": null,
+    "culling_policy": null,
+    "wind_mask_semantics": null
+  },
+  "lod": {
+    "selection_basis": "projected bounds and measured visual error; distance mapping records FOV/resolution",
+    "size_class_profiles": [],
+    "transition_hysteresis": null,
+    "impostor_type": null,
+    "impostor_capture_views_and_lighting": null,
+    "shadow_and_wind_continuity": null
+  },
+  "acceptance": {
+    "fixed_camera_comparisons": [],
+    "source_and_derivative_hashes": [],
+    "silhouette_and_gap_coverage_error": null,
+    "lod_transition_review": null,
+    "material_and_texture_memory_measurements": null,
+    "runtime_trial_ids": [],
+    "human_visual_acceptance": "pending"
+  }
+}
