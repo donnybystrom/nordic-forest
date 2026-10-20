@@ -1,0 +1,121 @@
+{
+  "verified_on": "2026-10-20",
+  "board_url": "https://github.com/users/donnybystrom/projects/2",
+  "original_status_ids_preserved": {
+    "Todo": "f75ad846",
+    "In Progress": "47fc9ee4",
+    "Done": "98236657"
+  },
+  "milestones": [
+    {
+      "number": 1,
+      "title": "A0 — Agent workflow foundation"
+    },
+    {
+      "number": 2,
+      "title": "R0 — Reference asset slice"
+    },
+    {
+      "number": 3,
+      "title": "M0 — Renderer and authoring decision"
+    }
+  ],
+  "cards": [
+    {
+      "issue_url": "https://github.com/donnybystrom/nordic-forest/issues/1",
+      "state": "In Review",
+      "owner_role": "technical_lead",
+      "agent_job": null
+    },
+    {
+      "issue_url": "https://github.com/donnybystrom/nordic-forest/issues/2",
+      "state": "In Review",
+      "owner_role": "product_lead",
+      "agent_job": null
+    },
+    {
+      "issue_url": "https://github.com/donnybystrom/nordic-forest/issues/3",
+      "state": "In Review",
+      "owner_role": "qa",
+      "agent_job": null
+    },
+    {
+      "issue_url": "https://github.com/donnybystrom/nordic-forest/issues/4",
+      "state": "Todo",
+      "owner_role": "asset_analysis",
+      "agent_job": null
+    },
+    {
+      "issue_url": "https://github.com/donnybystrom/nordic-forest/issues/5",
+      "state": "Todo",
+      "owner_role": "rendering",
+      "agent_job": null
+    },
+    {
+      "issue_url": "https://github.com/donnybystrom/nordic-forest/issues/7",
+      "state": "In Review",
+      "owner_role": "asset_analysis",
+      "agent_job": "7570bcf5-ce3b-4c5a-90e0-552693f188aa"
+    },
+    {
+      "issue_url": "https://github.com/donnybystrom/nordic-forest/issues/8",
+      "state": "Ready",
+      "owner_role": "rendering",
+      "agent_job": null
+    },
+    {
+      "issue_url": "https://github.com/donnybystrom/nordic-forest/issues/9",
+      "state": "Ready",
+      "owner_role": "qa",
+      "agent_job": null
+    },
+    {
+      "issue_url": "https://github.com/donnybystrom/nordic-forest/issues/10",
+      "state": "Blocked",
+      "owner_role": "art_director",
+      "agent_job": null
+    }
+  ],
+  "native_parents_verified": {
+    "7": 4,
+    "8": 5,
+    "9": 4,
+    "10": 5
+  },
+  "live_planning": {
+    "issue": 7,
+    "job_id": "7570bcf5-ce3b-4c5a-90e0-552693f188aa",
+    "session_id": "sess_040bef91ac9f6996006ad6efb6f2a0819a9c36bd8b8d3f263b",
+    "handover_comment": "https://github.com/donnybystrom/nordic-forest/issues/7#issuecomment-6283490325",
+    "handover_comment_count": 1,
+    "repeat_dispatch_job": "eb044d46-7fac-45d1-83e4-58da6a25d524",
+    "repeat_reused_same_child": true,
+    "parent_feature_state": "OPEN",
+    "feature_acceptance": "not_performed"
+  },
+  "langflow": {
+    "version": "1.12.6",
+    "flow_id": "76dba1bb-555e-4963-afa2-0f31cc14f548",
+    "flow_name": "05 — Planning Board",
+    "saved_component": "NF · Planning Board",
+    "native_offline_job": "74e2e8b4-96a7-40ca-91b7-adffdba01c25",
+    "native_live_inspect_job": "51feff57-28d8-4d9d-b41b-03ef5c4fc33a",
+    "tool_schema_arguments": [
+      "request_json"
+    ],
+    "live_tool_inspect_job": "79a2ff95-eb7e-455d-831a-85aa8ac4f7a6",
+    "dispatch_parent_job": "71dd0e3f-d7f5-4846-b4b3-3b5c1150c05c",
+    "execute_live_restored_to_false": true,
+    "final_bridge_field_write_job": "7ef38b1f-06e2-4bd2-9132-472a86bc2a66"
+  },
+  "local_checks": {
+    "unittest_count": 69,
+    "status": "passed"
+  },
+  "limits": [
+    "Explicit planning dispatch only; no autonomous backlog poller or implementation loop.",
+    "Sprint is a text tag, not a dated Iteration field.",
+    "External GitHub edits use optimistic checks, not a cross-system transaction."
+  ],
+  "github_query_path": "Bounded direct GraphQL for project fields, inventory and item writes."
+}

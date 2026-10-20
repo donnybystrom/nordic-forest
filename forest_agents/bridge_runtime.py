@@ -11,6 +11,7 @@ from typing import Literal
 
 from .contracts import Handover
 from .pr_review import LocalPRReview, PRCommand, PROFILE
+from .planning_board import BoardCommand
 from .job_store import canonical
 from .workflow import ROOT, SECRET_PATTERN, instructions_for, load_config, load_key, prepare, read_project_text, stage_payload
 
@@ -21,7 +22,7 @@ TERMINAL = {'completed', 'failed', 'cancelled'}
 class JobRequest(BaseModel):
     model_config = ConfigDict(extra='forbid', strict=True)
     project: Literal['nordic-forest'] = 'nordic-forest'
-    operation: Literal['plan_feature', 'collect_audit_reference', 'propose_agent_change', 'run_agent', 'github_pr', 'review_pr']
+    operation: Literal['plan_feature', 'collect_audit_reference', 'propose_agent_change', 'run_agent', 'github_pr', 'review_pr', 'planning_board']
     request: str = Field(min_length=1, max_length=10000)
     live: bool = False
     specialists: list[str] = Field(default_factory=list, max_length=2)
@@ -29,9 +30,12 @@ class JobRequest(BaseModel):
     shared_context: str = Field(default='', max_length=20000)
     github_request: PRCommand | None = None
     pr_number: int = Field(default=6,ge=1)
+    board_request: BoardCommand | None = None
+    ticket_issue: int = Field(default=0,ge=0)
 
     def checked(self):
         config = load_config()
+        if self.operation=='planning_board' and self.board_request is None:raise ValueError('Board command required')
         if self.operation == 'github_pr' and self.github_request is None:
             raise ValueError('GitHub command required')
         if self.operation == 'review_pr' and self.target_role not in {'curator','qa','technical_lead','devx','security'}:
@@ -51,6 +55,9 @@ class JobRequest(BaseModel):
         result=self.model_dump()
         if self.operation != 'github_pr': result.pop('github_request')
         if self.operation != 'review_pr': result.pop('pr_number')
+        if self.operation!='planning_board':result.pop('board_request')
+        if not self.ticket_issue:result.pop('ticket_issue')
+        if self.ticket_issue and self.operation!='run_agent':raise ValueError('Only a role consultation can carry a ticket reference')
         return result
 
 
@@ -223,6 +230,8 @@ class Runtime:
                 self.github_pr(jid)
             elif op == 'review_pr':
                 self.review_pr(jid)
+            elif op == 'planning_board':
+                self.planning_board(jid)
             else:
                 self.proposal(jid)
         except Cancelled:
@@ -236,6 +245,37 @@ class Runtime:
             # Do not log raw provider errors, request headers, URLs or credentials.
             self.store.update(jid, status='failed')
             self.store.event(jid, 'runtime', 'failed', {'error_type': type(exc).__name__})
+
+        finally:
+            current=self.store.get(jid)
+            if current['request'].get('ticket_issue') and current['status'] not in {'queued','running'}:
+                try:
+                    from .planning_board import sync_job
+                    outcome=sync_job(current)
+                    self.store.event(jid,'delivery','board_sync',outcome)
+                except Exception as exc:
+                    self.store.event(jid,'delivery','board_sync_failed',{'error_type':type(exc).__name__,'next_action':'Inspect the retained job; retry sync_job after reconciling the board.'})
+
+    def planning_board(self,jid):
+        from . import planning_board as board
+        job=self.store.get(jid);command=BoardCommand.model_validate(job['request']['board_request'])
+        result={'scope':'planning_board','action':command.action,'feature_acceptance':'not_performed'}
+        if not job['request']['live']:
+            self.store.update(jid,status='prepared_offline',result=dict(result,preview=command.model_dump(),remote_writes=0));return
+        self.check_cancel(jid)
+        self.store.update(jid,result=dict(result,dispatch_state='dispatching'))
+        try:
+            if command.action=='inspect':output=board.inspect(command.issue)
+            elif command.action=='create_ticket':output=board.create_ticket(command)
+            elif command.action=='set_state':output=board.set_state(command)
+            elif command.action=='dispatch_plan':output=board.dispatch_plan(command,self.store,self.submit_child)
+            elif command.action=='sync_job':output=board.sync_job(self.store.get(command.job_id))
+            else:output=board.link_pr(command)
+        except (RuntimeError,subprocess.TimeoutExpired):
+            if command.action!='inspect':raise UncertainDispatch('Board write needs remote reconciliation') from None
+            raise
+        self.store.update(jid,status='board_complete',result=dict(result,output=output,dispatch_state='returned'))
+        self.store.event(jid,'delivery','planning_board_result',{'action':command.action,'issue':command.issue,'child_job_id':output.get('job_id')})
 
     def github_pr(self, jid):
         from . import pr_delivery as delivery
