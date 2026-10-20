@@ -28,6 +28,7 @@ class Bridge:
         self.lock = threading.RLock()
         self.closed = threading.Event()
         self.worker = threading.Thread(target=self.work, daemon=True)
+        self.runtime.submit_child = self.submit
         self.worker.start()
         self.nonces = set()
         self.cookies = set()
@@ -76,7 +77,7 @@ class Bridge:
         states = job['result'].get('sessions', {}).values()
         if any(s.get('status') == 'dispatching' and not s.get('session_id') for s in states):
             raise Conflict('Unknown remote create outcome; inspect OpenAI sessions before any new dispatch')
-        if job['request']['operation'] == 'collect_audit_reference' or (job['request']['operation'] == 'github_pr' and job['request']['github_request']['action'] != 'inspect'):
+        if job['request']['operation'] == 'collect_audit_reference' or (job['request']['operation']=='planning_board' and job['request']['board_request']['action']!='inspect') or (job['request']['operation'] == 'github_pr' and job['request']['github_request']['action'] != 'inspect'):
             raise Conflict('Interrupted file or GitHub write requires inspecting retained evidence and remote state')
         self.store.update(jid, status='queued')
         self.enqueue(jid)

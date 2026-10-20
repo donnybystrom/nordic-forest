@@ -14,31 +14,31 @@
   "repo": "donnybystrom/nordic-forest",
   "issues": {
     "NF-F001": {
-      "body": "<!-- nordic-work-item:NF-F001 -->\n\nSubmit bounded work from Langflow and follow saved-agent sessions and evidence without duplicate starts.\n\nKind: Feature \u00b7 Sprint: Pilot 1 \u00b7 Priority: P0\nParent: none\n\nAcceptance:\n- [ ] Three imported flows run offline\n- [ ] One saved-agent planning chain completes\n- [ ] One reference audit completes\n- [ ] An agent proposal remains unpublished and reviewable\n- [ ] Idempotency, authorization and interruption checks pass\n\nPlanning proposal. Completion requires actual acceptance evidence.",
+      "body": "<!-- nordic-work-item:NF-F001 -->\n\nSubmit bounded work from Langflow and follow saved-agent sessions and evidence without duplicate starts.\n\nKind: Feature · Sprint: Pilot 1 · Priority: P0\nParent: none\n\nAcceptance:\n- [ ] Three imported flows run offline\n- [ ] One saved-agent planning chain completes\n- [ ] One reference audit completes\n- [ ] An agent proposal remains unpublished and reviewable\n- [ ] Idempotency, authorization and interruption checks pass\n\nPlanning proposal. Completion requires actual acceptance evidence.",
       "number": 1,
       "title": "NF-F001: Visual agent workflows with durable local jobs",
       "url": "https://github.com/donnybystrom/nordic-forest/issues/1"
     },
     "NF-S001": {
-      "body": "<!-- nordic-work-item:NF-S001 -->\n\nAs project owner I can inspect scope, ownership and acceptance evidence before agents implement a feature.\n\nKind: Story \u00b7 Sprint: Pilot 1 \u00b7 Priority: P0\nParent: NF-F001\n\nAcceptance:\n- [ ] Planning output is marked planning_only\n- [ ] Product, technical and QA handovers are visible\n- [ ] A plan cannot certify a game feature as complete\n\nPlanning proposal. Completion requires actual acceptance evidence.",
+      "body": "<!-- nordic-work-item:NF-S001 -->\n\nAs project owner I can inspect scope, ownership and acceptance evidence before agents implement a feature.\n\nKind: Story · Sprint: Pilot 1 · Priority: P0\nParent: NF-F001\n\nAcceptance:\n- [ ] Planning output is marked planning_only\n- [ ] Product, technical and QA handovers are visible\n- [ ] A plan cannot certify a game feature as complete\n\nPlanning proposal. Completion requires actual acceptance evidence.",
       "number": 2,
       "title": "NF-S001: Inspect and edit a feature plan before implementation",
       "url": "https://github.com/donnybystrom/nordic-forest/issues/2"
     },
     "NF-S002": {
-      "body": "<!-- nordic-work-item:NF-S002 -->\n\nAs project owner I can see the exact candidate diff, reviews and outstanding evaluation before deciding its direction.\n\nKind: Story \u00b7 Sprint: Pilot 1 \u00b7 Priority: P0\nParent: NF-F001\n\nAcceptance:\n- [ ] Decision is bound to the candidate result hash\n- [ ] Stale decision is rejected\n- [ ] No publication or self-approval endpoint exists\n\nPlanning proposal. Completion requires actual acceptance evidence.",
+      "body": "<!-- nordic-work-item:NF-S002 -->\n\nAs project owner I can see the exact candidate diff, reviews and outstanding evaluation before deciding its direction.\n\nKind: Story · Sprint: Pilot 1 · Priority: P0\nParent: NF-F001\n\nAcceptance:\n- [ ] Decision is bound to the candidate result hash\n- [ ] Stale decision is rejected\n- [ ] No publication or self-approval endpoint exists\n\nPlanning proposal. Completion requires actual acceptance evidence.",
       "number": 3,
       "title": "NF-S002: Review an agent change without silently activating it",
       "url": "https://github.com/donnybystrom/nordic-forest/issues/3"
     },
     "NF-F002": {
-      "body": "<!-- nordic-work-item:NF-F002 -->\n\nDeliver a reusable measured asset recipe and a source/derivative comparison.\n\nKind: Feature \u00b7 Sprint: Pilot 2 \u00b7 Priority: P1\nParent: none\n\nAcceptance:\n- [ ] Source and derivative hashes retained\n- [ ] One oak family relinked and checked in neutral views\n- [ ] One scan derivative compared against source\n- [ ] Godot scene records visual and frame-time evidence\n\nPlanning proposal. Completion requires actual acceptance evidence.",
+      "body": "<!-- nordic-work-item:NF-F002 -->\n\nDeliver a reusable measured asset recipe and a source/derivative comparison.\n\nKind: Feature · Sprint: Pilot 2 · Priority: P1\nParent: none\n\nAcceptance:\n- [ ] Source and derivative hashes retained\n- [ ] One oak family relinked and checked in neutral views\n- [ ] One scan derivative compared against source\n- [ ] Godot scene records visual and frame-time evidence\n\nPlanning proposal. Completion requires actual acceptance evidence.",
       "number": 4,
       "title": "NF-F002: R0-001: one tree family and one scan conversion",
       "url": "https://github.com/donnybystrom/nordic-forest/issues/4"
     },
     "NF-F003": {
-      "body": "<!-- nordic-work-item:NF-F003 -->\n\nEvaluate an editable forest scene and renderer choice on measured target hardware.\n\nKind: Feature \u00b7 Sprint: Unscheduled \u00b7 Priority: P1\nParent: none\n\nAcceptance:\n- [ ] Walkable small scene\n- [ ] Reproducible biome seed and painted override\n- [ ] Matched renderer comparison\n- [ ] Actual hardware and measurement protocol recorded\n\nPlanning proposal. Completion requires actual acceptance evidence.",
+      "body": "<!-- nordic-work-item:NF-F003 -->\n\nEvaluate an editable forest scene and renderer choice on measured target hardware.\n\nKind: Feature · Sprint: Unscheduled · Priority: P1\nParent: none\n\nAcceptance:\n- [ ] Walkable small scene\n- [ ] Reproducible biome seed and painted override\n- [ ] Matched renderer comparison\n- [ ] Actual hardware and measurement protocol recorded\n\nPlanning proposal. Completion requires actual acceptance evidence.",
       "number": 5,
       "title": "NF-F003: M0: small playable Swedish forest benchmark",
       "url": "https://github.com/donnybystrom/nordic-forest/issues/5"
@@ -48,22 +48,38 @@
     {
       "id": "PVTV_lAHOAB7poc4BnnYMzgMHulk",
       "name": "View 1",
-      "layout": "TABLE_LAYOUT"
+      "layout": "TABLE_LAYOUT",
+      "filter": null
     },
     {
       "id": "PVTV_lAHOAB7poc4BnnYMzgMHuzU",
       "name": "Board",
-      "layout": "BOARD_LAYOUT"
+      "layout": "BOARD_LAYOUT",
+      "filter": null
     },
     {
       "id": "PVTV_lAHOAB7poc4BnnYMzgMHuzY",
       "name": "Sprint Plan",
-      "layout": "TABLE_LAYOUT"
+      "layout": "TABLE_LAYOUT",
+      "filter": null
     },
     {
       "id": "PVTV_lAHOAB7poc4BnnYMzgMHuzc",
       "name": "Feature Map",
-      "layout": "TABLE_LAYOUT"
+      "layout": "TABLE_LAYOUT",
+      "filter": null
+    },
+    {
+      "id": "PVTV_lAHOAB7poc4BnnYMzgMJRwI",
+      "name": "Ready for agents",
+      "layout": "TABLE_LAYOUT",
+      "filter": "status:Ready"
+    },
+    {
+      "id": "PVTV_lAHOAB7poc4BnnYMzgMJRwY",
+      "name": "Needs input",
+      "layout": "TABLE_LAYOUT",
+      "filter": "status:Blocked"
     }
   ],
   "parent_links": [
@@ -75,5 +91,52 @@
       "story": "https://github.com/donnybystrom/nordic-forest/issues/3",
       "feature": "https://github.com/donnybystrom/nordic-forest/issues/1"
     }
-  ]
+  ],
+  "planning": {
+    "configured_on": "2026-10-20",
+    "statuses": [
+      "Todo",
+      "Ready",
+      "In Progress",
+      "In Review",
+      "Blocked",
+      "Done"
+    ],
+    "milestones": {
+      "A0 — Agent workflow foundation": 1,
+      "R0 — Reference asset slice": 2,
+      "M0 — Renderer and authoring decision": 3
+    },
+    "tickets": [
+      {
+        "url": "https://github.com/donnybystrom/nordic-forest/issues/7",
+        "issue": 7,
+        "created_or_reused": true,
+        "id": "NF-T001",
+        "owner_role": "asset_analysis"
+      },
+      {
+        "url": "https://github.com/donnybystrom/nordic-forest/issues/8",
+        "issue": 8,
+        "created_or_reused": true,
+        "id": "NF-T002",
+        "owner_role": "rendering"
+      },
+      {
+        "url": "https://github.com/donnybystrom/nordic-forest/issues/9",
+        "issue": 9,
+        "created_or_reused": true,
+        "id": "NF-T003",
+        "owner_role": "qa"
+      },
+      {
+        "url": "https://github.com/donnybystrom/nordic-forest/issues/10",
+        "issue": 10,
+        "created_or_reused": true,
+        "id": "NF-T004",
+        "owner_role": "art_director"
+      }
+    ],
+    "scope": "explicit_ready_ticket_planning_dispatch_only"
+  }
 }

@@ -1,6 +1,6 @@
 # Installed Langflow bridge
 
-Installed and checked on 18 October 2026 in IBM Langflow Desktop **1.12.6**. Project **Nordic Forest** contains three imported flows connected as **Chat Input → Nordic Job Bridge → Chat Output**. The existing empty New Flow was retained.
+Installed and checked on 18 October 2026 in IBM Langflow Desktop **1.12.6**. The original pilot in **Nordic Forest** has three flows connected as **Chat Input → Nordic Job Bridge → Chat Output**. The existing empty New Flow was retained.
 
 | Flow | Desktop flow ID | Operation |
 | --- | --- | --- |
@@ -85,3 +85,7 @@ The GitHub board and issue hierarchy are provisioned separately through the expl
 ## PR-verktyg · lokal orkestrering
 
 **NF · PR Control** och **04 — PR Control** är tillagda för ett gemensamt GitHub-konto, lokala rollgranskningar och styrda PR-operationer. Läs [PR-rutinen](PR-DELIVERY.md) för kommandon, mandat, ändringshantering och rollback. Den kompletterar de 15 rollkomponenterna; den ger dem inte en generell shell.
+
+## GitHub Projects planning
+
+**05 — Planning Board** and saved **NF · Planning Board** add board inspection, typed ticket creation/state changes, explicit Ready-ticket planning dispatch, handover sync and PR reference linking. Preview is the default; Tool Mode exposes only `request_json`. See [the planning guide](PLANNING-BOARD.md) for examples, current scope and recovery. Desktop flow ID: `76dba1bb-555e-4963-afa2-0f31cc14f548`.
