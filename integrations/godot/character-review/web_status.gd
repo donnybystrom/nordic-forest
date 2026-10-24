@@ -38,7 +38,7 @@ func _publish() -> void:
 		var ball_position: Vector3 = sandbox.ball.global_position
 		state.merge({"hips":[hips.x,hips.y,hips.z], "ball_contacts":sandbox.ball_contacts, "bodies":sandbox.bodies.size(), "joints":sandbox.joints.size(),
 			"dragging":sandbox.dragging, "ball_screen":[ball_point.x,ball_point.y], "mass":sandbox.ball.mass,
-			"ball_position":[ball_position.x,ball_position.y,ball_position.z],
+			"ball_position":[ball_position.x,ball_position.y,ball_position.z], "ball_resets":sandbox.ball_resets,
 			"skin_samples":sandbox.modifier_samples, "skin_error":sandbox.max_skin_pose_error,
 			"muscles":sandbox.muscles, "balance":sandbox.balance, "support_force":sandbox.last_support_force.length()})
 	JavaScriptBridge.eval("window.__ragdollDemo=" + JSON.stringify(state) + ";", true)

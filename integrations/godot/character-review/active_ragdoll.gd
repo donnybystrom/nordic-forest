@@ -40,6 +40,7 @@ var elapsed := 0.0
 var modifier_samples := 0
 var max_skin_pose_error := 0.0
 var joint_gap_peak := {}
+var ball_resets := 0
 
 func configure(owner_view: Node) -> void:
 	view = owner_view
@@ -263,6 +264,7 @@ func reset_pose() -> void:
 	reset_ball()
 
 func reset_ball() -> void:
+	ball_resets += 1
 	end_drag()
 	ball.global_position = root_body().global_position - view.camera.global_basis.x * 0.85 + view.camera.global_basis.z * 0.05 + Vector3.DOWN * 0.3
 	ball.global_position.y = maxf(ball.global_position.y, 0.35)

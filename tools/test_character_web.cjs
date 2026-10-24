@@ -92,8 +92,11 @@ function distance(a,b){return Math.hypot(...a.map((n,i)=>n-b[i]));}
     assert(s.ball_contacts>contacts,'The launched ball must collide with a body');
     assert(maxDisplacement>0.008,'Ball contact must physically displace the character');
     await page.screenshot({path:path.join(output,`${s.model}-web-hit.png`)});
+    const resets=(await state()).ball_resets;
     await page.keyboard.press('b');
-    s=await until(n=>Math.abs(n.ball_position[1]-.17)<.025,'Ball settles before mouse pick',20000);
+    // The pre-key snapshot may already show the old ball resting off screen.
+    await until(n=>n.ball_resets>resets,'Ball reset acknowledged');
+    s=await until(n=>Math.abs(n.ball_position[1]-.17)<.002&&n.ball_screen[0]>30&&n.ball_screen[0]<n.viewport[0]-30&&n.ball_screen[1]>500&&n.ball_screen[1]<n.viewport[1]-30,'Reset ball settles visibly before mouse pick',30000);
     const initialBall=s.ball_position,p=await screen(s.ball_screen);
     // Give the software-rendered canvas a frame to observe pointer entry.
     await page.mouse.move(p.x,p.y);await sleep(350);await page.mouse.down();
