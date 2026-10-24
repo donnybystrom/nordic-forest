@@ -1,0 +1,68 @@
+{
+	"characters": [
+		{
+			"assisted_recovery_error_m": 0.00053531932644546,
+			"ball_body_contacts": 3,
+			"baseline_max_body_speed_m_s": 0.0544198453426361,
+			"bodies": 17,
+			"dragged_ball_distance_m": 0.263020694255829,
+			"ground_contacts": 171,
+			"id": "beach-zombie-female",
+			"joint_gap_peak": {
+				"bone": "RightForeArm",
+				"clip": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+				"elapsed_s": 19.1916666666662,
+				"passive": false
+			},
+			"joints": 16,
+			"mass_kg": 65.0,
+			"max_animation_body_speed_m_s": 10.1876049041748,
+			"max_hit_displacement_m": 0.0567046590149403,
+			"max_joint_gap_m": 0.0488344393670559,
+			"max_skin_pose_error_m": 0.000000302552280118107,
+			"motor_target_clips_tested": 13,
+			"passive_hips_height_m": 0.182605773210526,
+			"skin_pose_samples": 8701,
+			"unsupported_hips_height_m": 0.281966388225555
+		},
+		{
+			"assisted_recovery_error_m": 0.000309134775307029,
+			"ball_body_contacts": 7,
+			"baseline_max_body_speed_m_s": 0.0453948341310024,
+			"bodies": 17,
+			"dragged_ball_distance_m": 0.26360234618187,
+			"ground_contacts": 210,
+			"id": "beach-tourist-male",
+			"joint_gap_peak": {
+				"bone": "LeftLeg",
+				"clip": "",
+				"elapsed_s": 67.8166666666667,
+				"passive": true
+			},
+			"joints": 16,
+			"mass_kg": 95.0,
+			"max_animation_body_speed_m_s": 9.84523105621338,
+			"max_hit_displacement_m": 0.0479941926896572,
+			"max_joint_gap_m": 0.0323079079389572,
+			"max_skin_pose_error_m": 0.000000358944816980511,
+			"motor_target_clips_tested": 13,
+			"passive_hips_height_m": 0.127517238259315,
+			"skin_pose_samples": 8701,
+			"unsupported_hips_height_m": 0.355676472187042
+		}
+	],
+	"drag_ray_pick_and_mouse_handlers": "pass",
+	"engine": "4.7.1-stable (official)",
+	"focus_loss_releases_drag": "pass",
+	"limits": [
+		"Bounded virtual pelvis support; no autonomous balance, stepping or foot IK.",
+		"Broad joint limits and approximate mass/collision shapes; nearest two joint neighbors do not collide.",
+		"Scripted input events exercise handlers; not an OS mouse gesture test."
+	],
+	"mode_switch_and_reset": "pass",
+	"model_cleanup": "pass",
+	"physics_backend": "Jolt Physics",
+	"physics_hz": 120,
+	"sliders_and_debug_persist_across_models": "pass",
+	"status": "pass"
+}

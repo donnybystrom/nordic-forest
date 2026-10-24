@@ -1,0 +1,9 @@
+{
+	"bind_pose_reset": "pass",
+	"clips_switched": 13,
+	"limits": [
+		"Exercises UI signal paths; orbit/zoom mouse gestures were not automated."
+	],
+	"pause_resume_and_scrub": "pass",
+	"status": "pass"
+}

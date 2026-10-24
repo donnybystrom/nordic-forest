@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "default_clip": "Meshy_Unsteady_Walk",
+  "motion_manifest": "assets/generated/characters/beach-tourist-zombie-v1/shared-motions-v1/retarget-report.json",
+  "characters": [
+    {
+      "id": "beach-zombie-female",
+      "name": "Strandzombie · kvinna",
+      "source": "assets/models/zombies/rodin-tpose-working-v1/Rodin_TPose_Working_v1.glb",
+      "scene": "res://character.glb",
+      "bones": 52,
+      "physics_mass_kg": 65.0,
+      "texture_size": 2048,
+      "eight_bone_weights": true,
+      "rest_pose": "T-pose"
+    },
+    {
+      "id": "beach-tourist-male",
+      "name": "Strandzombie · man",
+      "source": "assets/generated/characters/beach-tourist-zombie-v1/shared-motions-v1/character-animated.glb",
+      "scene": "res://characters/beach-tourist/character.glb",
+      "bones": 22,
+      "physics_mass_kg": 95.0,
+      "texture_size": 4096,
+      "eight_bone_weights": false,
+      "rest_pose": "A-pose"
+    }
+  ]
+}

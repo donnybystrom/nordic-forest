@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "default_clip": "Meshy_Unsteady_Walk",
+  "motion_manifest": "assets/generated/characters/beach-tourist-zombie-v1/shared-motions-v1/retarget-report.json",
+  "characters": [
+    {
+      "id": "beach-zombie-female",
+      "name": "Strandzombie · kvinna",
+      "source": "assets/models/zombies/rodin-tpose-working-v1/Rodin_TPose_Working_v1.glb",
+      "scene": "res://character.glb",
+      "bones": 52,
+      "physics_mass_kg": 65.0,
+      "texture_size": 2048,
+      "eight_bone_weights": true,
+      "rest_pose": "T-pose",
+      "sha256": "7d5dd21b31af547b56a4e5220ba5240efe8d7674020d0e4bd61d1b3851f5d6c2"
+    },
+    {
+      "id": "beach-tourist-male",
+      "name": "Strandzombie · man",
+      "source": "assets/generated/characters/beach-tourist-zombie-v1/shared-motions-v1/character-animated.glb",
+      "scene": "res://characters/beach-tourist/character.glb",
+      "bones": 22,
+      "physics_mass_kg": 95.0,
+      "texture_size": 4096,
+      "eight_bone_weights": false,
+      "rest_pose": "A-pose",
+      "sha256": "1b954f1d8d1faad3ae91496e61e66c6593f95e8a3ad980415371021bfeff9f36"
+    }
+  ],
+  "clips": [
+    {
+      "name": "Meshy_Unsteady_Walk",
+      "duration_seconds": 2.966666666666667
+    },
+    {
+      "name": "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "duration_seconds": 5.966666666666667
+    },
+    {
+      "name": "Meshy__01a16049_24f1_7632_af79_b07a1749f28a",
+      "duration_seconds": 5.966666666666667
+    },
+    {
+      "name": "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "duration_seconds": 6.966666666666667
+    },
+    {
+      "name": "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a",
+      "duration_seconds": 9.966666666666667
+    },
+    {
+      "name": "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8",
+      "duration_seconds": 2.966666666666667
+    },
+    {
+      "name": "Meshy__01a1603b_85e4_72f4_a035_f56410039b21",
+      "duration_seconds": 2.966666666666667
+    },
+    {
+      "name": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+      "duration_seconds": 2.966666666666667
+    },
+    {
+      "name": "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "duration_seconds": 3.966666666666667
+    },
+    {
+      "name": "Meshy_Walking",
+      "duration_seconds": 1.0333333333333334
+    },
+    {
+      "name": "Meshy_Running",
+      "duration_seconds": 0.6333333333333333
+    },
+    {
+      "name": "Rodin_HumanWalking2",
+      "duration_seconds": 1.6333333333333333
+    },
+    {
+      "name": "Rodin_HumanZombieCrawl",
+      "duration_seconds": 5.133333333333334
+    }
+  ]
+}

@@ -1,0 +1,369 @@
+{
+  "status": "pass",
+  "glb_scenes": 1,
+  "glb_meshes": 1,
+  "clips": 11,
+  "bones": 66,
+  "duration_errors_seconds": {
+    "Unsteady_Walk": 0.0,
+    "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068": 0.0,
+    "_01a16049_24f1_7632_af79_b07a1749f28a": 0.0,
+    "_01a16046_4c28_71a1_a0e5_4d32b6433f57": 0.0,
+    "_01a16043_e8e4_7705_974e_7295ad5d516a": 0.0,
+    "_01a16041_fe77_7650_9473_3f9eddba89a8": 0.0,
+    "_01a1603b_85e4_72f4_a035_f56410039b21": 0.0,
+    "_01a16039_5f64_76cf_9834_0ae151e56f17": 0.0,
+    "_01a16035_50c7_77d5_ba64_7c2f02b6f422": 0.0,
+    "Walking": 0.0,
+    "Running": 0.0
+  },
+  "topology_before_export": {
+    "vertices": 48114,
+    "edges": 144480,
+    "triangles": 96320,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "loose_vertices": 0
+  },
+  "rest_mapping_max_error_m": 6.039682602931862e-07,
+  "roundtrip_pose_samples": [
+    {
+      "animation": "Unsteady_Walk",
+      "phase": 0,
+      "max_vertex_error_m": 2.6911468495695526e-05,
+      "mean_vertex_error_m": 2.866893213567059e-07
+    },
+    {
+      "animation": "Unsteady_Walk",
+      "phase": 0.25,
+      "max_vertex_error_m": 2.2394264026775316e-05,
+      "mean_vertex_error_m": 2.494117455831124e-07
+    },
+    {
+      "animation": "Unsteady_Walk",
+      "phase": 0.5,
+      "max_vertex_error_m": 2.4659239401947223e-05,
+      "mean_vertex_error_m": 2.6824419869309493e-07
+    },
+    {
+      "animation": "Unsteady_Walk",
+      "phase": 0.75,
+      "max_vertex_error_m": 2.8727599264151944e-05,
+      "mean_vertex_error_m": 3.2792856497961497e-07
+    },
+    {
+      "animation": "Unsteady_Walk",
+      "phase": 1,
+      "max_vertex_error_m": 2.687227692549069e-05,
+      "mean_vertex_error_m": 3.146342466856055e-07
+    },
+    {
+      "animation": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "phase": 0,
+      "max_vertex_error_m": 2.7187367674346216e-05,
+      "mean_vertex_error_m": 2.6457096605992107e-07
+    },
+    {
+      "animation": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "phase": 0.25,
+      "max_vertex_error_m": 3.4003339748500356e-05,
+      "mean_vertex_error_m": 2.837208642661989e-07
+    },
+    {
+      "animation": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "phase": 0.5,
+      "max_vertex_error_m": 2.375059085421507e-05,
+      "mean_vertex_error_m": 3.9714337852045764e-07
+    },
+    {
+      "animation": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "phase": 0.75,
+      "max_vertex_error_m": 1.7775219438567406e-05,
+      "mean_vertex_error_m": 2.710327922767221e-07
+    },
+    {
+      "animation": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "phase": 1,
+      "max_vertex_error_m": 2.5699596005751753e-05,
+      "mean_vertex_error_m": 3.2293357161995197e-07
+    },
+    {
+      "animation": "_01a16049_24f1_7632_af79_b07a1749f28a",
+      "phase": 0,
+      "max_vertex_error_m": 2.2913591686935916e-05,
+      "mean_vertex_error_m": 3.0539260393676717e-07
+    },
+    {
+      "animation": "_01a16049_24f1_7632_af79_b07a1749f28a",
+      "phase": 0.25,
+      "max_vertex_error_m": 1.890956768376986e-05,
+      "mean_vertex_error_m": 3.1915590036872986e-07
+    },
+    {
+      "animation": "_01a16049_24f1_7632_af79_b07a1749f28a",
+      "phase": 0.5,
+      "max_vertex_error_m": 2.0790751372439215e-05,
+      "mean_vertex_error_m": 2.199788589287769e-07
+    },
+    {
+      "animation": "_01a16049_24f1_7632_af79_b07a1749f28a",
+      "phase": 0.75,
+      "max_vertex_error_m": 2.388434889179231e-05,
+      "mean_vertex_error_m": 2.2602904874523937e-07
+    },
+    {
+      "animation": "_01a16049_24f1_7632_af79_b07a1749f28a",
+      "phase": 1,
+      "max_vertex_error_m": 2.3936650400896446e-05,
+      "mean_vertex_error_m": 4.656369975182282e-07
+    },
+    {
+      "animation": "_01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "phase": 0,
+      "max_vertex_error_m": 4.050996874368101e-05,
+      "mean_vertex_error_m": 3.634832138315481e-07
+    },
+    {
+      "animation": "_01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "phase": 0.25,
+      "max_vertex_error_m": 5.983612441349578e-05,
+      "mean_vertex_error_m": 5.35788500016836e-07
+    },
+    {
+      "animation": "_01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "phase": 0.5,
+      "max_vertex_error_m": 6.521151301806559e-05,
+      "mean_vertex_error_m": 6.862934812698543e-07
+    },
+    {
+      "animation": "_01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "phase": 0.75,
+      "max_vertex_error_m": 6.802642359957599e-05,
+      "mean_vertex_error_m": 6.396493661306398e-07
+    },
+    {
+      "animation": "_01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "phase": 1,
+      "max_vertex_error_m": 3.4201433949067435e-05,
+      "mean_vertex_error_m": 5.234354276909037e-07
+    },
+    {
+      "animation": "_01a16043_e8e4_7705_974e_7295ad5d516a",
+      "phase": 0,
+      "max_vertex_error_m": 5.950667107597316e-05,
+      "mean_vertex_error_m": 5.153495523004553e-07
+    },
+    {
+      "animation": "_01a16043_e8e4_7705_974e_7295ad5d516a",
+      "phase": 0.25,
+      "max_vertex_error_m": 6.955455986369985e-05,
+      "mean_vertex_error_m": 5.584686886221063e-07
+    },
+    {
+      "animation": "_01a16043_e8e4_7705_974e_7295ad5d516a",
+      "phase": 0.5,
+      "max_vertex_error_m": 6.988171336990392e-05,
+      "mean_vertex_error_m": 6.62780947011005e-07
+    },
+    {
+      "animation": "_01a16043_e8e4_7705_974e_7295ad5d516a",
+      "phase": 0.75,
+      "max_vertex_error_m": 5.089535179089174e-05,
+      "mean_vertex_error_m": 5.735061225962408e-07
+    },
+    {
+      "animation": "_01a16043_e8e4_7705_974e_7295ad5d516a",
+      "phase": 1,
+      "max_vertex_error_m": 6.126942903505336e-05,
+      "mean_vertex_error_m": 4.656399049094201e-07
+    },
+    {
+      "animation": "_01a16041_fe77_7650_9473_3f9eddba89a8",
+      "phase": 0,
+      "max_vertex_error_m": 2.8864730069579322e-05,
+      "mean_vertex_error_m": 3.6828541677525396e-07
+    },
+    {
+      "animation": "_01a16041_fe77_7650_9473_3f9eddba89a8",
+      "phase": 0.25,
+      "max_vertex_error_m": 5.717726812146371e-05,
+      "mean_vertex_error_m": 6.116957602362347e-07
+    },
+    {
+      "animation": "_01a16041_fe77_7650_9473_3f9eddba89a8",
+      "phase": 0.5,
+      "max_vertex_error_m": 4.786521114626954e-05,
+      "mean_vertex_error_m": 5.406665704884925e-07
+    },
+    {
+      "animation": "_01a16041_fe77_7650_9473_3f9eddba89a8",
+      "phase": 0.75,
+      "max_vertex_error_m": 5.01666331116464e-05,
+      "mean_vertex_error_m": 6.048510918931048e-07
+    },
+    {
+      "animation": "_01a16041_fe77_7650_9473_3f9eddba89a8",
+      "phase": 1,
+      "max_vertex_error_m": 2.9240148836445956e-05,
+      "mean_vertex_error_m": 4.849094174450238e-07
+    },
+    {
+      "animation": "_01a1603b_85e4_72f4_a035_f56410039b21",
+      "phase": 0,
+      "max_vertex_error_m": 3.0619534063667354e-05,
+      "mean_vertex_error_m": 2.475373153148423e-07
+    },
+    {
+      "animation": "_01a1603b_85e4_72f4_a035_f56410039b21",
+      "phase": 0.25,
+      "max_vertex_error_m": 3.659865946656734e-05,
+      "mean_vertex_error_m": 4.083755667204614e-07
+    },
+    {
+      "animation": "_01a1603b_85e4_72f4_a035_f56410039b21",
+      "phase": 0.5,
+      "max_vertex_error_m": 3.725581157773714e-05,
+      "mean_vertex_error_m": 3.0943180446224316e-07
+    },
+    {
+      "animation": "_01a1603b_85e4_72f4_a035_f56410039b21",
+      "phase": 0.75,
+      "max_vertex_error_m": 4.500628281821762e-05,
+      "mean_vertex_error_m": 2.8902220392802986e-07
+    },
+    {
+      "animation": "_01a1603b_85e4_72f4_a035_f56410039b21",
+      "phase": 1,
+      "max_vertex_error_m": 4.4053074804813026e-05,
+      "mean_vertex_error_m": 4.58815060874879e-07
+    },
+    {
+      "animation": "_01a16039_5f64_76cf_9834_0ae151e56f17",
+      "phase": 0,
+      "max_vertex_error_m": 3.8284107882613204e-05,
+      "mean_vertex_error_m": 4.965454959901051e-07
+    },
+    {
+      "animation": "_01a16039_5f64_76cf_9834_0ae151e56f17",
+      "phase": 0.25,
+      "max_vertex_error_m": 4.040311917261651e-05,
+      "mean_vertex_error_m": 5.90261608029461e-07
+    },
+    {
+      "animation": "_01a16039_5f64_76cf_9834_0ae151e56f17",
+      "phase": 0.5,
+      "max_vertex_error_m": 3.636962894510585e-05,
+      "mean_vertex_error_m": 5.283045180384087e-07
+    },
+    {
+      "animation": "_01a16039_5f64_76cf_9834_0ae151e56f17",
+      "phase": 0.75,
+      "max_vertex_error_m": 5.2550613460698774e-05,
+      "mean_vertex_error_m": 7.237797068244665e-07
+    },
+    {
+      "animation": "_01a16039_5f64_76cf_9834_0ae151e56f17",
+      "phase": 1,
+      "max_vertex_error_m": 5.210448360677782e-05,
+      "mean_vertex_error_m": 3.742111568764582e-07
+    },
+    {
+      "animation": "_01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "phase": 0,
+      "max_vertex_error_m": 5.966309014024426e-05,
+      "mean_vertex_error_m": 3.986764896637864e-07
+    },
+    {
+      "animation": "_01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "phase": 0.25,
+      "max_vertex_error_m": 6.24387050935428e-05,
+      "mean_vertex_error_m": 4.4930578905526103e-07
+    },
+    {
+      "animation": "_01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "phase": 0.5,
+      "max_vertex_error_m": 6.007633911284247e-05,
+      "mean_vertex_error_m": 4.604000532687988e-07
+    },
+    {
+      "animation": "_01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "phase": 0.75,
+      "max_vertex_error_m": 6.39008929771082e-05,
+      "mean_vertex_error_m": 4.535644315109742e-07
+    },
+    {
+      "animation": "_01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "phase": 1,
+      "max_vertex_error_m": 6.070755930482056e-05,
+      "mean_vertex_error_m": 8.676713906139774e-07
+    },
+    {
+      "animation": "Walking",
+      "phase": 0,
+      "max_vertex_error_m": 2.4818093102652478e-05,
+      "mean_vertex_error_m": 3.2552480260625417e-07
+    },
+    {
+      "animation": "Walking",
+      "phase": 0.25,
+      "max_vertex_error_m": 2.9655950185588197e-05,
+      "mean_vertex_error_m": 4.008832063113375e-07
+    },
+    {
+      "animation": "Walking",
+      "phase": 0.5,
+      "max_vertex_error_m": 2.6891983061735318e-05,
+      "mean_vertex_error_m": 4.6148545262946185e-07
+    },
+    {
+      "animation": "Walking",
+      "phase": 0.75,
+      "max_vertex_error_m": 3.1596625430765534e-05,
+      "mean_vertex_error_m": 4.059114665688444e-07
+    },
+    {
+      "animation": "Walking",
+      "phase": 1,
+      "max_vertex_error_m": 2.494210915123264e-05,
+      "mean_vertex_error_m": 2.916307051284682e-07
+    },
+    {
+      "animation": "Running",
+      "phase": 0,
+      "max_vertex_error_m": 3.5972085210888124e-05,
+      "mean_vertex_error_m": 3.728420126310925e-07
+    },
+    {
+      "animation": "Running",
+      "phase": 0.25,
+      "max_vertex_error_m": 3.1070925713093615e-05,
+      "mean_vertex_error_m": 4.652253155143086e-07
+    },
+    {
+      "animation": "Running",
+      "phase": 0.5,
+      "max_vertex_error_m": 5.186113835704367e-05,
+      "mean_vertex_error_m": 5.935882339368467e-07
+    },
+    {
+      "animation": "Running",
+      "phase": 0.75,
+      "max_vertex_error_m": 4.4382815319430245e-05,
+      "mean_vertex_error_m": 5.291758309731177e-07
+    },
+    {
+      "animation": "Running",
+      "phase": 1,
+      "max_vertex_error_m": 3.587862033841384e-05,
+      "mean_vertex_error_m": 5.085037257302168e-07
+    }
+  ],
+  "roundtrip_pose_max_error_m": 6.988171336990392e-05,
+  "source_vertices": 48114,
+  "imported_vertices_with_uv_material_splits": 58553,
+  "animation_timing": "30fps export preserves original clip seconds; verification includes subframe sample times",
+  "limitations": [
+    "This does not certify hand anatomy, self-intersection-free motion or Godot runtime acceptance.",
+    "New contact surfaces use sampled skin-color materials rather than recovered missing texture detail."
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "status": "pass",
+  "date": "2026-10-22",
+  "scope": "Two-character Godot animation review; no active-ragdoll acceptance",
+  "rodin_credits_this_step": 0,
+  "rodin_credits_pilot_total": 0.5,
+  "motion_transfer": {
+    "clips": 13,
+    "frames": 1607,
+    "mapped_body_bones": 22,
+    "unmapped_finger_bones": 30,
+    "max_rotation_error_degrees": 1.7302844014466245e-05,
+    "blender_roundtrip_samples": 65,
+    "max_roundtrip_vertex_error_m": 1.841308608376176e-05,
+    "source_hashes_verified_unchanged": true,
+    "report": "assets/generated/characters/beach-tourist-zombie-v1/shared-motions-v1/retarget-report.json"
+  },
+  "godot_assets": {
+    "characters": [
+      {
+        "bones": 52,
+        "clip_max_joint_displacement_m": {
+          "Meshy_Running": 0.927515387535095,
+          "Meshy_Unsteady_Walk": 0.650774657726288,
+          "Meshy_Walking": 0.603473126888275,
+          "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422": 3.30145049095154,
+          "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17": 1.98979890346527,
+          "Meshy__01a1603b_85e4_72f4_a035_f56410039b21": 2.25500059127808,
+          "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8": 1.00486481189728,
+          "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a": 1.23076927661896,
+          "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57": 2.2286810874939,
+          "Meshy__01a16049_24f1_7632_af79_b07a1749f28a": 0.134370803833008,
+          "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068": 0.33557665348053,
+          "Rodin_HumanWalking2": 0.917522788047791,
+          "Rodin_HumanZombieCrawl": 2.18158674240112
+        },
+        "clips": 13,
+        "eight_bone_weights": true,
+        "id": "beach-zombie-female",
+        "max_duration_error_seconds": 4.45048016217697e-07,
+        "pose_samples": 65,
+        "skin_binds": 52,
+        "texture_width": 2048,
+        "validated_track_paths": 689
+      },
+      {
+        "bones": 22,
+        "clip_max_joint_displacement_m": {
+          "Meshy_Running": 0.772880792617798,
+          "Meshy_Unsteady_Walk": 0.621486186981201,
+          "Meshy_Walking": 0.500732004642487,
+          "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422": 3.11758065223694,
+          "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17": 2.10799670219421,
+          "Meshy__01a1603b_85e4_72f4_a035_f56410039b21": 2.02708959579468,
+          "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8": 0.945955336093903,
+          "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a": 1.14858973026276,
+          "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57": 2.21624493598938,
+          "Meshy__01a16049_24f1_7632_af79_b07a1749f28a": 0.118482239544392,
+          "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068": 0.403382420539856,
+          "Rodin_HumanWalking2": 0.874831736087799,
+          "Rodin_HumanZombieCrawl": 2.16286993026733
+        },
+        "clips": 13,
+        "eight_bone_weights": false,
+        "id": "beach-tourist-male",
+        "max_duration_error_seconds": 4.45048016217697e-07,
+        "pose_samples": 65,
+        "skin_binds": 22,
+        "texture_width": 4096,
+        "validated_track_paths": 299
+      }
+    ],
+    "engine": "4.7.1-stable (official)",
+    "limits": [
+      "Import, track resolution and finite moving bone transforms; no foot-contact or physics acceptance."
+    ],
+    "status": "pass"
+  },
+  "godot_controls": {
+    "buttons_wrap_and_keyboard": "pass",
+    "clips_switched": 26,
+    "limits": [
+      "Exercises UI signal and keyboard handler paths; mouse orbit/zoom gestures were not automated."
+    ],
+    "model_switch_preserves_clip_phase_speed_pause": "pass",
+    "models": 2,
+    "one_active_character": "pass",
+    "pause_resume_and_scrub": "pass",
+    "rest_pose_reset": "pass",
+    "status": "pass",
+    "third_catalog_entry": "pass"
+  },
+  "build": {
+    "asset_copies_match_sources": true,
+    "repeat_preserves_asset_script_import_mtimes": true
+  },
+  "renders": [
+    {
+      "path": "output/zombie-beach/rodin-tpose-v1/beach-tourist-male-Meshy_Unsteady_Walk.png",
+      "sha256": "1b3ead01528026971a5ffd8fa019c05f1b1b3ba3b887437871bef750292b9eb1"
+    },
+    {
+      "path": "output/zombie-beach/rodin-tpose-v1/beach-tourist-male-Rodin_HumanZombieCrawl.png",
+      "sha256": "37107df6c4e2e11fa4ca09717eebf17ac21b2a4064b2a2f0e861bfdd442c7d2b"
+    },
+    {
+      "path": "output/zombie-beach/rodin-tpose-v1/beach-zombie-female-Meshy_Unsteady_Walk.png",
+      "sha256": "7c17cc9c798918b7b33f04b2d289e24fbe908ddc0e4d726af0fb96c3b7a2a7fe"
+    },
+    {
+      "path": "output/zombie-beach/rodin-tpose-v1/beach-zombie-female-Rodin_HumanZombieCrawl.png",
+      "sha256": "4c1fe1352bd869dcfbeeb9dafd087dad3337c0787f2cae7511b331e1bd8539ef"
+    }
+  ],
+  "render_device": "Apple M1 Pro, Godot OpenGL Compatibility",
+  "code": [
+    {
+      "path": "integrations/godot/character-review/smoke.gd",
+      "sha256": "e889e4d04b04599b86d1d85500ca33a6c57382f520d3df43c976d153cba49301"
+    },
+    {
+      "path": "integrations/godot/character-review/review.tscn",
+      "sha256": "0f05f662b418999565497deaa76335e3003fa5e7f25d00911c1620c576d348cc"
+    },
+    {
+      "path": "integrations/godot/character-review/ui_smoke.gd",
+      "sha256": "cbd970505f98f8a164d51ccd7d10564c7d4fd13ce26a551ebb41599b9d3129ad"
+    },
+    {
+      "path": "integrations/godot/character-review/project.godot",
+      "sha256": "68e7f1175c4aaf82d203a076e65f159ff8fb0daca450a32fbf12a4e5f218756a"
+    },
+    {
+      "path": "integrations/godot/character-review/review.gd",
+      "sha256": "0351f3f7898a09c6be3323da6217c59658949da897de8ca9ad9e0691eb2eb47e"
+    },
+    {
+      "path": "config/character-review-catalog.json",
+      "sha256": "bded6d1e6c8a2f3e3a106193f5f7fb8e19bea0c1a86370bd7a5c6ee236607c9f"
+    },
+    {
+      "path": "tools/build_character_review.py",
+      "sha256": "bfecc72134e8945849bf0fc381c3073c56a8f602125cbc5c2239ea9487ba8306"
+    },
+    {
+      "path": "tools/retarget_character_motions.py",
+      "sha256": "0c6c9d4809f3e44098d9b6ce2c0398febdb7aec3b5b22b0bdad44653e341857a"
+    },
+    {
+      "path": "tools/open_character_review.command",
+      "sha256": "ba8bb1baec5e9241a682136af2a4e171d48007e65aa0bbedcf210812e27eedf7"
+    }
+  ],
+  "limits": [
+    "No planted-foot IK, balance, self-collision or active-ragdoll acceptance.",
+    "Male target has no separate finger motion.",
+    "UI signal and keyboard handlers tested; OS mouse gestures were not automated."
+  ]
+}

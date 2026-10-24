@@ -89,3 +89,7 @@ The GitHub board and issue hierarchy are provisioned separately through the expl
 ## GitHub Projects planning
 
 **05 — Planning Board** and saved **NF · Planning Board** add board inspection, typed ticket creation/state changes, explicit Ready-ticket planning dispatch, handover sync and PR reference linking. Preview is the default; Tool Mode exposes only `request_json`. See [the planning guide](PLANNING-BOARD.md) for examples, current scope and recovery. Desktop flow ID: `76dba1bb-555e-4963-afa2-0f31cc14f548`.
+
+## Character production
+
+**06 — Character Pipeline · Rodin** and saved **NF · Character Pipeline** add reference-sheet cropping, generation review, Rodin generation/download and a local Blender body-rig stage with explicit landmark profiles and GLB skinning validation. The adapter records provider credit receipts; local rigging consumes no Rodin credits. Concept generation, production motion, retargeting and active ragdoll remain later stages. See [the character pipeline](CHARACTER-PIPELINE.md). Desktop flow ID: `3996f3e4-d15b-4974-a07f-268c45d8fecd`.

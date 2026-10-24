@@ -7,7 +7,7 @@ name = "nordic-forest-agents"
 version = "0.1.0"
 description = "Evidence-based planning harness for Nordic 3D Forest"
 requires-python = ">=3.11"
-dependencies = ["openai-agents==0.24.0", "openai==3.35.1", "pydantic==2.14.1"]
+dependencies = ["openai-agents==0.24.0", "openai==3.35.1", "pydantic==2.14.1", "Pillow>=11,<13"]
 
 [tool.setuptools.packages.find]
 include = ["forest_agents*"]

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "rest",
+    "clip": null,
+    "frame": 0
+  },
+  {
+    "name": "meshy-walk",
+    "clip": "Meshy_Unsteady_Walk",
+    "frame": 34
+  },
+  {
+    "name": "rodin-crawl",
+    "clip": "Rodin_HumanZombieCrawl",
+    "frame": 74
+  }
+]

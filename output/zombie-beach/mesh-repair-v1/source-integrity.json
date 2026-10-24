@@ -1,0 +1,38 @@
+{
+  "sources": [
+    {
+      "file": "assets/models/zombies/Meshy_AI_Beachside_Revenant_All_Animations-Blender-Rigify.glb",
+      "source_hash_unchanged": true,
+      "geometry_hashes": {
+        "POSITION": "34d96770107abb0d28b126daf9006bf5ae82b79ea4e2a112edf5e6bba449d794",
+        "NORMAL": "bc7032e59e72c2a0193f9c424e45c41c2536e765a7816dd776c3a8fc1b32a28e",
+        "TEXCOORD_0": "8fe1016bd2356339b18f4e50b6b3191533f32795d4c34f9544dabca178cb97e9"
+      },
+      "triangle_indices_hash": "c40ad106eb78c87a960e8b96e87dc60d2a08d2b633b486d56e9f5276eca07851"
+    },
+    {
+      "file": "assets/models/zombies/Meshy_AI_Beachside_Revenant_All_Animations-Mixamo.glb",
+      "source_hash_unchanged": true,
+      "geometry_hashes": {
+        "POSITION": "34d96770107abb0d28b126daf9006bf5ae82b79ea4e2a112edf5e6bba449d794",
+        "NORMAL": "bc7032e59e72c2a0193f9c424e45c41c2536e765a7816dd776c3a8fc1b32a28e",
+        "TEXCOORD_0": "8fe1016bd2356339b18f4e50b6b3191533f32795d4c34f9544dabca178cb97e9"
+      },
+      "triangle_indices_hash": "c40ad106eb78c87a960e8b96e87dc60d2a08d2b633b486d56e9f5276eca07851"
+    },
+    {
+      "file": "assets/models/zombies/Meshy_AI_Beachside_Revenant_All_Animations-UE5_Mannequin.glb",
+      "source_hash_unchanged": true,
+      "geometry_hashes": {
+        "POSITION": "34d96770107abb0d28b126daf9006bf5ae82b79ea4e2a112edf5e6bba449d794",
+        "NORMAL": "bc7032e59e72c2a0193f9c424e45c41c2536e765a7816dd776c3a8fc1b32a28e",
+        "TEXCOORD_0": "8fe1016bd2356339b18f4e50b6b3191533f32795d4c34f9544dabca178cb97e9"
+      },
+      "triangle_indices_hash": "c40ad106eb78c87a960e8b96e87dc60d2a08d2b633b486d56e9f5276eca07851"
+    }
+  ],
+  "position_arrays_identical": true,
+  "normals_identical": true,
+  "uv_arrays_identical": true,
+  "triangle_indices_identical": true
+}

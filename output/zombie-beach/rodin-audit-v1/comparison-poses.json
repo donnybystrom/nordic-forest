@@ -1,0 +1,23 @@
+{
+  "columns": [
+    "original PBR",
+    "candidate weights + normal strength .65"
+  ],
+  "rows_top_to_bottom": [
+    {
+      "case": "walking",
+      "frame": 20,
+      "action": "HumanWalking2"
+    },
+    {
+      "case": "crawling",
+      "frame": 74,
+      "action": "HumanZombieCrawl"
+    },
+    {
+      "case": "arms90",
+      "frame": 0,
+      "action": "Custom symmetric arm abduction to horizontal; no animation"
+    }
+  ]
+}

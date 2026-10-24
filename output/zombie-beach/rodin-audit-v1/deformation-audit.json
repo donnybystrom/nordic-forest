@@ -1,0 +1,4668 @@
+[
+  {
+    "mode": "walking",
+    "object": "Rodin_walking_Mesh",
+    "action": "HumanWalking2",
+    "fps": 30,
+    "duration_seconds": 1.6333333333333333,
+    "vertices": 27138,
+    "triangles": 30000,
+    "bones": 52,
+    "height_m": 1.8973418864745568,
+    "rest_bounds": {
+      "min": [
+        -0.3238733410835266,
+        -0.1840665340423584,
+        -3.905481804622468e-08
+      ],
+      "max": [
+        0.3251994550228119,
+        0.18620550632476807,
+        1.8973418474197388
+      ]
+    },
+    "weight_sum_range": [
+      0.9999999031424522,
+      1.0000000968575478
+    ],
+    "influence_counts": {
+      "2": 7354,
+      "3": 4104,
+      "6": 189,
+      "5": 1330,
+      "4": 3379,
+      "7": 85,
+      "8": 30,
+      "1": 10667
+    },
+    "topology_after_analysis_only_uv_seam_weld": {
+      "welded_vertices": 14980,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "loose_vertices": 0
+    },
+    "cross_arm_leg_edges": {
+      "(1, 3)": 0,
+      "(2, 4)": 0,
+      "(1, 4)": 0,
+      "(2, 3)": 0
+    },
+    "samples": [
+      {
+        "frame": 0,
+        "max_edge_growth_m": 0.09834389818097744,
+        "edges_growth_over_2cm": 178,
+        "edges_growth_over_5cm": 43,
+        "severe_ratio_over_5_and_growth_over_2cm": 10
+      },
+      {
+        "frame": 1,
+        "max_edge_growth_m": 0.09574037833143678,
+        "edges_growth_over_2cm": 172,
+        "edges_growth_over_5cm": 39,
+        "severe_ratio_over_5_and_growth_over_2cm": 10
+      },
+      {
+        "frame": 2,
+        "max_edge_growth_m": 0.0937034780344731,
+        "edges_growth_over_2cm": 169,
+        "edges_growth_over_5cm": 36,
+        "severe_ratio_over_5_and_growth_over_2cm": 9
+      },
+      {
+        "frame": 3,
+        "max_edge_growth_m": 0.09062201580447798,
+        "edges_growth_over_2cm": 173,
+        "edges_growth_over_5cm": 33,
+        "severe_ratio_over_5_and_growth_over_2cm": 7
+      },
+      {
+        "frame": 4,
+        "max_edge_growth_m": 0.08707127851158616,
+        "edges_growth_over_2cm": 168,
+        "edges_growth_over_5cm": 32,
+        "severe_ratio_over_5_and_growth_over_2cm": 7
+      },
+      {
+        "frame": 5,
+        "max_edge_growth_m": 0.08389029937737724,
+        "edges_growth_over_2cm": 168,
+        "edges_growth_over_5cm": 27,
+        "severe_ratio_over_5_and_growth_over_2cm": 6
+      },
+      {
+        "frame": 6,
+        "max_edge_growth_m": 0.08179900141677693,
+        "edges_growth_over_2cm": 170,
+        "edges_growth_over_5cm": 21,
+        "severe_ratio_over_5_and_growth_over_2cm": 5
+      },
+      {
+        "frame": 7,
+        "max_edge_growth_m": 0.08058061148722412,
+        "edges_growth_over_2cm": 166,
+        "edges_growth_over_5cm": 19,
+        "severe_ratio_over_5_and_growth_over_2cm": 5
+      },
+      {
+        "frame": 8,
+        "max_edge_growth_m": 0.07908251730982922,
+        "edges_growth_over_2cm": 161,
+        "edges_growth_over_5cm": 15,
+        "severe_ratio_over_5_and_growth_over_2cm": 5
+      },
+      {
+        "frame": 9,
+        "max_edge_growth_m": 0.0761817857164518,
+        "edges_growth_over_2cm": 154,
+        "edges_growth_over_5cm": 13,
+        "severe_ratio_over_5_and_growth_over_2cm": 5
+      },
+      {
+        "frame": 10,
+        "max_edge_growth_m": 0.07195424836646376,
+        "edges_growth_over_2cm": 147,
+        "edges_growth_over_5cm": 12,
+        "severe_ratio_over_5_and_growth_over_2cm": 4
+      },
+      {
+        "frame": 11,
+        "max_edge_growth_m": 0.06762095763140676,
+        "edges_growth_over_2cm": 142,
+        "edges_growth_over_5cm": 9,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 12,
+        "max_edge_growth_m": 0.06458721591184932,
+        "edges_growth_over_2cm": 134,
+        "edges_growth_over_5cm": 7,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 13,
+        "max_edge_growth_m": 0.06344260556162895,
+        "edges_growth_over_2cm": 125,
+        "edges_growth_over_5cm": 8,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 14,
+        "max_edge_growth_m": 0.06375064092738958,
+        "edges_growth_over_2cm": 122,
+        "edges_growth_over_5cm": 8,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 15,
+        "max_edge_growth_m": 0.06452786500268826,
+        "edges_growth_over_2cm": 127,
+        "edges_growth_over_5cm": 8,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 16,
+        "max_edge_growth_m": 0.06482138368148035,
+        "edges_growth_over_2cm": 117,
+        "edges_growth_over_5cm": 8,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 17,
+        "max_edge_growth_m": 0.06403122560815136,
+        "edges_growth_over_2cm": 102,
+        "edges_growth_over_5cm": 9,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 18,
+        "max_edge_growth_m": 0.062023328546665105,
+        "edges_growth_over_2cm": 97,
+        "edges_growth_over_5cm": 9,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 19,
+        "max_edge_growth_m": 0.05906465211400076,
+        "edges_growth_over_2cm": 89,
+        "edges_growth_over_5cm": 5,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 20,
+        "max_edge_growth_m": 0.05691904644107068,
+        "edges_growth_over_2cm": 79,
+        "edges_growth_over_5cm": 5,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 21,
+        "max_edge_growth_m": 0.05658996497782458,
+        "edges_growth_over_2cm": 70,
+        "edges_growth_over_5cm": 2,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 22,
+        "max_edge_growth_m": 0.05589017183298213,
+        "edges_growth_over_2cm": 60,
+        "edges_growth_over_5cm": 1,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 23,
+        "max_edge_growth_m": 0.05502374331649684,
+        "edges_growth_over_2cm": 53,
+        "edges_growth_over_5cm": 1,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 24,
+        "max_edge_growth_m": 0.054084004503409,
+        "edges_growth_over_2cm": 49,
+        "edges_growth_over_5cm": 1,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 25,
+        "max_edge_growth_m": 0.05291218390605129,
+        "edges_growth_over_2cm": 44,
+        "edges_growth_over_5cm": 1,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 26,
+        "max_edge_growth_m": 0.05121664056892654,
+        "edges_growth_over_2cm": 52,
+        "edges_growth_over_5cm": 1,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 27,
+        "max_edge_growth_m": 0.04884230184060649,
+        "edges_growth_over_2cm": 57,
+        "edges_growth_over_5cm": 0,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 28,
+        "max_edge_growth_m": 0.046159489544904786,
+        "edges_growth_over_2cm": 61,
+        "edges_growth_over_5cm": 0,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 29,
+        "max_edge_growth_m": 0.04357720603641879,
+        "edges_growth_over_2cm": 68,
+        "edges_growth_over_5cm": 0,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 30,
+        "max_edge_growth_m": 0.04244129960236213,
+        "edges_growth_over_2cm": 74,
+        "edges_growth_over_5cm": 0,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 31,
+        "max_edge_growth_m": 0.04416971056612077,
+        "edges_growth_over_2cm": 72,
+        "edges_growth_over_5cm": 0,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 32,
+        "max_edge_growth_m": 0.04574819720644203,
+        "edges_growth_over_2cm": 70,
+        "edges_growth_over_5cm": 0,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 33,
+        "max_edge_growth_m": 0.04699202863098937,
+        "edges_growth_over_2cm": 56,
+        "edges_growth_over_5cm": 0,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 34,
+        "max_edge_growth_m": 0.04775320027446848,
+        "edges_growth_over_2cm": 49,
+        "edges_growth_over_5cm": 0,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 35,
+        "max_edge_growth_m": 0.047951114969452764,
+        "edges_growth_over_2cm": 37,
+        "edges_growth_over_5cm": 0,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 36,
+        "max_edge_growth_m": 0.0476208350732694,
+        "edges_growth_over_2cm": 30,
+        "edges_growth_over_5cm": 0,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 37,
+        "max_edge_growth_m": 0.04723240875283175,
+        "edges_growth_over_2cm": 36,
+        "edges_growth_over_5cm": 0,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 38,
+        "max_edge_growth_m": 0.048158133017867776,
+        "edges_growth_over_2cm": 47,
+        "edges_growth_over_5cm": 0,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 39,
+        "max_edge_growth_m": 0.051720245787184656,
+        "edges_growth_over_2cm": 62,
+        "edges_growth_over_5cm": 2,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 40,
+        "max_edge_growth_m": 0.05731430637972911,
+        "edges_growth_over_2cm": 75,
+        "edges_growth_over_5cm": 5,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 41,
+        "max_edge_growth_m": 0.06508134282214137,
+        "edges_growth_over_2cm": 91,
+        "edges_growth_over_5cm": 11,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 42,
+        "max_edge_growth_m": 0.07101172856616955,
+        "edges_growth_over_2cm": 103,
+        "edges_growth_over_5cm": 15,
+        "severe_ratio_over_5_and_growth_over_2cm": 3
+      },
+      {
+        "frame": 43,
+        "max_edge_growth_m": 0.07524892565003781,
+        "edges_growth_over_2cm": 109,
+        "edges_growth_over_5cm": 17,
+        "severe_ratio_over_5_and_growth_over_2cm": 4
+      },
+      {
+        "frame": 44,
+        "max_edge_growth_m": 0.0787116804412484,
+        "edges_growth_over_2cm": 117,
+        "edges_growth_over_5cm": 19,
+        "severe_ratio_over_5_and_growth_over_2cm": 4
+      },
+      {
+        "frame": 45,
+        "max_edge_growth_m": 0.08196705886817077,
+        "edges_growth_over_2cm": 123,
+        "edges_growth_over_5cm": 21,
+        "severe_ratio_over_5_and_growth_over_2cm": 4
+      },
+      {
+        "frame": 46,
+        "max_edge_growth_m": 0.08526283734254456,
+        "edges_growth_over_2cm": 129,
+        "edges_growth_over_5cm": 26,
+        "severe_ratio_over_5_and_growth_over_2cm": 7
+      },
+      {
+        "frame": 47,
+        "max_edge_growth_m": 0.08867348399088798,
+        "edges_growth_over_2cm": 142,
+        "edges_growth_over_5cm": 31,
+        "severe_ratio_over_5_and_growth_over_2cm": 7
+      },
+      {
+        "frame": 48,
+        "max_edge_growth_m": 0.09237795875769653,
+        "edges_growth_over_2cm": 158,
+        "edges_growth_over_5cm": 33,
+        "severe_ratio_over_5_and_growth_over_2cm": 8
+      },
+      {
+        "frame": 49,
+        "max_edge_growth_m": 0.09834862684878964,
+        "edges_growth_over_2cm": 178,
+        "edges_growth_over_5cm": 43,
+        "severe_ratio_over_5_and_growth_over_2cm": 10
+      }
+    ],
+    "max_growth_edges": [
+      {
+        "edge": 51746,
+        "max_growth_m": 0.09834862684878964,
+        "max_ratio": 3.605352822120307,
+        "worst_frame": 49,
+        "a": {
+          "id": 13023,
+          "rest": [
+            0.16348493099212646,
+            0.022739462554454803,
+            1.299324870109558
+          ],
+          "weights": {
+            "LeftArm": 0.6158729791641235,
+            "Spine1": 0.3589743375778198,
+            "Spine": 0.01953601837158203,
+            "Hips": 0.005616605281829834
+          }
+        },
+        "b": {
+          "id": 13848,
+          "rest": [
+            0.15877315402030945,
+            0.014966044574975967,
+            1.2626869678497314
+          ],
+          "weights": {
+            "Hips": 0.35164836049079895,
+            "Spine": 0.3313797414302826,
+            "Spine1": 0.30280831456184387,
+            "LeftArm": 0.014163614250719547
+          }
+        }
+      },
+      {
+        "edge": 37884,
+        "max_growth_m": 0.09827936748760077,
+        "max_ratio": 3.2328811790144236,
+        "worst_frame": 49,
+        "a": {
+          "id": 13021,
+          "rest": [
+            0.15790462493896484,
+            0.025388484820723534,
+            1.2557458877563477
+          ],
+          "weights": {
+            "Spine": 0.345947265625,
+            "Hips": 0.337158203125,
+            "Spine1": 0.277587890625,
+            "LeftArm": 0.039306640625
+          }
+        },
+        "b": {
+          "id": 13023,
+          "rest": [
+            0.16348493099212646,
+            0.022739462554454803,
+            1.299324870109558
+          ],
+          "weights": {
+            "LeftArm": 0.6158729791641235,
+            "Spine1": 0.3589743375778198,
+            "Spine": 0.01953601837158203,
+            "Hips": 0.005616605281829834
+          }
+        }
+      },
+      {
+        "edge": 31191,
+        "max_growth_m": 0.09827936748760077,
+        "max_ratio": 3.2328811790144236,
+        "worst_frame": 49,
+        "a": {
+          "id": 13020,
+          "rest": [
+            0.15790462493896484,
+            0.025388484820723534,
+            1.2557458877563477
+          ],
+          "weights": {
+            "Spine": 0.345947265625,
+            "Hips": 0.337158203125,
+            "Spine1": 0.277587890625,
+            "LeftArm": 0.039306640625
+          }
+        },
+        "b": {
+          "id": 13022,
+          "rest": [
+            0.16348493099212646,
+            0.022739462554454803,
+            1.299324870109558
+          ],
+          "weights": {
+            "LeftArm": 0.6158729791641235,
+            "Spine1": 0.3589743375778198,
+            "Spine": 0.01953601837158203,
+            "Hips": 0.005616605281829834
+          }
+        }
+      },
+      {
+        "edge": 11401,
+        "max_growth_m": 0.09647620088324124,
+        "max_ratio": 4.894992391970801,
+        "worst_frame": 49,
+        "a": {
+          "id": 9121,
+          "rest": [
+            0.12419811636209488,
+            0.09060121327638626,
+            1.3201624155044556
+          ],
+          "weights": {
+            "Spine1": 0.9462759494781494,
+            "LeftArm": 0.053724054247140884
+          }
+        },
+        "b": {
+          "id": 10019,
+          "rest": [
+            0.14786574244499207,
+            0.0855419784784317,
+            1.3254317045211792
+          ],
+          "weights": {
+            "LeftArm": 0.6610500812530518,
+            "Spine1": 0.33894994854927063
+          }
+        }
+      },
+      {
+        "edge": 38856,
+        "max_growth_m": 0.09644668951942648,
+        "max_ratio": 5.086258580813678,
+        "worst_frame": 0,
+        "a": {
+          "id": 9125,
+          "rest": [
+            0.12642015516757965,
+            0.09482809901237488,
+            1.3221238851547241
+          ],
+          "weights": {
+            "Spine1": 0.9225885272026062,
+            "LeftArm": 0.0774114802479744
+          }
+        },
+        "b": {
+          "id": 10019,
+          "rest": [
+            0.14786574244499207,
+            0.0855419784784317,
+            1.3254317045211792
+          ],
+          "weights": {
+            "LeftArm": 0.6610500812530518,
+            "Spine1": 0.33894994854927063
+          }
+        }
+      },
+      {
+        "edge": 54347,
+        "max_growth_m": 0.08941263409870237,
+        "max_ratio": 4.191749135158849,
+        "worst_frame": 49,
+        "a": {
+          "id": 1679,
+          "rest": [
+            -0.1532924473285675,
+            0.026944661512970924,
+            1.3285726308822632
+          ],
+          "weights": {
+            "RightArm": 0.7347985506057739,
+            "Spine1": 0.26520147919654846
+          }
+        },
+        "b": {
+          "id": 1779,
+          "rest": [
+            -0.15062165260314941,
+            -8.993852134153713e-06,
+            1.3214218616485596
+          ],
+          "weights": {
+            "Spine1": 0.988034188747406,
+            "RightArm": 0.011965812183916569
+          }
+        }
+      },
+      {
+        "edge": 47565,
+        "max_growth_m": 0.08566532970371493,
+        "max_ratio": 2.957824318697926,
+        "worst_frame": 0,
+        "a": {
+          "id": 1678,
+          "rest": [
+            -0.15280751883983612,
+            0.024165339767932892,
+            1.3362230062484741
+          ],
+          "weights": {
+            "RightArm": 0.7145299315452576,
+            "Spine1": 0.2854700982570648
+          }
+        },
+        "b": {
+          "id": 1778,
+          "rest": [
+            -0.14556965231895447,
+            -0.01895759627223015,
+            1.3346235752105713
+          ],
+          "weights": {
+            "Spine1": 0.9985347986221313,
+            "RightArm": 0.0014652014942839742
+          }
+        }
+      },
+      {
+        "edge": 25292,
+        "max_growth_m": 0.08446462957290499,
+        "max_ratio": 4.214240461254418,
+        "worst_frame": 49,
+        "a": {
+          "id": 8531,
+          "rest": [
+            0.1279328465461731,
+            0.09647832065820694,
+            1.328334093093872
+          ],
+          "weights": {
+            "Spine1": 0.7946276068687439,
+            "LeftArm": 0.2053724080324173
+          }
+        },
+        "b": {
+          "id": 9128,
+          "rest": [
+            0.15120239555835724,
+            0.08453592658042908,
+            1.3308745622634888
+          ],
+          "weights": {
+            "LeftArm": 0.7235653400421143,
+            "Spine1": 0.27643468976020813
+          }
+        }
+      },
+      {
+        "edge": 47564,
+        "max_growth_m": 0.08383869166457171,
+        "max_ratio": 3.948978155128544,
+        "worst_frame": 49,
+        "a": {
+          "id": 1678,
+          "rest": [
+            -0.15280751883983612,
+            0.024165339767932892,
+            1.3362230062484741
+          ],
+          "weights": {
+            "RightArm": 0.7145299315452576,
+            "Spine1": 0.2854700982570648
+          }
+        },
+        "b": {
+          "id": 1779,
+          "rest": [
+            -0.15062165260314941,
+            -8.993852134153713e-06,
+            1.3214218616485596
+          ],
+          "weights": {
+            "Spine1": 0.988034188747406,
+            "RightArm": 0.011965812183916569
+          }
+        }
+      },
+      {
+        "edge": 13187,
+        "max_growth_m": 0.07807793145700896,
+        "max_ratio": 4.3597541585623345,
+        "worst_frame": 0,
+        "a": {
+          "id": 1681,
+          "rest": [
+            -0.1521778255701065,
+            0.038308024406433105,
+            1.3170645236968994
+          ],
+          "weights": {
+            "RightArm": 0.6566544771194458,
+            "Spine1": 0.3433455526828766
+          }
+        },
+        "b": {
+          "id": 1780,
+          "rest": [
+            -0.14944912493228912,
+            0.025301646441221237,
+            1.2980002164840698
+          ],
+          "weights": {
+            "Spine1": 0.9926739931106567,
+            "RightArm": 0.007326007355004549
+          }
+        }
+      },
+      {
+        "edge": 20029,
+        "max_growth_m": 0.07807793145700896,
+        "max_ratio": 4.3597541585623345,
+        "worst_frame": 0,
+        "a": {
+          "id": 1682,
+          "rest": [
+            -0.1521778255701065,
+            0.038308024406433105,
+            1.3170645236968994
+          ],
+          "weights": {
+            "RightArm": 0.6566544771194458,
+            "Spine1": 0.3433455526828766
+          }
+        },
+        "b": {
+          "id": 1781,
+          "rest": [
+            -0.14944912493228912,
+            0.025301646441221237,
+            1.2980002164840698
+          ],
+          "weights": {
+            "Spine1": 0.9926739931106567,
+            "RightArm": 0.007326007355004549
+          }
+        }
+      },
+      {
+        "edge": 3933,
+        "max_growth_m": 0.07671089744372661,
+        "max_ratio": 3.4661395982551615,
+        "worst_frame": 49,
+        "a": {
+          "id": 12184,
+          "rest": [
+            0.15988053381443024,
+            0.036462344229221344,
+            1.2746076583862305
+          ],
+          "weights": {
+            "Spine1": 0.42037129402160645,
+            "LeftArm": 0.2696629464626312,
+            "Spine": 0.21836835145950317,
+            "Hips": 0.09159746021032333
+          }
+        },
+        "b": {
+          "id": 12185,
+          "rest": [
+            0.16329677402973175,
+            0.03971214219927788,
+            1.3053538799285889
+          ],
+          "weights": {
+            "LeftArm": 0.7882784008979797,
+            "Spine1": 0.2102564126253128,
+            "Spine": 0.0014652014942839742
+          }
+        }
+      },
+      {
+        "edge": 25460,
+        "max_growth_m": 0.07617655112736199,
+        "max_ratio": 5.549053552440485,
+        "worst_frame": 0,
+        "a": {
+          "id": 7947,
+          "rest": [
+            0.1205575242638588,
+            0.10251465439796448,
+            1.3532609939575195
+          ],
+          "weights": {
+            "Spine1": 0.9789987802505493,
+            "LeftArm": 0.021001221612095833
+          }
+        },
+        "b": {
+          "id": 8534,
+          "rest": [
+            0.1361115574836731,
+            0.09655069559812546,
+            1.3549691438674927
+          ],
+          "weights": {
+            "LeftArm": 0.5081807374954224,
+            "Spine1": 0.4918192923069
+          }
+        }
+      },
+      {
+        "edge": 4141,
+        "max_growth_m": 0.07393305276711454,
+        "max_ratio": 3.080498026689044,
+        "worst_frame": 49,
+        "a": {
+          "id": 11408,
+          "rest": [
+            0.16046680510044098,
+            0.0514446459710598,
+            1.300960659980774
+          ],
+          "weights": {
+            "LeftArm": 0.701904296875,
+            "Spine1": 0.296142578125,
+            "Spine": 0.001953125
+          }
+        },
+        "b": {
+          "id": 12183,
+          "rest": [
+            0.15593594312667847,
+            0.04424300417304039,
+            1.2664580345153809
+          ],
+          "weights": {
+            "Spine1": 0.4139194190502167,
+            "Spine": 0.2884005010128021,
+            "LeftArm": 0.1963369995355606,
+            "Hips": 0.10134310275316238
+          }
+        }
+      },
+      {
+        "edge": 54346,
+        "max_growth_m": 0.0720728960817812,
+        "max_ratio": 3.3357203814000473,
+        "worst_frame": 0,
+        "a": {
+          "id": 1679,
+          "rest": [
+            -0.1532924473285675,
+            0.026944661512970924,
+            1.3285726308822632
+          ],
+          "weights": {
+            "RightArm": 0.7347985506057739,
+            "Spine1": 0.26520147919654846
+          }
+        },
+        "b": {
+          "id": 1780,
+          "rest": [
+            -0.14944912493228912,
+            0.025301646441221237,
+            1.2980002164840698
+          ],
+          "weights": {
+            "Spine1": 0.9926739931106567,
+            "RightArm": 0.007326007355004549
+          }
+        }
+      },
+      {
+        "edge": 11402,
+        "max_growth_m": 0.07113652885018794,
+        "max_ratio": 5.685322198817697,
+        "worst_frame": 49,
+        "a": {
+          "id": 9121,
+          "rest": [
+            0.12419811636209488,
+            0.09060121327638626,
+            1.3201624155044556
+          ],
+          "weights": {
+            "Spine1": 0.9462759494781494,
+            "LeftArm": 0.053724054247140884
+          }
+        },
+        "b": {
+          "id": 10017,
+          "rest": [
+            0.13726237416267395,
+            0.08292188495397568,
+            1.3210961818695068
+          ],
+          "weights": {
+            "Spine1": 0.5081807374954224,
+            "LeftArm": 0.4918192923069
+          }
+        }
+      },
+      {
+        "edge": 18247,
+        "max_growth_m": 0.07113652885018794,
+        "max_ratio": 5.685322198817697,
+        "worst_frame": 49,
+        "a": {
+          "id": 9122,
+          "rest": [
+            0.12419811636209488,
+            0.09060121327638626,
+            1.3201624155044556
+          ],
+          "weights": {
+            "Spine1": 0.9462759494781494,
+            "LeftArm": 0.053724054247140884
+          }
+        },
+        "b": {
+          "id": 10018,
+          "rest": [
+            0.13726237416267395,
+            0.08292188495397568,
+            1.3210961818695068
+          ],
+          "weights": {
+            "Spine1": 0.5081807374954224,
+            "LeftArm": 0.4918192923069
+          }
+        }
+      },
+      {
+        "edge": 52140,
+        "max_growth_m": 0.06985773823593665,
+        "max_ratio": 3.4292321218516997,
+        "worst_frame": 49,
+        "a": {
+          "id": 11407,
+          "rest": [
+            0.15368497371673584,
+            0.05166175961494446,
+            1.2730154991149902
+          ],
+          "weights": {
+            "Spine1": 0.470085471868515,
+            "LeftArm": 0.25030526518821716,
+            "Spine": 0.24566544592380524,
+            "Hips": 0.03394383564591408
+          }
+        },
+        "b": {
+          "id": 11408,
+          "rest": [
+            0.16046680510044098,
+            0.0514446459710598,
+            1.300960659980774
+          ],
+          "weights": {
+            "LeftArm": 0.701904296875,
+            "Spine1": 0.296142578125,
+            "Spine": 0.001953125
+          }
+        }
+      },
+      {
+        "edge": 20024,
+        "max_growth_m": 0.06918981107139109,
+        "max_ratio": 2.9170942392180845,
+        "worst_frame": 0,
+        "a": {
+          "id": 1690,
+          "rest": [
+            -0.1468580663204193,
+            0.07926683872938156,
+            1.3390820026397705
+          ],
+          "weights": {
+            "RightArm": 0.7811965942382812,
+            "Spine1": 0.21880342066287994
+          }
+        },
+        "b": {
+          "id": 1794,
+          "rest": [
+            -0.13378649950027466,
+            0.07294095307588577,
+            1.3060414791107178
+          ],
+          "weights": {
+            "Spine1": 0.9230769276618958,
+            "RightArm": 0.07692307978868484
+          }
+        }
+      },
+      {
+        "edge": 1932,
+        "max_growth_m": 0.06853656703130048,
+        "max_ratio": 3.28284870716372,
+        "worst_frame": 49,
+        "a": {
+          "id": 13848,
+          "rest": [
+            0.15877315402030945,
+            0.014966044574975967,
+            1.2626869678497314
+          ],
+          "weights": {
+            "Hips": 0.35164836049079895,
+            "Spine": 0.3313797414302826,
+            "Spine1": 0.30280831456184387,
+            "LeftArm": 0.014163614250719547
+          }
+        },
+        "b": {
+          "id": 13849,
+          "rest": [
+            0.163072407245636,
+            0.010196328163146973,
+            1.2920145988464355
+          ],
+          "weights": {
+            "Spine1": 0.4713064730167389,
+            "LeftArm": 0.3816849887371063,
+            "Spine": 0.09084249287843704,
+            "Hips": 0.05616605654358864
+          }
+        }
+      },
+      {
+        "edge": 20022,
+        "max_growth_m": 0.0670640056801369,
+        "max_ratio": 2.5660057899315687,
+        "worst_frame": 0,
+        "a": {
+          "id": 1794,
+          "rest": [
+            -0.13378649950027466,
+            0.07294095307588577,
+            1.3060414791107178
+          ],
+          "weights": {
+            "Spine1": 0.9230769276618958,
+            "RightArm": 0.07692307978868484
+          }
+        },
+        "b": {
+          "id": 1795,
+          "rest": [
+            -0.14130663871765137,
+            0.09023936092853546,
+            1.3444886207580566
+          ],
+          "weights": {
+            "RightArm": 0.7157509326934814,
+            "Spine1": 0.28424909710884094
+          }
+        }
+      },
+      {
+        "edge": 20028,
+        "max_growth_m": 0.06404219163410345,
+        "max_ratio": 4.64885445632337,
+        "worst_frame": 0,
+        "a": {
+          "id": 1682,
+          "rest": [
+            -0.1521778255701065,
+            0.038308024406433105,
+            1.3170645236968994
+          ],
+          "weights": {
+            "RightArm": 0.6566544771194458,
+            "Spine1": 0.3433455526828766
+          }
+        },
+        "b": {
+          "id": 1783,
+          "rest": [
+            -0.14886288344860077,
+            0.036114949733018875,
+            1.29996919631958
+          ],
+          "weights": {
+            "Spine1": 0.9233211278915405,
+            "RightArm": 0.07472527772188187,
+            "Spine": 0.0019536020699888468
+          }
+        }
+      },
+      {
+        "edge": 45513,
+        "max_growth_m": 0.0622797875447704,
+        "max_ratio": 3.2662290988818206,
+        "worst_frame": 49,
+        "a": {
+          "id": 10694,
+          "rest": [
+            0.14660638570785522,
+            0.062011830508708954,
+            1.2751866579055786
+          ],
+          "weights": {
+            "Spine1": 0.5588666796684265,
+            "Spine": 0.23888617753982544,
+            "LeftArm": 0.19467513263225555,
+            "Hips": 0.0075720567256212234
+          }
+        },
+        "b": {
+          "id": 10695,
+          "rest": [
+            0.1530986875295639,
+            0.06420489400625229,
+            1.30180025100708
+          ],
+          "weights": {
+            "LeftArm": 0.6156288385391235,
+            "Spine1": 0.38437119126319885
+          }
+        }
+      },
+      {
+        "edge": 18446,
+        "max_growth_m": 0.06052230241165358,
+        "max_ratio": 6.126018739427651,
+        "worst_frame": 0,
+        "a": {
+          "id": 8530,
+          "rest": [
+            0.12286636978387833,
+            0.09871480613946915,
+            1.3239188194274902
+          ],
+          "weights": {
+            "Spine1": 0.9780219793319702,
+            "LeftArm": 0.021978022530674934
+          }
+        },
+        "b": {
+          "id": 9126,
+          "rest": [
+            0.13367241621017456,
+            0.09413326531648636,
+            1.3251999616622925
+          ],
+          "weights": {
+            "Spine1": 0.6163614392280579,
+            "LeftArm": 0.3836385905742645
+          }
+        }
+      },
+      {
+        "edge": 42994,
+        "max_growth_m": 0.05955108342246328,
+        "max_ratio": 3.370365139849112,
+        "worst_frame": 49,
+        "a": {
+          "id": 14478,
+          "rest": [
+            0.159728541970253,
+            -0.0011598026612773538,
+            1.2988038063049316
+          ],
+          "weights": {
+            "Spine1": 0.5429897904396057,
+            "LeftArm": 0.36492428183555603,
+            "Spine": 0.060087934136390686,
+            "Hips": 0.03199804946780205
+          }
+        },
+        "b": {
+          "id": 14480,
+          "rest": [
+            0.15821585059165955,
+            -0.006769119296222925,
+            1.2743616104125977
+          ],
+          "weights": {
+            "Spine1": 0.363125741481781,
+            "Hips": 0.32405370473861694,
+            "Spine": 0.3047618865966797,
+            "LeftArm": 0.008058607578277588
+          }
+        }
+      },
+      {
+        "edge": 3934,
+        "max_growth_m": 0.05846476220548357,
+        "max_ratio": 3.05139552392526,
+        "worst_frame": 49,
+        "a": {
+          "id": 12184,
+          "rest": [
+            0.15988053381443024,
+            0.036462344229221344,
+            1.2746076583862305
+          ],
+          "weights": {
+            "Spine1": 0.42037129402160645,
+            "LeftArm": 0.2696629464626312,
+            "Spine": 0.21836835145950317,
+            "Hips": 0.09159746021032333
+          }
+        },
+        "b": {
+          "id": 13022,
+          "rest": [
+            0.16348493099212646,
+            0.022739462554454803,
+            1.299324870109558
+          ],
+          "weights": {
+            "LeftArm": 0.6158729791641235,
+            "Spine1": 0.3589743375778198,
+            "Spine": 0.01953601837158203,
+            "Hips": 0.005616605281829834
+          }
+        }
+      },
+      {
+        "edge": 4614,
+        "max_growth_m": 0.05805949645058893,
+        "max_ratio": 4.602275911555332,
+        "worst_frame": 0,
+        "a": {
+          "id": 9120,
+          "rest": [
+            0.12341643124818802,
+            0.08837919682264328,
+            1.3046879768371582
+          ],
+          "weights": {
+            "Spine1": 0.9907203912734985,
+            "LeftArm": 0.00927960965782404
+          }
+        },
+        "b": {
+          "id": 10016,
+          "rest": [
+            0.1372261792421341,
+            0.08030181378126144,
+            1.3066421747207642
+          ],
+          "weights": {
+            "Spine1": 0.6358974575996399,
+            "LeftArm": 0.3641025722026825
+          }
+        }
+      },
+      {
+        "edge": 20025,
+        "max_growth_m": 0.057712187521780846,
+        "max_ratio": 2.5849506714120274,
+        "worst_frame": 0,
+        "a": {
+          "id": 1690,
+          "rest": [
+            -0.1468580663204193,
+            0.07926683872938156,
+            1.3390820026397705
+          ],
+          "weights": {
+            "RightArm": 0.7811965942382812,
+            "Spine1": 0.21880342066287994
+          }
+        },
+        "b": {
+          "id": 1792,
+          "rest": [
+            -0.14058281481266022,
+            0.06399501860141754,
+            1.306627869606018
+          ],
+          "weights": {
+            "Spine1": 0.8070818185806274,
+            "RightArm": 0.19291819632053375
+          }
+        }
+      },
+      {
+        "edge": 52634,
+        "max_growth_m": 0.05719346939031983,
+        "max_ratio": 3.8977113853544174,
+        "worst_frame": 0,
+        "a": {
+          "id": 9119,
+          "rest": [
+            0.1242777481675148,
+            0.08350091427564621,
+            1.2865934371948242
+          ],
+          "weights": {
+            "Spine1": 0.9819291830062866,
+            "Spine": 0.013431013561785221,
+            "LeftArm": 0.00463980482891202
+          }
+        },
+        "b": {
+          "id": 10015,
+          "rest": [
+            0.1405700296163559,
+            0.0741930902004242,
+            1.2927166223526
+          ],
+          "weights": {
+            "Spine1": 0.6451770067214966,
+            "LeftArm": 0.3531135320663452,
+            "Spine": 0.001709401491098106
+          }
+        }
+      },
+      {
+        "edge": 54338,
+        "max_growth_m": 0.05691904644107068,
+        "max_ratio": 2.770997399310202,
+        "worst_frame": 20,
+        "a": {
+          "id": 2087,
+          "rest": [
+            -0.12701918184757233,
+            0.11551379412412643,
+            1.3695460557937622
+          ],
+          "weights": {
+            "RightArm": 0.4654456675052643,
+            "Spine1": 0.43785104155540466,
+            "Spine2": 0.083272285759449,
+            "RightShoulder": 0.013431013561785221
+          }
+        },
+        "b": {
+          "id": 2298,
+          "rest": [
+            -0.10183878988027573,
+            0.11214819550514221,
+            1.3498592376708984
+          ],
+          "weights": {
+            "Spine1": 1.0
+          }
+        }
+      },
+      {
+        "edge": 45839,
+        "max_growth_m": 0.05688995697673925,
+        "max_ratio": 2.841235566219948,
+        "worst_frame": 49,
+        "a": {
+          "id": 9118,
+          "rest": [
+            0.12591347098350525,
+            0.0757419690489769,
+            1.265560507774353
+          ],
+          "weights": {
+            "Spine1": 0.5760684013366699,
+            "Spine": 0.42393162846565247
+          }
+        },
+        "b": {
+          "id": 10015,
+          "rest": [
+            0.1405700296163559,
+            0.0741930902004242,
+            1.2927166223526
+          ],
+          "weights": {
+            "Spine1": 0.6451770067214966,
+            "LeftArm": 0.3531135320663452,
+            "Spine": 0.001709401491098106
+          }
+        }
+      },
+      {
+        "edge": 32085,
+        "max_growth_m": 0.055516845706680515,
+        "max_ratio": 6.503252115264346,
+        "worst_frame": 0,
+        "a": {
+          "id": 8532,
+          "rest": [
+            0.12349605560302734,
+            0.09402470290660858,
+            1.3319311141967773
+          ],
+          "weights": {
+            "Spine1": 0.9150183200836182,
+            "LeftArm": 0.08498168736696243
+          }
+        },
+        "b": {
+          "id": 9129,
+          "rest": [
+            0.13253608345985413,
+            0.08970371633768082,
+            1.3331036567687988
+          ],
+          "weights": {
+            "Spine1": 0.5689865946769714,
+            "LeftArm": 0.43101343512535095
+          }
+        }
+      },
+      {
+        "edge": 39061,
+        "max_growth_m": 0.055516845706680515,
+        "max_ratio": 6.503252115264346,
+        "worst_frame": 0,
+        "a": {
+          "id": 8533,
+          "rest": [
+            0.12349605560302734,
+            0.09402470290660858,
+            1.3319311141967773
+          ],
+          "weights": {
+            "Spine1": 0.9150183200836182,
+            "LeftArm": 0.08498168736696243
+          }
+        },
+        "b": {
+          "id": 9130,
+          "rest": [
+            0.13253608345985413,
+            0.08970371633768082,
+            1.3331036567687988
+          ],
+          "weights": {
+            "Spine1": 0.5689865946769714,
+            "LeftArm": 0.43101343512535095
+          }
+        }
+      },
+      {
+        "edge": 13186,
+        "max_growth_m": 0.0549735950029411,
+        "max_ratio": 3.113961118584688,
+        "worst_frame": 0,
+        "a": {
+          "id": 1689,
+          "rest": [
+            -0.14950710535049438,
+            0.06733892112970352,
+            1.3308236598968506
+          ],
+          "weights": {
+            "RightArm": 0.7755799889564514,
+            "Spine1": 0.22442002594470978
+          }
+        },
+        "b": {
+          "id": 1792,
+          "rest": [
+            -0.14058281481266022,
+            0.06399501860141754,
+            1.306627869606018
+          ],
+          "weights": {
+            "Spine1": 0.8070818185806274,
+            "RightArm": 0.19291819632053375
+          }
+        }
+      },
+      {
+        "edge": 4140,
+        "max_growth_m": 0.054468906195050903,
+        "max_ratio": 2.7964763122126333,
+        "worst_frame": 49,
+        "a": {
+          "id": 11408,
+          "rest": [
+            0.16046680510044098,
+            0.0514446459710598,
+            1.300960659980774
+          ],
+          "weights": {
+            "LeftArm": 0.701904296875,
+            "Spine1": 0.296142578125,
+            "Spine": 0.001953125
+          }
+        },
+        "b": {
+          "id": 12184,
+          "rest": [
+            0.15988053381443024,
+            0.036462344229221344,
+            1.2746076583862305
+          ],
+          "weights": {
+            "Spine1": 0.42037129402160645,
+            "LeftArm": 0.2696629464626312,
+            "Spine": 0.21836835145950317,
+            "Hips": 0.09159746021032333
+          }
+        }
+      },
+      {
+        "edge": 45669,
+        "max_growth_m": 0.05280112613529853,
+        "max_ratio": 2.35074440599632,
+        "worst_frame": 49,
+        "a": {
+          "id": 10014,
+          "rest": [
+            0.1343165934085846,
+            0.0659419521689415,
+            1.2550221681594849
+          ],
+          "weights": {
+            "Spine": 0.739013671875,
+            "Spine1": 0.2495117038488388,
+            "Hips": 0.011474609375
+          }
+        },
+        "b": {
+          "id": 10015,
+          "rest": [
+            0.1405700296163559,
+            0.0741930902004242,
+            1.2927166223526
+          ],
+          "weights": {
+            "Spine1": 0.6451770067214966,
+            "LeftArm": 0.3531135320663452,
+            "Spine": 0.001709401491098106
+          }
+        }
+      },
+      {
+        "edge": 25293,
+        "max_growth_m": 0.05205689927675848,
+        "max_ratio": 4.626325233371277,
+        "worst_frame": 49,
+        "a": {
+          "id": 8531,
+          "rest": [
+            0.1279328465461731,
+            0.09647832065820694,
+            1.328334093093872
+          ],
+          "weights": {
+            "Spine1": 0.7946276068687439,
+            "LeftArm": 0.2053724080324173
+          }
+        },
+        "b": {
+          "id": 9127,
+          "rest": [
+            0.14118528366088867,
+            0.09097757935523987,
+            1.327899694442749
+          ],
+          "weights": {
+            "LeftArm": 0.5228327512741089,
+            "Spine1": 0.4771672785282135
+          }
+        }
+      },
+      {
+        "edge": 39060,
+        "max_growth_m": 0.05105040820972941,
+        "max_ratio": 2.934668362436051,
+        "worst_frame": 49,
+        "a": {
+          "id": 8533,
+          "rest": [
+            0.12349605560302734,
+            0.09402470290660858,
+            1.3319311141967773
+          ],
+          "weights": {
+            "Spine1": 0.9150183200836182,
+            "LeftArm": 0.08498168736696243
+          }
+        },
+        "b": {
+          "id": 8534,
+          "rest": [
+            0.1361115574836731,
+            0.09655069559812546,
+            1.3549691438674927
+          ],
+          "weights": {
+            "LeftArm": 0.5081807374954224,
+            "Spine1": 0.4918192923069
+          }
+        }
+      },
+      {
+        "edge": 51290,
+        "max_growth_m": 0.05101892097656195,
+        "max_ratio": 3.7814612789850006,
+        "worst_frame": 8,
+        "a": {
+          "id": 22327,
+          "rest": [
+            -0.0064153289422392845,
+            0.04812229797244072,
+            0.8791771531105042
+          ],
+          "weights": {
+            "RightUpLeg": 0.5206349492073059,
+            "LeftUpLeg": 0.3191697299480438,
+            "Hips": 0.16019536554813385
+          }
+        },
+        "b": {
+          "id": 22732,
+          "rest": [
+            0.01123784203082323,
+            0.05279070511460304,
+            0.8774397969245911
+          ],
+          "weights": {
+            "LeftUpLeg": 0.69775390625,
+            "RightUpLeg": 0.1921386569738388,
+            "Hips": 0.1101074144244194
+          }
+        }
+      },
+      {
+        "edge": 52633,
+        "max_growth_m": 0.05090346128628362,
+        "max_ratio": 3.113928222516061,
+        "worst_frame": 49,
+        "a": {
+          "id": 9119,
+          "rest": [
+            0.1242777481675148,
+            0.08350091427564621,
+            1.2865934371948242
+          ],
+          "weights": {
+            "Spine1": 0.9819291830062866,
+            "Spine": 0.013431013561785221,
+            "LeftArm": 0.00463980482891202
+          }
+        },
+        "b": {
+          "id": 10016,
+          "rest": [
+            0.1372261792421341,
+            0.08030181378126144,
+            1.3066421747207642
+          ],
+          "weights": {
+            "Spine1": 0.6358974575996399,
+            "LeftArm": 0.3641025722026825
+          }
+        }
+      },
+      {
+        "edge": 38120,
+        "max_growth_m": 0.05089484948621478,
+        "max_ratio": 2.461389962753365,
+        "worst_frame": 49,
+        "a": {
+          "id": 12181,
+          "rest": [
+            0.15275853872299194,
+            0.03473250940442085,
+            1.2405612468719482
+          ],
+          "weights": {
+            "Hips": 0.5,
+            "Spine": 0.43917930126190186,
+            "Spine1": 0.06082071363925934
+          }
+        },
+        "b": {
+          "id": 12184,
+          "rest": [
+            0.15988053381443024,
+            0.036462344229221344,
+            1.2746076583862305
+          ],
+          "weights": {
+            "Spine1": 0.42037129402160645,
+            "LeftArm": 0.2696629464626312,
+            "Spine": 0.21836835145950317,
+            "Hips": 0.09159746021032333
+          }
+        }
+      },
+      {
+        "edge": 8723,
+        "max_growth_m": 0.05073192670097869,
+        "max_ratio": 2.8107256076445504,
+        "worst_frame": 49,
+        "a": {
+          "id": 13849,
+          "rest": [
+            0.163072407245636,
+            0.010196328163146973,
+            1.2920145988464355
+          ],
+          "weights": {
+            "Spine1": 0.4713064730167389,
+            "LeftArm": 0.3816849887371063,
+            "Spine": 0.09084249287843704,
+            "Hips": 0.05616605654358864
+          }
+        },
+        "b": {
+          "id": 13850,
+          "rest": [
+            0.16442586481571198,
+            0.014567983336746693,
+            1.3196557760238647
+          ],
+          "weights": {
+            "LeftArm": 0.811965823173523,
+            "Spine1": 0.18803419172763824
+          }
+        }
+      },
+      {
+        "edge": 8726,
+        "max_growth_m": 0.050371714377171944,
+        "max_ratio": 3.0180344473696423,
+        "worst_frame": 49,
+        "a": {
+          "id": 13849,
+          "rest": [
+            0.163072407245636,
+            0.010196328163146973,
+            1.2920145988464355
+          ],
+          "weights": {
+            "Spine1": 0.4713064730167389,
+            "LeftArm": 0.3816849887371063,
+            "Spine": 0.09084249287843704,
+            "Hips": 0.05616605654358864
+          }
+        },
+        "b": {
+          "id": 14480,
+          "rest": [
+            0.15821585059165955,
+            -0.006769119296222925,
+            1.2743616104125977
+          ],
+          "weights": {
+            "Spine1": 0.363125741481781,
+            "Hips": 0.32405370473861694,
+            "Spine": 0.3047618865966797,
+            "LeftArm": 0.008058607578277588
+          }
+        }
+      },
+      {
+        "edge": 38855,
+        "max_growth_m": 0.050084049444868314,
+        "max_ratio": 7.333143792353009,
+        "worst_frame": 0,
+        "a": {
+          "id": 9125,
+          "rest": [
+            0.12642015516757965,
+            0.09482809901237488,
+            1.3221238851547241
+          ],
+          "weights": {
+            "Spine1": 0.9225885272026062,
+            "LeftArm": 0.0774114802479744
+          }
+        },
+        "b": {
+          "id": 9126,
+          "rest": [
+            0.13367241621017456,
+            0.09413326531648636,
+            1.3251999616622925
+          ],
+          "weights": {
+            "Spine1": 0.6163614392280579,
+            "LeftArm": 0.3836385905742645
+          }
+        }
+      },
+      {
+        "edge": 4463,
+        "max_growth_m": 0.049699325453377324,
+        "max_ratio": 3.607465298337711,
+        "worst_frame": 49,
+        "a": {
+          "id": 10016,
+          "rest": [
+            0.1372261792421341,
+            0.08030181378126144,
+            1.3066421747207642
+          ],
+          "weights": {
+            "Spine1": 0.6358974575996399,
+            "LeftArm": 0.3641025722026825
+          }
+        },
+        "b": {
+          "id": 10697,
+          "rest": [
+            0.14694656431674957,
+            0.0758722573518753,
+            1.3224279880523682
+          ],
+          "weights": {
+            "LeftArm": 0.7125763297080994,
+            "Spine1": 0.287423700094223
+          }
+        }
+      },
+      {
+        "edge": 54350,
+        "max_growth_m": 0.04900474992619727,
+        "max_ratio": 3.2396751990000316,
+        "worst_frame": 49,
+        "a": {
+          "id": 1583,
+          "rest": [
+            -0.15672320127487183,
+            0.009877869859337807,
+            1.369574785232544
+          ],
+          "weights": {
+            "RightArm": 0.8236874341964722,
+            "Spine1": 0.17338217794895172,
+            "RightShoulder": 0.0029304029885679483
+          }
+        },
+        "b": {
+          "id": 1673,
+          "rest": [
+            -0.14983998239040375,
+            -0.010720958933234215,
+            1.3722312450408936
+          ],
+          "weights": {
+            "Spine1": 0.67431640625,
+            "RightArm": 0.306396484375,
+            "Spine2": 0.019287109375
+          }
+        }
+      },
+      {
+        "edge": 40627,
+        "max_growth_m": 0.0484600950514276,
+        "max_ratio": 2.0689186129458865,
+        "worst_frame": 0,
+        "a": {
+          "id": 2085,
+          "rest": [
+            -0.10009447485208511,
+            0.09568215161561966,
+            1.3067290782928467
+          ],
+          "weights": {
+            "Spine1": 1.0
+          }
+        },
+        "b": {
+          "id": 2086,
+          "rest": [
+            -0.127800852060318,
+            0.09948204457759857,
+            1.3424115180969238
+          ],
+          "weights": {
+            "Spine1": 0.5799756050109863,
+            "RightArm": 0.42002442479133606
+          }
+        }
+      },
+      {
+        "edge": 45319,
+        "max_growth_m": 0.04804768818924085,
+        "max_ratio": 2.8507479257018886,
+        "worst_frame": 49,
+        "a": {
+          "id": 11406,
+          "rest": [
+            0.14811183512210846,
+            0.04828169196844101,
+            1.247885823249817
+          ],
+          "weights": {
+            "Spine": 0.5048852562904358,
+            "Hips": 0.34636053442955017,
+            "Spine1": 0.14704446494579315,
+            "LeftArm": 0.0017098193056881428
+          }
+        },
+        "b": {
+          "id": 11407,
+          "rest": [
+            0.15368497371673584,
+            0.05166175961494446,
+            1.2730154991149902
+          ],
+          "weights": {
+            "Spine1": 0.470085471868515,
+            "LeftArm": 0.25030526518821716,
+            "Spine": 0.24566544592380524,
+            "Hips": 0.03394383564591408
+          }
+        }
+      },
+      {
+        "edge": 33602,
+        "max_growth_m": 0.04727542623301942,
+        "max_ratio": 3.4585229804290156,
+        "worst_frame": 0,
+        "a": {
+          "id": 1676,
+          "rest": [
+            -0.15159159898757935,
+            0.02214597724378109,
+            1.348954200744629
+          ],
+          "weights": {
+            "RightArm": 0.8080586194992065,
+            "Spine1": 0.19194139540195465
+          }
+        },
+        "b": {
+          "id": 1777,
+          "rest": [
+            -0.1460256725549698,
+            0.003740208689123392,
+            1.3488531112670898
+          ],
+          "weights": {
+            "Spine1": 0.6424908638000488,
+            "RightArm": 0.35750916600227356
+          }
+        }
+      },
+      {
+        "edge": 18248,
+        "max_growth_m": 0.046907281580311086,
+        "max_ratio": 3.1903871839497744,
+        "worst_frame": 0,
+        "a": {
+          "id": 9122,
+          "rest": [
+            0.12419811636209488,
+            0.09060121327638626,
+            1.3201624155044556
+          ],
+          "weights": {
+            "Spine1": 0.9462759494781494,
+            "LeftArm": 0.053724054247140884
+          }
+        },
+        "b": {
+          "id": 10016,
+          "rest": [
+            0.1372261792421341,
+            0.08030181378126144,
+            1.3066421747207642
+          ],
+          "weights": {
+            "Spine1": 0.6358974575996399,
+            "LeftArm": 0.3641025722026825
+          }
+        }
+      }
+    ]
+  },
+  {
+    "mode": "crawling",
+    "object": "Rodin_crawling_Mesh",
+    "action": "HumanZombieCrawl",
+    "fps": 30,
+    "duration_seconds": 5.133333333333334,
+    "vertices": 27138,
+    "triangles": 30000,
+    "bones": 52,
+    "height_m": 1.8973418864745568,
+    "rest_bounds": {
+      "min": [
+        -0.3238733410835266,
+        -0.1840665340423584,
+        -3.905481804622468e-08
+      ],
+      "max": [
+        0.3251994550228119,
+        0.18620550632476807,
+        1.8973418474197388
+      ]
+    },
+    "weight_sum_range": [
+      0.9999999031424522,
+      1.0000000968575478
+    ],
+    "influence_counts": {
+      "2": 7354,
+      "3": 4104,
+      "6": 189,
+      "5": 1330,
+      "4": 3379,
+      "7": 85,
+      "8": 30,
+      "1": 10667
+    },
+    "topology_after_analysis_only_uv_seam_weld": {
+      "welded_vertices": 14980,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "loose_vertices": 0
+    },
+    "cross_arm_leg_edges": {
+      "(1, 3)": 0,
+      "(2, 4)": 0,
+      "(1, 4)": 0,
+      "(2, 3)": 0
+    },
+    "samples": [
+      {
+        "frame": 0,
+        "max_edge_growth_m": 0.10079556695457093,
+        "edges_growth_over_2cm": 156,
+        "edges_growth_over_5cm": 19,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 1,
+        "max_edge_growth_m": 0.1038134260618288,
+        "edges_growth_over_2cm": 156,
+        "edges_growth_over_5cm": 21,
+        "severe_ratio_over_5_and_growth_over_2cm": 2
+      },
+      {
+        "frame": 2,
+        "max_edge_growth_m": 0.10765611102261696,
+        "edges_growth_over_2cm": 157,
+        "edges_growth_over_5cm": 21,
+        "severe_ratio_over_5_and_growth_over_2cm": 2
+      },
+      {
+        "frame": 3,
+        "max_edge_growth_m": 0.11087752302295664,
+        "edges_growth_over_2cm": 158,
+        "edges_growth_over_5cm": 25,
+        "severe_ratio_over_5_and_growth_over_2cm": 5
+      },
+      {
+        "frame": 4,
+        "max_edge_growth_m": 0.10759313686644983,
+        "edges_growth_over_2cm": 161,
+        "edges_growth_over_5cm": 21,
+        "severe_ratio_over_5_and_growth_over_2cm": 2
+      },
+      {
+        "frame": 5,
+        "max_edge_growth_m": 0.08715981573766551,
+        "edges_growth_over_2cm": 143,
+        "edges_growth_over_5cm": 14,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 6,
+        "max_edge_growth_m": 0.06829678047063545,
+        "edges_growth_over_2cm": 132,
+        "edges_growth_over_5cm": 11,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 7,
+        "max_edge_growth_m": 0.08257269180751929,
+        "edges_growth_over_2cm": 122,
+        "edges_growth_over_5cm": 11,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 8,
+        "max_edge_growth_m": 0.10976824981647491,
+        "edges_growth_over_2cm": 141,
+        "edges_growth_over_5cm": 19,
+        "severe_ratio_over_5_and_growth_over_2cm": 3
+      },
+      {
+        "frame": 9,
+        "max_edge_growth_m": 0.14025742856006218,
+        "edges_growth_over_2cm": 171,
+        "edges_growth_over_5cm": 27,
+        "severe_ratio_over_5_and_growth_over_2cm": 13
+      },
+      {
+        "frame": 10,
+        "max_edge_growth_m": 0.1634844271165704,
+        "edges_growth_over_2cm": 199,
+        "edges_growth_over_5cm": 30,
+        "severe_ratio_over_5_and_growth_over_2cm": 15
+      },
+      {
+        "frame": 11,
+        "max_edge_growth_m": 0.1792089705368622,
+        "edges_growth_over_2cm": 200,
+        "edges_growth_over_5cm": 41,
+        "severe_ratio_over_5_and_growth_over_2cm": 19
+      },
+      {
+        "frame": 12,
+        "max_edge_growth_m": 0.18361912774339295,
+        "edges_growth_over_2cm": 195,
+        "edges_growth_over_5cm": 43,
+        "severe_ratio_over_5_and_growth_over_2cm": 20
+      },
+      {
+        "frame": 13,
+        "max_edge_growth_m": 0.1727256910773965,
+        "edges_growth_over_2cm": 194,
+        "edges_growth_over_5cm": 37,
+        "severe_ratio_over_5_and_growth_over_2cm": 20
+      },
+      {
+        "frame": 14,
+        "max_edge_growth_m": 0.16626490321484327,
+        "edges_growth_over_2cm": 205,
+        "edges_growth_over_5cm": 36,
+        "severe_ratio_over_5_and_growth_over_2cm": 20
+      },
+      {
+        "frame": 15,
+        "max_edge_growth_m": 0.16696646419545058,
+        "edges_growth_over_2cm": 234,
+        "edges_growth_over_5cm": 36,
+        "severe_ratio_over_5_and_growth_over_2cm": 20
+      },
+      {
+        "frame": 16,
+        "max_edge_growth_m": 0.16565079690545875,
+        "edges_growth_over_2cm": 262,
+        "edges_growth_over_5cm": 35,
+        "severe_ratio_over_5_and_growth_over_2cm": 20
+      },
+      {
+        "frame": 17,
+        "max_edge_growth_m": 0.16143154712261304,
+        "edges_growth_over_2cm": 266,
+        "edges_growth_over_5cm": 34,
+        "severe_ratio_over_5_and_growth_over_2cm": 19
+      },
+      {
+        "frame": 18,
+        "max_edge_growth_m": 0.15966940085664677,
+        "edges_growth_over_2cm": 275,
+        "edges_growth_over_5cm": 34,
+        "severe_ratio_over_5_and_growth_over_2cm": 19
+      },
+      {
+        "frame": 19,
+        "max_edge_growth_m": 0.15853490884598576,
+        "edges_growth_over_2cm": 276,
+        "edges_growth_over_5cm": 35,
+        "severe_ratio_over_5_and_growth_over_2cm": 19
+      },
+      {
+        "frame": 20,
+        "max_edge_growth_m": 0.15589132813879847,
+        "edges_growth_over_2cm": 280,
+        "edges_growth_over_5cm": 36,
+        "severe_ratio_over_5_and_growth_over_2cm": 19
+      },
+      {
+        "frame": 21,
+        "max_edge_growth_m": 0.15296128178747298,
+        "edges_growth_over_2cm": 288,
+        "edges_growth_over_5cm": 38,
+        "severe_ratio_over_5_and_growth_over_2cm": 19
+      },
+      {
+        "frame": 22,
+        "max_edge_growth_m": 0.15063829894551378,
+        "edges_growth_over_2cm": 271,
+        "edges_growth_over_5cm": 36,
+        "severe_ratio_over_5_and_growth_over_2cm": 17
+      },
+      {
+        "frame": 23,
+        "max_edge_growth_m": 0.14896543258336464,
+        "edges_growth_over_2cm": 232,
+        "edges_growth_over_5cm": 34,
+        "severe_ratio_over_5_and_growth_over_2cm": 17
+      },
+      {
+        "frame": 24,
+        "max_edge_growth_m": 0.14755161806810818,
+        "edges_growth_over_2cm": 204,
+        "edges_growth_over_5cm": 32,
+        "severe_ratio_over_5_and_growth_over_2cm": 17
+      },
+      {
+        "frame": 25,
+        "max_edge_growth_m": 0.14821172208809485,
+        "edges_growth_over_2cm": 200,
+        "edges_growth_over_5cm": 33,
+        "severe_ratio_over_5_and_growth_over_2cm": 17
+      },
+      {
+        "frame": 26,
+        "max_edge_growth_m": 0.15077308285207247,
+        "edges_growth_over_2cm": 193,
+        "edges_growth_over_5cm": 34,
+        "severe_ratio_over_5_and_growth_over_2cm": 17
+      },
+      {
+        "frame": 27,
+        "max_edge_growth_m": 0.15066186233055046,
+        "edges_growth_over_2cm": 176,
+        "edges_growth_over_5cm": 34,
+        "severe_ratio_over_5_and_growth_over_2cm": 17
+      },
+      {
+        "frame": 28,
+        "max_edge_growth_m": 0.14297760886117894,
+        "edges_growth_over_2cm": 172,
+        "edges_growth_over_5cm": 29,
+        "severe_ratio_over_5_and_growth_over_2cm": 13
+      },
+      {
+        "frame": 29,
+        "max_edge_growth_m": 0.1305812353720871,
+        "edges_growth_over_2cm": 159,
+        "edges_growth_over_5cm": 28,
+        "severe_ratio_over_5_and_growth_over_2cm": 6
+      },
+      {
+        "frame": 30,
+        "max_edge_growth_m": 0.1222693983876491,
+        "edges_growth_over_2cm": 151,
+        "edges_growth_over_5cm": 26,
+        "severe_ratio_over_5_and_growth_over_2cm": 5
+      },
+      {
+        "frame": 31,
+        "max_edge_growth_m": 0.11979938802757074,
+        "edges_growth_over_2cm": 132,
+        "edges_growth_over_5cm": 25,
+        "severe_ratio_over_5_and_growth_over_2cm": 3
+      },
+      {
+        "frame": 32,
+        "max_edge_growth_m": 0.11865029608441634,
+        "edges_growth_over_2cm": 128,
+        "edges_growth_over_5cm": 25,
+        "severe_ratio_over_5_and_growth_over_2cm": 3
+      },
+      {
+        "frame": 33,
+        "max_edge_growth_m": 0.11837024941931638,
+        "edges_growth_over_2cm": 123,
+        "edges_growth_over_5cm": 25,
+        "severe_ratio_over_5_and_growth_over_2cm": 3
+      },
+      {
+        "frame": 34,
+        "max_edge_growth_m": 0.1158332712272666,
+        "edges_growth_over_2cm": 117,
+        "edges_growth_over_5cm": 25,
+        "severe_ratio_over_5_and_growth_over_2cm": 3
+      },
+      {
+        "frame": 35,
+        "max_edge_growth_m": 0.10707487321569069,
+        "edges_growth_over_2cm": 119,
+        "edges_growth_over_5cm": 22,
+        "severe_ratio_over_5_and_growth_over_2cm": 2
+      },
+      {
+        "frame": 36,
+        "max_edge_growth_m": 0.09593644453594714,
+        "edges_growth_over_2cm": 123,
+        "edges_growth_over_5cm": 20,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 37,
+        "max_edge_growth_m": 0.09049823419577256,
+        "edges_growth_over_2cm": 124,
+        "edges_growth_over_5cm": 18,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 38,
+        "max_edge_growth_m": 0.09203520585958179,
+        "edges_growth_over_2cm": 127,
+        "edges_growth_over_5cm": 19,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 39,
+        "max_edge_growth_m": 0.09479297779049227,
+        "edges_growth_over_2cm": 125,
+        "edges_growth_over_5cm": 20,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 40,
+        "max_edge_growth_m": 0.09277954263743661,
+        "edges_growth_over_2cm": 116,
+        "edges_growth_over_5cm": 20,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 41,
+        "max_edge_growth_m": 0.08685514273404388,
+        "edges_growth_over_2cm": 113,
+        "edges_growth_over_5cm": 18,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 42,
+        "max_edge_growth_m": 0.08018753688402047,
+        "edges_growth_over_2cm": 108,
+        "edges_growth_over_5cm": 16,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 43,
+        "max_edge_growth_m": 0.0711565937791535,
+        "edges_growth_over_2cm": 117,
+        "edges_growth_over_5cm": 10,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 44,
+        "max_edge_growth_m": 0.06609836660152464,
+        "edges_growth_over_2cm": 130,
+        "edges_growth_over_5cm": 9,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 45,
+        "max_edge_growth_m": 0.062267318182531825,
+        "edges_growth_over_2cm": 138,
+        "edges_growth_over_5cm": 8,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 46,
+        "max_edge_growth_m": 0.05961049362341117,
+        "edges_growth_over_2cm": 124,
+        "edges_growth_over_5cm": 7,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 47,
+        "max_edge_growth_m": 0.06251631020070123,
+        "edges_growth_over_2cm": 109,
+        "edges_growth_over_5cm": 5,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 48,
+        "max_edge_growth_m": 0.06670834130539591,
+        "edges_growth_over_2cm": 127,
+        "edges_growth_over_5cm": 8,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 49,
+        "max_edge_growth_m": 0.07360290077191786,
+        "edges_growth_over_2cm": 160,
+        "edges_growth_over_5cm": 17,
+        "severe_ratio_over_5_and_growth_over_2cm": 3
+      },
+      {
+        "frame": 50,
+        "max_edge_growth_m": 0.10090234490680791,
+        "edges_growth_over_2cm": 208,
+        "edges_growth_over_5cm": 37,
+        "severe_ratio_over_5_and_growth_over_2cm": 11
+      },
+      {
+        "frame": 51,
+        "max_edge_growth_m": 0.13091158480774276,
+        "edges_growth_over_2cm": 240,
+        "edges_growth_over_5cm": 53,
+        "severe_ratio_over_5_and_growth_over_2cm": 18
+      },
+      {
+        "frame": 52,
+        "max_edge_growth_m": 0.15870906725992134,
+        "edges_growth_over_2cm": 288,
+        "edges_growth_over_5cm": 81,
+        "severe_ratio_over_5_and_growth_over_2cm": 29
+      },
+      {
+        "frame": 53,
+        "max_edge_growth_m": 0.1770620987264445,
+        "edges_growth_over_2cm": 329,
+        "edges_growth_over_5cm": 94,
+        "severe_ratio_over_5_and_growth_over_2cm": 43
+      },
+      {
+        "frame": 54,
+        "max_edge_growth_m": 0.18256773940018675,
+        "edges_growth_over_2cm": 349,
+        "edges_growth_over_5cm": 99,
+        "severe_ratio_over_5_and_growth_over_2cm": 46
+      },
+      {
+        "frame": 55,
+        "max_edge_growth_m": 0.17899910852241854,
+        "edges_growth_over_2cm": 363,
+        "edges_growth_over_5cm": 96,
+        "severe_ratio_over_5_and_growth_over_2cm": 42
+      },
+      {
+        "frame": 56,
+        "max_edge_growth_m": 0.17511582073171816,
+        "edges_growth_over_2cm": 375,
+        "edges_growth_over_5cm": 97,
+        "severe_ratio_over_5_and_growth_over_2cm": 40
+      },
+      {
+        "frame": 57,
+        "max_edge_growth_m": 0.176239150330602,
+        "edges_growth_over_2cm": 382,
+        "edges_growth_over_5cm": 104,
+        "severe_ratio_over_5_and_growth_over_2cm": 42
+      },
+      {
+        "frame": 58,
+        "max_edge_growth_m": 0.17939400581342838,
+        "edges_growth_over_2cm": 372,
+        "edges_growth_over_5cm": 112,
+        "severe_ratio_over_5_and_growth_over_2cm": 52
+      },
+      {
+        "frame": 59,
+        "max_edge_growth_m": 0.18539314699449955,
+        "edges_growth_over_2cm": 345,
+        "edges_growth_over_5cm": 123,
+        "severe_ratio_over_5_and_growth_over_2cm": 61
+      },
+      {
+        "frame": 60,
+        "max_edge_growth_m": 0.19232544223508313,
+        "edges_growth_over_2cm": 345,
+        "edges_growth_over_5cm": 130,
+        "severe_ratio_over_5_and_growth_over_2cm": 71
+      },
+      {
+        "frame": 61,
+        "max_edge_growth_m": 0.19883426558955827,
+        "edges_growth_over_2cm": 348,
+        "edges_growth_over_5cm": 139,
+        "severe_ratio_over_5_and_growth_over_2cm": 87
+      },
+      {
+        "frame": 62,
+        "max_edge_growth_m": 0.20356514275317394,
+        "edges_growth_over_2cm": 354,
+        "edges_growth_over_5cm": 144,
+        "severe_ratio_over_5_and_growth_over_2cm": 88
+      },
+      {
+        "frame": 63,
+        "max_edge_growth_m": 0.20823008225031808,
+        "edges_growth_over_2cm": 356,
+        "edges_growth_over_5cm": 149,
+        "severe_ratio_over_5_and_growth_over_2cm": 89
+      },
+      {
+        "frame": 64,
+        "max_edge_growth_m": 0.21354373841113844,
+        "edges_growth_over_2cm": 362,
+        "edges_growth_over_5cm": 153,
+        "severe_ratio_over_5_and_growth_over_2cm": 93
+      },
+      {
+        "frame": 65,
+        "max_edge_growth_m": 0.21658456957816757,
+        "edges_growth_over_2cm": 357,
+        "edges_growth_over_5cm": 150,
+        "severe_ratio_over_5_and_growth_over_2cm": 93
+      },
+      {
+        "frame": 66,
+        "max_edge_growth_m": 0.21792823102443976,
+        "edges_growth_over_2cm": 350,
+        "edges_growth_over_5cm": 148,
+        "severe_ratio_over_5_and_growth_over_2cm": 86
+      },
+      {
+        "frame": 67,
+        "max_edge_growth_m": 0.21948473940263669,
+        "edges_growth_over_2cm": 349,
+        "edges_growth_over_5cm": 146,
+        "severe_ratio_over_5_and_growth_over_2cm": 86
+      },
+      {
+        "frame": 68,
+        "max_edge_growth_m": 0.2215919055813259,
+        "edges_growth_over_2cm": 358,
+        "edges_growth_over_5cm": 149,
+        "severe_ratio_over_5_and_growth_over_2cm": 100
+      },
+      {
+        "frame": 69,
+        "max_edge_growth_m": 0.2242754838867238,
+        "edges_growth_over_2cm": 376,
+        "edges_growth_over_5cm": 162,
+        "severe_ratio_over_5_and_growth_over_2cm": 104
+      },
+      {
+        "frame": 70,
+        "max_edge_growth_m": 0.22597658160369832,
+        "edges_growth_over_2cm": 408,
+        "edges_growth_over_5cm": 179,
+        "severe_ratio_over_5_and_growth_over_2cm": 117
+      },
+      {
+        "frame": 71,
+        "max_edge_growth_m": 0.24100474885702894,
+        "edges_growth_over_2cm": 430,
+        "edges_growth_over_5cm": 184,
+        "severe_ratio_over_5_and_growth_over_2cm": 132
+      },
+      {
+        "frame": 72,
+        "max_edge_growth_m": 0.2659133270756215,
+        "edges_growth_over_2cm": 457,
+        "edges_growth_over_5cm": 196,
+        "severe_ratio_over_5_and_growth_over_2cm": 141
+      },
+      {
+        "frame": 73,
+        "max_edge_growth_m": 0.2781218708468062,
+        "edges_growth_over_2cm": 475,
+        "edges_growth_over_5cm": 203,
+        "severe_ratio_over_5_and_growth_over_2cm": 146
+      },
+      {
+        "frame": 74,
+        "max_edge_growth_m": 0.28288560528587786,
+        "edges_growth_over_2cm": 490,
+        "edges_growth_over_5cm": 205,
+        "severe_ratio_over_5_and_growth_over_2cm": 149
+      },
+      {
+        "frame": 75,
+        "max_edge_growth_m": 0.2801693396641966,
+        "edges_growth_over_2cm": 502,
+        "edges_growth_over_5cm": 205,
+        "severe_ratio_over_5_and_growth_over_2cm": 148
+      },
+      {
+        "frame": 76,
+        "max_edge_growth_m": 0.2741965363177373,
+        "edges_growth_over_2cm": 504,
+        "edges_growth_over_5cm": 204,
+        "severe_ratio_over_5_and_growth_over_2cm": 148
+      },
+      {
+        "frame": 77,
+        "max_edge_growth_m": 0.26858888675229065,
+        "edges_growth_over_2cm": 500,
+        "edges_growth_over_5cm": 209,
+        "severe_ratio_over_5_and_growth_over_2cm": 149
+      },
+      {
+        "frame": 78,
+        "max_edge_growth_m": 0.265273134345979,
+        "edges_growth_over_2cm": 499,
+        "edges_growth_over_5cm": 210,
+        "severe_ratio_over_5_and_growth_over_2cm": 155
+      },
+      {
+        "frame": 79,
+        "max_edge_growth_m": 0.26144845887051366,
+        "edges_growth_over_2cm": 498,
+        "edges_growth_over_5cm": 214,
+        "severe_ratio_over_5_and_growth_over_2cm": 154
+      },
+      {
+        "frame": 80,
+        "max_edge_growth_m": 0.2553526297714579,
+        "edges_growth_over_2cm": 486,
+        "edges_growth_over_5cm": 211,
+        "severe_ratio_over_5_and_growth_over_2cm": 150
+      },
+      {
+        "frame": 81,
+        "max_edge_growth_m": 0.2480208327212045,
+        "edges_growth_over_2cm": 477,
+        "edges_growth_over_5cm": 201,
+        "severe_ratio_over_5_and_growth_over_2cm": 145
+      },
+      {
+        "frame": 82,
+        "max_edge_growth_m": 0.23813165928393137,
+        "edges_growth_over_2cm": 458,
+        "edges_growth_over_5cm": 193,
+        "severe_ratio_over_5_and_growth_over_2cm": 131
+      },
+      {
+        "frame": 83,
+        "max_edge_growth_m": 0.2211759787473888,
+        "edges_growth_over_2cm": 453,
+        "edges_growth_over_5cm": 183,
+        "severe_ratio_over_5_and_growth_over_2cm": 121
+      },
+      {
+        "frame": 84,
+        "max_edge_growth_m": 0.21098149178549902,
+        "edges_growth_over_2cm": 435,
+        "edges_growth_over_5cm": 171,
+        "severe_ratio_over_5_and_growth_over_2cm": 96
+      },
+      {
+        "frame": 85,
+        "max_edge_growth_m": 0.20431860214744293,
+        "edges_growth_over_2cm": 414,
+        "edges_growth_over_5cm": 156,
+        "severe_ratio_over_5_and_growth_over_2cm": 91
+      },
+      {
+        "frame": 86,
+        "max_edge_growth_m": 0.19530852956161296,
+        "edges_growth_over_2cm": 382,
+        "edges_growth_over_5cm": 142,
+        "severe_ratio_over_5_and_growth_over_2cm": 76
+      },
+      {
+        "frame": 87,
+        "max_edge_growth_m": 0.179508215304787,
+        "edges_growth_over_2cm": 352,
+        "edges_growth_over_5cm": 121,
+        "severe_ratio_over_5_and_growth_over_2cm": 63
+      },
+      {
+        "frame": 88,
+        "max_edge_growth_m": 0.15590185846952814,
+        "edges_growth_over_2cm": 319,
+        "edges_growth_over_5cm": 97,
+        "severe_ratio_over_5_and_growth_over_2cm": 45
+      },
+      {
+        "frame": 89,
+        "max_edge_growth_m": 0.1436165519036653,
+        "edges_growth_over_2cm": 291,
+        "edges_growth_over_5cm": 67,
+        "severe_ratio_over_5_and_growth_over_2cm": 29
+      },
+      {
+        "frame": 90,
+        "max_edge_growth_m": 0.13613213318893724,
+        "edges_growth_over_2cm": 282,
+        "edges_growth_over_5cm": 53,
+        "severe_ratio_over_5_and_growth_over_2cm": 25
+      },
+      {
+        "frame": 91,
+        "max_edge_growth_m": 0.13104323078140118,
+        "edges_growth_over_2cm": 283,
+        "edges_growth_over_5cm": 40,
+        "severe_ratio_over_5_and_growth_over_2cm": 16
+      },
+      {
+        "frame": 92,
+        "max_edge_growth_m": 0.1274737457780602,
+        "edges_growth_over_2cm": 266,
+        "edges_growth_over_5cm": 29,
+        "severe_ratio_over_5_and_growth_over_2cm": 10
+      },
+      {
+        "frame": 93,
+        "max_edge_growth_m": 0.12525175512273873,
+        "edges_growth_over_2cm": 230,
+        "edges_growth_over_5cm": 26,
+        "severe_ratio_over_5_and_growth_over_2cm": 9
+      },
+      {
+        "frame": 94,
+        "max_edge_growth_m": 0.12398733934252758,
+        "edges_growth_over_2cm": 210,
+        "edges_growth_over_5cm": 25,
+        "severe_ratio_over_5_and_growth_over_2cm": 5
+      },
+      {
+        "frame": 95,
+        "max_edge_growth_m": 0.12429194641206377,
+        "edges_growth_over_2cm": 187,
+        "edges_growth_over_5cm": 25,
+        "severe_ratio_over_5_and_growth_over_2cm": 5
+      },
+      {
+        "frame": 96,
+        "max_edge_growth_m": 0.12727871183360084,
+        "edges_growth_over_2cm": 180,
+        "edges_growth_over_5cm": 25,
+        "severe_ratio_over_5_and_growth_over_2cm": 7
+      },
+      {
+        "frame": 97,
+        "max_edge_growth_m": 0.13298009950118822,
+        "edges_growth_over_2cm": 203,
+        "edges_growth_over_5cm": 26,
+        "severe_ratio_over_5_and_growth_over_2cm": 11
+      },
+      {
+        "frame": 98,
+        "max_edge_growth_m": 0.1404874326746482,
+        "edges_growth_over_2cm": 220,
+        "edges_growth_over_5cm": 29,
+        "severe_ratio_over_5_and_growth_over_2cm": 11
+      },
+      {
+        "frame": 99,
+        "max_edge_growth_m": 0.14854011285662616,
+        "edges_growth_over_2cm": 276,
+        "edges_growth_over_5cm": 39,
+        "severe_ratio_over_5_and_growth_over_2cm": 20
+      },
+      {
+        "frame": 100,
+        "max_edge_growth_m": 0.15667641097860013,
+        "edges_growth_over_2cm": 338,
+        "edges_growth_over_5cm": 58,
+        "severe_ratio_over_5_and_growth_over_2cm": 31
+      },
+      {
+        "frame": 101,
+        "max_edge_growth_m": 0.16438730289488201,
+        "edges_growth_over_2cm": 385,
+        "edges_growth_over_5cm": 92,
+        "severe_ratio_over_5_and_growth_over_2cm": 38
+      },
+      {
+        "frame": 102,
+        "max_edge_growth_m": 0.17227150895840804,
+        "edges_growth_over_2cm": 435,
+        "edges_growth_over_5cm": 115,
+        "severe_ratio_over_5_and_growth_over_2cm": 50
+      },
+      {
+        "frame": 103,
+        "max_edge_growth_m": 0.17929470006293813,
+        "edges_growth_over_2cm": 460,
+        "edges_growth_over_5cm": 140,
+        "severe_ratio_over_5_and_growth_over_2cm": 71
+      },
+      {
+        "frame": 104,
+        "max_edge_growth_m": 0.2045087811727333,
+        "edges_growth_over_2cm": 490,
+        "edges_growth_over_5cm": 159,
+        "severe_ratio_over_5_and_growth_over_2cm": 98
+      },
+      {
+        "frame": 105,
+        "max_edge_growth_m": 0.23201658120041485,
+        "edges_growth_over_2cm": 524,
+        "edges_growth_over_5cm": 174,
+        "severe_ratio_over_5_and_growth_over_2cm": 118
+      },
+      {
+        "frame": 106,
+        "max_edge_growth_m": 0.25057586109703606,
+        "edges_growth_over_2cm": 550,
+        "edges_growth_over_5cm": 185,
+        "severe_ratio_over_5_and_growth_over_2cm": 126
+      },
+      {
+        "frame": 107,
+        "max_edge_growth_m": 0.26090341100044157,
+        "edges_growth_over_2cm": 560,
+        "edges_growth_over_5cm": 195,
+        "severe_ratio_over_5_and_growth_over_2cm": 133
+      },
+      {
+        "frame": 108,
+        "max_edge_growth_m": 0.2689450391936234,
+        "edges_growth_over_2cm": 564,
+        "edges_growth_over_5cm": 203,
+        "severe_ratio_over_5_and_growth_over_2cm": 137
+      },
+      {
+        "frame": 109,
+        "max_edge_growth_m": 0.27565458446040947,
+        "edges_growth_over_2cm": 579,
+        "edges_growth_over_5cm": 205,
+        "severe_ratio_over_5_and_growth_over_2cm": 139
+      },
+      {
+        "frame": 110,
+        "max_edge_growth_m": 0.27774328328986564,
+        "edges_growth_over_2cm": 579,
+        "edges_growth_over_5cm": 208,
+        "severe_ratio_over_5_and_growth_over_2cm": 141
+      },
+      {
+        "frame": 111,
+        "max_edge_growth_m": 0.2680865192105483,
+        "edges_growth_over_2cm": 563,
+        "edges_growth_over_5cm": 204,
+        "severe_ratio_over_5_and_growth_over_2cm": 135
+      },
+      {
+        "frame": 112,
+        "max_edge_growth_m": 0.25037194303127364,
+        "edges_growth_over_2cm": 533,
+        "edges_growth_over_5cm": 189,
+        "severe_ratio_over_5_and_growth_over_2cm": 132
+      },
+      {
+        "frame": 113,
+        "max_edge_growth_m": 0.23992180399267238,
+        "edges_growth_over_2cm": 525,
+        "edges_growth_over_5cm": 191,
+        "severe_ratio_over_5_and_growth_over_2cm": 130
+      },
+      {
+        "frame": 114,
+        "max_edge_growth_m": 0.24103017361287526,
+        "edges_growth_over_2cm": 514,
+        "edges_growth_over_5cm": 189,
+        "severe_ratio_over_5_and_growth_over_2cm": 133
+      },
+      {
+        "frame": 115,
+        "max_edge_growth_m": 0.24335623612649965,
+        "edges_growth_over_2cm": 502,
+        "edges_growth_over_5cm": 189,
+        "severe_ratio_over_5_and_growth_over_2cm": 130
+      },
+      {
+        "frame": 116,
+        "max_edge_growth_m": 0.2342771617994847,
+        "edges_growth_over_2cm": 478,
+        "edges_growth_over_5cm": 185,
+        "severe_ratio_over_5_and_growth_over_2cm": 120
+      },
+      {
+        "frame": 117,
+        "max_edge_growth_m": 0.22914035165420205,
+        "edges_growth_over_2cm": 458,
+        "edges_growth_over_5cm": 174,
+        "severe_ratio_over_5_and_growth_over_2cm": 110
+      },
+      {
+        "frame": 118,
+        "max_edge_growth_m": 0.22142524610454417,
+        "edges_growth_over_2cm": 457,
+        "edges_growth_over_5cm": 172,
+        "severe_ratio_over_5_and_growth_over_2cm": 105
+      },
+      {
+        "frame": 119,
+        "max_edge_growth_m": 0.21490472386379755,
+        "edges_growth_over_2cm": 439,
+        "edges_growth_over_5cm": 152,
+        "severe_ratio_over_5_and_growth_over_2cm": 95
+      },
+      {
+        "frame": 120,
+        "max_edge_growth_m": 0.20749600850042255,
+        "edges_growth_over_2cm": 411,
+        "edges_growth_over_5cm": 138,
+        "severe_ratio_over_5_and_growth_over_2cm": 80
+      },
+      {
+        "frame": 121,
+        "max_edge_growth_m": 0.2003426557916906,
+        "edges_growth_over_2cm": 395,
+        "edges_growth_over_5cm": 122,
+        "severe_ratio_over_5_and_growth_over_2cm": 66
+      },
+      {
+        "frame": 122,
+        "max_edge_growth_m": 0.19448372389644827,
+        "edges_growth_over_2cm": 372,
+        "edges_growth_over_5cm": 115,
+        "severe_ratio_over_5_and_growth_over_2cm": 60
+      },
+      {
+        "frame": 123,
+        "max_edge_growth_m": 0.1889166407530256,
+        "edges_growth_over_2cm": 351,
+        "edges_growth_over_5cm": 104,
+        "severe_ratio_over_5_and_growth_over_2cm": 46
+      },
+      {
+        "frame": 124,
+        "max_edge_growth_m": 0.18304011318451138,
+        "edges_growth_over_2cm": 338,
+        "edges_growth_over_5cm": 99,
+        "severe_ratio_over_5_and_growth_over_2cm": 37
+      },
+      {
+        "frame": 125,
+        "max_edge_growth_m": 0.1762310659436381,
+        "edges_growth_over_2cm": 326,
+        "edges_growth_over_5cm": 98,
+        "severe_ratio_over_5_and_growth_over_2cm": 31
+      },
+      {
+        "frame": 126,
+        "max_edge_growth_m": 0.1682470038345816,
+        "edges_growth_over_2cm": 323,
+        "edges_growth_over_5cm": 94,
+        "severe_ratio_over_5_and_growth_over_2cm": 26
+      },
+      {
+        "frame": 127,
+        "max_edge_growth_m": 0.16093980749372824,
+        "edges_growth_over_2cm": 309,
+        "edges_growth_over_5cm": 87,
+        "severe_ratio_over_5_and_growth_over_2cm": 24
+      },
+      {
+        "frame": 128,
+        "max_edge_growth_m": 0.15558519877234556,
+        "edges_growth_over_2cm": 295,
+        "edges_growth_over_5cm": 83,
+        "severe_ratio_over_5_and_growth_over_2cm": 22
+      },
+      {
+        "frame": 129,
+        "max_edge_growth_m": 0.151497694143252,
+        "edges_growth_over_2cm": 303,
+        "edges_growth_over_5cm": 81,
+        "severe_ratio_over_5_and_growth_over_2cm": 21
+      },
+      {
+        "frame": 130,
+        "max_edge_growth_m": 0.14770461688648356,
+        "edges_growth_over_2cm": 309,
+        "edges_growth_over_5cm": 79,
+        "severe_ratio_over_5_and_growth_over_2cm": 20
+      },
+      {
+        "frame": 131,
+        "max_edge_growth_m": 0.14427930837471975,
+        "edges_growth_over_2cm": 319,
+        "edges_growth_over_5cm": 80,
+        "severe_ratio_over_5_and_growth_over_2cm": 20
+      },
+      {
+        "frame": 132,
+        "max_edge_growth_m": 0.14137324819838804,
+        "edges_growth_over_2cm": 317,
+        "edges_growth_over_5cm": 79,
+        "severe_ratio_over_5_and_growth_over_2cm": 20
+      },
+      {
+        "frame": 133,
+        "max_edge_growth_m": 0.13822432294806108,
+        "edges_growth_over_2cm": 312,
+        "edges_growth_over_5cm": 80,
+        "severe_ratio_over_5_and_growth_over_2cm": 22
+      },
+      {
+        "frame": 134,
+        "max_edge_growth_m": 0.13513441045681432,
+        "edges_growth_over_2cm": 305,
+        "edges_growth_over_5cm": 78,
+        "severe_ratio_over_5_and_growth_over_2cm": 22
+      },
+      {
+        "frame": 135,
+        "max_edge_growth_m": 0.1326028012294463,
+        "edges_growth_over_2cm": 297,
+        "edges_growth_over_5cm": 78,
+        "severe_ratio_over_5_and_growth_over_2cm": 23
+      },
+      {
+        "frame": 136,
+        "max_edge_growth_m": 0.1303315889514065,
+        "edges_growth_over_2cm": 279,
+        "edges_growth_over_5cm": 73,
+        "severe_ratio_over_5_and_growth_over_2cm": 22
+      },
+      {
+        "frame": 137,
+        "max_edge_growth_m": 0.12783085403599911,
+        "edges_growth_over_2cm": 260,
+        "edges_growth_over_5cm": 70,
+        "severe_ratio_over_5_and_growth_over_2cm": 22
+      },
+      {
+        "frame": 138,
+        "max_edge_growth_m": 0.1251769538722063,
+        "edges_growth_over_2cm": 250,
+        "edges_growth_over_5cm": 65,
+        "severe_ratio_over_5_and_growth_over_2cm": 21
+      },
+      {
+        "frame": 139,
+        "max_edge_growth_m": 0.1228026929592122,
+        "edges_growth_over_2cm": 239,
+        "edges_growth_over_5cm": 63,
+        "severe_ratio_over_5_and_growth_over_2cm": 19
+      },
+      {
+        "frame": 140,
+        "max_edge_growth_m": 0.12109332054543856,
+        "edges_growth_over_2cm": 231,
+        "edges_growth_over_5cm": 59,
+        "severe_ratio_over_5_and_growth_over_2cm": 18
+      },
+      {
+        "frame": 141,
+        "max_edge_growth_m": 0.11835781336357834,
+        "edges_growth_over_2cm": 222,
+        "edges_growth_over_5cm": 55,
+        "severe_ratio_over_5_and_growth_over_2cm": 16
+      },
+      {
+        "frame": 142,
+        "max_edge_growth_m": 0.11150672883285526,
+        "edges_growth_over_2cm": 216,
+        "edges_growth_over_5cm": 51,
+        "severe_ratio_over_5_and_growth_over_2cm": 14
+      },
+      {
+        "frame": 143,
+        "max_edge_growth_m": 0.10084062275522951,
+        "edges_growth_over_2cm": 210,
+        "edges_growth_over_5cm": 47,
+        "severe_ratio_over_5_and_growth_over_2cm": 13
+      },
+      {
+        "frame": 144,
+        "max_edge_growth_m": 0.0911491503632844,
+        "edges_growth_over_2cm": 202,
+        "edges_growth_over_5cm": 39,
+        "severe_ratio_over_5_and_growth_over_2cm": 7
+      },
+      {
+        "frame": 145,
+        "max_edge_growth_m": 0.08345019637166876,
+        "edges_growth_over_2cm": 192,
+        "edges_growth_over_5cm": 33,
+        "severe_ratio_over_5_and_growth_over_2cm": 6
+      },
+      {
+        "frame": 146,
+        "max_edge_growth_m": 0.07511323811863461,
+        "edges_growth_over_2cm": 188,
+        "edges_growth_over_5cm": 27,
+        "severe_ratio_over_5_and_growth_over_2cm": 3
+      },
+      {
+        "frame": 147,
+        "max_edge_growth_m": 0.08201030273708709,
+        "edges_growth_over_2cm": 179,
+        "edges_growth_over_5cm": 21,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 148,
+        "max_edge_growth_m": 0.0883777906765196,
+        "edges_growth_over_2cm": 167,
+        "edges_growth_over_5cm": 19,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 149,
+        "max_edge_growth_m": 0.09395877892939691,
+        "edges_growth_over_2cm": 178,
+        "edges_growth_over_5cm": 18,
+        "severe_ratio_over_5_and_growth_over_2cm": 0
+      },
+      {
+        "frame": 150,
+        "max_edge_growth_m": 0.09974991883335518,
+        "edges_growth_over_2cm": 188,
+        "edges_growth_over_5cm": 21,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      },
+      {
+        "frame": 151,
+        "max_edge_growth_m": 0.10301405749077619,
+        "edges_growth_over_2cm": 186,
+        "edges_growth_over_5cm": 21,
+        "severe_ratio_over_5_and_growth_over_2cm": 2
+      },
+      {
+        "frame": 152,
+        "max_edge_growth_m": 0.10327328653457143,
+        "edges_growth_over_2cm": 187,
+        "edges_growth_over_5cm": 21,
+        "severe_ratio_over_5_and_growth_over_2cm": 2
+      },
+      {
+        "frame": 153,
+        "max_edge_growth_m": 0.10182070298015539,
+        "edges_growth_over_2cm": 172,
+        "edges_growth_over_5cm": 19,
+        "severe_ratio_over_5_and_growth_over_2cm": 2
+      },
+      {
+        "frame": 154,
+        "max_edge_growth_m": 0.10079539952314395,
+        "edges_growth_over_2cm": 156,
+        "edges_growth_over_5cm": 19,
+        "severe_ratio_over_5_and_growth_over_2cm": 1
+      }
+    ],
+    "max_growth_edges": [
+      {
+        "edge": 54346,
+        "max_growth_m": 0.28288560528587786,
+        "max_ratio": 10.167685909570908,
+        "worst_frame": 74,
+        "a": {
+          "id": 1679,
+          "rest": [
+            -0.1532924473285675,
+            0.026944661512970924,
+            1.3285726308822632
+          ],
+          "weights": {
+            "RightArm": 0.7347985506057739,
+            "Spine1": 0.26520147919654846
+          }
+        },
+        "b": {
+          "id": 1780,
+          "rest": [
+            -0.14944912493228912,
+            0.025301646441221237,
+            1.2980002164840698
+          ],
+          "weights": {
+            "Spine1": 0.9926739931106567,
+            "RightArm": 0.007326007355004549
+          }
+        }
+      },
+      {
+        "edge": 51746,
+        "max_growth_m": 0.27774328328986564,
+        "max_ratio": 8.35769547709874,
+        "worst_frame": 110,
+        "a": {
+          "id": 13023,
+          "rest": [
+            0.16348493099212646,
+            0.022739462554454803,
+            1.299324870109558
+          ],
+          "weights": {
+            "LeftArm": 0.6158729791641235,
+            "Spine1": 0.3589743375778198,
+            "Spine": 0.01953601837158203,
+            "Hips": 0.005616605281829834
+          }
+        },
+        "b": {
+          "id": 13848,
+          "rest": [
+            0.15877315402030945,
+            0.014966044574975967,
+            1.2626869678497314
+          ],
+          "weights": {
+            "Hips": 0.35164836049079895,
+            "Spine": 0.3313797414302826,
+            "Spine1": 0.30280831456184387,
+            "LeftArm": 0.014163614250719547
+          }
+        }
+      },
+      {
+        "edge": 20024,
+        "max_growth_m": 0.27117796639565517,
+        "max_ratio": 8.513732284130278,
+        "worst_frame": 75,
+        "a": {
+          "id": 1690,
+          "rest": [
+            -0.1468580663204193,
+            0.07926683872938156,
+            1.3390820026397705
+          ],
+          "weights": {
+            "RightArm": 0.7811965942382812,
+            "Spine1": 0.21880342066287994
+          }
+        },
+        "b": {
+          "id": 1794,
+          "rest": [
+            -0.13378649950027466,
+            0.07294095307588577,
+            1.3060414791107178
+          ],
+          "weights": {
+            "Spine1": 0.9230769276618958,
+            "RightArm": 0.07692307978868484
+          }
+        }
+      },
+      {
+        "edge": 20029,
+        "max_growth_m": 0.265083400684909,
+        "max_ratio": 12.406745045587643,
+        "worst_frame": 74,
+        "a": {
+          "id": 1682,
+          "rest": [
+            -0.1521778255701065,
+            0.038308024406433105,
+            1.3170645236968994
+          ],
+          "weights": {
+            "RightArm": 0.6566544771194458,
+            "Spine1": 0.3433455526828766
+          }
+        },
+        "b": {
+          "id": 1781,
+          "rest": [
+            -0.14944912493228912,
+            0.025301646441221237,
+            1.2980002164840698
+          ],
+          "weights": {
+            "Spine1": 0.9926739931106567,
+            "RightArm": 0.007326007355004549
+          }
+        }
+      },
+      {
+        "edge": 13187,
+        "max_growth_m": 0.265083400684909,
+        "max_ratio": 12.406745045587643,
+        "worst_frame": 74,
+        "a": {
+          "id": 1681,
+          "rest": [
+            -0.1521778255701065,
+            0.038308024406433105,
+            1.3170645236968994
+          ],
+          "weights": {
+            "RightArm": 0.6566544771194458,
+            "Spine1": 0.3433455526828766
+          }
+        },
+        "b": {
+          "id": 1780,
+          "rest": [
+            -0.14944912493228912,
+            0.025301646441221237,
+            1.2980002164840698
+          ],
+          "weights": {
+            "Spine1": 0.9926739931106567,
+            "RightArm": 0.007326007355004549
+          }
+        }
+      },
+      {
+        "edge": 31191,
+        "max_growth_m": 0.26382891199625697,
+        "max_ratio": 6.9941229490576164,
+        "worst_frame": 110,
+        "a": {
+          "id": 13020,
+          "rest": [
+            0.15790462493896484,
+            0.025388484820723534,
+            1.2557458877563477
+          ],
+          "weights": {
+            "Spine": 0.345947265625,
+            "Hips": 0.337158203125,
+            "Spine1": 0.277587890625,
+            "LeftArm": 0.039306640625
+          }
+        },
+        "b": {
+          "id": 13022,
+          "rest": [
+            0.16348493099212646,
+            0.022739462554454803,
+            1.299324870109558
+          ],
+          "weights": {
+            "LeftArm": 0.6158729791641235,
+            "Spine1": 0.3589743375778198,
+            "Spine": 0.01953601837158203,
+            "Hips": 0.005616605281829834
+          }
+        }
+      },
+      {
+        "edge": 37884,
+        "max_growth_m": 0.26382891199625697,
+        "max_ratio": 6.9941229490576164,
+        "worst_frame": 110,
+        "a": {
+          "id": 13021,
+          "rest": [
+            0.15790462493896484,
+            0.025388484820723534,
+            1.2557458877563477
+          ],
+          "weights": {
+            "Spine": 0.345947265625,
+            "Hips": 0.337158203125,
+            "Spine1": 0.277587890625,
+            "LeftArm": 0.039306640625
+          }
+        },
+        "b": {
+          "id": 13023,
+          "rest": [
+            0.16348493099212646,
+            0.022739462554454803,
+            1.299324870109558
+          ],
+          "weights": {
+            "LeftArm": 0.6158729791641235,
+            "Spine1": 0.3589743375778198,
+            "Spine": 0.01953601837158203,
+            "Hips": 0.005616605281829834
+          }
+        }
+      },
+      {
+        "edge": 54347,
+        "max_growth_m": 0.2609265558068271,
+        "max_ratio": 10.314255387186988,
+        "worst_frame": 74,
+        "a": {
+          "id": 1679,
+          "rest": [
+            -0.1532924473285675,
+            0.026944661512970924,
+            1.3285726308822632
+          ],
+          "weights": {
+            "RightArm": 0.7347985506057739,
+            "Spine1": 0.26520147919654846
+          }
+        },
+        "b": {
+          "id": 1779,
+          "rest": [
+            -0.15062165260314941,
+            -8.993852134153713e-06,
+            1.3214218616485596
+          ],
+          "weights": {
+            "Spine1": 0.988034188747406,
+            "RightArm": 0.011965812183916569
+          }
+        }
+      },
+      {
+        "edge": 47564,
+        "max_growth_m": 0.24911636551711197,
+        "max_ratio": 9.762526053414335,
+        "worst_frame": 74,
+        "a": {
+          "id": 1678,
+          "rest": [
+            -0.15280751883983612,
+            0.024165339767932892,
+            1.3362230062484741
+          ],
+          "weights": {
+            "RightArm": 0.7145299315452576,
+            "Spine1": 0.2854700982570648
+          }
+        },
+        "b": {
+          "id": 1779,
+          "rest": [
+            -0.15062165260314941,
+            -8.993852134153713e-06,
+            1.3214218616485596
+          ],
+          "weights": {
+            "Spine1": 0.988034188747406,
+            "RightArm": 0.011965812183916569
+          }
+        }
+      },
+      {
+        "edge": 20028,
+        "max_growth_m": 0.23934686477846728,
+        "max_ratio": 14.636976684740274,
+        "worst_frame": 74,
+        "a": {
+          "id": 1682,
+          "rest": [
+            -0.1521778255701065,
+            0.038308024406433105,
+            1.3170645236968994
+          ],
+          "weights": {
+            "RightArm": 0.6566544771194458,
+            "Spine1": 0.3433455526828766
+          }
+        },
+        "b": {
+          "id": 1783,
+          "rest": [
+            -0.14886288344860077,
+            0.036114949733018875,
+            1.29996919631958
+          ],
+          "weights": {
+            "Spine1": 0.9233211278915405,
+            "RightArm": 0.07472527772188187,
+            "Spine": 0.0019536020699888468
+          }
+        }
+      },
+      {
+        "edge": 20022,
+        "max_growth_m": 0.23880466940360423,
+        "max_ratio": 6.57630715845387,
+        "worst_frame": 75,
+        "a": {
+          "id": 1794,
+          "rest": [
+            -0.13378649950027466,
+            0.07294095307588577,
+            1.3060414791107178
+          ],
+          "weights": {
+            "Spine1": 0.9230769276618958,
+            "RightArm": 0.07692307978868484
+          }
+        },
+        "b": {
+          "id": 1795,
+          "rest": [
+            -0.14130663871765137,
+            0.09023936092853546,
+            1.3444886207580566
+          ],
+          "weights": {
+            "RightArm": 0.7157509326934814,
+            "Spine1": 0.28424909710884094
+          }
+        }
+      },
+      {
+        "edge": 11401,
+        "max_growth_m": 0.23703789384955937,
+        "max_ratio": 10.569829498885195,
+        "worst_frame": 79,
+        "a": {
+          "id": 9121,
+          "rest": [
+            0.12419811636209488,
+            0.09060121327638626,
+            1.3201624155044556
+          ],
+          "weights": {
+            "Spine1": 0.9462759494781494,
+            "LeftArm": 0.053724054247140884
+          }
+        },
+        "b": {
+          "id": 10019,
+          "rest": [
+            0.14786574244499207,
+            0.0855419784784317,
+            1.3254317045211792
+          ],
+          "weights": {
+            "LeftArm": 0.6610500812530518,
+            "Spine1": 0.33894994854927063
+          }
+        }
+      },
+      {
+        "edge": 38856,
+        "max_growth_m": 0.22910081921452694,
+        "max_ratio": 10.70655595387999,
+        "worst_frame": 79,
+        "a": {
+          "id": 9125,
+          "rest": [
+            0.12642015516757965,
+            0.09482809901237488,
+            1.3221238851547241
+          ],
+          "weights": {
+            "Spine1": 0.9225885272026062,
+            "LeftArm": 0.0774114802479744
+          }
+        },
+        "b": {
+          "id": 10019,
+          "rest": [
+            0.14786574244499207,
+            0.0855419784784317,
+            1.3254317045211792
+          ],
+          "weights": {
+            "LeftArm": 0.6610500812530518,
+            "Spine1": 0.33894994854927063
+          }
+        }
+      },
+      {
+        "edge": 47565,
+        "max_growth_m": 0.2274646389114508,
+        "max_ratio": 6.198553525036729,
+        "worst_frame": 74,
+        "a": {
+          "id": 1678,
+          "rest": [
+            -0.15280751883983612,
+            0.024165339767932892,
+            1.3362230062484741
+          ],
+          "weights": {
+            "RightArm": 0.7145299315452576,
+            "Spine1": 0.2854700982570648
+          }
+        },
+        "b": {
+          "id": 1778,
+          "rest": [
+            -0.14556965231895447,
+            -0.01895759627223015,
+            1.3346235752105713
+          ],
+          "weights": {
+            "Spine1": 0.9985347986221313,
+            "RightArm": 0.0014652014942839742
+          }
+        }
+      },
+      {
+        "edge": 13186,
+        "max_growth_m": 0.22587193392905852,
+        "max_ratio": 9.685706039054091,
+        "worst_frame": 75,
+        "a": {
+          "id": 1689,
+          "rest": [
+            -0.14950710535049438,
+            0.06733892112970352,
+            1.3308236598968506
+          ],
+          "weights": {
+            "RightArm": 0.7755799889564514,
+            "Spine1": 0.22442002594470978
+          }
+        },
+        "b": {
+          "id": 1792,
+          "rest": [
+            -0.14058281481266022,
+            0.06399501860141754,
+            1.306627869606018
+          ],
+          "weights": {
+            "Spine1": 0.8070818185806274,
+            "RightArm": 0.19291819632053375
+          }
+        }
+      },
+      {
+        "edge": 20025,
+        "max_growth_m": 0.2174426789040402,
+        "max_ratio": 6.971631551698177,
+        "worst_frame": 75,
+        "a": {
+          "id": 1690,
+          "rest": [
+            -0.1468580663204193,
+            0.07926683872938156,
+            1.3390820026397705
+          ],
+          "weights": {
+            "RightArm": 0.7811965942382812,
+            "Spine1": 0.21880342066287994
+          }
+        },
+        "b": {
+          "id": 1792,
+          "rest": [
+            -0.14058281481266022,
+            0.06399501860141754,
+            1.306627869606018
+          ],
+          "weights": {
+            "Spine1": 0.8070818185806274,
+            "RightArm": 0.19291819632053375
+          }
+        }
+      },
+      {
+        "edge": 3933,
+        "max_growth_m": 0.21389209731340436,
+        "max_ratio": 7.876308171539592,
+        "worst_frame": 110,
+        "a": {
+          "id": 12184,
+          "rest": [
+            0.15988053381443024,
+            0.036462344229221344,
+            1.2746076583862305
+          ],
+          "weights": {
+            "Spine1": 0.42037129402160645,
+            "LeftArm": 0.2696629464626312,
+            "Spine": 0.21836835145950317,
+            "Hips": 0.09159746021032333
+          }
+        },
+        "b": {
+          "id": 12185,
+          "rest": [
+            0.16329677402973175,
+            0.03971214219927788,
+            1.3053538799285889
+          ],
+          "weights": {
+            "LeftArm": 0.7882784008979797,
+            "Spine1": 0.2102564126253128,
+            "Spine": 0.0014652014942839742
+          }
+        }
+      },
+      {
+        "edge": 4141,
+        "max_growth_m": 0.2116176612734343,
+        "max_ratio": 6.95498373479531,
+        "worst_frame": 110,
+        "a": {
+          "id": 11408,
+          "rest": [
+            0.16046680510044098,
+            0.0514446459710598,
+            1.300960659980774
+          ],
+          "weights": {
+            "LeftArm": 0.701904296875,
+            "Spine1": 0.296142578125,
+            "Spine": 0.001953125
+          }
+        },
+        "b": {
+          "id": 12183,
+          "rest": [
+            0.15593594312667847,
+            0.04424300417304039,
+            1.2664580345153809
+          ],
+          "weights": {
+            "Spine1": 0.4139194190502167,
+            "Spine": 0.2884005010128021,
+            "LeftArm": 0.1963369995355606,
+            "Hips": 0.10134310275316238
+          }
+        }
+      },
+      {
+        "edge": 25292,
+        "max_growth_m": 0.19480258497815037,
+        "max_ratio": 8.413071646200414,
+        "worst_frame": 79,
+        "a": {
+          "id": 8531,
+          "rest": [
+            0.1279328465461731,
+            0.09647832065820694,
+            1.328334093093872
+          ],
+          "weights": {
+            "Spine1": 0.7946276068687439,
+            "LeftArm": 0.2053724080324173
+          }
+        },
+        "b": {
+          "id": 9128,
+          "rest": [
+            0.15120239555835724,
+            0.08453592658042908,
+            1.3308745622634888
+          ],
+          "weights": {
+            "LeftArm": 0.7235653400421143,
+            "Spine1": 0.27643468976020813
+          }
+        }
+      },
+      {
+        "edge": 52140,
+        "max_growth_m": 0.18820874829365075,
+        "max_ratio": 7.544768675794897,
+        "worst_frame": 110,
+        "a": {
+          "id": 11407,
+          "rest": [
+            0.15368497371673584,
+            0.05166175961494446,
+            1.2730154991149902
+          ],
+          "weights": {
+            "Spine1": 0.470085471868515,
+            "LeftArm": 0.25030526518821716,
+            "Spine": 0.24566544592380524,
+            "Hips": 0.03394383564591408
+          }
+        },
+        "b": {
+          "id": 11408,
+          "rest": [
+            0.16046680510044098,
+            0.0514446459710598,
+            1.300960659980774
+          ],
+          "weights": {
+            "LeftArm": 0.701904296875,
+            "Spine1": 0.296142578125,
+            "Spine": 0.001953125
+          }
+        }
+      },
+      {
+        "edge": 33696,
+        "max_growth_m": 0.18773614874072847,
+        "max_ratio": 6.051901835590553,
+        "worst_frame": 74,
+        "a": {
+          "id": 1588,
+          "rest": [
+            -0.15686073899269104,
+            0.058530498296022415,
+            1.3425054550170898
+          ],
+          "weights": {
+            "RightArm": 0.9616605639457703,
+            "Spine1": 0.038339439779520035
+          }
+        },
+        "b": {
+          "id": 1686,
+          "rest": [
+            -0.1458519846200943,
+            0.05165455862879753,
+            1.3076844215393066
+          ],
+          "weights": {
+            "Spine1": 0.5980464220046997,
+            "RightArm": 0.4019536077976227
+          }
+        }
+      },
+      {
+        "edge": 40697,
+        "max_growth_m": 0.18773614874072847,
+        "max_ratio": 6.051901835590553,
+        "worst_frame": 74,
+        "a": {
+          "id": 1589,
+          "rest": [
+            -0.15686073899269104,
+            0.058530498296022415,
+            1.3425054550170898
+          ],
+          "weights": {
+            "RightArm": 0.9616605639457703,
+            "Spine1": 0.038339439779520035
+          }
+        },
+        "b": {
+          "id": 1688,
+          "rest": [
+            -0.1458519846200943,
+            0.05165455862879753,
+            1.3076844215393066
+          ],
+          "weights": {
+            "Spine1": 0.5980464220046997,
+            "RightArm": 0.4019536077976227
+          }
+        }
+      },
+      {
+        "edge": 1932,
+        "max_growth_m": 0.17698719793348394,
+        "max_ratio": 6.895174116358374,
+        "worst_frame": 110,
+        "a": {
+          "id": 13848,
+          "rest": [
+            0.15877315402030945,
+            0.014966044574975967,
+            1.2626869678497314
+          ],
+          "weights": {
+            "Hips": 0.35164836049079895,
+            "Spine": 0.3313797414302826,
+            "Spine1": 0.30280831456184387,
+            "LeftArm": 0.014163614250719547
+          }
+        },
+        "b": {
+          "id": 13849,
+          "rest": [
+            0.163072407245636,
+            0.010196328163146973,
+            1.2920145988464355
+          ],
+          "weights": {
+            "Spine1": 0.4713064730167389,
+            "LeftArm": 0.3816849887371063,
+            "Spine": 0.09084249287843704,
+            "Hips": 0.05616605654358864
+          }
+        }
+      },
+      {
+        "edge": 8726,
+        "max_growth_m": 0.1760947795180952,
+        "max_ratio": 8.054858772694999,
+        "worst_frame": 110,
+        "a": {
+          "id": 13849,
+          "rest": [
+            0.163072407245636,
+            0.010196328163146973,
+            1.2920145988464355
+          ],
+          "weights": {
+            "Spine1": 0.4713064730167389,
+            "LeftArm": 0.3816849887371063,
+            "Spine": 0.09084249287843704,
+            "Hips": 0.05616605654358864
+          }
+        },
+        "b": {
+          "id": 14480,
+          "rest": [
+            0.15821585059165955,
+            -0.006769119296222925,
+            1.2743616104125977
+          ],
+          "weights": {
+            "Spine1": 0.363125741481781,
+            "Hips": 0.32405370473861694,
+            "Spine": 0.3047618865966797,
+            "LeftArm": 0.008058607578277588
+          }
+        }
+      },
+      {
+        "edge": 18247,
+        "max_growth_m": 0.1749757232730601,
+        "max_ratio": 12.52456626372605,
+        "worst_frame": 79,
+        "a": {
+          "id": 9122,
+          "rest": [
+            0.12419811636209488,
+            0.09060121327638626,
+            1.3201624155044556
+          ],
+          "weights": {
+            "Spine1": 0.9462759494781494,
+            "LeftArm": 0.053724054247140884
+          }
+        },
+        "b": {
+          "id": 10018,
+          "rest": [
+            0.13726237416267395,
+            0.08292188495397568,
+            1.3210961818695068
+          ],
+          "weights": {
+            "Spine1": 0.5081807374954224,
+            "LeftArm": 0.4918192923069
+          }
+        }
+      },
+      {
+        "edge": 11402,
+        "max_growth_m": 0.1749757232730601,
+        "max_ratio": 12.52456626372605,
+        "worst_frame": 79,
+        "a": {
+          "id": 9121,
+          "rest": [
+            0.12419811636209488,
+            0.09060121327638626,
+            1.3201624155044556
+          ],
+          "weights": {
+            "Spine1": 0.9462759494781494,
+            "LeftArm": 0.053724054247140884
+          }
+        },
+        "b": {
+          "id": 10017,
+          "rest": [
+            0.13726237416267395,
+            0.08292188495397568,
+            1.3210961818695068
+          ],
+          "weights": {
+            "Spine1": 0.5081807374954224,
+            "LeftArm": 0.4918192923069
+          }
+        }
+      },
+      {
+        "edge": 45513,
+        "max_growth_m": 0.1745019085455375,
+        "max_ratio": 7.349753564461508,
+        "worst_frame": 110,
+        "a": {
+          "id": 10694,
+          "rest": [
+            0.14660638570785522,
+            0.062011830508708954,
+            1.2751866579055786
+          ],
+          "weights": {
+            "Spine1": 0.5588666796684265,
+            "Spine": 0.23888617753982544,
+            "LeftArm": 0.19467513263225555,
+            "Hips": 0.0075720567256212234
+          }
+        },
+        "b": {
+          "id": 10695,
+          "rest": [
+            0.1530986875295639,
+            0.06420489400625229,
+            1.30180025100708
+          ],
+          "weights": {
+            "LeftArm": 0.6156288385391235,
+            "Spine1": 0.38437119126319885
+          }
+        }
+      },
+      {
+        "edge": 4140,
+        "max_growth_m": 0.17425701618806008,
+        "max_ratio": 6.747290035487205,
+        "worst_frame": 110,
+        "a": {
+          "id": 11408,
+          "rest": [
+            0.16046680510044098,
+            0.0514446459710598,
+            1.300960659980774
+          ],
+          "weights": {
+            "LeftArm": 0.701904296875,
+            "Spine1": 0.296142578125,
+            "Spine": 0.001953125
+          }
+        },
+        "b": {
+          "id": 12184,
+          "rest": [
+            0.15988053381443024,
+            0.036462344229221344,
+            1.2746076583862305
+          ],
+          "weights": {
+            "Spine1": 0.42037129402160645,
+            "LeftArm": 0.2696629464626312,
+            "Spine": 0.21836835145950317,
+            "Hips": 0.09159746021032333
+          }
+        }
+      },
+      {
+        "edge": 25460,
+        "max_growth_m": 0.17204007362779222,
+        "max_ratio": 11.273758742242668,
+        "worst_frame": 79,
+        "a": {
+          "id": 7947,
+          "rest": [
+            0.1205575242638588,
+            0.10251465439796448,
+            1.3532609939575195
+          ],
+          "weights": {
+            "Spine1": 0.9789987802505493,
+            "LeftArm": 0.021001221612095833
+          }
+        },
+        "b": {
+          "id": 8534,
+          "rest": [
+            0.1361115574836731,
+            0.09655069559812546,
+            1.3549691438674927
+          ],
+          "weights": {
+            "LeftArm": 0.5081807374954224,
+            "Spine1": 0.4918192923069
+          }
+        }
+      },
+      {
+        "edge": 42994,
+        "max_growth_m": 0.17072166881452364,
+        "max_ratio": 7.795387575134619,
+        "worst_frame": 110,
+        "a": {
+          "id": 14478,
+          "rest": [
+            0.159728541970253,
+            -0.0011598026612773538,
+            1.2988038063049316
+          ],
+          "weights": {
+            "Spine1": 0.5429897904396057,
+            "LeftArm": 0.36492428183555603,
+            "Spine": 0.060087934136390686,
+            "Hips": 0.03199804946780205
+          }
+        },
+        "b": {
+          "id": 14480,
+          "rest": [
+            0.15821585059165955,
+            -0.006769119296222925,
+            1.2743616104125977
+          ],
+          "weights": {
+            "Spine1": 0.363125741481781,
+            "Hips": 0.32405370473861694,
+            "Spine": 0.3047618865966797,
+            "LeftArm": 0.008058607578277588
+          }
+        }
+      },
+      {
+        "edge": 26832,
+        "max_growth_m": 0.1665728632933115,
+        "max_ratio": 8.876355163277333,
+        "worst_frame": 75,
+        "a": {
+          "id": 1795,
+          "rest": [
+            -0.14130663871765137,
+            0.09023936092853546,
+            1.3444886207580566
+          ],
+          "weights": {
+            "RightArm": 0.7157509326934814,
+            "Spine1": 0.28424909710884094
+          }
+        },
+        "b": {
+          "id": 1923,
+          "rest": [
+            -0.12893718481063843,
+            0.0901307687163353,
+            1.3273351192474365
+          ],
+          "weights": {
+            "Spine1": 0.7374847531318665,
+            "RightArm": 0.26251527667045593
+          }
+        }
+      },
+      {
+        "edge": 8723,
+        "max_growth_m": 0.16407850660316597,
+        "max_ratio": 6.856295490640148,
+        "worst_frame": 110,
+        "a": {
+          "id": 13849,
+          "rest": [
+            0.163072407245636,
+            0.010196328163146973,
+            1.2920145988464355
+          ],
+          "weights": {
+            "Spine1": 0.4713064730167389,
+            "LeftArm": 0.3816849887371063,
+            "Spine": 0.09084249287843704,
+            "Hips": 0.05616605654358864
+          }
+        },
+        "b": {
+          "id": 13850,
+          "rest": [
+            0.16442586481571198,
+            0.014567983336746693,
+            1.3196557760238647
+          ],
+          "weights": {
+            "LeftArm": 0.811965823173523,
+            "Spine1": 0.18803419172763824
+          }
+        }
+      },
+      {
+        "edge": 20027,
+        "max_growth_m": 0.16309019475286543,
+        "max_ratio": 16.54238774074159,
+        "worst_frame": 74,
+        "a": {
+          "id": 1682,
+          "rest": [
+            -0.1521778255701065,
+            0.038308024406433105,
+            1.3170645236968994
+          ],
+          "weights": {
+            "RightArm": 0.6566544771194458,
+            "Spine1": 0.3433455526828766
+          }
+        },
+        "b": {
+          "id": 1786,
+          "rest": [
+            -0.1490727812051773,
+            0.041601214557886124,
+            1.3075976371765137
+          ],
+          "weights": {
+            "Spine1": 0.747741162776947,
+            "RightArm": 0.25225886702537537
+          }
+        }
+      },
+      {
+        "edge": 40627,
+        "max_growth_m": 0.16234703660031613,
+        "max_ratio": 4.5810034832685025,
+        "worst_frame": 75,
+        "a": {
+          "id": 2085,
+          "rest": [
+            -0.10009447485208511,
+            0.09568215161561966,
+            1.3067290782928467
+          ],
+          "weights": {
+            "Spine1": 1.0
+          }
+        },
+        "b": {
+          "id": 2086,
+          "rest": [
+            -0.127800852060318,
+            0.09948204457759857,
+            1.3424115180969238
+          ],
+          "weights": {
+            "Spine1": 0.5799756050109863,
+            "RightArm": 0.42002442479133606
+          }
+        }
+      },
+      {
+        "edge": 54338,
+        "max_growth_m": 0.16171922354580515,
+        "max_ratio": 6.031783598388383,
+        "worst_frame": 75,
+        "a": {
+          "id": 2087,
+          "rest": [
+            -0.12701918184757233,
+            0.11551379412412643,
+            1.3695460557937622
+          ],
+          "weights": {
+            "RightArm": 0.4654456675052643,
+            "Spine1": 0.43785104155540466,
+            "Spine2": 0.083272285759449,
+            "RightShoulder": 0.013431013561785221
+          }
+        },
+        "b": {
+          "id": 2298,
+          "rest": [
+            -0.10183878988027573,
+            0.11214819550514221,
+            1.3498592376708984
+          ],
+          "weights": {
+            "Spine1": 1.0
+          }
+        }
+      },
+      {
+        "edge": 42705,
+        "max_growth_m": 0.15948431597709894,
+        "max_ratio": 4.412854096328101,
+        "worst_frame": 109,
+        "a": {
+          "id": 15574,
+          "rest": [
+            0.1661050170660019,
+            0.009204762056469917,
+            1.3509811162948608
+          ],
+          "weights": {
+            "LeftArm": 0.9191697239875793,
+            "Spine1": 0.08083028346300125
+          }
+        },
+        "b": {
+          "id": 16125,
+          "rest": [
+            0.16019900143146515,
+            -0.03152966499328613,
+            1.3731071949005127
+          ],
+          "weights": {
+            "Spine1": 0.4065934121608734,
+            "LeftArm": 0.32307693362236023,
+            "Spine2": 0.23882783949375153,
+            "LeftShoulder": 0.031501833349466324
+          }
+        }
+      },
+      {
+        "edge": 45839,
+        "max_growth_m": 0.1585418421689917,
+        "max_ratio": 6.131184730108554,
+        "worst_frame": 110,
+        "a": {
+          "id": 9118,
+          "rest": [
+            0.12591347098350525,
+            0.0757419690489769,
+            1.265560507774353
+          ],
+          "weights": {
+            "Spine1": 0.5760684013366699,
+            "Spine": 0.42393162846565247
+          }
+        },
+        "b": {
+          "id": 10015,
+          "rest": [
+            0.1405700296163559,
+            0.0741930902004242,
+            1.2927166223526
+          ],
+          "weights": {
+            "Spine1": 0.6451770067214966,
+            "LeftArm": 0.3531135320663452,
+            "Spine": 0.001709401491098106
+          }
+        }
+      },
+      {
+        "edge": 45669,
+        "max_growth_m": 0.1572445615291159,
+        "max_ratio": 5.022588671964062,
+        "worst_frame": 110,
+        "a": {
+          "id": 10014,
+          "rest": [
+            0.1343165934085846,
+            0.0659419521689415,
+            1.2550221681594849
+          ],
+          "weights": {
+            "Spine": 0.739013671875,
+            "Spine1": 0.2495117038488388,
+            "Hips": 0.011474609375
+          }
+        },
+        "b": {
+          "id": 10015,
+          "rest": [
+            0.1405700296163559,
+            0.0741930902004242,
+            1.2927166223526
+          ],
+          "weights": {
+            "Spine1": 0.6451770067214966,
+            "LeftArm": 0.3531135320663452,
+            "Spine": 0.001709401491098106
+          }
+        }
+      },
+      {
+        "edge": 52633,
+        "max_growth_m": 0.15306082830110493,
+        "max_ratio": 7.35633798824947,
+        "worst_frame": 79,
+        "a": {
+          "id": 9119,
+          "rest": [
+            0.1242777481675148,
+            0.08350091427564621,
+            1.2865934371948242
+          ],
+          "weights": {
+            "Spine1": 0.9819291830062866,
+            "Spine": 0.013431013561785221,
+            "LeftArm": 0.00463980482891202
+          }
+        },
+        "b": {
+          "id": 10016,
+          "rest": [
+            0.1372261792421341,
+            0.08030181378126144,
+            1.3066421747207642
+          ],
+          "weights": {
+            "Spine1": 0.6358974575996399,
+            "LeftArm": 0.3641025722026825
+          }
+        }
+      },
+      {
+        "edge": 52634,
+        "max_growth_m": 0.15291196406130791,
+        "max_ratio": 8.747296045173167,
+        "worst_frame": 79,
+        "a": {
+          "id": 9119,
+          "rest": [
+            0.1242777481675148,
+            0.08350091427564621,
+            1.2865934371948242
+          ],
+          "weights": {
+            "Spine1": 0.9819291830062866,
+            "Spine": 0.013431013561785221,
+            "LeftArm": 0.00463980482891202
+          }
+        },
+        "b": {
+          "id": 10015,
+          "rest": [
+            0.1405700296163559,
+            0.0741930902004242,
+            1.2927166223526
+          ],
+          "weights": {
+            "Spine1": 0.6451770067214966,
+            "LeftArm": 0.3531135320663452,
+            "Spine": 0.001709401491098106
+          }
+        }
+      },
+      {
+        "edge": 8582,
+        "max_growth_m": 0.1521958724311852,
+        "max_ratio": 9.930998401313257,
+        "worst_frame": 109,
+        "a": {
+          "id": 13537,
+          "rest": [
+            0.15532073378562927,
+            -0.020984187722206116,
+            1.2984129190444946
+          ],
+          "weights": {
+            "Spine1": 0.7382173538208008,
+            "Spine": 0.1299145370721817,
+            "Hips": 0.07203907519578934,
+            "LeftArm": 0.05982905998826027
+          }
+        },
+        "b": {
+          "id": 14477,
+          "rest": [
+            0.16081421077251434,
+            -0.009599088691174984,
+            1.309841275215149
+          ],
+          "weights": {
+            "Spine1": 0.572021484375,
+            "LeftArm": 0.4062499701976776,
+            "Spine": 0.016357421875,
+            "Hips": 0.004150390625,
+            "Spine2": 0.001220703125
+          }
+        }
+      },
+      {
+        "edge": 42832,
+        "max_growth_m": 0.15181196999076987,
+        "max_ratio": 7.271647114305927,
+        "worst_frame": 110,
+        "a": {
+          "id": 15062,
+          "rest": [
+            0.1646864265203476,
+            -0.012494218535721302,
+            1.331417202949524
+          ],
+          "weights": {
+            "LeftArm": 0.4959706962108612,
+            "Spine1": 0.47960928082466125,
+            "Spine2": 0.02442002482712269
+          }
+        },
+        "b": {
+          "id": 15066,
+          "rest": [
+            0.16630767285823822,
+            0.010456905700266361,
+            1.3389372825622559
+          ],
+          "weights": {
+            "LeftArm": 0.9477411508560181,
+            "Spine1": 0.05225885286927223
+          }
+        }
+      },
+      {
+        "edge": 1754,
+        "max_growth_m": 0.15181196999076987,
+        "max_ratio": 7.271647114305927,
+        "worst_frame": 110,
+        "a": {
+          "id": 15064,
+          "rest": [
+            0.1646864265203476,
+            -0.012494218535721302,
+            1.331417202949524
+          ],
+          "weights": {
+            "LeftArm": 0.4959706962108612,
+            "Spine1": 0.47960928082466125,
+            "Spine2": 0.02442002482712269
+          }
+        },
+        "b": {
+          "id": 15065,
+          "rest": [
+            0.16630767285823822,
+            0.010456905700266361,
+            1.3389372825622559
+          ],
+          "weights": {
+            "LeftArm": 0.9477411508560181,
+            "Spine1": 0.05225885286927223
+          }
+        }
+      },
+      {
+        "edge": 28961,
+        "max_growth_m": 0.14850708674029087,
+        "max_ratio": 7.298874786779508,
+        "worst_frame": 110,
+        "a": {
+          "id": 15068,
+          "rest": [
+            0.16630767285823822,
+            0.010456905700266361,
+            1.3389372825622559
+          ],
+          "weights": {
+            "LeftArm": 0.9477411508560181,
+            "Spine1": 0.05225885286927223
+          }
+        },
+        "b": {
+          "id": 15571,
+          "rest": [
+            0.161465585231781,
+            -0.012610013596713543,
+            1.3383582830429077
+          ],
+          "weights": {
+            "LeftArm": 0.5063508152961731,
+            "Spine1": 0.4538348913192749,
+            "Spine2": 0.03981436416506767
+          }
+        }
+      },
+      {
+        "edge": 15319,
+        "max_growth_m": 0.14850708674029087,
+        "max_ratio": 7.298874786779508,
+        "worst_frame": 110,
+        "a": {
+          "id": 15066,
+          "rest": [
+            0.16630767285823822,
+            0.010456905700266361,
+            1.3389372825622559
+          ],
+          "weights": {
+            "LeftArm": 0.9477411508560181,
+            "Spine1": 0.05225885286927223
+          }
+        },
+        "b": {
+          "id": 15570,
+          "rest": [
+            0.161465585231781,
+            -0.012610013596713543,
+            1.3383582830429077
+          ],
+          "weights": {
+            "LeftArm": 0.5063508152961731,
+            "Spine1": 0.4538348913192749,
+            "Spine2": 0.03981436416506767
+          }
+        }
+      },
+      {
+        "edge": 4614,
+        "max_growth_m": 0.1484338742027643,
+        "max_ratio": 10.20951441517417,
+        "worst_frame": 79,
+        "a": {
+          "id": 9120,
+          "rest": [
+            0.12341643124818802,
+            0.08837919682264328,
+            1.3046879768371582
+          ],
+          "weights": {
+            "Spine1": 0.9907203912734985,
+            "LeftArm": 0.00927960965782404
+          }
+        },
+        "b": {
+          "id": 10016,
+          "rest": [
+            0.1372261792421341,
+            0.08030181378126144,
+            1.3066421747207642
+          ],
+          "weights": {
+            "Spine1": 0.6358974575996399,
+            "LeftArm": 0.3641025722026825
+          }
+        }
+      },
+      {
+        "edge": 28960,
+        "max_growth_m": 0.14676349309786388,
+        "max_ratio": 6.251413465408073,
+        "worst_frame": 110,
+        "a": {
+          "id": 15068,
+          "rest": [
+            0.16630767285823822,
+            0.010456905700266361,
+            1.3389372825622559
+          ],
+          "weights": {
+            "LeftArm": 0.9477411508560181,
+            "Spine1": 0.05225885286927223
+          }
+        },
+        "b": {
+          "id": 15573,
+          "rest": [
+            0.16195054352283478,
+            -0.015244584530591965,
+            1.3490123748779297
+          ],
+          "weights": {
+            "LeftArm": 0.49535906314849854,
+            "Spine1": 0.42721056938171387,
+            "Spine2": 0.07743038982152939
+          }
+        }
+      },
+      {
+        "edge": 39060,
+        "max_growth_m": 0.1454176620571735,
+        "max_ratio": 6.51092459370017,
+        "worst_frame": 79,
+        "a": {
+          "id": 8533,
+          "rest": [
+            0.12349605560302734,
+            0.09402470290660858,
+            1.3319311141967773
+          ],
+          "weights": {
+            "Spine1": 0.9150183200836182,
+            "LeftArm": 0.08498168736696243
+          }
+        },
+        "b": {
+          "id": 8534,
+          "rest": [
+            0.1361115574836731,
+            0.09655069559812546,
+            1.3549691438674927
+          ],
+          "weights": {
+            "LeftArm": 0.5081807374954224,
+            "Spine1": 0.4918192923069
+          }
+        }
+      },
+      {
+        "edge": 3934,
+        "max_growth_m": 0.14538655800275488,
+        "max_ratio": 6.101283629231597,
+        "worst_frame": 110,
+        "a": {
+          "id": 12184,
+          "rest": [
+            0.15988053381443024,
+            0.036462344229221344,
+            1.2746076583862305
+          ],
+          "weights": {
+            "Spine1": 0.42037129402160645,
+            "LeftArm": 0.2696629464626312,
+            "Spine": 0.21836835145950317,
+            "Hips": 0.09159746021032333
+          }
+        },
+        "b": {
+          "id": 13022,
+          "rest": [
+            0.16348493099212646,
+            0.022739462554454803,
+            1.299324870109558
+          ],
+          "weights": {
+            "LeftArm": 0.6158729791641235,
+            "Spine1": 0.3589743375778198,
+            "Spine": 0.01953601837158203,
+            "Hips": 0.005616605281829834
+          }
+        }
+      },
+      {
+        "edge": 18446,
+        "max_growth_m": 0.14516643721686237,
+        "max_ratio": 13.295068889618161,
+        "worst_frame": 79,
+        "a": {
+          "id": 8530,
+          "rest": [
+            0.12286636978387833,
+            0.09871480613946915,
+            1.3239188194274902
+          ],
+          "weights": {
+            "Spine1": 0.9780219793319702,
+            "LeftArm": 0.021978022530674934
+          }
+        },
+        "b": {
+          "id": 9126,
+          "rest": [
+            0.13367241621017456,
+            0.09413326531648636,
+            1.3251999616622925
+          ],
+          "weights": {
+            "Spine1": 0.6163614392280579,
+            "LeftArm": 0.3836385905742645
+          }
+        }
+      }
+    ]
+  }
+]

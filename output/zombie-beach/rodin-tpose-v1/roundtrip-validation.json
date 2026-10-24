@@ -1,0 +1,423 @@
+{
+  "status": "pass",
+  "glb_scenes": 1,
+  "glb_meshes": 1,
+  "bones": 52,
+  "clips": 13,
+  "duration_errors_seconds": {
+    "Meshy_Unsteady_Walk": 0.0,
+    "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068": 0.0,
+    "Meshy__01a16049_24f1_7632_af79_b07a1749f28a": 0.0,
+    "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57": 0.0,
+    "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a": 0.0,
+    "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8": 0.0,
+    "Meshy__01a1603b_85e4_72f4_a035_f56410039b21": 0.0,
+    "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17": 0.0,
+    "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422": 0.0,
+    "Meshy_Walking": 0.0,
+    "Meshy_Running": 0.0,
+    "Rodin_HumanWalking2": 0.0,
+    "Rodin_HumanZombieCrawl": 0.0
+  },
+  "source_vertices": 14986,
+  "imported_vertices": 25367,
+  "max_influences_exported": 8,
+  "rest_mapping_max_error_m": 1.928410028995131e-06,
+  "roundtrip_pose_samples": [
+    {
+      "animation": "Meshy_Unsteady_Walk",
+      "phase": 0,
+      "max_vertex_error_m": 1.6445685497219385e-05,
+      "mean_vertex_error_m": 5.542232308252053e-07
+    },
+    {
+      "animation": "Meshy_Unsteady_Walk",
+      "phase": 0.25,
+      "max_vertex_error_m": 1.5216070324995023e-05,
+      "mean_vertex_error_m": 3.6311444022939784e-07
+    },
+    {
+      "animation": "Meshy_Unsteady_Walk",
+      "phase": 0.5,
+      "max_vertex_error_m": 1.4843020902099777e-05,
+      "mean_vertex_error_m": 4.2233056076445345e-07
+    },
+    {
+      "animation": "Meshy_Unsteady_Walk",
+      "phase": 0.75,
+      "max_vertex_error_m": 1.6722384577937062e-05,
+      "mean_vertex_error_m": 3.504099479254027e-07
+    },
+    {
+      "animation": "Meshy_Unsteady_Walk",
+      "phase": 1,
+      "max_vertex_error_m": 1.6328811426309496e-05,
+      "mean_vertex_error_m": 5.629995044928048e-07
+    },
+    {
+      "animation": "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "phase": 0,
+      "max_vertex_error_m": 1.1992543407990104e-05,
+      "mean_vertex_error_m": 3.5561295138008936e-07
+    },
+    {
+      "animation": "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "phase": 0.25,
+      "max_vertex_error_m": 1.6499552970706987e-05,
+      "mean_vertex_error_m": 5.437728022475233e-07
+    },
+    {
+      "animation": "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "phase": 0.5,
+      "max_vertex_error_m": 1.231900949993133e-05,
+      "mean_vertex_error_m": 3.9653599895967315e-07
+    },
+    {
+      "animation": "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "phase": 0.75,
+      "max_vertex_error_m": 1.2454672861112467e-05,
+      "mean_vertex_error_m": 3.9247566192380533e-07
+    },
+    {
+      "animation": "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "phase": 1,
+      "max_vertex_error_m": 1.788398387394291e-05,
+      "mean_vertex_error_m": 4.93491661560403e-07
+    },
+    {
+      "animation": "Meshy__01a16049_24f1_7632_af79_b07a1749f28a",
+      "phase": 0,
+      "max_vertex_error_m": 1.3061666797422117e-05,
+      "mean_vertex_error_m": 4.295444102135461e-07
+    },
+    {
+      "animation": "Meshy__01a16049_24f1_7632_af79_b07a1749f28a",
+      "phase": 0.25,
+      "max_vertex_error_m": 1.442758185359192e-05,
+      "mean_vertex_error_m": 4.52514432288241e-07
+    },
+    {
+      "animation": "Meshy__01a16049_24f1_7632_af79_b07a1749f28a",
+      "phase": 0.5,
+      "max_vertex_error_m": 1.3493160880296084e-05,
+      "mean_vertex_error_m": 4.371210650381244e-07
+    },
+    {
+      "animation": "Meshy__01a16049_24f1_7632_af79_b07a1749f28a",
+      "phase": 0.75,
+      "max_vertex_error_m": 1.2145015759118682e-05,
+      "mean_vertex_error_m": 3.607173877103769e-07
+    },
+    {
+      "animation": "Meshy__01a16049_24f1_7632_af79_b07a1749f28a",
+      "phase": 1,
+      "max_vertex_error_m": 1.3423839095106133e-05,
+      "mean_vertex_error_m": 3.797635540521129e-07
+    },
+    {
+      "animation": "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "phase": 0,
+      "max_vertex_error_m": 1.7849266952479685e-05,
+      "mean_vertex_error_m": 4.133600778274356e-07
+    },
+    {
+      "animation": "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "phase": 0.25,
+      "max_vertex_error_m": 1.9945876733194287e-05,
+      "mean_vertex_error_m": 4.633161090160956e-07
+    },
+    {
+      "animation": "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "phase": 0.5,
+      "max_vertex_error_m": 1.760628790809412e-05,
+      "mean_vertex_error_m": 4.4785019564486063e-07
+    },
+    {
+      "animation": "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "phase": 0.75,
+      "max_vertex_error_m": 1.75918542469699e-05,
+      "mean_vertex_error_m": 5.475237079237619e-07
+    },
+    {
+      "animation": "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "phase": 1,
+      "max_vertex_error_m": 1.7987966839263255e-05,
+      "mean_vertex_error_m": 6.464641001371775e-07
+    },
+    {
+      "animation": "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a",
+      "phase": 0,
+      "max_vertex_error_m": 1.5369114944117312e-05,
+      "mean_vertex_error_m": 4.4485102042355704e-07
+    },
+    {
+      "animation": "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a",
+      "phase": 0.25,
+      "max_vertex_error_m": 2.2877082641043597e-05,
+      "mean_vertex_error_m": 6.484629093537822e-07
+    },
+    {
+      "animation": "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a",
+      "phase": 0.5,
+      "max_vertex_error_m": 1.4159835775064097e-05,
+      "mean_vertex_error_m": 5.167107581310507e-07
+    },
+    {
+      "animation": "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a",
+      "phase": 0.75,
+      "max_vertex_error_m": 1.745004233772545e-05,
+      "mean_vertex_error_m": 4.5676966446144505e-07
+    },
+    {
+      "animation": "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a",
+      "phase": 1,
+      "max_vertex_error_m": 2.229221683120765e-05,
+      "mean_vertex_error_m": 9.095525700189564e-07
+    },
+    {
+      "animation": "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8",
+      "phase": 0,
+      "max_vertex_error_m": 2.122253907543471e-05,
+      "mean_vertex_error_m": 6.020651441335163e-07
+    },
+    {
+      "animation": "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8",
+      "phase": 0.25,
+      "max_vertex_error_m": 1.7701213819413373e-05,
+      "mean_vertex_error_m": 5.650942751506786e-07
+    },
+    {
+      "animation": "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8",
+      "phase": 0.5,
+      "max_vertex_error_m": 2.094664979736154e-05,
+      "mean_vertex_error_m": 6.149604285806736e-07
+    },
+    {
+      "animation": "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8",
+      "phase": 0.75,
+      "max_vertex_error_m": 2.3245200423182277e-05,
+      "mean_vertex_error_m": 6.457722587328608e-07
+    },
+    {
+      "animation": "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8",
+      "phase": 1,
+      "max_vertex_error_m": 2.149533208855382e-05,
+      "mean_vertex_error_m": 5.619346346892729e-07
+    },
+    {
+      "animation": "Meshy__01a1603b_85e4_72f4_a035_f56410039b21",
+      "phase": 0,
+      "max_vertex_error_m": 1.807966331554636e-05,
+      "mean_vertex_error_m": 4.948353045602122e-07
+    },
+    {
+      "animation": "Meshy__01a1603b_85e4_72f4_a035_f56410039b21",
+      "phase": 0.25,
+      "max_vertex_error_m": 1.2911845426367872e-05,
+      "mean_vertex_error_m": 7.321576092697759e-07
+    },
+    {
+      "animation": "Meshy__01a1603b_85e4_72f4_a035_f56410039b21",
+      "phase": 0.5,
+      "max_vertex_error_m": 1.553169983236389e-05,
+      "mean_vertex_error_m": 4.1549916711041326e-07
+    },
+    {
+      "animation": "Meshy__01a1603b_85e4_72f4_a035_f56410039b21",
+      "phase": 0.75,
+      "max_vertex_error_m": 1.7730378190009394e-05,
+      "mean_vertex_error_m": 5.432364886866406e-07
+    },
+    {
+      "animation": "Meshy__01a1603b_85e4_72f4_a035_f56410039b21",
+      "phase": 1,
+      "max_vertex_error_m": 1.7547697516979736e-05,
+      "mean_vertex_error_m": 5.810256279448376e-07
+    },
+    {
+      "animation": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+      "phase": 0,
+      "max_vertex_error_m": 1.699744788143672e-05,
+      "mean_vertex_error_m": 4.5186247013869697e-07
+    },
+    {
+      "animation": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+      "phase": 0.25,
+      "max_vertex_error_m": 1.5234089022779273e-05,
+      "mean_vertex_error_m": 4.5595669125646027e-07
+    },
+    {
+      "animation": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+      "phase": 0.5,
+      "max_vertex_error_m": 1.3595217142053895e-05,
+      "mean_vertex_error_m": 7.490315547747985e-07
+    },
+    {
+      "animation": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+      "phase": 0.75,
+      "max_vertex_error_m": 9.63385136614554e-06,
+      "mean_vertex_error_m": 6.307188296046413e-07
+    },
+    {
+      "animation": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+      "phase": 1,
+      "max_vertex_error_m": 1.024939953209221e-05,
+      "mean_vertex_error_m": 6.133876562439397e-07
+    },
+    {
+      "animation": "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "phase": 0,
+      "max_vertex_error_m": 2.0078760399978945e-05,
+      "mean_vertex_error_m": 5.59622984646764e-07
+    },
+    {
+      "animation": "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "phase": 0.25,
+      "max_vertex_error_m": 2.031740406073541e-05,
+      "mean_vertex_error_m": 4.597079304581299e-07
+    },
+    {
+      "animation": "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "phase": 0.5,
+      "max_vertex_error_m": 1.9549102507020987e-05,
+      "mean_vertex_error_m": 5.487123836001306e-07
+    },
+    {
+      "animation": "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "phase": 0.75,
+      "max_vertex_error_m": 2.091706946423517e-05,
+      "mean_vertex_error_m": 8.394290095363641e-07
+    },
+    {
+      "animation": "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "phase": 1,
+      "max_vertex_error_m": 1.8911892545449376e-05,
+      "mean_vertex_error_m": 9.894275616985959e-07
+    },
+    {
+      "animation": "Meshy_Walking",
+      "phase": 0,
+      "max_vertex_error_m": 1.6422533706364293e-05,
+      "mean_vertex_error_m": 5.333610789506448e-07
+    },
+    {
+      "animation": "Meshy_Walking",
+      "phase": 0.25,
+      "max_vertex_error_m": 1.5402274121236733e-05,
+      "mean_vertex_error_m": 5.833356564926191e-07
+    },
+    {
+      "animation": "Meshy_Walking",
+      "phase": 0.5,
+      "max_vertex_error_m": 1.6136943663601985e-05,
+      "mean_vertex_error_m": 5.210662246235806e-07
+    },
+    {
+      "animation": "Meshy_Walking",
+      "phase": 0.75,
+      "max_vertex_error_m": 1.629807395578952e-05,
+      "mean_vertex_error_m": 7.423331228470085e-07
+    },
+    {
+      "animation": "Meshy_Walking",
+      "phase": 1,
+      "max_vertex_error_m": 1.6388057160786988e-05,
+      "mean_vertex_error_m": 5.878610050182306e-07
+    },
+    {
+      "animation": "Meshy_Running",
+      "phase": 0,
+      "max_vertex_error_m": 1.3911578889885529e-05,
+      "mean_vertex_error_m": 4.0597374440546255e-07
+    },
+    {
+      "animation": "Meshy_Running",
+      "phase": 0.25,
+      "max_vertex_error_m": 1.3729704338728243e-05,
+      "mean_vertex_error_m": 5.819883462196085e-07
+    },
+    {
+      "animation": "Meshy_Running",
+      "phase": 0.5,
+      "max_vertex_error_m": 1.304195829065006e-05,
+      "mean_vertex_error_m": 5.731495291472384e-07
+    },
+    {
+      "animation": "Meshy_Running",
+      "phase": 0.75,
+      "max_vertex_error_m": 1.3468070950291858e-05,
+      "mean_vertex_error_m": 6.55844581968472e-07
+    },
+    {
+      "animation": "Meshy_Running",
+      "phase": 1,
+      "max_vertex_error_m": 1.3971197539038413e-05,
+      "mean_vertex_error_m": 6.834989060790509e-07
+    },
+    {
+      "animation": "Rodin_HumanWalking2",
+      "phase": 0,
+      "max_vertex_error_m": 1.2888605513547207e-05,
+      "mean_vertex_error_m": 4.968494575794583e-07
+    },
+    {
+      "animation": "Rodin_HumanWalking2",
+      "phase": 0.25,
+      "max_vertex_error_m": 1.0952596759040444e-05,
+      "mean_vertex_error_m": 5.441585039968379e-07
+    },
+    {
+      "animation": "Rodin_HumanWalking2",
+      "phase": 0.5,
+      "max_vertex_error_m": 9.985960114308642e-06,
+      "mean_vertex_error_m": 4.548432507511369e-07
+    },
+    {
+      "animation": "Rodin_HumanWalking2",
+      "phase": 0.75,
+      "max_vertex_error_m": 1.0481971323703637e-05,
+      "mean_vertex_error_m": 4.781877697290894e-07
+    },
+    {
+      "animation": "Rodin_HumanWalking2",
+      "phase": 1,
+      "max_vertex_error_m": 1.3023989964459045e-05,
+      "mean_vertex_error_m": 8.026185496587965e-07
+    },
+    {
+      "animation": "Rodin_HumanZombieCrawl",
+      "phase": 0,
+      "max_vertex_error_m": 1.3017723521702934e-05,
+      "mean_vertex_error_m": 7.348161746768097e-07
+    },
+    {
+      "animation": "Rodin_HumanZombieCrawl",
+      "phase": 0.25,
+      "max_vertex_error_m": 1.2439078590813325e-05,
+      "mean_vertex_error_m": 5.502559604090487e-07
+    },
+    {
+      "animation": "Rodin_HumanZombieCrawl",
+      "phase": 0.5,
+      "max_vertex_error_m": 1.9789914599475554e-05,
+      "mean_vertex_error_m": 6.588662347666583e-07
+    },
+    {
+      "animation": "Rodin_HumanZombieCrawl",
+      "phase": 0.75,
+      "max_vertex_error_m": 1.6565890131922213e-05,
+      "mean_vertex_error_m": 6.36872439360369e-07
+    },
+    {
+      "animation": "Rodin_HumanZombieCrawl",
+      "phase": 1,
+      "max_vertex_error_m": 1.2733868360226518e-05,
+      "mean_vertex_error_m": 8.370669820464472e-07
+    }
+  ],
+  "roundtrip_pose_max_error_m": 2.3245200423182277e-05,
+  "limitations": [
+    "Verifies export equivalence, not anatomical deformation quality or foot contact.",
+    "No Godot runtime, secondary physics, ragdoll or fracture test performed."
+  ]
+}

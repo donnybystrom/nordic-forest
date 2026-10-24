@@ -1,0 +1,109 @@
+{
+  "objects": [
+    {
+      "name": "model_LOD0",
+      "type": "MESH",
+      "dimensions": [
+        1.6537963151931763,
+        0.3339303433895111,
+        1.7838585376739502
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "vertices": 14986,
+      "faces": 30000,
+      "groups": 0,
+      "modifiers": [],
+      "materials": [
+        "model.002"
+      ]
+    },
+    {
+      "name": "model_LOD1",
+      "type": "MESH",
+      "dimensions": [
+        1.6540600061416626,
+        0.3340797424316406,
+        1.7840596437454224
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "vertices": 7486,
+      "faces": 15000,
+      "groups": 0,
+      "modifiers": [],
+      "materials": [
+        "model.002"
+      ]
+    },
+    {
+      "name": "model_LOD2",
+      "type": "MESH",
+      "dimensions": [
+        1.6546885967254639,
+        0.33374345302581787,
+        1.7840214967727661
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "vertices": 3736,
+      "faces": 7500,
+      "groups": 0,
+      "modifiers": [],
+      "materials": [
+        "model.002"
+      ]
+    },
+    {
+      "name": "model_LOD3",
+      "type": "MESH",
+      "dimensions": [
+        1.6527175903320312,
+        0.33357179164886475,
+        1.7843562364578247
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "vertices": 1861,
+      "faces": 3750,
+      "groups": 0,
+      "modifiers": [],
+      "materials": [
+        "model.002"
+      ]
+    },
+    {
+      "name": "model_LOD4",
+      "type": "MESH",
+      "dimensions": [
+        1.6526846885681152,
+        0.3333265781402588,
+        1.7819457054138184
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "vertices": 923,
+      "faces": 1874,
+      "groups": 0,
+      "modifiers": [],
+      "materials": [
+        "model.002"
+      ]
+    }
+  ]
+}

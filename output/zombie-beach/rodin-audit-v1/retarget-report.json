@@ -1,0 +1,483 @@
+{
+  "status": "retarget_candidate",
+  "source_skeleton_bones": 66,
+  "target_skeleton_bones": 52,
+  "mapped_target_bones": 52,
+  "mapping": {
+    "Hips": "mixamorig:Hips",
+    "Spine": "mixamorig:Spine",
+    "Spine1": "mixamorig:Spine1",
+    "Spine2": "mixamorig:Spine2",
+    "Neck": "mixamorig:Neck",
+    "Head": "mixamorig:Head",
+    "LeftShoulder": "mixamorig:LeftShoulder",
+    "LeftArm": "mixamorig:LeftArm",
+    "LeftForeArm": "mixamorig:LeftForeArm",
+    "LeftHand": "mixamorig:LeftHand",
+    "LeftHandThumb1": "mixamorig:LeftHandThumb1",
+    "LeftHandThumb2": "mixamorig:LeftHandThumb2",
+    "LeftHandThumb3": "mixamorig:LeftHandThumb3",
+    "LeftHandIndex1": "mixamorig:LeftHandIndex1",
+    "LeftHandIndex2": "mixamorig:LeftHandIndex2",
+    "LeftHandIndex3": "mixamorig:LeftHandIndex3",
+    "LeftHandMiddle1": "mixamorig:LeftHandMiddle1",
+    "LeftHandMiddle2": "mixamorig:LeftHandMiddle2",
+    "LeftHandMiddle3": "mixamorig:LeftHandMiddle3",
+    "LeftHandRing1": "mixamorig:LeftHandRing1",
+    "LeftHandRing2": "mixamorig:LeftHandRing2",
+    "LeftHandRing3": "mixamorig:LeftHandRing3",
+    "LeftHandPinky1": "mixamorig:LeftHandPinky1",
+    "LeftHandPinky2": "mixamorig:LeftHandPinky2",
+    "LeftHandPinky3": "mixamorig:LeftHandPinky3",
+    "RightShoulder": "mixamorig:RightShoulder",
+    "RightArm": "mixamorig:RightArm",
+    "RightForeArm": "mixamorig:RightForeArm",
+    "RightHand": "mixamorig:RightHand",
+    "RightHandThumb1": "mixamorig:RightHandThumb1",
+    "RightHandThumb2": "mixamorig:RightHandThumb2",
+    "RightHandThumb3": "mixamorig:RightHandThumb3",
+    "RightHandIndex1": "mixamorig:RightHandIndex1",
+    "RightHandIndex2": "mixamorig:RightHandIndex2",
+    "RightHandIndex3": "mixamorig:RightHandIndex3",
+    "RightHandMiddle1": "mixamorig:RightHandMiddle1",
+    "RightHandMiddle2": "mixamorig:RightHandMiddle2",
+    "RightHandMiddle3": "mixamorig:RightHandMiddle3",
+    "RightHandRing1": "mixamorig:RightHandRing1",
+    "RightHandRing2": "mixamorig:RightHandRing2",
+    "RightHandRing3": "mixamorig:RightHandRing3",
+    "RightHandPinky1": "mixamorig:RightHandPinky1",
+    "RightHandPinky2": "mixamorig:RightHandPinky2",
+    "RightHandPinky3": "mixamorig:RightHandPinky3",
+    "LeftUpLeg": "mixamorig:LeftUpLeg",
+    "LeftLeg": "mixamorig:LeftLeg",
+    "LeftFoot": "mixamorig:LeftFoot",
+    "LeftToeBase": "mixamorig:LeftToeBase",
+    "RightUpLeg": "mixamorig:RightUpLeg",
+    "RightLeg": "mixamorig:RightLeg",
+    "RightFoot": "mixamorig:RightFoot",
+    "RightToeBase": "mixamorig:RightToeBase"
+  },
+  "source_fps": 24,
+  "target_fps": 30,
+  "root_translation_scale": 1.1959559243420217,
+  "method": "Rest-corrected model-space rotation deltas, target rest bone lengths retained; hips translation scaled by hip height ratio",
+  "clips": [
+    {
+      "name": "Meshy_Unsteady_Walk",
+      "source_action": "Unsteady_Walk.001",
+      "duration_seconds": 2.966666666666667,
+      "frames": 90
+    },
+    {
+      "name": "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "source_action": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068.001",
+      "duration_seconds": 5.966666666666667,
+      "frames": 180
+    },
+    {
+      "name": "Meshy__01a16049_24f1_7632_af79_b07a1749f28a",
+      "source_action": "_01a16049_24f1_7632_af79_b07a1749f28a.001",
+      "duration_seconds": 5.966666666666667,
+      "frames": 180
+    },
+    {
+      "name": "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "source_action": "_01a16046_4c28_71a1_a0e5_4d32b6433f57.001",
+      "duration_seconds": 6.966666666666667,
+      "frames": 210
+    },
+    {
+      "name": "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a",
+      "source_action": "_01a16043_e8e4_7705_974e_7295ad5d516a.001",
+      "duration_seconds": 9.966666666666667,
+      "frames": 300
+    },
+    {
+      "name": "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8",
+      "source_action": "_01a16041_fe77_7650_9473_3f9eddba89a8.001",
+      "duration_seconds": 2.966666666666667,
+      "frames": 90
+    },
+    {
+      "name": "Meshy__01a1603b_85e4_72f4_a035_f56410039b21",
+      "source_action": "_01a1603b_85e4_72f4_a035_f56410039b21.001",
+      "duration_seconds": 2.966666666666667,
+      "frames": 90
+    },
+    {
+      "name": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+      "source_action": "_01a16039_5f64_76cf_9834_0ae151e56f17.001",
+      "duration_seconds": 2.966666666666667,
+      "frames": 90
+    },
+    {
+      "name": "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "source_action": "_01a16035_50c7_77d5_ba64_7c2f02b6f422.001",
+      "duration_seconds": 3.966666666666667,
+      "frames": 120
+    },
+    {
+      "name": "Meshy_Walking",
+      "source_action": "Walking.001",
+      "duration_seconds": 1.0333333333333334,
+      "frames": 32
+    },
+    {
+      "name": "Meshy_Running",
+      "source_action": "Running.001",
+      "duration_seconds": 0.6333333333333333,
+      "frames": 20
+    },
+    {
+      "name": "Rodin_HumanWalking2",
+      "source_action": "HumanWalking2",
+      "duration_seconds": 1.6333333333333333,
+      "frames": 50
+    },
+    {
+      "name": "Rodin_HumanZombieCrawl",
+      "source_action": "HumanZombieCrawl",
+      "duration_seconds": 5.133333333333334,
+      "frames": 155
+    }
+  ],
+  "math_validation_samples": [
+    {
+      "clip": "Unsteady_Walk",
+      "frame_30fps": 0,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.30385160446167e-08
+    },
+    {
+      "clip": "Unsteady_Walk",
+      "frame_30fps": 22,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.2009367585044257e-07
+    },
+    {
+      "clip": "Unsteady_Walk",
+      "frame_30fps": 44,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.3431725187092979e-08
+    },
+    {
+      "clip": "Unsteady_Walk",
+      "frame_30fps": 66,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 3.332000937312528e-08
+    },
+    {
+      "clip": "Unsteady_Walk",
+      "frame_30fps": 89,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.862645149230957e-08
+    },
+    {
+      "clip": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "frame_30fps": 0,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 7.450580596923828e-09
+    },
+    {
+      "clip": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "frame_30fps": 44,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.666000468656264e-08
+    },
+    {
+      "clip": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "frame_30fps": 89,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.666000468656264e-08
+    },
+    {
+      "clip": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "frame_30fps": 134,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 2.26600562419676e-08
+    },
+    {
+      "clip": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "frame_30fps": 179,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.4901161193847656e-08
+    },
+    {
+      "clip": "_01a16049_24f1_7632_af79_b07a1749f28a",
+      "frame_30fps": 0,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.1780402288468106e-08
+    },
+    {
+      "clip": "_01a16049_24f1_7632_af79_b07a1749f28a",
+      "frame_30fps": 44,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 4.16500117164066e-09
+    },
+    {
+      "clip": "_01a16049_24f1_7632_af79_b07a1749f28a",
+      "frame_30fps": 89,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 4.6566128730773926e-09
+    },
+    {
+      "clip": "_01a16049_24f1_7632_af79_b07a1749f28a",
+      "frame_30fps": 134,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.1175870895385742e-08
+    },
+    {
+      "clip": "_01a16049_24f1_7632_af79_b07a1749f28a",
+      "frame_30fps": 179,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 8.33000234328132e-09
+    },
+    {
+      "clip": "_01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "frame_30fps": 0,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 9.324860011460626e-09
+    },
+    {
+      "clip": "_01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "frame_30fps": 52,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 2.9802322387695312e-08
+    },
+    {
+      "clip": "_01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "frame_30fps": 104,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.228781230931777e-07
+    },
+    {
+      "clip": "_01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "frame_30fps": 156,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 2.9802322387695312e-08
+    },
+    {
+      "clip": "_01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "frame_30fps": 209,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 2.6656007498500226e-07
+    },
+    {
+      "clip": "_01a16043_e8e4_7705_974e_7295ad5d516a",
+      "frame_30fps": 0,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.0745380149674383e-07
+    },
+    {
+      "clip": "_01a16043_e8e4_7705_974e_7295ad5d516a",
+      "frame_30fps": 74,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 8.560065398421926e-08
+    },
+    {
+      "clip": "_01a16043_e8e4_7705_974e_7295ad5d516a",
+      "frame_30fps": 149,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.6049041769309353e-07
+    },
+    {
+      "clip": "_01a16043_e8e4_7705_974e_7295ad5d516a",
+      "frame_30fps": 224,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 6.143906154658885e-08
+    },
+    {
+      "clip": "_01a16043_e8e4_7705_974e_7295ad5d516a",
+      "frame_30fps": 299,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.4901161193847656e-07
+    },
+    {
+      "clip": "_01a16041_fe77_7650_9473_3f9eddba89a8",
+      "frame_30fps": 0,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.3333208984265686e-07
+    },
+    {
+      "clip": "_01a16041_fe77_7650_9473_3f9eddba89a8",
+      "frame_30fps": 22,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 9.528663428447144e-08
+    },
+    {
+      "clip": "_01a16041_fe77_7650_9473_3f9eddba89a8",
+      "frame_30fps": 44,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.3412338515665153e-07
+    },
+    {
+      "clip": "_01a16041_fe77_7650_9473_3f9eddba89a8",
+      "frame_30fps": 66,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.3348812510944096e-07
+    },
+    {
+      "clip": "_01a16041_fe77_7650_9473_3f9eddba89a8",
+      "frame_30fps": 89,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.3348812510944096e-07
+    },
+    {
+      "clip": "_01a1603b_85e4_72f4_a035_f56410039b21",
+      "frame_30fps": 0,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 3.725290298461914e-09
+    },
+    {
+      "clip": "_01a1603b_85e4_72f4_a035_f56410039b21",
+      "frame_30fps": 22,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 6.143906154658885e-08
+    },
+    {
+      "clip": "_01a1603b_85e4_72f4_a035_f56410039b21",
+      "frame_30fps": 44,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.228781230931777e-07
+    },
+    {
+      "clip": "_01a1603b_85e4_72f4_a035_f56410039b21",
+      "frame_30fps": 66,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.3657139822709083e-07
+    },
+    {
+      "clip": "_01a1603b_85e4_72f4_a035_f56410039b21",
+      "frame_30fps": 89,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 2.1950781140709273e-07
+    },
+    {
+      "clip": "_01a16039_5f64_76cf_9834_0ae151e56f17",
+      "frame_30fps": 0,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.8649720022921253e-08
+    },
+    {
+      "clip": "_01a16039_5f64_76cf_9834_0ae151e56f17",
+      "frame_30fps": 22,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 0.0
+    },
+    {
+      "clip": "_01a16039_5f64_76cf_9834_0ae151e56f17",
+      "frame_30fps": 44,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 2.2302015940987714e-07
+    },
+    {
+      "clip": "_01a16039_5f64_76cf_9834_0ae151e56f17",
+      "frame_30fps": 66,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.0323827311807139e-07
+    },
+    {
+      "clip": "_01a16039_5f64_76cf_9834_0ae151e56f17",
+      "frame_30fps": 89,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.97686242482388e-07
+    },
+    {
+      "clip": "_01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "frame_30fps": 0,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 6.7158625935464895e-09
+    },
+    {
+      "clip": "_01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "frame_30fps": 29,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.1920928955078125e-07
+    },
+    {
+      "clip": "_01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "frame_30fps": 59,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.228781230931777e-07
+    },
+    {
+      "clip": "_01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "frame_30fps": 89,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 2.384185791015625e-07
+    },
+    {
+      "clip": "_01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "frame_30fps": 119,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.4901161193847656e-07
+    },
+    {
+      "clip": "Walking",
+      "frame_30fps": 0,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 3.725290298461914e-09
+    },
+    {
+      "clip": "Walking",
+      "frame_30fps": 7,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 5.015325552909173e-09
+    },
+    {
+      "clip": "Walking",
+      "frame_30fps": 15,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 3.725290298461914e-09
+    },
+    {
+      "clip": "Walking",
+      "frame_30fps": 23,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 8.33000234328132e-09
+    },
+    {
+      "clip": "Walking",
+      "frame_30fps": 31,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 5.587935447692871e-09
+    },
+    {
+      "clip": "Running",
+      "frame_30fps": 0,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.1185567965232128e-08
+    },
+    {
+      "clip": "Running",
+      "frame_30fps": 4,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 2.08250058582033e-09
+    },
+    {
+      "clip": "Running",
+      "frame_30fps": 9,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 7.465118328985478e-09
+    },
+    {
+      "clip": "Running",
+      "frame_30fps": 14,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.862645149230957e-09
+    },
+    {
+      "clip": "Running",
+      "frame_30fps": 19,
+      "max_global_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.1178295951483588e-08
+    }
+  ],
+  "max_rotation_error_degrees": 1.7302844014466245e-05,
+  "max_hips_error_m": 2.6656007498500226e-07,
+  "limitations": [
+    "Mathematical transform agreement does not certify foot planting, self-collision-free movement or anatomical deformation.",
+    "No animation events, gameplay state machine or semantic labels are inferred for UUID clips.",
+    "No runtime procedural physics or jiggle has been added by this transfer."
+  ]
+}

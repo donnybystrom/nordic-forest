@@ -1,0 +1,29 @@
+{
+	"bones": 52,
+	"clip_max_joint_displacement_m": {
+		"Meshy_Running": 0.927515387535095,
+		"Meshy_Unsteady_Walk": 0.650774657726288,
+		"Meshy_Walking": 0.603458523750305,
+		"Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422": 3.30145049095154,
+		"Meshy__01a16039_5f64_76cf_9834_0ae151e56f17": 1.98979890346527,
+		"Meshy__01a1603b_85e4_72f4_a035_f56410039b21": 2.25500059127808,
+		"Meshy__01a16041_fe77_7650_9473_3f9eddba89a8": 1.00486481189728,
+		"Meshy__01a16043_e8e4_7705_974e_7295ad5d516a": 1.23076927661896,
+		"Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57": 2.22795224189758,
+		"Meshy__01a16049_24f1_7632_af79_b07a1749f28a": 0.134370803833008,
+		"Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068": 0.33557665348053,
+		"Rodin_HumanWalking2": 0.917492270469666,
+		"Rodin_HumanZombieCrawl": 2.18135476112366
+	},
+	"clips": 13,
+	"eight_bone_weights": true,
+	"engine": "4.7.1-stable (official)",
+	"limits": [
+		"Import, track resolution and finite moving bone transforms; no foot-contact or physics acceptance."
+	],
+	"max_duration_error_seconds": 0.000000445048016217697,
+	"pose_samples": 65,
+	"skin_binds": 52,
+	"status": "pass",
+	"validated_track_paths": 689
+}

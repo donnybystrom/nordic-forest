@@ -1,0 +1,482 @@
+[
+  {
+    "file": "assets/models/zombies/Meshy_AI_Beachside_Revenant_All_Animations-Blender-Rigify.glb",
+    "sha256": "109d84f286d2f595699b722d0ce036e089bd5e3f8eb067e62afd7ad3b52bcc47",
+    "bytes": 19827536,
+    "generator": {
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "version": "2.0"
+    },
+    "meshes": [
+      {
+        "name": "Mesh_0",
+        "primitives": [
+          {
+            "attributes": {
+              "POSITION": 0,
+              "NORMAL": 1,
+              "TEXCOORD_0": 2,
+              "JOINTS_0": 3,
+              "JOINTS_1": 4,
+              "WEIGHTS_0": 5,
+              "WEIGHTS_1": 6
+            },
+            "vertices": 57964,
+            "triangles": 96454
+          }
+        ]
+      }
+    ],
+    "skins": [
+      {
+        "name": "SmartRigArmature",
+        "joints": 66,
+        "names": [
+          "f_index.01.L",
+          "f_index.01.R",
+          "f_index.02.L",
+          "f_index.02.R",
+          "f_index.03.L",
+          "f_index.03.L_end",
+          "f_index.03.R",
+          "f_index.03.R_end",
+          "f_middle.01.L",
+          "f_middle.01.R",
+          "f_middle.02.L",
+          "f_middle.02.R",
+          "f_middle.03.L",
+          "f_middle.03.L_end",
+          "f_middle.03.R",
+          "f_middle.03.R_end",
+          "f_pinky.01.L",
+          "f_pinky.01.R",
+          "f_pinky.02.L",
+          "f_pinky.02.R",
+          "f_pinky.03.L",
+          "f_pinky.03.L_end",
+          "f_pinky.03.R",
+          "f_pinky.03.R_end",
+          "f_ring.01.L",
+          "f_ring.01.R",
+          "f_ring.02.L",
+          "f_ring.02.R",
+          "f_ring.03.L",
+          "f_ring.03.L_end",
+          "f_ring.03.R",
+          "f_ring.03.R_end",
+          "foot.L",
+          "foot.R",
+          "forearm.L",
+          "forearm.R",
+          "hand.L",
+          "hand.R",
+          "headfront",
+          "mixamorig:HeadTop_End",
+          "mixamorig:LeftToe_End",
+          "mixamorig:RightToe_End",
+          "shin.L",
+          "shin.R",
+          "shoulder.L",
+          "shoulder.R",
+          "spine",
+          "spine.001",
+          "spine.002",
+          "spine.003",
+          "spine.004",
+          "spine.005",
+          "thigh.L",
+          "thigh.R",
+          "thumb.01.L",
+          "thumb.01.R",
+          "thumb.02.L",
+          "thumb.02.R",
+          "thumb.03.L",
+          "thumb.03.L_end",
+          "thumb.03.R",
+          "thumb.03.R_end",
+          "toe.L",
+          "toe.R",
+          "upper_arm.L",
+          "upper_arm.R"
+        ]
+      }
+    ],
+    "animations": [
+      {
+        "name": "Running",
+        "channels": 132,
+        "duration_seconds": 0.6333330273628235
+      },
+      {
+        "name": "Walking",
+        "channels": 132,
+        "duration_seconds": 1.0333329439163208
+      },
+      {
+        "name": "_01a16035_50c7_77d5_ba64_7c2f02b6f422",
+        "channels": 132,
+        "duration_seconds": 3.9666669368743896
+      },
+      {
+        "name": "_01a16039_5f64_76cf_9834_0ae151e56f17",
+        "channels": 132,
+        "duration_seconds": 2.9666669368743896
+      },
+      {
+        "name": "_01a1603b_85e4_72f4_a035_f56410039b21",
+        "channels": 132,
+        "duration_seconds": 2.9666669368743896
+      },
+      {
+        "name": "_01a16041_fe77_7650_9473_3f9eddba89a8",
+        "channels": 132,
+        "duration_seconds": 2.9666669368743896
+      },
+      {
+        "name": "_01a16043_e8e4_7705_974e_7295ad5d516a",
+        "channels": 132,
+        "duration_seconds": 9.966666221618652
+      },
+      {
+        "name": "_01a16046_4c28_71a1_a0e5_4d32b6433f57",
+        "channels": 132,
+        "duration_seconds": 6.966667175292969
+      },
+      {
+        "name": "_01a16049_24f1_7632_af79_b07a1749f28a",
+        "channels": 132,
+        "duration_seconds": 5.966667175292969
+      },
+      {
+        "name": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+        "channels": 132,
+        "duration_seconds": 5.966667175292969
+      },
+      {
+        "name": "Unsteady_Walk",
+        "channels": 132,
+        "duration_seconds": 2.9666669368743896
+      }
+    ]
+  },
+  {
+    "file": "assets/models/zombies/Meshy_AI_Beachside_Revenant_All_Animations-Mixamo.glb",
+    "sha256": "d19160f383938210da28792229da9c20ea362be0ee18e94c89cdf4a3f83561ad",
+    "bytes": 20676120,
+    "generator": {
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "version": "2.0"
+    },
+    "meshes": [
+      {
+        "name": "Mesh_0",
+        "primitives": [
+          {
+            "attributes": {
+              "POSITION": 0,
+              "NORMAL": 1,
+              "TEXCOORD_0": 2,
+              "JOINTS_0": 3,
+              "JOINTS_1": 4,
+              "WEIGHTS_0": 5,
+              "WEIGHTS_1": 6
+            },
+            "vertices": 57964,
+            "triangles": 96454
+          }
+        ]
+      }
+    ],
+    "skins": [
+      {
+        "name": "SmartRigArmature",
+        "joints": 66,
+        "names": [
+          "mixamorig:Hips",
+          "mixamorig:Spine",
+          "mixamorig:Spine1",
+          "mixamorig:Spine2",
+          "mixamorig:Neck",
+          "mixamorig:Head",
+          "mixamorig:HeadTop_End",
+          "headfront",
+          "mixamorig:LeftShoulder",
+          "mixamorig:LeftArm",
+          "mixamorig:LeftForeArm",
+          "mixamorig:LeftHand",
+          "mixamorig:LeftHandThumb1",
+          "mixamorig:LeftHandThumb2",
+          "mixamorig:LeftHandThumb3",
+          "mixamorig:LeftHandThumb4",
+          "mixamorig:LeftHandPinky1",
+          "mixamorig:LeftHandPinky2",
+          "mixamorig:LeftHandPinky3",
+          "mixamorig:LeftHandPinky4",
+          "mixamorig:LeftHandRing1",
+          "mixamorig:LeftHandRing2",
+          "mixamorig:LeftHandRing3",
+          "mixamorig:LeftHandRing4",
+          "mixamorig:LeftHandMiddle1",
+          "mixamorig:LeftHandMiddle2",
+          "mixamorig:LeftHandMiddle3",
+          "mixamorig:LeftHandMiddle4",
+          "mixamorig:LeftHandIndex1",
+          "mixamorig:LeftHandIndex2",
+          "mixamorig:LeftHandIndex3",
+          "mixamorig:LeftHandIndex4",
+          "mixamorig:RightShoulder",
+          "mixamorig:RightArm",
+          "mixamorig:RightForeArm",
+          "mixamorig:RightHand",
+          "mixamorig:RightHandThumb1",
+          "mixamorig:RightHandThumb2",
+          "mixamorig:RightHandThumb3",
+          "mixamorig:RightHandThumb4",
+          "mixamorig:RightHandPinky1",
+          "mixamorig:RightHandPinky2",
+          "mixamorig:RightHandPinky3",
+          "mixamorig:RightHandPinky4",
+          "mixamorig:RightHandRing1",
+          "mixamorig:RightHandRing2",
+          "mixamorig:RightHandRing3",
+          "mixamorig:RightHandRing4",
+          "mixamorig:RightHandMiddle1",
+          "mixamorig:RightHandMiddle2",
+          "mixamorig:RightHandMiddle3",
+          "mixamorig:RightHandMiddle4",
+          "mixamorig:RightHandIndex1",
+          "mixamorig:RightHandIndex2",
+          "mixamorig:RightHandIndex3",
+          "mixamorig:RightHandIndex4",
+          "mixamorig:LeftUpLeg",
+          "mixamorig:LeftLeg",
+          "mixamorig:LeftFoot",
+          "mixamorig:LeftToeBase",
+          "mixamorig:LeftToe_End",
+          "mixamorig:RightUpLeg",
+          "mixamorig:RightLeg",
+          "mixamorig:RightFoot",
+          "mixamorig:RightToeBase",
+          "mixamorig:RightToe_End"
+        ]
+      }
+    ],
+    "animations": [
+      {
+        "name": "Running",
+        "channels": 132,
+        "duration_seconds": 0.6333330273628235
+      },
+      {
+        "name": "Walking",
+        "channels": 132,
+        "duration_seconds": 1.0333329439163208
+      },
+      {
+        "name": "_01a16035_50c7_77d5_ba64_7c2f02b6f422",
+        "channels": 132,
+        "duration_seconds": 3.9666669368743896
+      },
+      {
+        "name": "_01a16039_5f64_76cf_9834_0ae151e56f17",
+        "channels": 132,
+        "duration_seconds": 2.9666669368743896
+      },
+      {
+        "name": "_01a1603b_85e4_72f4_a035_f56410039b21",
+        "channels": 132,
+        "duration_seconds": 2.9666669368743896
+      },
+      {
+        "name": "_01a16041_fe77_7650_9473_3f9eddba89a8",
+        "channels": 132,
+        "duration_seconds": 2.9666669368743896
+      },
+      {
+        "name": "_01a16043_e8e4_7705_974e_7295ad5d516a",
+        "channels": 132,
+        "duration_seconds": 9.966666221618652
+      },
+      {
+        "name": "_01a16046_4c28_71a1_a0e5_4d32b6433f57",
+        "channels": 132,
+        "duration_seconds": 6.966667175292969
+      },
+      {
+        "name": "_01a16049_24f1_7632_af79_b07a1749f28a",
+        "channels": 132,
+        "duration_seconds": 5.966667175292969
+      },
+      {
+        "name": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+        "channels": 132,
+        "duration_seconds": 5.966667175292969
+      },
+      {
+        "name": "Unsteady_Walk",
+        "channels": 132,
+        "duration_seconds": 2.9666669368743896
+      }
+    ]
+  },
+  {
+    "file": "assets/models/zombies/Meshy_AI_Beachside_Revenant_All_Animations-UE5_Mannequin.glb",
+    "sha256": "b1a251c9ac6453b44456927c79220457bf864dfa16e8cf1eddb4708bff9ba016",
+    "bytes": 23967672,
+    "generator": {
+      "generator": "Khronos glTF Blender I/O v4.5.51",
+      "version": "2.0"
+    },
+    "meshes": [
+      {
+        "name": "Mesh_0",
+        "primitives": [
+          {
+            "attributes": {
+              "POSITION": 0,
+              "NORMAL": 1,
+              "TEXCOORD_0": 2,
+              "JOINTS_0": 3,
+              "JOINTS_1": 4,
+              "WEIGHTS_0": 5,
+              "WEIGHTS_1": 6
+            },
+            "vertices": 57964,
+            "triangles": 96454
+          }
+        ]
+      }
+    ],
+    "skins": [
+      {
+        "name": "SmartRigArmature",
+        "joints": 66,
+        "names": [
+          "pelvis",
+          "spine_01",
+          "spine_02",
+          "spine_03",
+          "neck_01",
+          "head",
+          "mixamorig:HeadTop_End",
+          "headfront",
+          "clavicle_l",
+          "upperarm_l",
+          "lowerarm_l",
+          "hand_l",
+          "thumb_01_l",
+          "thumb_02_l",
+          "thumb_03_l",
+          "mixamorig:LeftHandThumb4",
+          "pinky_01_l",
+          "pinky_02_l",
+          "pinky_03_l",
+          "mixamorig:LeftHandPinky4",
+          "ring_01_l",
+          "ring_02_l",
+          "ring_03_l",
+          "mixamorig:LeftHandRing4",
+          "middle_01_l",
+          "middle_02_l",
+          "middle_03_l",
+          "mixamorig:LeftHandMiddle4",
+          "index_01_l",
+          "index_02_l",
+          "index_03_l",
+          "mixamorig:LeftHandIndex4",
+          "clavicle_r",
+          "upperarm_r",
+          "lowerarm_r",
+          "hand_r",
+          "thumb_01_r",
+          "thumb_02_r",
+          "thumb_03_r",
+          "mixamorig:RightHandThumb4",
+          "pinky_01_r",
+          "pinky_02_r",
+          "pinky_03_r",
+          "mixamorig:RightHandPinky4",
+          "ring_01_r",
+          "ring_02_r",
+          "ring_03_r",
+          "mixamorig:RightHandRing4",
+          "middle_01_r",
+          "middle_02_r",
+          "middle_03_r",
+          "mixamorig:RightHandMiddle4",
+          "index_01_r",
+          "index_02_r",
+          "index_03_r",
+          "mixamorig:RightHandIndex4",
+          "thigh_l",
+          "calf_l",
+          "foot_l",
+          "ball_l",
+          "mixamorig:LeftToe_End",
+          "thigh_r",
+          "calf_r",
+          "foot_r",
+          "ball_r",
+          "mixamorig:RightToe_End"
+        ]
+      }
+    ],
+    "animations": [
+      {
+        "name": "Running",
+        "channels": 132,
+        "duration_seconds": 0.6333330273628235
+      },
+      {
+        "name": "Walking",
+        "channels": 132,
+        "duration_seconds": 1.0333329439163208
+      },
+      {
+        "name": "_01a16035_50c7_77d5_ba64_7c2f02b6f422",
+        "channels": 132,
+        "duration_seconds": 3.9666669368743896
+      },
+      {
+        "name": "_01a16039_5f64_76cf_9834_0ae151e56f17",
+        "channels": 132,
+        "duration_seconds": 2.9666669368743896
+      },
+      {
+        "name": "_01a1603b_85e4_72f4_a035_f56410039b21",
+        "channels": 132,
+        "duration_seconds": 2.9666669368743896
+      },
+      {
+        "name": "_01a16041_fe77_7650_9473_3f9eddba89a8",
+        "channels": 132,
+        "duration_seconds": 2.9666669368743896
+      },
+      {
+        "name": "_01a16043_e8e4_7705_974e_7295ad5d516a",
+        "channels": 132,
+        "duration_seconds": 9.966666221618652
+      },
+      {
+        "name": "_01a16046_4c28_71a1_a0e5_4d32b6433f57",
+        "channels": 132,
+        "duration_seconds": 6.966667175292969
+      },
+      {
+        "name": "_01a16049_24f1_7632_af79_b07a1749f28a",
+        "channels": 132,
+        "duration_seconds": 5.966667175292969
+      },
+      {
+        "name": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+        "channels": 132,
+        "duration_seconds": 5.966667175292969
+      },
+      {
+        "name": "Unsteady_Walk",
+        "channels": 132,
+        "duration_seconds": 2.9666669368743896
+      }
+    ]
+  }
+]

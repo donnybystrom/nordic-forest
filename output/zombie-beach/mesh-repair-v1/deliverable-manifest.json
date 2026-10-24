@@ -1,0 +1,83 @@
+{
+  "scene": "ZB_Deliverable_v1",
+  "rig": "Beachside_Revenant_Rig",
+  "mesh": "Beachside_Revenant_Repaired",
+  "fps": 30,
+  "source_fps": 24,
+  "keyframe_time_scale": 1.25,
+  "vertices": 48114,
+  "triangles": 96320,
+  "bones": 66,
+  "clips": [
+    {
+      "name": "Unsteady_Walk",
+      "duration_seconds": 2.966666666666667,
+      "source_action": "Unsteady_Walk.001"
+    },
+    {
+      "name": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "duration_seconds": 5.966666666666667,
+      "source_action": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068.001"
+    },
+    {
+      "name": "_01a16049_24f1_7632_af79_b07a1749f28a",
+      "duration_seconds": 5.966666666666667,
+      "source_action": "_01a16049_24f1_7632_af79_b07a1749f28a.001"
+    },
+    {
+      "name": "_01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "duration_seconds": 6.966666666666667,
+      "source_action": "_01a16046_4c28_71a1_a0e5_4d32b6433f57.001"
+    },
+    {
+      "name": "_01a16043_e8e4_7705_974e_7295ad5d516a",
+      "duration_seconds": 9.966666666666667,
+      "source_action": "_01a16043_e8e4_7705_974e_7295ad5d516a.001"
+    },
+    {
+      "name": "_01a16041_fe77_7650_9473_3f9eddba89a8",
+      "duration_seconds": 2.966666666666667,
+      "source_action": "_01a16041_fe77_7650_9473_3f9eddba89a8.001"
+    },
+    {
+      "name": "_01a1603b_85e4_72f4_a035_f56410039b21",
+      "duration_seconds": 2.966666666666667,
+      "source_action": "_01a1603b_85e4_72f4_a035_f56410039b21.001"
+    },
+    {
+      "name": "_01a16039_5f64_76cf_9834_0ae151e56f17",
+      "duration_seconds": 2.966666666666667,
+      "source_action": "_01a16039_5f64_76cf_9834_0ae151e56f17.001"
+    },
+    {
+      "name": "_01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "duration_seconds": 3.966666666666667,
+      "source_action": "_01a16035_50c7_77d5_ba64_7c2f02b6f422.001"
+    },
+    {
+      "name": "Walking",
+      "duration_seconds": 1.0333333333333334,
+      "source_action": "Walking.001"
+    },
+    {
+      "name": "Running",
+      "duration_seconds": 0.6333333333333333,
+      "source_action": "Running.001"
+    }
+  ],
+  "files": {
+    "assets/models/zombies/repaired-v1/Beachside_Revenant_Repaired_v1-Mixamo.glb": {
+      "sha256": "011d6e8a6b1f8a868a19cc4234e1f5b7eb34c5051be719b716b5701ab28a79f7",
+      "bytes": 11523116
+    },
+    "assets/models/zombies/repaired-v1/Beachside_Revenant_Repaired_v1.blend": {
+      "sha256": "d778f6c648a4ceb69982867d0b910515843810e796ef83248adec5394951dcf9",
+      "bytes": 16604841
+    }
+  },
+  "skin_influences": "JOINTS_0/WEIGHTS_0 plus JOINTS_1/WEIGHTS_1 when required; maximum eight, avoiding destructive four-weight pruning",
+  "notes": [
+    "This is a corrected prototype, not a new retopologized hand sculpt.",
+    "No Godot runtime, procedural controller, ragdoll or fracture system has been validated."
+  ]
+}

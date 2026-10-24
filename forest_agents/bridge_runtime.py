@@ -12,6 +12,7 @@ from typing import Literal
 from .contracts import Handover
 from .pr_review import LocalPRReview, PRCommand, PROFILE
 from .planning_board import BoardCommand
+from .character_pipeline import CharacterCommand
 from .job_store import canonical
 from .workflow import ROOT, SECRET_PATTERN, instructions_for, load_config, load_key, prepare, read_project_text, stage_payload
 
@@ -22,7 +23,7 @@ TERMINAL = {'completed', 'failed', 'cancelled'}
 class JobRequest(BaseModel):
     model_config = ConfigDict(extra='forbid', strict=True)
     project: Literal['nordic-forest'] = 'nordic-forest'
-    operation: Literal['plan_feature', 'collect_audit_reference', 'propose_agent_change', 'run_agent', 'github_pr', 'review_pr', 'planning_board']
+    operation: Literal['plan_feature', 'collect_audit_reference', 'propose_agent_change', 'run_agent', 'github_pr', 'review_pr', 'planning_board', 'character_pipeline']
     request: str = Field(min_length=1, max_length=10000)
     live: bool = False
     specialists: list[str] = Field(default_factory=list, max_length=2)
@@ -31,10 +32,13 @@ class JobRequest(BaseModel):
     github_request: PRCommand | None = None
     pr_number: int = Field(default=6,ge=1)
     board_request: BoardCommand | None = None
+    character_request: CharacterCommand | None = None
     ticket_issue: int = Field(default=0,ge=0)
 
     def checked(self):
         config = load_config()
+        if self.operation == 'character_pipeline' and self.character_request is None:
+            raise ValueError('Character command required')
         if self.operation=='planning_board' and self.board_request is None:raise ValueError('Board command required')
         if self.operation == 'github_pr' and self.github_request is None:
             raise ValueError('GitHub command required')
@@ -56,6 +60,7 @@ class JobRequest(BaseModel):
         if self.operation != 'github_pr': result.pop('github_request')
         if self.operation != 'review_pr': result.pop('pr_number')
         if self.operation!='planning_board':result.pop('board_request')
+        if self.operation!='character_pipeline':result.pop('character_request')
         if not self.ticket_issue:result.pop('ticket_issue')
         if self.ticket_issue and self.operation!='run_agent':raise ValueError('Only a role consultation can carry a ticket reference')
         return result
@@ -232,6 +237,8 @@ class Runtime:
                 self.review_pr(jid)
             elif op == 'planning_board':
                 self.planning_board(jid)
+            elif op == 'character_pipeline':
+                self.character_pipeline(jid)
             else:
                 self.proposal(jid)
         except Cancelled:
@@ -255,6 +262,33 @@ class Runtime:
                     self.store.event(jid,'delivery','board_sync',outcome)
                 except Exception as exc:
                     self.store.event(jid,'delivery','board_sync_failed',{'error_type':type(exc).__name__,'next_action':'Inspect the retained job; retry sync_job after reconciling the board.'})
+
+    def character_pipeline(self, jid):
+        from . import character_pipeline as characters
+        job = self.store.get(jid)
+        command = CharacterCommand.model_validate(job['request']['character_request'])
+        self.check_cancel(jid)
+        if command.action == 'rig_character' and job['request']['live']:
+            from .character_rigging import prepare_rig, run_rig
+            packet = prepare_rig(command, self.store)
+            def checkpoint(output):
+                self.store.update(jid, result=output)
+                self.check_cancel(jid)
+            output = run_rig(packet, checkpoint=checkpoint)
+        elif command.action == 'run_rodin' and job['request']['live']:
+            def checkpoint(output):
+                self.store.update(jid, result=output)
+                self.check_cancel(jid)
+            output = characters.run_to_download(command, self.store, checkpoint=checkpoint)
+        else:
+            output = characters.execute(command, self.store, live=job['request']['live'])
+        status = 'character_stage_complete'
+        if command.action == 'prepare':
+            status = 'awaiting_review' if output['ready_for_generation_review'] else 'needs_views'
+        elif not job['request']['live'] and command.action != 'inspect':
+            status = 'prepared_offline'
+        self.store.update(jid, status=status, result=output)
+        self.store.event(jid, 'character_pipeline', command.action, {'status': status})
 
     def planning_board(self,jid):
         from . import planning_board as board
