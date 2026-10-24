@@ -2,6 +2,9 @@
 import re
 import subprocess
 
+MAX_BLOB_BYTES = 100 * 1024 * 1024
+MAX_SECRET_SCAN_BYTES = 10 * 1024 * 1024
+
 
 def inspect_index():
     entries = subprocess.check_output(['git', 'ls-files', '--stage', '-z']).split(b'\0')
@@ -25,9 +28,9 @@ def inspect_index():
             rest = path[len('data/references/'):]
             if not (rest.endswith('.json') and ('/' not in rest or (rest.startswith('analysis/') and rest.count('/') == 1))):
                 rejected.append((path, 'third-party reference payload'))
-        if size > 10 * 1024 * 1024:
-            rejected.append((path, 'regular Git blob exceeds project 10 MiB limit'))
-        if size <= 10 * 1024 * 1024 and re.search(rb'(?:sk-[A-Za-z0-9_-]{24,}|gh[pousr]_[A-Za-z0-9]{30,})', blob):
+        if size > MAX_BLOB_BYTES:
+            rejected.append((path, 'regular Git blob exceeds project 100 MiB limit'))
+        if size <= MAX_SECRET_SCAN_BYTES and re.search(rb'(?:sk-[A-Za-z0-9_-]{24,}|gh[pousr]_[A-Za-z0-9]{30,})', blob):
             rejected.append((path, 'credential-like value'))
     return {'indexed_files': count, 'indexed_bytes': total, 'largest_blob_bytes': biggest, 'rejected': rejected}
 

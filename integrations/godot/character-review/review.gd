@@ -417,7 +417,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if physics.begin_drag(event.position, camera):
 			get_viewport().set_input_as_handled()
 			return
-	if event is InputEventMouseMotion and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+	if event is InputEventMouseMotion and event.button_mask & MOUSE_BUTTON_MASK_LEFT != 0:
 		orbit.x -= event.relative.x * 0.008
 		orbit.y = clampf(orbit.y + event.relative.y * 0.006, -0.2, 1.0)
 	if event is InputEventMouseButton and event.pressed:

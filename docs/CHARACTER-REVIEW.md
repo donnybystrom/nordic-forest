@@ -53,6 +53,27 @@ godot --headless --path output/zombie-beach/rodin-tpose-v1/godot-review --script
 godot --path output/zombie-beach/rodin-tpose-v1/godot-review --log-file /tmp/active-ragdoll-render.log -- --physics-snapshots
 ```
 
+## GitHub Pages
+
+The playable demo is published at [Nordic Forest · Fysiklabb](https://donnybystrom.github.io/nordic-forest/). In repository **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source. The workflow **Character physics demo on Pages** builds and tests changes on `main`, then deploys the generated site. It can also be started with **Run workflow**. A failed browser test prevents deployment.
+
+`tools/build_character_web.py` copies the tracked runtime catalog and its two hash-checked GLBs into `build/character-web/project/`, adds the authored reviewer, and exports to `build/character-web/site/`. Neither ignored generation jobs nor Blender is needed. The workflow pins Godot 4.7.1 and verifies its downloads with SHA-256. Build output stays outside Git; Pages receives an artifact containing HTML, JavaScript, WebAssembly and the resource pack. The first download is approximately 92 MiB before transfer compression.
+
+The single-thread export uses Compatibility/WebGL 2 and built-in Jolt. It works on ordinary Pages hosting without cross-origin isolation headers. Start with **Starta fysiklabbet**; a desktop browser with mouse and keyboard is recommended. Q/E changes model, left/right changes clip, space pauses, R resets the body, B retrieves the ball, and 1/2/3 selects animation/active/passive mode. The on-screen controls expose the same choices.
+
+To export locally, install Godot 4.7.1 and its export templates, then run:
+
+```sh
+python3 tools/build_character_web.py
+python3 -m http.server 8000 --directory build/character-web/site
+```
+
+Open `http://localhost:8000/`; loading the HTML directly from disk does not work. To run the browser acceptance test, install Playwright 1.62.1 and its Chromium runtime, then run `node tools/test_character_web.cjs`. For an existing Chrome installation use `--channel chrome`. `--url https://donnybystrom.github.io/nordic-forest/` runs the same test against the hosted demo. Evidence is written under `build/character-web/verification/` and retained as a CI artifact.
+
+The browser test uses actual canvas clicks, mouse dragging and keyboard events. It checks both characters, all 13 clip selections per character, ball contacts and displacement, spring dragging, passive falls, reset, pause and physics sliders. This verifies controls and the physics prototype; it does not establish anatomical accuracy, autonomous balance or performance on every device. The test reads diagnostics exposed only when `?test` is present. Normal use does not publish those diagnostic snapshots.
+
+See [Godot web export](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html) and [GitHub Pages publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+
 ## Rörelseöverföring
 
 `tools/retarget_character_motions.py` körs i isolerad Blender och bakar kvinnans rörelser till mannens rigg. De delar 22 kroppsben. Kvinnans T-pose och mannens A-pose förenas genom riktningsanpassade referensramar, därefter överförs rotationerna i modellrymden tillbaka till målriggens lokala benrymder. Målets egna benlängder behålls; höftens förflyttning skalas med höjdrelationen 0,94. Klippens ursprungliga namn och tider behålls, med 30 bakade prover per sekund.

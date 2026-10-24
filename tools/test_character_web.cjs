@@ -12,6 +12,9 @@ const root = path.resolve(__dirname, '..');
 const site = path.join(root, 'build/character-web/site');
 const output = path.resolve(option('--out', path.join(root, 'build/character-web/verification')));
 fs.mkdirSync(output, {recursive:true});
+for(const name of ['failure.png','failure-state.json','web-validation.json']){
+  fs.rmSync(path.join(output,name),{force:true});
+}
 const errors = [], messages = [], results = [];
 let server, browser, page, target;
 const sleep = ms => new Promise(resolve=>setTimeout(resolve, ms));
@@ -68,6 +71,10 @@ function distance(a,b){return Math.hypot(...a.map((n,i)=>n-b[i]));}
   page.on('pageerror',error=>errors.push(String(error)));
   page.on('console',message=>{messages.push({type:message.type(),text:message.text()});if(message.type()==='error')errors.push(message.text());});
   await page.goto(url.toString(),{waitUntil:'domcontentloaded',timeout:60000});
+  await page.evaluate(()=>{
+    window.__mouseEvents=[];
+    for(const type of ['pointerdown','mousedown','mouseup'])document.addEventListener(type,event=>window.__mouseEvents.push({type,x:event.clientX,y:event.clientY,button:event.button,buttons:event.buttons,target:event.target.id}),true);
+  });
   await page.getByRole('button',{name:'Starta fysiklabbet',exact:true}).click();
   await until(s=>s.mode===1&&s.bodies===17,'WebAssembly app startup',180000);
   assert.equal(await page.evaluate(()=>window.crossOriginIsolated),false,'Single-thread export must work without isolation headers');
@@ -88,7 +95,8 @@ function distance(a,b){return Math.hypot(...a.map((n,i)=>n-b[i]));}
     await page.keyboard.press('b');
     s=await until(n=>Math.abs(n.ball_position[1]-.17)<.025,'Ball settles before mouse pick',20000);
     const initialBall=s.ball_position,p=await screen(s.ball_screen);
-    await page.mouse.move(p.x,p.y);await page.mouse.down();
+    // Give the software-rendered canvas a frame to observe pointer entry.
+    await page.mouse.move(p.x,p.y);await sleep(350);await page.mouse.down();
     await until(n=>n.dragging,'Mouse raycast picks ball');
     await page.mouse.move(p.x+70,p.y-65,{steps:12});await sleep(700);
     s=await state();const dragDistance=distance(initialBall,s.ball_position);
@@ -124,7 +132,7 @@ function distance(a,b){return Math.hypot(...a.map((n,i)=>n-b[i]));}
   fs.writeFileSync(path.join(output,'web-validation.json'),JSON.stringify(report,null,2)+'\n');
   console.log('CHARACTER_WEB_SMOKE_PASS',JSON.stringify(report));
 })().catch(async error=>{
-  if(page){await page.screenshot({path:path.join(output,'failure.png')}).catch(()=>{});fs.writeFileSync(path.join(output,'failure-state.json'),JSON.stringify(await state().catch(()=>null),null,2)+'\n');}
+  if(page){await page.screenshot({path:path.join(output,'failure.png')}).catch(()=>{});fs.writeFileSync(path.join(output,'failure-state.json'),JSON.stringify({state:await state().catch(()=>null),mouseEvents:await page.evaluate(()=>window.__mouseEvents)},null,2)+'\n');}
   console.error(error);process.exitCode=1;
 }).finally(async()=>{
   fs.writeFileSync(path.join(output,'browser-console.json'),JSON.stringify(messages,null,2)+'\n');

@@ -4,6 +4,8 @@ A playable Swedish forest for a mystical survival game set around a northern vil
 
 Start with [the project brief](docs/PROJECT.md), [the milestone roadmap](docs/ROADMAP.md) and [the proposed engine experiment](docs/decisions/0001-engine.md). The working recommendation is Godot 4 and Blender; the engine decision awaits the actual M1 scene comparison.
 
+Try the [character physics lab](https://donnybystrom.github.io/nordic-forest/): two zombies, shared animation controls and a draggable physics ball. The [web build instructions](docs/CHARACTER-REVIEW.md#github-pages) describe deployment and local testing. The prototype uses virtual pelvis support; autonomous balance and recovery stepping remain future work.
+
 ## What is here
 
 - [Agent orchestration](docs/AGENT-WORKFLOW.md): project separation, role mandates, platform configuration and the local Python planning harness.
