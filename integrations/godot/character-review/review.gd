@@ -42,14 +42,21 @@ func _ready() -> void:
 	_build_world()
 	_build_ui()
 	var initial := 0
+	for index in range(characters.size()):
+		if characters[index].id == catalog.get("default_character", ""):
+			initial = index
 	for argument in OS.get_cmdline_user_args():
 		if argument.begins_with("--character="):
 			for index in range(characters.size()):
 				if characters[index].id == argument.trim_prefix("--character="):
 					initial = index
 	_select_model(initial)
-	if "--physics" in OS.get_cmdline_user_args():
+	if "--physics" in OS.get_cmdline_user_args() or OS.has_feature("web"):
 		_set_physics_mode(1)
+	if OS.has_feature("web"):
+		var browser_status = preload("res://web_status.gd").new()
+		browser_status.view = self
+		add_child(browser_status)
 	print("CHARACTER_REVIEW_READY models=", models.item_count, " clips=", clips.item_count - 1)
 	if "--physics-snapshots" in OS.get_cmdline_user_args():
 		_capture_physics_snapshots()
@@ -198,7 +205,7 @@ func _build_ui() -> void:
 	physics_status = Label.new()
 	box.add_child(physics_status)
 	var help := Label.new()
-	help.text = "Dra orange boll för att putta · dra bakgrund för att rotera\nQ/E: modell · ←/→: klipp · mellanslag: pausa animation\nR: återställ kropp · B: hämta boll · mushjul: zoom"
+	help.text = "Dra orange boll för att putta · dra bakgrund för att rotera\nQ/E: modell · pilar: klipp · mellanslag: paus\n1/2/3: animation/aktiv/slapp · R: återställ · B: boll"
 	box.add_child(help)
 
 func _physics_slider(parent: Node, text: String, low: float, high: float, initial: float) -> HSlider:
@@ -400,6 +407,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_LEFT: _step_clip(-1)
 			KEY_RIGHT: _step_clip(1)
 			KEY_SPACE: _toggle_pause()
+			KEY_1: _set_physics_mode(0)
+			KEY_2: _set_physics_mode(1)
+			KEY_3: _set_physics_mode(2)
 			KEY_R: _reset_physics()
 			KEY_B:
 				if is_instance_valid(physics): physics.reset_ball()

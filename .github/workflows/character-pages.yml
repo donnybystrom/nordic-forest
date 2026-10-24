@@ -1,0 +1,83 @@
+name: Character physics demo on Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'integrations/godot/**'
+      - 'output/zombie-beach/rodin-tpose-v1/godot-review/**'
+      - 'tools/build_character_web.py'
+      - 'tools/install_godot_web_ci.sh'
+      - 'tools/test_character_web.cjs'
+      - '.github/workflows/character-pages.yml'
+  pull_request:
+    paths:
+      - 'integrations/godot/**'
+      - 'output/zombie-beach/rodin-tpose-v1/godot-review/**'
+      - 'tools/*character*web*'
+      - 'tools/install_godot_web_ci.sh'
+      - '.github/workflows/character-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: character-pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache@v4
+        with:
+          path: |
+            build/godot-ci
+            ~/.local/share/godot/export_templates/4.7.1.stable
+          key: godot-web-linux-4.7.1-official-v1
+      - name: Install pinned Godot and single-thread web template
+        run: bash tools/install_godot_web_ci.sh
+      - name: Build only the reviewed character demo
+        run: python tools/build_character_web.py --godot "$PWD/build/godot-ci/godot"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test runtime
+        run: |
+          npm install --prefix build/browser-test --no-package-lock playwright@1.62.1
+          build/browser-test/node_modules/.bin/playwright install --with-deps chromium
+      - name: Test actual WebGL physics and controls
+        env:
+          NODE_PATH: ${{ github.workspace }}/build/browser-test/node_modules
+        run: node tools/test_character_web.cjs
+      - name: Preserve browser evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: character-web-verification
+          path: build/character-web/verification/
+          if-no-files-found: ignore
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/character-web/site
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy the playable lab
+        id: deployment
+        uses: actions/deploy-pages@v4

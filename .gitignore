@@ -61,6 +61,7 @@ node_modules/
 *.blend1
 *.blend2
 *.blend[0-9]
+/output/**/before-*.blend
 
 # OS/editor temporary files
 .DS_Store
