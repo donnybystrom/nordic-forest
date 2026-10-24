@@ -1,0 +1,96 @@
+{
+  "samples_per_mesh": 1132,
+  "source_max_edge_growth_m": 1.263728354148047,
+  "repaired_max_edge_growth_m": 0.04540140374311486,
+  "note": "Mesh topology differs after cutting and capping. These are maxima over each mesh at matched animation times, not an unchanged-edge ratio.",
+  "clips": [
+    {
+      "name": "Unsteady_Walk.001",
+      "samples": 73,
+      "max_edges_growth_over_5cm_before": 1168,
+      "max_edges_growth_over_5cm_after": 0,
+      "max_severe_edges_before": 1481,
+      "max_severe_edges_after": 1
+    },
+    {
+      "name": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068.001",
+      "samples": 145,
+      "max_edges_growth_over_5cm_before": 949,
+      "max_edges_growth_over_5cm_after": 0,
+      "max_severe_edges_before": 1191,
+      "max_severe_edges_after": 0
+    },
+    {
+      "name": "_01a16049_24f1_7632_af79_b07a1749f28a.001",
+      "samples": 145,
+      "max_edges_growth_over_5cm_before": 772,
+      "max_edges_growth_over_5cm_after": 0,
+      "max_severe_edges_before": 996,
+      "max_severe_edges_after": 0
+    },
+    {
+      "name": "_01a16046_4c28_71a1_a0e5_4d32b6433f57.001",
+      "samples": 169,
+      "max_edges_growth_over_5cm_before": 1732,
+      "max_edges_growth_over_5cm_after": 0,
+      "max_severe_edges_before": 2343,
+      "max_severe_edges_after": 2
+    },
+    {
+      "name": "_01a16043_e8e4_7705_974e_7295ad5d516a.001",
+      "samples": 241,
+      "max_edges_growth_over_5cm_before": 2007,
+      "max_edges_growth_over_5cm_after": 0,
+      "max_severe_edges_before": 2820,
+      "max_severe_edges_after": 17
+    },
+    {
+      "name": "_01a16041_fe77_7650_9473_3f9eddba89a8.001",
+      "samples": 73,
+      "max_edges_growth_over_5cm_before": 1846,
+      "max_edges_growth_over_5cm_after": 0,
+      "max_severe_edges_before": 2586,
+      "max_severe_edges_after": 4
+    },
+    {
+      "name": "_01a1603b_85e4_72f4_a035_f56410039b21.001",
+      "samples": 73,
+      "max_edges_growth_over_5cm_before": 1409,
+      "max_edges_growth_over_5cm_after": 0,
+      "max_severe_edges_before": 1896,
+      "max_severe_edges_after": 0
+    },
+    {
+      "name": "_01a16039_5f64_76cf_9834_0ae151e56f17.001",
+      "samples": 73,
+      "max_edges_growth_over_5cm_before": 1549,
+      "max_edges_growth_over_5cm_after": 0,
+      "max_severe_edges_before": 2103,
+      "max_severe_edges_after": 0
+    },
+    {
+      "name": "_01a16035_50c7_77d5_ba64_7c2f02b6f422.001",
+      "samples": 97,
+      "max_edges_growth_over_5cm_before": 1931,
+      "max_edges_growth_over_5cm_after": 0,
+      "max_severe_edges_before": 2678,
+      "max_severe_edges_after": 5
+    },
+    {
+      "name": "Walking.001",
+      "samples": 26,
+      "max_edges_growth_over_5cm_before": 1203,
+      "max_edges_growth_over_5cm_after": 0,
+      "max_severe_edges_before": 1507,
+      "max_severe_edges_after": 0
+    },
+    {
+      "name": "Running.001",
+      "samples": 17,
+      "max_edges_growth_over_5cm_before": 1395,
+      "max_edges_growth_over_5cm_after": 0,
+      "max_severe_edges_before": 1854,
+      "max_severe_edges_after": 0
+    }
+  ]
+}

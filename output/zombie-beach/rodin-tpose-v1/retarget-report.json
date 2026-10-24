@@ -1,0 +1,470 @@
+{
+  "status": "baked_candidate",
+  "clips": [
+    {
+      "name": "Meshy_Unsteady_Walk",
+      "duration_seconds": 2.966666666666667,
+      "source_action": "Rodin_Meshy_Unsteady_Walk"
+    },
+    {
+      "name": "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "duration_seconds": 5.966666666666667,
+      "source_action": "Rodin_Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068"
+    },
+    {
+      "name": "Meshy__01a16049_24f1_7632_af79_b07a1749f28a",
+      "duration_seconds": 5.966666666666667,
+      "source_action": "Rodin_Meshy__01a16049_24f1_7632_af79_b07a1749f28a"
+    },
+    {
+      "name": "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "duration_seconds": 6.966666666666667,
+      "source_action": "Rodin_Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57"
+    },
+    {
+      "name": "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a",
+      "duration_seconds": 9.966666666666667,
+      "source_action": "Rodin_Meshy__01a16043_e8e4_7705_974e_7295ad5d516a"
+    },
+    {
+      "name": "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8",
+      "duration_seconds": 2.966666666666667,
+      "source_action": "Rodin_Meshy__01a16041_fe77_7650_9473_3f9eddba89a8"
+    },
+    {
+      "name": "Meshy__01a1603b_85e4_72f4_a035_f56410039b21",
+      "duration_seconds": 2.966666666666667,
+      "source_action": "Rodin_Meshy__01a1603b_85e4_72f4_a035_f56410039b21"
+    },
+    {
+      "name": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+      "duration_seconds": 2.966666666666667,
+      "source_action": "Rodin_Meshy__01a16039_5f64_76cf_9834_0ae151e56f17"
+    },
+    {
+      "name": "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "duration_seconds": 3.966666666666667,
+      "source_action": "Rodin_Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422"
+    },
+    {
+      "name": "Meshy_Walking",
+      "duration_seconds": 1.0333333333333334,
+      "source_action": "Rodin_Meshy_Walking"
+    },
+    {
+      "name": "Meshy_Running",
+      "duration_seconds": 0.6333333333333333,
+      "source_action": "Rodin_Meshy_Running"
+    },
+    {
+      "name": "Rodin_HumanWalking2",
+      "duration_seconds": 1.6333333333333333,
+      "source_action": "Rodin_Native_HumanWalking2"
+    },
+    {
+      "name": "Rodin_HumanZombieCrawl",
+      "duration_seconds": 5.133333333333334,
+      "source_action": "Rodin_Native_HumanZombieCrawl"
+    }
+  ],
+  "root_translation_scale": 0.9271846919064124,
+  "reference": "Old Rodin skeleton posed with arms horizontal; the new skeleton has a fitted T-pose bind.",
+  "samples": [
+    {
+      "clip": "Meshy_Unsteady_Walk",
+      "frame": 0,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 3.754281321679498e-09
+    },
+    {
+      "clip": "Meshy_Unsteady_Walk",
+      "frame": 22,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 7.679882693323606e-09
+    },
+    {
+      "clip": "Meshy_Unsteady_Walk",
+      "frame": 44,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.1175870895385742e-08
+    },
+    {
+      "clip": "Meshy_Unsteady_Walk",
+      "frame": 66,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 1.5359765386647212e-08
+    },
+    {
+      "clip": "Meshy_Unsteady_Walk",
+      "frame": 89,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 9.313225746154785e-09
+    },
+    {
+      "clip": "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "frame": 0,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 7.450580596923828e-09
+    },
+    {
+      "clip": "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "frame": 44,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 0.0
+    },
+    {
+      "clip": "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "frame": 89,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 3.725290298461914e-09
+    },
+    {
+      "clip": "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "frame": 134,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 3.725290298461914e-09
+    },
+    {
+      "clip": "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "frame": 179,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 6.143906154658885e-08
+    },
+    {
+      "clip": "Meshy__01a16049_24f1_7632_af79_b07a1749f28a",
+      "frame": 0,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 7.450580596923828e-09
+    },
+    {
+      "clip": "Meshy__01a16049_24f1_7632_af79_b07a1749f28a",
+      "frame": 44,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 3.725290298461914e-09
+    },
+    {
+      "clip": "Meshy__01a16049_24f1_7632_af79_b07a1749f28a",
+      "frame": 89,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 9.313225746154785e-10
+    },
+    {
+      "clip": "Meshy__01a16049_24f1_7632_af79_b07a1749f28a",
+      "frame": 134,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 0.0
+    },
+    {
+      "clip": "Meshy__01a16049_24f1_7632_af79_b07a1749f28a",
+      "frame": 179,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 9.313225746154785e-10
+    },
+    {
+      "clip": "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "frame": 0,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 0.0
+    },
+    {
+      "clip": "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "frame": 52,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 5.972094663188382e-08
+    },
+    {
+      "clip": "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "frame": 104,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 2.669762502188819e-07
+    },
+    {
+      "clip": "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "frame": 156,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 2.9950963321688443e-07
+    },
+    {
+      "clip": "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "frame": 209,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 2.5288109106536417e-07
+    },
+    {
+      "clip": "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a",
+      "frame": 0,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.1920928955078125e-07
+    },
+    {
+      "clip": "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a",
+      "frame": 74,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.228781230931777e-07
+    },
+    {
+      "clip": "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a",
+      "frame": 149,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 6.664001874625056e-08
+    },
+    {
+      "clip": "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a",
+      "frame": 224,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.3657139822709083e-07
+    },
+    {
+      "clip": "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a",
+      "frame": 299,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.9082797281243946e-07
+    },
+    {
+      "clip": "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8",
+      "frame": 0,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.2134386207835622e-07
+    },
+    {
+      "clip": "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8",
+      "frame": 22,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.2202813740193247e-07
+    },
+    {
+      "clip": "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8",
+      "frame": 44,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 6.669856335890993e-08
+    },
+    {
+      "clip": "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8",
+      "frame": 66,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 5.960464477539063e-08
+    },
+    {
+      "clip": "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8",
+      "frame": 89,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.8852324677824966e-07
+    },
+    {
+      "clip": "Meshy__01a1603b_85e4_72f4_a035_f56410039b21",
+      "frame": 0,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 7.450580596923828e-09
+    },
+    {
+      "clip": "Meshy__01a1603b_85e4_72f4_a035_f56410039b21",
+      "frame": 22,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.0536712127723509e-08
+    },
+    {
+      "clip": "Meshy__01a1603b_85e4_72f4_a035_f56410039b21",
+      "frame": 44,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 1.3657139822709083e-07
+    },
+    {
+      "clip": "Meshy__01a1603b_85e4_72f4_a035_f56410039b21",
+      "frame": 66,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 1.7943374184954607e-07
+    },
+    {
+      "clip": "Meshy__01a1603b_85e4_72f4_a035_f56410039b21",
+      "frame": 89,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 6.143906154658885e-08
+    },
+    {
+      "clip": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+      "frame": 0,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.30385160446167e-08
+    },
+    {
+      "clip": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+      "frame": 22,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 3.003425057343598e-08
+    },
+    {
+      "clip": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+      "frame": 44,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.7881393432617188e-07
+    },
+    {
+      "clip": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+      "frame": 66,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 1.4600096599955427e-07
+    },
+    {
+      "clip": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+      "frame": 89,
+      "max_rotation_error_degrees": 0.0,
+      "hips_position_error_m": 5.960464477539063e-08
+    },
+    {
+      "clip": "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "frame": 0,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 5.972094663188382e-08
+    },
+    {
+      "clip": "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "frame": 29,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.3657139822709083e-07
+    },
+    {
+      "clip": "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "frame": 59,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 2.682209014892578e-07
+    },
+    {
+      "clip": "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "frame": 89,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 2.682209014892578e-07
+    },
+    {
+      "clip": "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "frame": 119,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 3.8628224721001747e-07
+    },
+    {
+      "clip": "Meshy_Walking",
+      "frame": 0,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 3.725290298461914e-09
+    },
+    {
+      "clip": "Meshy_Walking",
+      "frame": 7,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 5.587935447692871e-09
+    },
+    {
+      "clip": "Meshy_Walking",
+      "frame": 15,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.1780402288468106e-08
+    },
+    {
+      "clip": "Meshy_Walking",
+      "frame": 23,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 7.508562643358995e-09
+    },
+    {
+      "clip": "Meshy_Walking",
+      "frame": 31,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 3.725290298461914e-09
+    },
+    {
+      "clip": "Meshy_Running",
+      "frame": 0,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 6.984919309616089e-10
+    },
+    {
+      "clip": "Meshy_Running",
+      "frame": 4,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 3.839941346661803e-09
+    },
+    {
+      "clip": "Meshy_Running",
+      "frame": 9,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 5.6314219825192465e-09
+    },
+    {
+      "clip": "Meshy_Running",
+      "frame": 14,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 9.313225746154785e-10
+    },
+    {
+      "clip": "Meshy_Running",
+      "frame": 19,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 0.0
+    },
+    {
+      "clip": "Rodin_HumanWalking2",
+      "frame": 0,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 7.679882693323606e-09
+    },
+    {
+      "clip": "Rodin_HumanWalking2",
+      "frame": 12,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 6.674406255472048e-08
+    },
+    {
+      "clip": "Rodin_HumanWalking2",
+      "frame": 24,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.3348812510944096e-07
+    },
+    {
+      "clip": "Rodin_HumanWalking2",
+      "frame": 36,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.332832913599469e-07
+    },
+    {
+      "clip": "Rodin_HumanWalking2",
+      "frame": 49,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.6875194986024685e-07
+    },
+    {
+      "clip": "Rodin_HumanZombieCrawl",
+      "frame": 0,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 6.365949167497584e-08
+    },
+    {
+      "clip": "Rodin_HumanZombieCrawl",
+      "frame": 38,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 1.332832913599469e-07
+    },
+    {
+      "clip": "Rodin_HumanZombieCrawl",
+      "frame": 77,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 2.1503671541306096e-07
+    },
+    {
+      "clip": "Rodin_HumanZombieCrawl",
+      "frame": 115,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 3.21175336499372e-07
+    },
+    {
+      "clip": "Rodin_HumanZombieCrawl",
+      "frame": 154,
+      "max_rotation_error_degrees": 1.7302844014466245e-05,
+      "hips_position_error_m": 3.816661723109116e-07
+    }
+  ],
+  "max_rotation_error_degrees": 1.7302844014466245e-05,
+  "max_hips_error_m": 3.8628224721001747e-07,
+  "limitations": [
+    "Clips are sequentially retargeted from the previous Rodin working asset, retaining prior Meshy transfer limitations.",
+    "No planted-foot IK, self-collision or balance correction."
+  ]
+}

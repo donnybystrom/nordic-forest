@@ -1,0 +1,15 @@
+{
+  "animations": [
+    "QA_RigRange"
+  ],
+  "bones": 22,
+  "clip_duration_seconds": 6.03333330154419,
+  "diagnostic_clip": "QA_RigRange",
+  "elbow_rotation_degrees": 90.0000093346673,
+  "godot_version": "4.7.1-stable (official)",
+  "knee_rotation_degrees": 84.999989843327,
+  "mesh_instances": 1,
+  "scope": "Rigged GLB import and diagnostic skeleton animation; no gameplay, foot contact or active-ragdoll acceptance",
+  "status": "passed",
+  "time_mapping": "GLB source times retained; optimizer disabled for equivalence checking"
+}

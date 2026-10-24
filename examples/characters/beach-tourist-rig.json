@@ -1,0 +1,5 @@
+{
+  "action": "rig_character",
+  "source_job_id": "2f5dc218-15e9-4805-9170-31f3aa54ce4a",
+  "rig_profile": "config/rig-profiles/beach-tourist-body-v1.json"
+}

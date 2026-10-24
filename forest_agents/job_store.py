@@ -101,12 +101,18 @@ class JobStore:
             return self.get(jid)
 
     def decision(self, jid, decision, expected_hash):
-        if decision not in {'approve_direction', 'reject'}:
+        if decision not in {'approve_direction', 'approve_generation', 'reject'}:
             raise ValueError('Unsupported decision')
         with self.lock, self.db:
             job = self.get(jid)
-            if job['status'] != 'awaiting_review' or job['request']['operation'] != 'propose_agent_change':
-                raise Conflict('This job is not an agent change awaiting review')
+            character = job['request']['operation'] == 'character_pipeline'
+            if job['status'] != 'awaiting_review' or job['request']['operation'] not in {'propose_agent_change', 'character_pipeline'}:
+                raise Conflict('This job is not awaiting review')
+            allowed = {'approve_generation', 'reject'} if character else {'approve_direction', 'reject'}
+            if decision not in allowed:
+                raise Conflict('Decision does not match this review type')
+            if character and not job['result'].get('ready_for_generation_review'):
+                raise Conflict('Character references are not ready for generation')
             digest = hashlib.sha256(canonical(job['result']).encode()).hexdigest()
             if digest != expected_hash:
                 raise Conflict('Review content changed; refresh before deciding')

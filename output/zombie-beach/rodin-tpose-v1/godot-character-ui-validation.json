@@ -1,0 +1,14 @@
+{
+	"buttons_wrap_and_keyboard": "pass",
+	"clips_switched": 26,
+	"limits": [
+		"Exercises UI signal and keyboard handler paths; mouse orbit/zoom gestures were not automated."
+	],
+	"model_switch_preserves_clip_phase_speed_pause": "pass",
+	"models": 2,
+	"one_active_character": "pass",
+	"pause_resume_and_scrub": "pass",
+	"rest_pose_reset": "pass",
+	"status": "pass",
+	"third_catalog_entry": "pass"
+}

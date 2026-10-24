@@ -62,6 +62,11 @@ class Bridge:
 
     def submit(self, body, key):
         request = JobRequest.model_validate(body).checked()
+        if request['operation'] == 'character_pipeline' and request['character_request']['action'] == 'rig_character':
+            from .character_pipeline import CharacterCommand
+            from .character_rigging import prepare_rig
+            packet = prepare_rig(CharacterCommand.model_validate(request['character_request']), self.store)
+            request['character_request']['rig_recipe_sha256'] = packet['fingerprint']
         with self.lock:
             if self.queue.full():
                 raise Conflict('Queue full; wait for an existing job')
@@ -77,6 +82,8 @@ class Bridge:
         states = job['result'].get('sessions', {}).values()
         if any(s.get('status') == 'dispatching' and not s.get('session_id') for s in states):
             raise Conflict('Unknown remote create outcome; inspect OpenAI sessions before any new dispatch')
+        if job['request']['operation'] == 'character_pipeline':
+            raise Conflict('Inspect the prepared character job and persisted Rodin state; use an explicit new stage command to reconcile')
         if job['request']['operation'] == 'collect_audit_reference' or (job['request']['operation']=='planning_board' and job['request']['board_request']['action']!='inspect') or (job['request']['operation'] == 'github_pr' and job['request']['github_request']['action'] != 'inspect'):
             raise Conflict('Interrupted file or GitHub write requires inspecting retained evidence and remote state')
         self.store.update(jid, status='queued')

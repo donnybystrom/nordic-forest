@@ -1,0 +1,29 @@
+{
+  "action": "prepare",
+  "character_id": "beach-tourist-zombie-v1",
+  "brief": "Adult male beach-tourist zombie from the user-approved reference. Preserve heavy torso, round belly, short brown hair, turquoise palm-print board shorts and bare feet. Generate one intact humanoid in a neutral T/A rest pose, with hands clear of the torso. Motion sheet is inspiration for later idle, stagger and attack clips, not mesh conditioning.",
+  "reference_sheets": [
+    "assets/work/characters/beach-tourist-zombie-v1/references/model-sheet.png"
+  ],
+  "motion_references": [
+    "assets/work/characters/beach-tourist-zombie-v1/references/motion-sheet.png"
+  ],
+  "views": [
+    {
+      "view": "front",
+      "path": "assets/work/characters/beach-tourist-zombie-v1/views-073339e134fbfe45/front.png"
+    },
+    {
+      "view": "back",
+      "path": "assets/work/characters/beach-tourist-zombie-v1/views-073339e134fbfe45/back.png"
+    },
+    {
+      "view": "left",
+      "path": "assets/work/characters/beach-tourist-zombie-v1/views-073339e134fbfe45/left.png"
+    },
+    {
+      "view": "right",
+      "path": "assets/work/characters/beach-tourist-zombie-v1/views-073339e134fbfe45/right.png"
+    }
+  ]
+}

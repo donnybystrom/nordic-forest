@@ -8,6 +8,7 @@ Start with [the project brief](docs/PROJECT.md), [the milestone roadmap](docs/RO
 
 - [Agent orchestration](docs/AGENT-WORKFLOW.md): project separation, role mandates, platform configuration and the local Python planning harness.
 - [Biome and asset production](docs/PRODUCTION-PIPELINES.md): procedural rules, painted overrides, textures, models, concept identity and animation.
+- [Beach zombie experiment](docs/experiments/ZOMBIE-BEACH.md): proposed image-to-rig pipeline, anatomical damage, prepared fractures and adaptive Godot movement.
 - [Reference asset analysis](docs/REFERENCE-ASSET-PIPELINE.md): scanned resources, tree construction/LOD recipes, game/mod evidence and a Blender mesh inspector.
 - [Sketchfab acquisition](docs/ASSET-ACQUISITION.md): token-backed downloads, source manifests and a bounded SDK download tool.
 - [Planning board and agent tickets](docs/PLANNING-BOARD.md): live GitHub views, milestones and explicit Ready-ticket planning dispatch.
@@ -17,7 +18,7 @@ Start with [the project brief](docs/PROJECT.md), [the milestone roadmap](docs/RO
 - [Langflow integration](docs/LANGFLOW.md): the installed planning, role and PR flows and local job service.
 - [Source register](docs/SOURCES.md): official technical documentation and starting points for ecology and regional folklore.
 
-This is a planning and pipeline foundation. There is no game scene, biome generator, paint editor, finished art, rig, animation importer yet. The Langflow bridge and local job dashboard are installed; broader shared memory and agent publication remain future work. Local role prompts and platform configuration are separate artifacts; consult the agent workflow for the verification boundary.
+This is a planning and pipeline foundation. There is no main-game scene, biome generator, paint editor or accepted production art yet. The separate [beach zombie experiment](output/zombie-beach/rodin-tpose-v1/README.md) now uses the new Rodin T-pose source with a fitted 52-bone rig, 13 transferred clips and a working Godot animation reviewer. Blender/GLB roundtrip, Godot import and review controls have focused checks; contact cleanup, physics and procedural gameplay remain pending. The Langflow bridge and local job dashboard are installed; broader shared memory and agent publication remain future work. Local role prompts and platform configuration are separate artifacts; consult the agent workflow for the verification boundary.
 
 The OpenAI projects are separated: Nordic Forest contains the forest role catalog, and `proj_sBhh0dtFlUyaAAAKqMBy0jII` contains verified copies of all 16 original definitions. [The migration map](config/project-migration.json) preserves every old/new agent ID and configuration hash. The user confirmed the project display name is now **Nordic Forest**, without a hyphen.
 

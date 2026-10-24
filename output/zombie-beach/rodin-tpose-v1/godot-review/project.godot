@@ -1,0 +1,22 @@
+config_version=5
+
+[application]
+config/name="Nordic Forest · Karaktärer och animationer"
+run/main_scene="res://review.tscn"
+config/features=PackedStringArray("4.7")
+
+[display]
+window/size/viewport_width=1100
+window/size/viewport_height=850
+window/stretch/mode="canvas_items"
+
+[physics]
+common/physics_ticks_per_second=120
+3d/physics_engine="Jolt Physics"
+jolt_physics_3d/simulation/velocity_steps=48
+jolt_physics_3d/simulation/position_steps=16
+jolt_physics_3d/simulation/penetration_slop=0.005
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

@@ -1,0 +1,61 @@
+{
+	"characters": [
+		{
+			"bones": 52,
+			"clip_max_joint_displacement_m": {
+				"Meshy_Running": 0.927515387535095,
+				"Meshy_Unsteady_Walk": 0.650774657726288,
+				"Meshy_Walking": 0.603473126888275,
+				"Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422": 3.30145049095154,
+				"Meshy__01a16039_5f64_76cf_9834_0ae151e56f17": 1.98979890346527,
+				"Meshy__01a1603b_85e4_72f4_a035_f56410039b21": 2.25500059127808,
+				"Meshy__01a16041_fe77_7650_9473_3f9eddba89a8": 1.00486481189728,
+				"Meshy__01a16043_e8e4_7705_974e_7295ad5d516a": 1.23076927661896,
+				"Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57": 2.2286810874939,
+				"Meshy__01a16049_24f1_7632_af79_b07a1749f28a": 0.134370803833008,
+				"Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068": 0.33557665348053,
+				"Rodin_HumanWalking2": 0.917522788047791,
+				"Rodin_HumanZombieCrawl": 2.18158674240112
+			},
+			"clips": 13,
+			"eight_bone_weights": true,
+			"id": "beach-zombie-female",
+			"max_duration_error_seconds": 0.000000445048016217697,
+			"pose_samples": 65,
+			"skin_binds": 52,
+			"texture_width": 2048,
+			"validated_track_paths": 689
+		},
+		{
+			"bones": 22,
+			"clip_max_joint_displacement_m": {
+				"Meshy_Running": 0.772880792617798,
+				"Meshy_Unsteady_Walk": 0.621486186981201,
+				"Meshy_Walking": 0.500732004642487,
+				"Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422": 3.11758065223694,
+				"Meshy__01a16039_5f64_76cf_9834_0ae151e56f17": 2.10799670219421,
+				"Meshy__01a1603b_85e4_72f4_a035_f56410039b21": 2.02708959579468,
+				"Meshy__01a16041_fe77_7650_9473_3f9eddba89a8": 0.945955336093903,
+				"Meshy__01a16043_e8e4_7705_974e_7295ad5d516a": 1.14858973026276,
+				"Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57": 2.21624493598938,
+				"Meshy__01a16049_24f1_7632_af79_b07a1749f28a": 0.118482239544392,
+				"Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068": 0.403382420539856,
+				"Rodin_HumanWalking2": 0.874831736087799,
+				"Rodin_HumanZombieCrawl": 2.16286993026733
+			},
+			"clips": 13,
+			"eight_bone_weights": false,
+			"id": "beach-tourist-male",
+			"max_duration_error_seconds": 0.000000445048016217697,
+			"pose_samples": 65,
+			"skin_binds": 22,
+			"texture_width": 4096,
+			"validated_track_paths": 299
+		}
+	],
+	"engine": "4.7.1-stable (official)",
+	"limits": [
+		"Import, track resolution and finite moving bone transforms; no foot-contact or physics acceptance."
+	],
+	"status": "pass"
+}

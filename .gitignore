@@ -1,6 +1,7 @@
 # Credentials and machine-local configuration
 **/*SECRET_KEY*
 **/*API_TOKEN*
+.RODIN_API_KEY
 .env
 .env.*
 !.env.example

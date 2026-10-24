@@ -1,0 +1,195 @@
+{
+  "status": "pass",
+  "date": "2026-10-23",
+  "scope": "Active-ragdoll prototype with explicit bounded pelvis support and draggable collision ball on both characters",
+  "physics": {
+    "characters": [
+      {
+        "assisted_recovery_error_m": 0.00053531932644546,
+        "ball_body_contacts": 3,
+        "baseline_max_body_speed_m_s": 0.0544198453426361,
+        "bodies": 17,
+        "dragged_ball_distance_m": 0.263020694255829,
+        "ground_contacts": 171,
+        "id": "beach-zombie-female",
+        "joint_gap_peak": {
+          "bone": "RightForeArm",
+          "clip": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+          "elapsed_s": 19.1916666666662,
+          "passive": false
+        },
+        "joints": 16,
+        "mass_kg": 65.0,
+        "max_animation_body_speed_m_s": 10.1876049041748,
+        "max_hit_displacement_m": 0.0567046590149403,
+        "max_joint_gap_m": 0.0488344393670559,
+        "max_skin_pose_error_m": 3.02552280118107e-07,
+        "motor_target_clips_tested": 13,
+        "passive_hips_height_m": 0.182605773210526,
+        "skin_pose_samples": 8701,
+        "unsupported_hips_height_m": 0.281966388225555
+      },
+      {
+        "assisted_recovery_error_m": 0.000309134775307029,
+        "ball_body_contacts": 7,
+        "baseline_max_body_speed_m_s": 0.0453948341310024,
+        "bodies": 17,
+        "dragged_ball_distance_m": 0.26360234618187,
+        "ground_contacts": 210,
+        "id": "beach-tourist-male",
+        "joint_gap_peak": {
+          "bone": "LeftLeg",
+          "clip": "",
+          "elapsed_s": 67.8166666666667,
+          "passive": true
+        },
+        "joints": 16,
+        "mass_kg": 95.0,
+        "max_animation_body_speed_m_s": 9.84523105621338,
+        "max_hit_displacement_m": 0.0479941926896572,
+        "max_joint_gap_m": 0.0323079079389572,
+        "max_skin_pose_error_m": 3.58944816980511e-07,
+        "motor_target_clips_tested": 13,
+        "passive_hips_height_m": 0.127517238259315,
+        "skin_pose_samples": 8701,
+        "unsupported_hips_height_m": 0.355676472187042
+      }
+    ],
+    "drag_ray_pick_and_mouse_handlers": "pass",
+    "engine": "4.7.1-stable (official)",
+    "focus_loss_releases_drag": "pass",
+    "limits": [
+      "Bounded virtual pelvis support; no autonomous balance, stepping or foot IK.",
+      "Broad joint limits and approximate mass/collision shapes; nearest two joint neighbors do not collide.",
+      "Scripted input events exercise handlers; not an OS mouse gesture test."
+    ],
+    "mode_switch_and_reset": "pass",
+    "model_cleanup": "pass",
+    "physics_backend": "Jolt Physics",
+    "physics_hz": 120,
+    "sliders_and_debug_persist_across_models": "pass",
+    "status": "pass"
+  },
+  "animation_ui_regression": {
+    "buttons_wrap_and_keyboard": "pass",
+    "clips_switched": 26,
+    "limits": [
+      "Exercises UI signal and keyboard handler paths; mouse orbit/zoom gestures were not automated."
+    ],
+    "model_switch_preserves_clip_phase_speed_pause": "pass",
+    "models": 2,
+    "one_active_character": "pass",
+    "pause_resume_and_scrub": "pass",
+    "rest_pose_reset": "pass",
+    "status": "pass",
+    "third_catalog_entry": "pass"
+  },
+  "local_only_rodin_credits": 0,
+  "animation_target_coverage": "One full source duration plus 0.25 seconds of each of the 13 clips on each model, at 120 physics Hz",
+  "configuration": {
+    "solver": "Jolt Physics",
+    "physics_hz": 120,
+    "velocity_steps": 48,
+    "position_steps": 16,
+    "ball_mass_range_kg": [
+      1,
+      20
+    ],
+    "ball_initial_mass_kg": 8,
+    "test_launch_speed_m_s": 6,
+    "max_drag_force_N": 850,
+    "max_pelvis_force": "2 * configured total mass * 9.8 * balance slider",
+    "joint_gap_test_tolerance_m": 0.08,
+    "self_collision": "Enabled except bodies within two joints"
+  },
+  "source_assets_unchanged": [
+    {
+      "id": "beach-zombie-female",
+      "source": "assets/models/zombies/rodin-tpose-working-v1/Rodin_TPose_Working_v1.glb",
+      "sha256": "7d5dd21b31af547b56a4e5220ba5240efe8d7674020d0e4bd61d1b3851f5d6c2"
+    },
+    {
+      "id": "beach-tourist-male",
+      "source": "assets/generated/characters/beach-tourist-zombie-v1/shared-motions-v1/character-animated.glb",
+      "sha256": "1b954f1d8d1faad3ae91496e61e66c6593f95e8a3ad980415371021bfeff9f36"
+    }
+  ],
+  "renders": [
+    {
+      "path": "output/zombie-beach/rodin-tpose-v1/beach-zombie-female-active-physics.png",
+      "sha256": "d93e91e3b6587602fb8b1c5908e456be3aec714860f95cb306e6092e80bdcadd"
+    },
+    {
+      "path": "output/zombie-beach/rodin-tpose-v1/beach-zombie-female-ball-hit.png",
+      "sha256": "1c47740bad44007e7cc5cb1a3fd31e5d3842fc35b4c18890e32a084dc824ebe4"
+    },
+    {
+      "path": "output/zombie-beach/rodin-tpose-v1/beach-zombie-female-walking-physics.png",
+      "sha256": "0419992ebee0a97ff2758f4d43679355a1bea441f51d3dd69780f2f507c98e53"
+    },
+    {
+      "path": "output/zombie-beach/rodin-tpose-v1/beach-zombie-female-passive-physics.png",
+      "sha256": "3ae0baa23265d9b2db2a200ad76b9e82aa6acbf3a043b8d28b26e3be7d3346ab"
+    },
+    {
+      "path": "output/zombie-beach/rodin-tpose-v1/beach-tourist-male-active-physics.png",
+      "sha256": "4c2ccd4af1c0c6322d215806ef495eef49a7a1b55c09cfd49ce8d9f221ff6e64"
+    },
+    {
+      "path": "output/zombie-beach/rodin-tpose-v1/beach-tourist-male-ball-hit.png",
+      "sha256": "02365f6b82e1c824cf211bb8a482fa1b61749a48c55150e28fd1d83da2523016"
+    },
+    {
+      "path": "output/zombie-beach/rodin-tpose-v1/beach-tourist-male-walking-physics.png",
+      "sha256": "0761ceb0a532c91f7e98c18c6760549fe4355f0792b0a8e9a0e89aea7c58f5e8"
+    },
+    {
+      "path": "output/zombie-beach/rodin-tpose-v1/beach-tourist-male-passive-physics.png",
+      "sha256": "e364dcfb55577f08ee7f4ddaf5d1da30eb88bcb505f619ba51984d1813cf0783"
+    }
+  ],
+  "render_device": "Apple M1 Pro, OpenGL Compatibility",
+  "code": [
+    {
+      "path": "integrations/godot/character-review/physics_smoke.gd",
+      "sha256": "4b21d6cc5bb59e52d9ff510f3dbeee0c0c61746a7cc07f5b51a789579c24bf70"
+    },
+    {
+      "path": "integrations/godot/character-review/smoke.gd",
+      "sha256": "e889e4d04b04599b86d1d85500ca33a6c57382f520d3df43c976d153cba49301"
+    },
+    {
+      "path": "integrations/godot/character-review/active_ragdoll.gd",
+      "sha256": "4d3438452d490c9d27984ee4944617ddec4eb233cd80ad8c796a4ec328dd75d0"
+    },
+    {
+      "path": "integrations/godot/character-review/physical_pose.gd",
+      "sha256": "1748f5b278927e02822f0b20bd42f78d6b08f55b21ee24856c47a6a7efee65a8"
+    },
+    {
+      "path": "integrations/godot/character-review/ui_smoke.gd",
+      "sha256": "cbd970505f98f8a164d51ccd7d10564c7d4fd13ce26a551ebb41599b9d3129ad"
+    },
+    {
+      "path": "integrations/godot/character-review/review.gd",
+      "sha256": "00d160bbb8eff882cc6d9f40dd89e1c256b88e21f7ca6c3fe331e7c71ce02fed"
+    },
+    {
+      "path": "integrations/godot/character-review/project.godot",
+      "sha256": "9400bc00eff934e1e72f55f53e04d6aa0bddee6c38ed386c58e32593bae4a375"
+    },
+    {
+      "path": "tools/open_character_review.command",
+      "sha256": "1b8fa49b7632108a440194c3bf59d38cffa288ef1f2850ac7d04c446570853b8"
+    },
+    {
+      "path": "config/character-review-catalog.json",
+      "sha256": "c28e1a0004108c7cd64c0c5a8ee0d5c07bb801419fca83d3aa6029fc2ab3d41a"
+    }
+  ],
+  "limits": [
+    "Virtual pelvis support is not autonomous balance, foot placement, contact-aware locomotion or recovery stepping.",
+    "Broad joint limits and collision shapes need anatomical fitting.",
+    "OS mouse gestures and target-hardware performance were not benchmarked."
+  ]
+}

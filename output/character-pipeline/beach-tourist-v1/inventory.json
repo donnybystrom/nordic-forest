@@ -1,0 +1,44 @@
+{
+  "source": "/Users/donnybystrom/code/Nordic-3D-forest/assets/generated/characters/beach-tourist-zombie-v1/2f5dc218-15e9-4805-9170-31f3aa54ce4a/base_high_pbr.glb",
+  "source_sha256": "b41c4ce8ec35138fa84b70114258d78b6efa697dbc9f33b2256397970d61a207",
+  "blender_version": "5.2.0 LTS",
+  "meshes": [
+    {
+      "name": "model",
+      "vertices": 31497,
+      "faces": 55984,
+      "triangles": 55984,
+      "uv_layers": 1
+    }
+  ],
+  "bounds_world_units": [
+    1.0986919403076172,
+    0.4399369955062866,
+    1.8916559219360352
+  ],
+  "skeletons": [],
+  "actions": [],
+  "textures": [
+    {
+      "name": "texture_diffuse",
+      "width": 4096,
+      "height": 4096,
+      "channels": 4
+    },
+    {
+      "name": "texture_metallic-texture_roughness",
+      "width": 4096,
+      "height": 4096,
+      "channels": 4
+    },
+    {
+      "name": "texture_normal",
+      "width": 4096,
+      "height": 4096,
+      "channels": 4
+    }
+  ],
+  "scale_note": "Source bounds measured; real character height is not assigned.",
+  "rig_acceptance": "not_performed",
+  "active_ragdoll": "not_implemented"
+}

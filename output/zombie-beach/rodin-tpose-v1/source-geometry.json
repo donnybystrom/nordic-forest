@@ -1,0 +1,82 @@
+{
+  "bounds": [
+    [
+      -0.9089992642402649,
+      -0.22502246499061584,
+      8.352654568000162e-09
+    ],
+    [
+      0.7447970509529114,
+      0.10890787839889526,
+      1.7838585376739502
+    ]
+  ],
+  "boundary_edges": 0,
+  "nonmanifold_edges": 0,
+  "loose_vertices": 0,
+  "material_nodes": [
+    [
+      "Principled BSDF",
+      "BSDF_PRINCIPLED",
+      null
+    ],
+    [
+      "Material Output",
+      "OUTPUT_MATERIAL",
+      null
+    ],
+    [
+      "Normal Map",
+      "NORMAL_MAP",
+      null
+    ],
+    [
+      "Image Texture",
+      "TEX_IMAGE",
+      "/Users/donnybystrom/code/Nordic-3D-forest/assets/models/zombies/zombiegirl-rodin2-tshape-source/993bae00-0c2b-4136-888a-dec58539083d/texture_diffuse.png"
+    ],
+    [
+      "Image Texture.001",
+      "TEX_IMAGE",
+      "/Users/donnybystrom/code/Nordic-3D-forest/assets/models/zombies/zombiegirl-rodin2-tshape-source/993bae00-0c2b-4136-888a-dec58539083d/texture_normal.png"
+    ],
+    [
+      "Image Texture.002",
+      "TEX_IMAGE",
+      "/Users/donnybystrom/code/Nordic-3D-forest/assets/models/zombies/zombiegirl-rodin2-tshape-source/993bae00-0c2b-4136-888a-dec58539083d/texture_roughness.png"
+    ],
+    [
+      "Image Texture.003",
+      "TEX_IMAGE",
+      "/Users/donnybystrom/code/Nordic-3D-forest/assets/models/zombies/zombiegirl-rodin2-tshape-source/993bae00-0c2b-4136-888a-dec58539083d/texture_metallic.png"
+    ]
+  ],
+  "transforms": {
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        4.371138828673793e-08,
+        0.0
+      ],
+      [
+        0.0,
+        -4.371138828673793e-08,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  }
+}

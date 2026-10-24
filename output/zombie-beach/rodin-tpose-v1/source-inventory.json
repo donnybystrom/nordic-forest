@@ -1,0 +1,71 @@
+[
+  {
+    "file": "lod.fbx",
+    "bytes": 2051244,
+    "sha256": "b1642586d7c5353d3ff6c8f5b9ee1abeda8dd951ddc9037b49600f2ba59c9d6e"
+  },
+  {
+    "file": "lod_basic_pbr.fbx",
+    "bytes": 11608716,
+    "sha256": "88b42194e44875955944db331ef5d3c7f075d5f44c419659b8a13b767f5913b1"
+  },
+  {
+    "file": "lod_basic_shaded.fbx",
+    "bytes": 5777356,
+    "sha256": "56bf0482c00a97f4be4b5ef6dae7428da0d7db1d218e2f9ae96264724b45c7f9"
+  },
+  {
+    "file": "shaded.png",
+    "bytes": 3722960,
+    "sha256": "959f0f18de3d8274e4cd3f19a47402a52e6f537f013e0f0be3f3944b41358227",
+    "dimensions": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "file": "texture_diffuse.png",
+    "bytes": 3683118,
+    "sha256": "9fd9723908e384f50710fa33d613859fb237b72f90658e67145ca188ddb3f190",
+    "dimensions": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "file": "texture_metallic.png",
+    "bytes": 915293,
+    "sha256": "bc337b9dadbb3a59cc706473ef76fd5016d3db5741fb817fb52fc970cf2530ec",
+    "dimensions": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "file": "texture_normal.png",
+    "bytes": 4109282,
+    "sha256": "19601c7fc5a4b886ea84fc4220b1b8febfccbaac011545eeb9069d3be5c72435",
+    "dimensions": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "file": "texture_pbr.png",
+    "bytes": 2102916,
+    "sha256": "5b3ab6b88511514d1ce0a4656370395b434eb1b2337adcc5e9e0160107b88756",
+    "dimensions": [
+      2048,
+      2048
+    ]
+  },
+  {
+    "file": "texture_roughness.png",
+    "bytes": 843383,
+    "sha256": "da1d87b7b56420562017e128d9b56ff057ca548fe83350478fd9a14f30d4b432",
+    "dimensions": [
+      2048,
+      2048
+    ]
+  }
+]

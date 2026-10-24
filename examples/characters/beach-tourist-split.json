@@ -1,0 +1,11 @@
+{
+  "action": "split_sheet",
+  "character_id": "beach-tourist-zombie-v1",
+  "sheet_path": "assets/work/characters/beach-tourist-zombie-v1/references/model-sheet.png",
+  "panels": [
+    {"view": "front", "box": [0, 0, 627, 612]},
+    {"view": "back", "box": [627, 0, 1254, 612]},
+    {"view": "left", "box": [0, 612, 627, 1254]},
+    {"view": "right", "box": [627, 612, 1254, 1254]}
+  ]
+}

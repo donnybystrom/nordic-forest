@@ -1,0 +1,166 @@
+{
+  "date": "2026-10-22",
+  "scope": "Character pipeline first Rodin adapter and real generation; rig/animation/active ragdoll are later stages",
+  "langflow": [
+    {
+      "id": "e4bdbb8d-5252-4614-b1be-c6d8ff4971cc",
+      "name": "NF · Character Pipeline",
+      "folder_id": "7ce97d6f-f7c3-4c19-988c-fa353879b9cc"
+    },
+    {
+      "id": "3996f3e4-d15b-4974-a07f-268c45d8fecd",
+      "name": "06 — Character Pipeline · Rodin",
+      "folder_id": "7ce97d6f-f7c3-4c19-988c-fa353879b9cc"
+    }
+  ],
+  "prepare_job_id": "2f5dc218-15e9-4805-9170-31f3aa54ce4a",
+  "rodin": {
+    "balance_after_credits": 216,
+    "balance_before_credits": 216.5,
+    "consumed_credits": 0.5,
+    "files": [
+      {
+        "bytes": 44960556,
+        "path": "/Users/donnybystrom/code/Nordic-3D-forest/assets/generated/characters/beach-tourist-zombie-v1/2f5dc218-15e9-4805-9170-31f3aa54ce4a/base_high_pbr.glb",
+        "sha256": "b41c4ce8ec35138fa84b70114258d78b6efa697dbc9f33b2256397970d61a207"
+      },
+      {
+        "bytes": 3526,
+        "path": "/Users/donnybystrom/code/Nordic-3D-forest/assets/generated/characters/beach-tourist-zombie-v1/2f5dc218-15e9-4805-9170-31f3aa54ce4a/preview.webp",
+        "sha256": "9dcd1c62ddaf237aee9dd6a08faed7115e88faf2a622cc68b0d3efe92bf68e78"
+      }
+    ],
+    "jobs": [
+      "Done",
+      "Done",
+      "Done",
+      "Done",
+      "Done",
+      "Done"
+    ],
+    "next_action": "Review mesh and materials before rigging.",
+    "next_poll_at": 1792686207.821267,
+    "poll_delay": 30,
+    "recovery": "No automatic retry. Reconcile task UUID in the provider dashboard if the create reply is lost.",
+    "review_sha256": "11c0666e8f3c22eb87f8b1082fbd1006e49135774aafd89647107fe998ce206b",
+    "status": "downloaded",
+    "task_uuid": "e6fc389f-ac7a-41da-bb99-a4e646d9321b",
+    "usage_for_task": [
+      {
+        "amount": 0.5,
+        "item": "api_generation_rodin_high",
+        "task_uuid": "e6fc389f-ac7a-41da-bb99-a4e646d9321b",
+        "time": "2026-10-22T16:18:16.530Z"
+      }
+    ]
+  },
+  "parameters": {
+    "TAPose": true,
+    "addons": [
+      "HighPack"
+    ],
+    "geometry_file_format": "glb",
+    "material": "PBR",
+    "mesh_mode": "Quad",
+    "quality_override": 30000,
+    "seed": 42,
+    "texture_mode": "high",
+    "tier": "Gen-2.5-High"
+  },
+  "views": [
+    {
+      "bytes": 370123,
+      "path": "assets/work/characters/beach-tourist-zombie-v1/views-073339e134fbfe45/front.png",
+      "sha256": "f2918d82d065a7f383506122acaae94d699fad37f73ea972566918dcf72b3014",
+      "view": "front"
+    },
+    {
+      "bytes": 363187,
+      "path": "assets/work/characters/beach-tourist-zombie-v1/views-073339e134fbfe45/back.png",
+      "sha256": "1506f7dfbcaa2d67429cb0bd1c8da5ad372c68c2bd554e44eb41539f2b2aceb0",
+      "view": "back"
+    },
+    {
+      "bytes": 327985,
+      "path": "assets/work/characters/beach-tourist-zombie-v1/views-073339e134fbfe45/left.png",
+      "sha256": "f6f9eef5778d583c890ae059f460a4a82ba62b775348dc7d472af26575e9a4a9",
+      "view": "left"
+    },
+    {
+      "bytes": 327747,
+      "path": "assets/work/characters/beach-tourist-zombie-v1/views-073339e134fbfe45/right.png",
+      "sha256": "2d7cc84ddb5f98dee97289e805ba348138f60fa89bba15dfe06f2b0ff0cb2682",
+      "view": "right"
+    }
+  ],
+  "approval_source": "Explicit human approval in this chat for paid generation and script-based sheet cropping.",
+  "local_checks": {
+    "unit_tests_passed": 84,
+    "langflow_component_offline": "passed",
+    "langflow_tool_mode_ainvoke": "passed; only request_json is exposed",
+    "blender_import_and_render": "passed in isolated Blender 5.2 after native sandbox startup failure",
+    "godot_static_import": {
+      "animation_names": [],
+      "godot_version": "4.7.1-stable (official)",
+      "mesh_instances": 1,
+      "scope": "static GLB import; no rig or gameplay acceptance",
+      "skeletons": 0,
+      "status": "passed"
+    },
+    "langflow_full_graph_offline": "passed using installed Langflow runtime",
+    "langflow_full_graph_live_reuse": "passed; same downloaded model task UUID, no new submit",
+    "langflow_http_run": "403 without API key; authenticated read/update APIs worked. No authentication settings changed."
+  },
+  "inventory": {
+    "source": "/Users/donnybystrom/code/Nordic-3D-forest/assets/generated/characters/beach-tourist-zombie-v1/2f5dc218-15e9-4805-9170-31f3aa54ce4a/base_high_pbr.glb",
+    "source_sha256": "b41c4ce8ec35138fa84b70114258d78b6efa697dbc9f33b2256397970d61a207",
+    "blender_version": "5.2.0 LTS",
+    "meshes": [
+      {
+        "name": "model",
+        "vertices": 31497,
+        "faces": 55984,
+        "triangles": 55984,
+        "uv_layers": 1
+      }
+    ],
+    "bounds_world_units": [
+      1.0986919403076172,
+      0.4399369955062866,
+      1.8916559219360352
+    ],
+    "skeletons": [],
+    "actions": [],
+    "textures": [
+      {
+        "name": "texture_diffuse",
+        "width": 4096,
+        "height": 4096,
+        "channels": 4
+      },
+      {
+        "name": "texture_metallic-texture_roughness",
+        "width": 4096,
+        "height": 4096,
+        "channels": 4
+      },
+      {
+        "name": "texture_normal",
+        "width": 4096,
+        "height": 4096,
+        "channels": 4
+      }
+    ],
+    "scale_note": "Source bounds measured; real character height is not assigned.",
+    "rig_acceptance": "not_performed",
+    "active_ragdoll": "not_implemented"
+  },
+  "limitations": [
+    "Generated A-pose retains head tilt; review rest pose before fitting a rig.",
+    "No skeleton or animation tracks were delivered.",
+    "Hyper3D web rigging/animation API is not verified.",
+    "Concept chat and new view generation are manual handoffs.",
+    "No active-ragdoll controller or runtime animation importer has been implemented."
+  ],
+  "billing_note": "consumed=0.5, matching usage amount=0.5 and account balance delta=0.5. Provider receipt does not itemize HighPack separately. Rigging and animation have not been billed by this adapter."
+}

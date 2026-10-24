@@ -1,0 +1,85 @@
+{
+  "status": "initial_rig_candidate",
+  "scene": "RodinT_Deliverable_v1",
+  "rig": "RodinT_v1_Rig",
+  "mesh": "RodinT_v1_Mesh",
+  "bones": 52,
+  "vertices": 14986,
+  "triangles": 30000,
+  "max_influences": 8,
+  "fps": 30,
+  "clips": [
+    {
+      "name": "Meshy_Unsteady_Walk",
+      "duration_seconds": 2.966666666666667
+    },
+    {
+      "name": "Meshy__01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "duration_seconds": 5.966666666666667
+    },
+    {
+      "name": "Meshy__01a16049_24f1_7632_af79_b07a1749f28a",
+      "duration_seconds": 5.966666666666667
+    },
+    {
+      "name": "Meshy__01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "duration_seconds": 6.966666666666667
+    },
+    {
+      "name": "Meshy__01a16043_e8e4_7705_974e_7295ad5d516a",
+      "duration_seconds": 9.966666666666667
+    },
+    {
+      "name": "Meshy__01a16041_fe77_7650_9473_3f9eddba89a8",
+      "duration_seconds": 2.966666666666667
+    },
+    {
+      "name": "Meshy__01a1603b_85e4_72f4_a035_f56410039b21",
+      "duration_seconds": 2.966666666666667
+    },
+    {
+      "name": "Meshy__01a16039_5f64_76cf_9834_0ae151e56f17",
+      "duration_seconds": 2.966666666666667
+    },
+    {
+      "name": "Meshy__01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "duration_seconds": 3.966666666666667
+    },
+    {
+      "name": "Meshy_Walking",
+      "duration_seconds": 1.0333333333333334
+    },
+    {
+      "name": "Meshy_Running",
+      "duration_seconds": 0.6333333333333333
+    },
+    {
+      "name": "Rodin_HumanWalking2",
+      "duration_seconds": 1.6333333333333333
+    },
+    {
+      "name": "Rodin_HumanZombieCrawl",
+      "duration_seconds": 5.133333333333334
+    }
+  ],
+  "files": {
+    "assets/models/zombies/rodin-tpose-working-v1/Rodin_TPose_Working_v1.glb": {
+      "bytes": 13292024,
+      "sha256": "7d5dd21b31af547b56a4e5220ba5240efe8d7674020d0e4bd61d1b3851f5d6c2"
+    },
+    "assets/models/zombies/rodin-tpose-working-v1/Rodin_TPose_Working_v1.blend": {
+      "bytes": 15767221,
+      "sha256": "577bc24defca743b99c89e381adbba39914a4750f1ebba53ddafacba867e536a"
+    }
+  },
+  "changes": [
+    "New source LOD0 fitted with 52 named bones and fresh Blender heat weights.",
+    "Mesh translated horizontally to center; source geometry and UV topology retained.",
+    "13 clips rebaked using an explicit source T stance as reference.",
+    "Original 2K PBR maps packed; normal strength 0.65; no texture regeneration."
+  ],
+  "limitations": [
+    "Lower source LODs remain unrigged and are not included in this GLB.",
+    "Initial finger placement/weights; no planted-foot IK, corrective morphs, jiggle, ragdoll or fracture."
+  ]
+}

@@ -1,0 +1,402 @@
+{
+  "status": "measured_reference_targets_only",
+  "coordinates": "Blender right-handed Z-up, meters; convert to Godot Y-up in a future adapter",
+  "clips": [
+    {
+      "name": "Unsteady_Walk",
+      "duration_seconds": 2.966666666666667,
+      "endpoint_rotation_difference_degrees_mean": 0.6881007720892158,
+      "endpoint_rotation_difference_degrees_max": 1.7269619052019787,
+      "height_only_contact_candidates": {
+        "Left": {
+          "height_threshold_m": 0.035577999999999985,
+          "candidate_intervals_seconds": [
+            [
+              0.36666666666666664,
+              0.9666666666666667
+            ],
+            [
+              1.3333333333333333,
+              2.1
+            ],
+            [
+              2.4,
+              2.8666666666666667
+            ]
+          ]
+        },
+        "Right": {
+          "height_threshold_m": 0.03330999999999994,
+          "candidate_intervals_seconds": [
+            [
+              0.0,
+              0.43333333333333335
+            ],
+            [
+              0.8666666666666667,
+              1.3333333333333333
+            ],
+            [
+              1.8,
+              2.433333333333333
+            ],
+            [
+              2.8666666666666667,
+              2.966666666666667
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "_01a1604b_bdf2_76df_a4f6_87ca6b8e6068",
+      "duration_seconds": 5.966666666666667,
+      "endpoint_rotation_difference_degrees_mean": 18.496790699610173,
+      "endpoint_rotation_difference_degrees_max": 51.78915868843045,
+      "height_only_contact_candidates": {
+        "Left": {
+          "height_threshold_m": 0.028077,
+          "candidate_intervals_seconds": [
+            [
+              0.0,
+              5.966666666666667
+            ]
+          ]
+        },
+        "Right": {
+          "height_threshold_m": 0.023998000000000057,
+          "candidate_intervals_seconds": [
+            [
+              0.5,
+              2.066666666666667
+            ],
+            [
+              2.2,
+              5.966666666666667
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "_01a16049_24f1_7632_af79_b07a1749f28a",
+      "duration_seconds": 5.966666666666667,
+      "endpoint_rotation_difference_degrees_mean": 5.961333638346536,
+      "endpoint_rotation_difference_degrees_max": 13.316013426964124,
+      "height_only_contact_candidates": {
+        "Left": {
+          "height_threshold_m": 0.035988000000000006,
+          "candidate_intervals_seconds": [
+            [
+              0.0,
+              5.966666666666667
+            ]
+          ]
+        },
+        "Right": {
+          "height_threshold_m": 0.01730399999999997,
+          "candidate_intervals_seconds": [
+            [
+              0.0,
+              5.966666666666667
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "_01a16046_4c28_71a1_a0e5_4d32b6433f57",
+      "duration_seconds": 6.966666666666667,
+      "endpoint_rotation_difference_degrees_mean": 9.335862859074295,
+      "endpoint_rotation_difference_degrees_max": 31.35230145818453,
+      "height_only_contact_candidates": {
+        "Left": {
+          "height_threshold_m": 0.032332000000000014,
+          "candidate_intervals_seconds": [
+            [
+              1.0333333333333334,
+              1.8666666666666667
+            ],
+            [
+              2.2,
+              3.3
+            ],
+            [
+              4.133333333333334,
+              5.0
+            ],
+            [
+              5.7,
+              6.966666666666667
+            ]
+          ]
+        },
+        "Right": {
+          "height_threshold_m": 0.034073000000000006,
+          "candidate_intervals_seconds": [
+            [
+              0.0,
+              1.6
+            ],
+            [
+              1.6666666666666667,
+              2.2333333333333334
+            ],
+            [
+              3.1666666666666665,
+              4.066666666666666
+            ],
+            [
+              4.7,
+              4.733333333333333
+            ],
+            [
+              4.933333333333334,
+              5.866666666666666
+            ],
+            [
+              6.266666666666667,
+              6.966666666666667
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "_01a16043_e8e4_7705_974e_7295ad5d516a",
+      "duration_seconds": 9.966666666666667,
+      "endpoint_rotation_difference_degrees_mean": 32.766197819716986,
+      "endpoint_rotation_difference_degrees_max": 84.80081250650262,
+      "height_only_contact_candidates": {
+        "Left": {
+          "height_threshold_m": 0.251035,
+          "candidate_intervals_seconds": [
+            [
+              1.4666666666666666,
+              1.8666666666666667
+            ]
+          ]
+        },
+        "Right": {
+          "height_threshold_m": 0.24255399999999996,
+          "candidate_intervals_seconds": [
+            [
+              8.166666666666666,
+              8.4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "_01a16041_fe77_7650_9473_3f9eddba89a8",
+      "duration_seconds": 2.966666666666667,
+      "endpoint_rotation_difference_degrees_mean": 20.856354496705162,
+      "endpoint_rotation_difference_degrees_max": 66.53951684503394,
+      "height_only_contact_candidates": {
+        "Left": {
+          "height_threshold_m": 0.273323,
+          "candidate_intervals_seconds": [
+            [
+              2.6,
+              2.966666666666667
+            ]
+          ]
+        },
+        "Right": {
+          "height_threshold_m": 0.248933,
+          "candidate_intervals_seconds": [
+            [
+              0.6666666666666666,
+              0.8333333333333334
+            ],
+            [
+              1.9,
+              2.2333333333333334
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "_01a1603b_85e4_72f4_a035_f56410039b21",
+      "duration_seconds": 2.966666666666667,
+      "endpoint_rotation_difference_degrees_mean": 27.18440205886335,
+      "endpoint_rotation_difference_degrees_max": 93.18467006481117,
+      "height_only_contact_candidates": {
+        "Left": {
+          "height_threshold_m": 0.15354299999999996,
+          "candidate_intervals_seconds": [
+            [
+              0.0,
+              0.7333333333333333
+            ],
+            [
+              0.9,
+              0.9666666666666667
+            ]
+          ]
+        },
+        "Right": {
+          "height_threshold_m": 0.07775200000000003,
+          "candidate_intervals_seconds": [
+            [
+              0.6333333333333333,
+              0.8333333333333334
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "_01a16039_5f64_76cf_9834_0ae151e56f17",
+      "duration_seconds": 2.966666666666667,
+      "endpoint_rotation_difference_degrees_mean": 37.53243633238302,
+      "endpoint_rotation_difference_degrees_max": 124.07055669965129,
+      "height_only_contact_candidates": {
+        "Left": {
+          "height_threshold_m": 0.15445799999999996,
+          "candidate_intervals_seconds": [
+            [
+              0.0,
+              0.13333333333333333
+            ],
+            [
+              0.2,
+              0.3333333333333333
+            ],
+            [
+              0.7333333333333333,
+              1.1666666666666667
+            ]
+          ]
+        },
+        "Right": {
+          "height_threshold_m": 0.17714099999999997,
+          "candidate_intervals_seconds": [
+            [
+              0.0,
+              0.06666666666666667
+            ],
+            [
+              0.43333333333333335,
+              0.7666666666666667
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "_01a16035_50c7_77d5_ba64_7c2f02b6f422",
+      "duration_seconds": 3.966666666666667,
+      "endpoint_rotation_difference_degrees_mean": 10.273854836413745,
+      "endpoint_rotation_difference_degrees_max": 24.97855236991957,
+      "height_only_contact_candidates": {
+        "Left": {
+          "height_threshold_m": 0.045212999999999934,
+          "candidate_intervals_seconds": [
+            [
+              0.3,
+              1.1666666666666667
+            ],
+            [
+              1.4666666666666666,
+              1.5
+            ],
+            [
+              2.066666666666667,
+              2.9
+            ],
+            [
+              3.566666666666667,
+              3.966666666666667
+            ]
+          ]
+        },
+        "Right": {
+          "height_threshold_m": 0.026676999999999933,
+          "candidate_intervals_seconds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              1.4,
+              1.8666666666666667
+            ],
+            [
+              3.2333333333333334,
+              3.5
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "Walking",
+      "duration_seconds": 1.0333333333333334,
+      "endpoint_rotation_difference_degrees_mean": 0.008526332173246337,
+      "endpoint_rotation_difference_degrees_max": 0.06551504679302507,
+      "height_only_contact_candidates": {
+        "Left": {
+          "height_threshold_m": 0.051250000000000004,
+          "candidate_intervals_seconds": [
+            [
+              0.3,
+              0.8333333333333334
+            ]
+          ]
+        },
+        "Right": {
+          "height_threshold_m": 0.04493699999999999,
+          "candidate_intervals_seconds": [
+            [
+              0.0,
+              0.3
+            ],
+            [
+              1.0,
+              1.0333333333333334
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "Running",
+      "duration_seconds": 0.6333333333333333,
+      "endpoint_rotation_difference_degrees_mean": 0.013884047284623518,
+      "endpoint_rotation_difference_degrees_max": 0.05248285443054782,
+      "height_only_contact_candidates": {
+        "Left": {
+          "height_threshold_m": 0.05605099999999995,
+          "candidate_intervals_seconds": [
+            [
+              0.2,
+              0.3
+            ]
+          ]
+        },
+        "Right": {
+          "height_threshold_m": 0.03405800000000002,
+          "candidate_intervals_seconds": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              0.6,
+              0.6333333333333333
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Height-only contacts are candidates, not confirmed planted feet or support constraints.",
+    "UUID animation names remain unchanged; inspect poses before assigning a locomotion state.",
+    "A procedural controller still needs phase control, contact planning, IK/PD constraints, damage rules and balance recovery.",
+    "No procedural locomotion or active ragdoll has been implemented by this extraction."
+  ]
+}

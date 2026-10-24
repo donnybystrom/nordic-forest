@@ -1,0 +1,482 @@
+[
+  {
+    "path": "assets/models/zombies/zombie girl hyper3d/bikini_girl-crawling/base_basic_pbr.glb",
+    "bytes": 24935448,
+    "sha256": "b13087571fc2030db48cf231e557cf532bd876986528470fc57e47cbeea4e717",
+    "generator": "Khronos glTF Blender I/O v4.3.47",
+    "vertices": 27138,
+    "triangles": 30000,
+    "skin_bones": [
+      "Hips",
+      "Spine",
+      "Spine1",
+      "Spine2",
+      "Neck",
+      "Head",
+      "LeftShoulder",
+      "LeftArm",
+      "LeftForeArm",
+      "LeftHand",
+      "LeftHandThumb1",
+      "LeftHandThumb2",
+      "LeftHandThumb3",
+      "LeftHandIndex1",
+      "LeftHandIndex2",
+      "LeftHandIndex3",
+      "LeftHandMiddle1",
+      "LeftHandMiddle2",
+      "LeftHandMiddle3",
+      "LeftHandRing1",
+      "LeftHandRing2",
+      "LeftHandRing3",
+      "LeftHandPinky1",
+      "LeftHandPinky2",
+      "LeftHandPinky3",
+      "RightShoulder",
+      "RightArm",
+      "RightForeArm",
+      "RightHand",
+      "RightHandThumb1",
+      "RightHandThumb2",
+      "RightHandThumb3",
+      "RightHandIndex1",
+      "RightHandIndex2",
+      "RightHandIndex3",
+      "RightHandMiddle1",
+      "RightHandMiddle2",
+      "RightHandMiddle3",
+      "RightHandRing1",
+      "RightHandRing2",
+      "RightHandRing3",
+      "RightHandPinky1",
+      "RightHandPinky2",
+      "RightHandPinky3",
+      "LeftUpLeg",
+      "LeftLeg",
+      "LeftFoot",
+      "LeftToeBase",
+      "RightUpLeg",
+      "RightLeg",
+      "RightFoot",
+      "RightToeBase"
+    ],
+    "animations": [
+      {
+        "name": "HumanZombieCrawl",
+        "duration_seconds": 5.133333333333334
+      }
+    ],
+    "attribute_buffer_hashes": {
+      "POSITION": "4924fb2e0980f1d17638c2e35c80a371d9d6ed4c2bf113079503edd24b8c78c5",
+      "NORMAL": "72652cd9a14ba9f36099798ef9c5e8d39ebd711fbdd0b5a98f5f60424cbe4a1e",
+      "TEXCOORD_0": "4a26d3270abea7556346c5fb4e1e8387a355df6c6d0923a0aa614a9ca72201ad",
+      "JOINTS_0": "39fbd0c84b72462b30f17de4247054adfb95e182e4a1a1b5ed0accc23a4b9981",
+      "JOINTS_1": "5fa39875defe3be9d00a31bbd10c4cbd94adc6dcfe1ada0f90b45788fc9ed960",
+      "WEIGHTS_0": "0b9102616d7348dd1b1bb7e89da6796d8bb61bcc920c417b318606f43d29451d",
+      "WEIGHTS_1": "1d81cb9d65da940cd5de7b1dd1335783bea21eb7af5a11db207c5bab68029dc3"
+    },
+    "index_buffer_hash": "3a5462a65796ee966b0b81554cd66425defa06223332ad9199ac1b8b90ae39a7",
+    "images": [
+      {
+        "name": "texture_normal",
+        "mime_type": "image/png",
+        "bytes": 5347067,
+        "dimensions": [
+          2048,
+          2048
+        ],
+        "sha256": "87d30b2105852bdd64fcc52151397d808b7ad69289969d7127a0c27d0edf5636"
+      },
+      {
+        "name": "texture_diffuse",
+        "mime_type": "image/png",
+        "bytes": 14415336,
+        "dimensions": [
+          4096,
+          4096
+        ],
+        "sha256": "5ff746f72744944c637cd50696cf2c059cfa990ffd0d6fb06eb67633f3248d33"
+      },
+      {
+        "name": "texture_metallic-texture_roughness",
+        "mime_type": "image/png",
+        "bytes": 2770256,
+        "dimensions": [
+          2048,
+          2048
+        ],
+        "sha256": "83dc65cef1f0bd5d4292a6f8d7520eb0cce095b641c26b25d938bae3d89a83d0"
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "model",
+        "normalTexture": {
+          "index": 0
+        },
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": 1
+          },
+          "metallicRoughnessTexture": {
+            "index": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "path": "assets/models/zombies/zombie girl hyper3d/bikini_girl-crawling/base_basic_shaded.glb",
+    "bytes": 17503876,
+    "sha256": "9dc8c4be6812c5864a37a4e16b0df6b2405f018e3f620b5329e5553e6e281389",
+    "generator": "Khronos glTF Blender I/O v4.3.47",
+    "vertices": 27138,
+    "triangles": 30000,
+    "skin_bones": [
+      "Hips",
+      "Spine",
+      "Spine1",
+      "Spine2",
+      "Neck",
+      "Head",
+      "LeftShoulder",
+      "LeftArm",
+      "LeftForeArm",
+      "LeftHand",
+      "LeftHandThumb1",
+      "LeftHandThumb2",
+      "LeftHandThumb3",
+      "LeftHandIndex1",
+      "LeftHandIndex2",
+      "LeftHandIndex3",
+      "LeftHandMiddle1",
+      "LeftHandMiddle2",
+      "LeftHandMiddle3",
+      "LeftHandRing1",
+      "LeftHandRing2",
+      "LeftHandRing3",
+      "LeftHandPinky1",
+      "LeftHandPinky2",
+      "LeftHandPinky3",
+      "RightShoulder",
+      "RightArm",
+      "RightForeArm",
+      "RightHand",
+      "RightHandThumb1",
+      "RightHandThumb2",
+      "RightHandThumb3",
+      "RightHandIndex1",
+      "RightHandIndex2",
+      "RightHandIndex3",
+      "RightHandMiddle1",
+      "RightHandMiddle2",
+      "RightHandMiddle3",
+      "RightHandRing1",
+      "RightHandRing2",
+      "RightHandRing3",
+      "RightHandPinky1",
+      "RightHandPinky2",
+      "RightHandPinky3",
+      "LeftUpLeg",
+      "LeftLeg",
+      "LeftFoot",
+      "LeftToeBase",
+      "RightUpLeg",
+      "RightLeg",
+      "RightFoot",
+      "RightToeBase"
+    ],
+    "animations": [
+      {
+        "name": "HumanZombieCrawl",
+        "duration_seconds": 5.133333333333334
+      }
+    ],
+    "attribute_buffer_hashes": {
+      "POSITION": "4924fb2e0980f1d17638c2e35c80a371d9d6ed4c2bf113079503edd24b8c78c5",
+      "NORMAL": "72652cd9a14ba9f36099798ef9c5e8d39ebd711fbdd0b5a98f5f60424cbe4a1e",
+      "TEXCOORD_0": "4a26d3270abea7556346c5fb4e1e8387a355df6c6d0923a0aa614a9ca72201ad",
+      "JOINTS_0": "39fbd0c84b72462b30f17de4247054adfb95e182e4a1a1b5ed0accc23a4b9981",
+      "JOINTS_1": "5fa39875defe3be9d00a31bbd10c4cbd94adc6dcfe1ada0f90b45788fc9ed960",
+      "WEIGHTS_0": "0b9102616d7348dd1b1bb7e89da6796d8bb61bcc920c417b318606f43d29451d",
+      "WEIGHTS_1": "1d81cb9d65da940cd5de7b1dd1335783bea21eb7af5a11db207c5bab68029dc3"
+    },
+    "index_buffer_hash": "3a5462a65796ee966b0b81554cd66425defa06223332ad9199ac1b8b90ae39a7",
+    "images": [
+      {
+        "name": "shaded",
+        "mime_type": "image/png",
+        "bytes": 15101404,
+        "dimensions": [
+          4096,
+          4096
+        ],
+        "sha256": "9581614e4c5763ef299d8b27c301ecdfc4bab9b76f954c52748c8b7e5a741444"
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "emissiveFactor": [
+          1,
+          1,
+          1
+        ],
+        "emissiveTexture": {
+          "index": 0
+        },
+        "name": "model",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "metallicFactor": 0
+        }
+      }
+    ]
+  },
+  {
+    "path": "assets/models/zombies/zombie girl hyper3d/bikini_girl-walking/base_basic_pbr.glb",
+    "bytes": 24781936,
+    "sha256": "4b369de88d7d8ab8154eea042cf35594315673f5d6595044c6b52ccf2c3656ef",
+    "generator": "Khronos glTF Blender I/O v4.3.47",
+    "vertices": 27138,
+    "triangles": 30000,
+    "skin_bones": [
+      "Hips",
+      "Spine",
+      "Spine1",
+      "Spine2",
+      "Neck",
+      "Head",
+      "LeftShoulder",
+      "LeftArm",
+      "LeftForeArm",
+      "LeftHand",
+      "LeftHandThumb1",
+      "LeftHandThumb2",
+      "LeftHandThumb3",
+      "LeftHandIndex1",
+      "LeftHandIndex2",
+      "LeftHandIndex3",
+      "LeftHandMiddle1",
+      "LeftHandMiddle2",
+      "LeftHandMiddle3",
+      "LeftHandRing1",
+      "LeftHandRing2",
+      "LeftHandRing3",
+      "LeftHandPinky1",
+      "LeftHandPinky2",
+      "LeftHandPinky3",
+      "RightShoulder",
+      "RightArm",
+      "RightForeArm",
+      "RightHand",
+      "RightHandThumb1",
+      "RightHandThumb2",
+      "RightHandThumb3",
+      "RightHandIndex1",
+      "RightHandIndex2",
+      "RightHandIndex3",
+      "RightHandMiddle1",
+      "RightHandMiddle2",
+      "RightHandMiddle3",
+      "RightHandRing1",
+      "RightHandRing2",
+      "RightHandRing3",
+      "RightHandPinky1",
+      "RightHandPinky2",
+      "RightHandPinky3",
+      "LeftUpLeg",
+      "LeftLeg",
+      "LeftFoot",
+      "LeftToeBase",
+      "RightUpLeg",
+      "RightLeg",
+      "RightFoot",
+      "RightToeBase"
+    ],
+    "animations": [
+      {
+        "name": "HumanWalking2",
+        "duration_seconds": 1.6333333333333333
+      }
+    ],
+    "attribute_buffer_hashes": {
+      "POSITION": "4924fb2e0980f1d17638c2e35c80a371d9d6ed4c2bf113079503edd24b8c78c5",
+      "NORMAL": "72652cd9a14ba9f36099798ef9c5e8d39ebd711fbdd0b5a98f5f60424cbe4a1e",
+      "TEXCOORD_0": "4a26d3270abea7556346c5fb4e1e8387a355df6c6d0923a0aa614a9ca72201ad",
+      "JOINTS_0": "39fbd0c84b72462b30f17de4247054adfb95e182e4a1a1b5ed0accc23a4b9981",
+      "JOINTS_1": "5fa39875defe3be9d00a31bbd10c4cbd94adc6dcfe1ada0f90b45788fc9ed960",
+      "WEIGHTS_0": "0b9102616d7348dd1b1bb7e89da6796d8bb61bcc920c417b318606f43d29451d",
+      "WEIGHTS_1": "1d81cb9d65da940cd5de7b1dd1335783bea21eb7af5a11db207c5bab68029dc3"
+    },
+    "index_buffer_hash": "3a5462a65796ee966b0b81554cd66425defa06223332ad9199ac1b8b90ae39a7",
+    "images": [
+      {
+        "name": "texture_normal",
+        "mime_type": "image/png",
+        "bytes": 5347067,
+        "dimensions": [
+          2048,
+          2048
+        ],
+        "sha256": "87d30b2105852bdd64fcc52151397d808b7ad69289969d7127a0c27d0edf5636"
+      },
+      {
+        "name": "texture_diffuse",
+        "mime_type": "image/png",
+        "bytes": 14415336,
+        "dimensions": [
+          4096,
+          4096
+        ],
+        "sha256": "5ff746f72744944c637cd50696cf2c059cfa990ffd0d6fb06eb67633f3248d33"
+      },
+      {
+        "name": "texture_metallic-texture_roughness",
+        "mime_type": "image/png",
+        "bytes": 2770256,
+        "dimensions": [
+          2048,
+          2048
+        ],
+        "sha256": "83dc65cef1f0bd5d4292a6f8d7520eb0cce095b641c26b25d938bae3d89a83d0"
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "name": "model",
+        "normalTexture": {
+          "index": 0
+        },
+        "pbrMetallicRoughness": {
+          "baseColorTexture": {
+            "index": 1
+          },
+          "metallicRoughnessTexture": {
+            "index": 2
+          }
+        }
+      }
+    ]
+  },
+  {
+    "path": "assets/models/zombies/zombie girl hyper3d/bikini_girl-walking/base_basic_shaded.glb",
+    "bytes": 17350364,
+    "sha256": "74946d17c7e5914a6944714bacda24227bc1826dc2069d5dfa987b8a256de4ca",
+    "generator": "Khronos glTF Blender I/O v4.3.47",
+    "vertices": 27138,
+    "triangles": 30000,
+    "skin_bones": [
+      "Hips",
+      "Spine",
+      "Spine1",
+      "Spine2",
+      "Neck",
+      "Head",
+      "LeftShoulder",
+      "LeftArm",
+      "LeftForeArm",
+      "LeftHand",
+      "LeftHandThumb1",
+      "LeftHandThumb2",
+      "LeftHandThumb3",
+      "LeftHandIndex1",
+      "LeftHandIndex2",
+      "LeftHandIndex3",
+      "LeftHandMiddle1",
+      "LeftHandMiddle2",
+      "LeftHandMiddle3",
+      "LeftHandRing1",
+      "LeftHandRing2",
+      "LeftHandRing3",
+      "LeftHandPinky1",
+      "LeftHandPinky2",
+      "LeftHandPinky3",
+      "RightShoulder",
+      "RightArm",
+      "RightForeArm",
+      "RightHand",
+      "RightHandThumb1",
+      "RightHandThumb2",
+      "RightHandThumb3",
+      "RightHandIndex1",
+      "RightHandIndex2",
+      "RightHandIndex3",
+      "RightHandMiddle1",
+      "RightHandMiddle2",
+      "RightHandMiddle3",
+      "RightHandRing1",
+      "RightHandRing2",
+      "RightHandRing3",
+      "RightHandPinky1",
+      "RightHandPinky2",
+      "RightHandPinky3",
+      "LeftUpLeg",
+      "LeftLeg",
+      "LeftFoot",
+      "LeftToeBase",
+      "RightUpLeg",
+      "RightLeg",
+      "RightFoot",
+      "RightToeBase"
+    ],
+    "animations": [
+      {
+        "name": "HumanWalking2",
+        "duration_seconds": 1.6333333333333333
+      }
+    ],
+    "attribute_buffer_hashes": {
+      "POSITION": "4924fb2e0980f1d17638c2e35c80a371d9d6ed4c2bf113079503edd24b8c78c5",
+      "NORMAL": "72652cd9a14ba9f36099798ef9c5e8d39ebd711fbdd0b5a98f5f60424cbe4a1e",
+      "TEXCOORD_0": "4a26d3270abea7556346c5fb4e1e8387a355df6c6d0923a0aa614a9ca72201ad",
+      "JOINTS_0": "39fbd0c84b72462b30f17de4247054adfb95e182e4a1a1b5ed0accc23a4b9981",
+      "JOINTS_1": "5fa39875defe3be9d00a31bbd10c4cbd94adc6dcfe1ada0f90b45788fc9ed960",
+      "WEIGHTS_0": "0b9102616d7348dd1b1bb7e89da6796d8bb61bcc920c417b318606f43d29451d",
+      "WEIGHTS_1": "1d81cb9d65da940cd5de7b1dd1335783bea21eb7af5a11db207c5bab68029dc3"
+    },
+    "index_buffer_hash": "3a5462a65796ee966b0b81554cd66425defa06223332ad9199ac1b8b90ae39a7",
+    "images": [
+      {
+        "name": "shaded",
+        "mime_type": "image/png",
+        "bytes": 15101404,
+        "dimensions": [
+          4096,
+          4096
+        ],
+        "sha256": "9581614e4c5763ef299d8b27c301ecdfc4bab9b76f954c52748c8b7e5a741444"
+      }
+    ],
+    "materials": [
+      {
+        "doubleSided": true,
+        "emissiveFactor": [
+          1,
+          1,
+          1
+        ],
+        "emissiveTexture": {
+          "index": 0
+        },
+        "name": "model",
+        "pbrMetallicRoughness": {
+          "baseColorFactor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "metallicFactor": 0
+        }
+      }
+    ]
+  }
+]

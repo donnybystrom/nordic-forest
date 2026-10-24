@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-22",
+  "stage": "local_body_rig",
+  "rig_job_id": "f084471c-e209-4201-b6ca-43655924d8d4",
+  "source_job_id": "2f5dc218-15e9-4805-9170-31f3aa54ce4a",
+  "fingerprint": "cb6fe14f57ac0f5ee451f12a8fd5b5e40d7a91c568f22838941805be1986ad16",
+  "profile": "config/rig-profiles/beach-tourist-body-v1.json",
+  "output_directory": "/Users/donnybystrom/code/Nordic-3D-forest/assets/generated/characters/beach-tourist-zombie-v1/rig-cb6fe14f57ac0f5e",
+  "rodin_credits": 0,
+  "automated_tests_passed": 92,
+  "blender": {
+    "bones": 22,
+    "source_vertices": 31497,
+    "proxy_vertices": 27984,
+    "unweighted_vertices": 0,
+    "max_influences": 4,
+    "max_pruned_weight_mass": 0.17207470908761024,
+    "rest_surface_max_error": 1.6924465733171325e-07,
+    "roundtrip_max_vertex_error": 1.1010303933593657e-05,
+    "roundtrip_sample_count": 13
+  },
+  "files": [
+    {
+      "path": "/Users/donnybystrom/code/Nordic-3D-forest/assets/generated/characters/beach-tourist-zombie-v1/rig-cb6fe14f57ac0f5e/character-rigged.glb",
+      "sha256": "90fea68beea660923eda5976da9bc5b1e46657636c97088ebfa1d7f9d403b71e",
+      "bytes": 45597464
+    },
+    {
+      "path": "/Users/donnybystrom/code/Nordic-3D-forest/assets/generated/characters/beach-tourist-zombie-v1/rig-cb6fe14f57ac0f5e/character-rig-test.glb",
+      "sha256": "6ff0c65ad7b605c928cb156eb3fcb1e7d1a102141e98a4e4eaeee0f66a04a500",
+      "bytes": 45640980
+    },
+    {
+      "path": "/Users/donnybystrom/code/Nordic-3D-forest/assets/generated/characters/beach-tourist-zombie-v1/rig-cb6fe14f57ac0f5e/character-rig-review.blend",
+      "sha256": "3281b3ee3000093c36f6009323cb0e696d56c8fefe730454cc9e5fc8bfaa4309",
+      "bytes": 92341874
+    },
+    {
+      "path": "/Users/donnybystrom/code/Nordic-3D-forest/assets/generated/characters/beach-tourist-zombie-v1/rig-cb6fe14f57ac0f5e/rig-report.json",
+      "sha256": "47553df52033d4d23940a309c6188e565269a3a2adaca2e1dd2fe0e2763e23e5",
+      "bytes": 10827
+    },
+    {
+      "path": "/Users/donnybystrom/code/Nordic-3D-forest/assets/generated/characters/beach-tourist-zombie-v1/rig-cb6fe14f57ac0f5e/skin-weights.npz",
+      "sha256": "0fb19545ffc2ce39df5378982f73d6bebf32919b49c04adae432bdbf42ff6109",
+      "bytes": 865144
+    },
+    {
+      "path": "/Users/donnybystrom/code/Nordic-3D-forest/assets/generated/characters/beach-tourist-zombie-v1/rig-cb6fe14f57ac0f5e/rest.png",
+      "sha256": "330b8db987b539ae36a2ea2c5b5ad8f0066dacb55b67aa77e175fd39cfe59bba",
+      "bytes": 947264
+    },
+    {
+      "path": "/Users/donnybystrom/code/Nordic-3D-forest/assets/generated/characters/beach-tourist-zombie-v1/rig-cb6fe14f57ac0f5e/joint-test.png",
+      "sha256": "5101233d68f088413b03920f6eccbf86dcb3f1dd4fe499d89665feecfabf487c",
+      "bytes": 918104
+    },
+    {
+      "path": "/Users/donnybystrom/code/Nordic-3D-forest/assets/generated/characters/beach-tourist-zombie-v1/rig-cb6fe14f57ac0f5e/crouch-test.png",
+      "sha256": "ee1f26918b9d76b0bd1234477ecbc89cf5b34a639f04cae42d6802eb0fab9842",
+      "bytes": 910748
+    }
+  ],
+  "limitations": [
+    "Body rig only; palms and fingers currently move as one hand.",
+    "Diagnostic pose clip; no locomotion, foot IK, balance or active ragdoll.",
+    "Landmarks are an explicit initial fit; anatomical quality requires visual review."
+  ],
+  "godot": {
+    "animations": [
+      "QA_RigRange"
+    ],
+    "bones": 22,
+    "clip_duration_seconds": 6.03333330154419,
+    "diagnostic_clip": "QA_RigRange",
+    "elbow_rotation_degrees": 90.0000093346673,
+    "godot_version": "4.7.1-stable (official)",
+    "knee_rotation_degrees": 84.999989843327,
+    "mesh_instances": 1,
+    "scope": "Rigged GLB import and diagnostic skeleton animation; no gameplay, foot contact or active-ragdoll acceptance",
+    "status": "passed",
+    "time_mapping": "GLB source times retained; optimizer disabled for equivalence checking"
+  },
+  "langflow_full_graph": {
+    "status": "passed",
+    "reused_complete_rig": true,
+    "job_id": "1370fd5c-7647-4b27-bfe6-92d25c7cdf47"
+  },
+  "rodin_balance_after_local_rigging": 216,
+  "visual_review": {
+    "joint_test": "Reviewed raised arms and elbows; body remains intact. Shoulder/elbow polish is not final production acceptance.",
+    "crouch_test": "Reviewed hip and knee flexion; feet are not constrained to the ground in this diagnostic pose.",
+    "hand_mode": "Rigid palm and fingers; no independent finger joints."
+  },
+  "godot_import_subresources": {
+    "nodes": {
+      "PATH:AnimationPlayer": {
+        "optimizer/enabled": false,
+        "compression/enabled": false
+      }
+    }
+  },
+  "godot_default_optimizer_observation": {
+    "elbow_rotation_degrees": 87.272906,
+    "knee_rotation_degrees": 82.39708,
+    "comparison": "Default optimized import changed diagnostic peak angles. Reference comparison passed after disabling optimization and compression."
+  }
+}
