@@ -656,7 +656,7 @@ func become_corpse() -> void:
 		for connection: Dictionary in part.body.body_entered.get_connections(): part.body.body_entered.disconnect(connection.callable)
 		part.body.set_meta("corpse",true)
 		part.body.collision_layer |= 32
-		part.body.sleeping_state_changed.connect(_corpse_wake)
+		part.body.sleeping_state_changed.connect(_corpse_wake.bind(part.body))
 		part.visual.visible = debug_shapes
 	_write_corpse_pose()
 	target.queue_free()
@@ -665,8 +665,9 @@ func become_corpse() -> void:
 	target_player = null
 	set_process(true)
 
-func _corpse_wake() -> void:
-	if corpse:
+func _corpse_wake(body: RigidBody3D) -> void:
+	# Partial sleep/wake chatter during settling must not restart the window.
+	if corpse and not body.sleeping and not is_processing():
 		corpse_quiet_time = 0.0
 		corpse_rest_poses.clear()
 		set_process(true)

@@ -3,7 +3,7 @@
   "status": "pass",
   "scope": "Functional movement-capacity death; permanent passive, shootable corpses; retained corpse spawning and low-pile traversal.",
   "source_sha256": {
-    "integrations/godot/character-review/active_ragdoll.gd": "03f50b0c99eded6715b3b1543a60e20172697ef029c28c6a72dd65298a4aa3d4",
+    "integrations/godot/character-review/active_ragdoll.gd": "aa61f3671fcbd0fd944dce37cf04bc50dd488f3d882b121a304116ea9725add0",
     "integrations/godot/testground/zombie_agent.gd": "60632fe81385335bf12ee1646095e0dfcca5fb8082afc9d1e66dcadf6720249d",
     "integrations/godot/testground/mesh_damage.gd": "589b7f5cc65ded2382a74f001e135a84d0ba6ad6de9fce2bda588f3486f7c364",
     "integrations/godot/testground/testground.gd": "7a1a48418508ed71e9e26b9bd6448aeb4144f9fa22b71bf99c3dc57b9f2f3b92",
@@ -39,14 +39,14 @@
           "brain_energy_j": 0.0,
           "budget_cm3": 1073.2176,
           "cells_total": 1532,
-          "cpu_ms": 14.885,
+          "cpu_ms": 14.755,
           "fatal": true,
           "pending": 0,
           "processed_projectiles": 3,
           "rebuilds": 3,
           "removed_cells": 87,
           "removed_cm3": 1017.78554321209,
-          "sever_ms": 7.318,
+          "sever_ms": 7.335,
           "severed": [
             "LeftForeArm",
             "LeftHand"
@@ -92,14 +92,14 @@
           "brain_energy_j": 0.0,
           "budget_cm3": 1788.696,
           "cells_total": 2383,
-          "cpu_ms": 21.104,
+          "cpu_ms": 22.2,
           "fatal": true,
           "pending": 0,
           "processed_projectiles": 5,
           "rebuilds": 5,
           "removed_cells": 150,
           "removed_cm3": 1665.45898557524,
-          "sever_ms": 12.315,
+          "sever_ms": 13.37,
           "severed": [
             "LeftForeArm",
             "LeftHand"
