@@ -1,0 +1,960 @@
+{
+  "date": "2026-10-25",
+  "status": "pass",
+  "scope": "First surface-cell damage prototype; performance limit remains documented.",
+  "source_sha256": {
+    "integrations/godot/testground/mesh_damage.gd": "a9b2b4e1ac45dda9ac24c61bca1d2eb9581427d11da151642ea7397ed9a90e6f",
+    "integrations/godot/testground/damage_debris.gd": "a254b40418da79597002a4905111171aeaf9073a1b5cd217cbf5b65febaf2312",
+    "integrations/godot/testground/damage_model.gd": "486bf8e02faa08f2c5a0a7577dd1d7f58ba133874dace8938b2483139e1c61a9",
+    "integrations/godot/testground/fracture_data.gd": "bc20009d5d85c3eb2ef8f3d9db62c3e7f3eb93c957bcc342d29db078f46b83ed",
+    "integrations/godot/testground/zombie_agent.gd": "1a49ee63c3bdbb47a710aada770cbca299a66cf1d5bd963dca776b1cd266b5d8",
+    "integrations/godot/testground/fps_player.gd": "d691da508f83389699436a02626d65975c216184d3d01454a82b044660648c60",
+    "integrations/godot/testground/testground.gd": "33d61b998d655e6f437f4c927696474bafb96a18da708d0201713f29559287c8",
+    "integrations/godot/character-review/active_ragdoll.gd": "1aed22d08f94601135b156e48d5d4e82852bec58124b2d20356fc4fcc8dd77e3"
+  },
+  "runtime": {
+    "cases": [
+      {
+        "damage": {
+          "brain_energy_j": 894.348,
+          "budget_cm3": 357.7392,
+          "cells_total": 1532,
+          "cpu_ms": 19.187,
+          "fatal": true,
+          "rebuilds": 1,
+          "removed_cells": 24,
+          "removed_cm3": 356.755386255827,
+          "sever_ms": 0.0,
+          "severed": [],
+          "wound": {
+            "budget_cm3": 357.7392,
+            "cells": 24,
+            "deposited_j": 894.348,
+            "energy_j": 1375.92,
+            "radius_m": 0.0210023191898814,
+            "region": "Head",
+            "removed_cm3": 356.755386255827
+          }
+        },
+        "model": 0,
+        "skin_error": 0.0,
+        "test": "head_hole_and_collapse"
+      },
+      {
+        "damage": {
+          "brain_energy_j": 0.0,
+          "budget_cm3": 471.744,
+          "cells_total": 1532,
+          "cpu_ms": 29.339,
+          "fatal": false,
+          "rebuilds": 1,
+          "removed_cells": 2,
+          "removed_cm3": 93.9891326852376,
+          "sever_ms": 0.0,
+          "severed": [],
+          "wound": {
+            "budget_cm3": 58.968,
+            "cells": 1,
+            "deposited_j": 147.42,
+            "energy_j": 226.8,
+            "radius_m": 0.009,
+            "region": "Spine",
+            "removed_cm3": 39.5635304739699
+          }
+        },
+        "model": 0,
+        "test": "chest_survives_and_pellets_batch"
+      },
+      {
+        "mass": 61.8137259483337,
+        "model": 0,
+        "test": "detach_LeftArm"
+      },
+      {
+        "mass": 63.4068632125854,
+        "model": 0,
+        "test": "detach_RightForeArm"
+      },
+      {
+        "mass": 64.3627455830574,
+        "model": 0,
+        "test": "detach_LeftHand"
+      },
+      {
+        "mass": 54.8039218783379,
+        "model": 0,
+        "test": "detach_LeftUpLeg"
+      },
+      {
+        "mass": 61.1764709353447,
+        "model": 0,
+        "test": "detach_RightLeg"
+      },
+      {
+        "mass": 64.0441181063652,
+        "model": 0,
+        "test": "detach_LeftFoot"
+      },
+      {
+        "mass": 60.5392160415649,
+        "model": 0,
+        "test": "detach_Head"
+      },
+      {
+        "damage": {
+          "brain_energy_j": 0.0,
+          "budget_cm3": 1073.2176,
+          "cells_total": 1532,
+          "cpu_ms": 13.345,
+          "fatal": false,
+          "rebuilds": 3,
+          "removed_cells": 84,
+          "removed_cm3": 919.350155469147,
+          "sever_ms": 6.907,
+          "severed": [
+            "LeftForeArm",
+            "LeftHand"
+          ],
+          "wound": {
+            "budget_cm3": 357.7392,
+            "cells": 7,
+            "deposited_j": 894.348,
+            "energy_j": 1375.92,
+            "radius_m": 0.0318150102988413,
+            "region": "LeftForeArm",
+            "removed_cm3": 275.633851546445
+          }
+        },
+        "disabled_before_sever": true,
+        "model": 0,
+        "test": "energy_driven_limb_sever"
+      },
+      {
+        "damage": {
+          "brain_energy_j": 0.0,
+          "budget_cm3": 471.744,
+          "cells_total": 1532,
+          "cpu_ms": 33.915,
+          "fatal": false,
+          "rebuilds": 1,
+          "removed_cells": 14,
+          "removed_cm3": 399.930302406574,
+          "sever_ms": 0.0,
+          "severed": [],
+          "wound": {
+            "budget_cm3": 58.968,
+            "cells": 3,
+            "deposited_j": 147.42,
+            "energy_j": 226.8,
+            "radius_m": 0.009,
+            "region": "Spine",
+            "removed_cm3": 57.7080680268409
+          }
+        },
+        "getups": 1,
+        "model": 0,
+        "shot": {
+          "angular_impulse": [
+            1.32649040222168,
+            0.210256353020668,
+            -0.145036458969116
+          ],
+          "body_hits": 8,
+          "bone": "Spine",
+          "budget_ns": 100.0,
+          "delivered_ns": 100.0,
+          "energy_budget_j": 1814.4,
+          "hit": true,
+          "impulse": [
+            -1.1058030128479,
+            -1.54591083526611,
+            -12.3546495437622
+          ],
+          "impulse_ns": 12.5,
+          "lever": [
+            0.0278959274291992,
+            -0.0921609401702881,
+            0.121529817581177
+          ],
+          "model": "beach-zombie-female",
+          "pellets": [
+            {
+              "angular_impulse": [
+                -0.126253932714462,
+                -0.166395515203476,
+                0.0251024775207043
+              ],
+              "bone": "Spine",
+              "hit": true,
+              "impulse": [
+                -1.27857792377472,
+                -0.900803029537201,
+                -12.4017667770386
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                -0.000146627426147461,
+                0.0195298194885254,
+                0.128718852996826
+              ],
+              "model": "beach-zombie-female",
+              "point": [
+                -1.20894479751587,
+                1.21280741691589,
+                -3.65747928619385
+              ],
+              "world": false,
+              "zombie": "Zombie_15"
+            },
+            {
+              "angular_impulse": [
+                -0.132494360208511,
+                -0.721407651901245,
+                0.0685449689626694
+              ],
+              "bone": "Spine",
+              "hit": true,
+              "impulse": [
+                -1.52376818656921,
+                -0.895903170108795,
+                -12.3743886947632
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                -0.0424613952636719,
+                0.0200185775756836,
+                0.128611326217651
+              ],
+              "model": "beach-zombie-female",
+              "point": [
+                -1.25125956535339,
+                1.21329617500305,
+                -3.65758681297302
+              ],
+              "world": false,
+              "zombie": "Zombie_15"
+            },
+            {
+              "angular_impulse": [
+                0.424953520298004,
+                0.416077673435211,
+                -0.0733784288167953
+              ],
+              "bone": "Spine",
+              "hit": true,
+              "impulse": [
+                -1.01882612705231,
+                -1.14723920822144,
+                -12.4054765701294
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                0.0436873435974121,
+                -0.0228288173675537,
+                0.123558521270752
+              ],
+              "model": "beach-zombie-female",
+              "point": [
+                -1.16511082649231,
+                1.17044878005981,
+                -3.66263961791992
+              ],
+              "world": false,
+              "zombie": "Zombie_15"
+            },
+            {
+              "angular_impulse": [
+                1.58658421039581,
+                -0.945902466773987,
+                -0.141303062438965
+              ],
+              "bone": "Head",
+              "hit": true,
+              "impulse": [
+                -1.36116123199463,
+                -0.428007900714874,
+                -12.4182949066162
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                -0.069562554359436,
+                -0.125684142112732,
+                0.0602824687957764
+              ],
+              "model": "beach-zombie-female",
+              "point": [
+                -1.21442317962646,
+                1.2959668636322,
+                -3.58204984664917
+              ],
+              "world": false,
+              "zombie": "Zombie_15"
+            },
+            {
+              "angular_impulse": [
+                0.769371092319489,
+                -0.834511160850525,
+                -0.0103010535240173
+              ],
+              "bone": "Spine",
+              "hit": true,
+              "impulse": [
+                -1.57026946544647,
+                -1.29545986652374,
+                -12.3331279754639
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                -0.0528057813644409,
+                -0.0501244068145752,
+                0.116700172424316
+              ],
+              "model": "beach-zombie-female",
+              "point": [
+                -1.26160395145416,
+                1.14315319061279,
+                -3.66949796676636
+              ],
+              "world": false,
+              "zombie": "Zombie_15"
+            },
+            {
+              "angular_impulse": [
+                -0.302258908748627,
+                1.09953033924103,
+                -0.0555123016238213
+              ],
+              "bone": "Spine",
+              "hit": true,
+              "impulse": [
+                -0.718136250972748,
+                -0.826081156730652,
+                -12.4519824981689
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                0.0940942764282227,
+                0.0309373140335083,
+                0.100440502166748
+              ],
+              "model": "beach-zombie-female",
+              "point": [
+                -1.1147038936615,
+                1.22421491146088,
+                -3.68575763702393
+              ],
+              "world": false,
+              "zombie": "Zombie_15"
+            },
+            {
+              "angular_impulse": [
+                -0.904559791088104,
+                -1.34002161026001,
+                0.191261678934097
+              ],
+              "bone": "Spine",
+              "hit": true,
+              "impulse": [
+                -1.79840195178986,
+                -0.549840092658997,
+                -12.3577270507812
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                -0.0859518051147461,
+                0.0800721645355225,
+                0.154499769210815
+              ],
+              "model": "beach-zombie-female",
+              "point": [
+                -1.29474997520447,
+                1.27334976196289,
+                -3.63169836997986
+              ],
+              "world": false,
+              "zombie": "Zombie_15"
+            },
+            {
+              "angular_impulse": [
+                1.32649040222168,
+                0.210256353020668,
+                -0.145036458969116
+              ],
+              "bone": "Spine",
+              "hit": true,
+              "impulse": [
+                -1.1058030128479,
+                -1.54591083526611,
+                -12.3546495437622
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                0.0278959274291992,
+                -0.0921609401702881,
+                0.121529817581177
+              ],
+              "model": "beach-zombie-female",
+              "point": [
+                -1.18090224266052,
+                1.10111665725708,
+                -3.6646683216095
+              ],
+              "world": false,
+              "zombie": "Zombie_15"
+            }
+          ],
+          "point": [
+            -1.18090224266052,
+            1.10111665725708,
+            -3.6646683216095
+          ],
+          "profile": 2,
+          "projectile_energy_j": 226.8,
+          "sequence": 1,
+          "world": false,
+          "zombie": "Zombie_15"
+        },
+        "test": "shotgun_chest_recovers"
+      },
+      {
+        "damage": {
+          "brain_energy_j": 894.348,
+          "budget_cm3": 357.7392,
+          "cells_total": 2383,
+          "cpu_ms": 12.672,
+          "fatal": true,
+          "rebuilds": 1,
+          "removed_cells": 20,
+          "removed_cm3": 351.53360550612,
+          "sever_ms": 0.0,
+          "severed": [],
+          "wound": {
+            "budget_cm3": 357.7392,
+            "cells": 20,
+            "deposited_j": 894.348,
+            "energy_j": 1375.92,
+            "radius_m": 0.0275526071404601,
+            "region": "Head",
+            "removed_cm3": 351.53360550612
+          }
+        },
+        "model": 1,
+        "skin_error": 0.0,
+        "test": "head_hole_and_collapse"
+      },
+      {
+        "damage": {
+          "brain_energy_j": 0.0,
+          "budget_cm3": 471.744,
+          "cells_total": 2383,
+          "cpu_ms": 25.131,
+          "fatal": false,
+          "rebuilds": 1,
+          "removed_cells": 3,
+          "removed_cm3": 70.8092271233909,
+          "sever_ms": 0.0,
+          "severed": [],
+          "wound": {
+            "budget_cm3": 58.968,
+            "cells": 1,
+            "deposited_j": 147.42,
+            "energy_j": 226.8,
+            "radius_m": 0.009,
+            "region": "Spine",
+            "removed_cm3": 38.1340174935758
+          }
+        },
+        "model": 1,
+        "test": "chest_survives_and_pellets_batch"
+      },
+      {
+        "mass": 90.3431372642517,
+        "model": 1,
+        "test": "detach_LeftArm"
+      },
+      {
+        "mass": 92.6715686321259,
+        "model": 1,
+        "test": "detach_RightForeArm"
+      },
+      {
+        "mass": 94.0686274766922,
+        "model": 1,
+        "test": "detach_LeftHand"
+      },
+      {
+        "mass": 80.0980392694473,
+        "model": 1,
+        "test": "detach_LeftUpLeg"
+      },
+      {
+        "mass": 89.4117647409439,
+        "model": 1,
+        "test": "detach_RightLeg"
+      },
+      {
+        "mass": 93.6029411554337,
+        "model": 1,
+        "test": "detach_LeftFoot"
+      },
+      {
+        "mass": 88.4803919792175,
+        "model": 1,
+        "test": "detach_Head"
+      },
+      {
+        "damage": {
+          "brain_energy_j": 0.0,
+          "budget_cm3": 1788.696,
+          "cells_total": 2383,
+          "cpu_ms": 20.631,
+          "fatal": false,
+          "rebuilds": 5,
+          "removed_cells": 148,
+          "removed_cm3": 1619.45345436106,
+          "sever_ms": 12.212,
+          "severed": [
+            "LeftForeArm",
+            "LeftHand"
+          ],
+          "wound": {
+            "budget_cm3": 357.7392,
+            "cells": 7,
+            "deposited_j": 894.348,
+            "energy_j": 1375.92,
+            "radius_m": 0.0318150102988413,
+            "region": "LeftForeArm",
+            "removed_cm3": 323.048367718002
+          }
+        },
+        "disabled_before_sever": true,
+        "model": 1,
+        "test": "energy_driven_limb_sever"
+      },
+      {
+        "damage": {
+          "brain_energy_j": 0.0,
+          "budget_cm3": 471.744,
+          "cells_total": 2383,
+          "cpu_ms": 24.643,
+          "fatal": false,
+          "rebuilds": 1,
+          "removed_cells": 10,
+          "removed_cm3": 237.939767714124,
+          "sever_ms": 0.0,
+          "severed": [],
+          "wound": {
+            "budget_cm3": 58.968,
+            "cells": 2,
+            "deposited_j": 147.42,
+            "energy_j": 226.8,
+            "radius_m": 0.009,
+            "region": "Spine",
+            "removed_cm3": 34.2710331897251
+          }
+        },
+        "getups": 1,
+        "model": 1,
+        "shot": {
+          "angular_impulse": [
+            0.586562752723694,
+            0.907290101051331,
+            -0.126640766859055
+          ],
+          "body_hits": 8,
+          "bone": "Spine",
+          "budget_ns": 100.0,
+          "delivered_ns": 100.0,
+          "energy_budget_j": 1814.4,
+          "hit": true,
+          "impulse": [
+            -0.794828951358795,
+            -1.2190455198288,
+            -12.4149980545044
+          ],
+          "impulse_ns": 12.5,
+          "lever": [
+            0.0889813899993896,
+            -0.0228582620620728,
+            0.248372554779053
+          ],
+          "model": "beach-tourist-male",
+          "pellets": [
+            {
+              "angular_impulse": [
+                -0.272905945777893,
+                -0.359641402959824,
+                0.0541053973138332
+              ],
+              "bone": "Spine",
+              "hit": true,
+              "impulse": [
+                -1.35956001281738,
+                -0.833494305610657,
+                -12.3978586196899
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                -0.000432491302490234,
+                0.0395311117172241,
+                0.260583877563477
+              ],
+              "model": "beach-tourist-male",
+              "point": [
+                -1.2095445394516,
+                1.23326468467712,
+                -3.59754419326782
+              ],
+              "world": false,
+              "zombie": "Zombie_27"
+            },
+            {
+              "angular_impulse": [
+                0.0966869592666626,
+                -0.794912219047546,
+                0.0519146844744682
+              ],
+              "bone": "Spine",
+              "hit": true,
+              "impulse": [
+                -1.5508154630661,
+                -0.99606466293335,
+                -12.3633670806885
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                -0.0307881832122803,
+                0.0137009620666504,
+                0.267128229141235
+              ],
+              "model": "beach-tourist-male",
+              "point": [
+                -1.23990023136139,
+                1.20743453502655,
+                -3.59099984169006
+              ],
+              "world": false,
+              "zombie": "Zombie_27"
+            },
+            {
+              "angular_impulse": [
+                -0.246479004621506,
+                0.451913267374039,
+                -0.0109961107373238
+              ],
+              "bone": "Spine",
+              "hit": true,
+              "impulse": [
+                -0.999960601329803,
+                -0.847867488861084,
+                -12.4310579299927
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                0.0567656755447388,
+                0.037135124206543,
+                0.253754138946533
+              ],
+              "model": "beach-tourist-male",
+              "point": [
+                -1.15234637260437,
+                1.23086869716644,
+                -3.60437393188477
+              ],
+              "world": false,
+              "zombie": "Zombie_27"
+            },
+            {
+              "angular_impulse": [
+                -0.925182223320007,
+                -1.0229160785675,
+                0.168294012546539
+              ],
+              "bone": "Spine",
+              "hit": true,
+              "impulse": [
+                -1.65418708324432,
+                -0.540381371974945,
+                -12.3782739639282
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                -0.0511237382888794,
+                0.0850373506546021,
+                0.23582124710083
+              ],
+              "model": "beach-tourist-male",
+              "point": [
+                -1.26023578643799,
+                1.2787709236145,
+                -3.62230682373047
+              ],
+              "world": false,
+              "zombie": "Zombie_27"
+            },
+            {
+              "angular_impulse": [
+                0.861250519752502,
+                -0.302119761705399,
+                -0.0599922612309456
+              ],
+              "bone": "Spine",
+              "hit": true,
+              "impulse": [
+                -1.32988429069519,
+                -1.33736836910248,
+                -12.3568954467773
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                0.00473558902740479,
+                -0.0403486490249634,
+                0.27117919921875
+              ],
+              "model": "beach-tourist-male",
+              "point": [
+                -1.2043764591217,
+                1.15338492393494,
+                -3.58694887161255
+              ],
+              "world": false,
+              "zombie": "Zombie_27"
+            },
+            {
+              "angular_impulse": [
+                -1.22721350193024,
+                0.482048362493515,
+                0.0815111100673676
+              ],
+              "bone": "Spine",
+              "hit": true,
+              "impulse": [
+                -0.988711416721344,
+                -0.411196559667587,
+                -12.4540500640869
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                0.0566556453704834,
+                0.106004357337952,
+                0.226096153259277
+              ],
+              "model": "beach-tourist-male",
+              "point": [
+                -1.15245640277863,
+                1.29973793029785,
+                -3.63203191757202
+              ],
+              "world": false,
+              "zombie": "Zombie_27"
+            },
+            {
+              "angular_impulse": [
+                -0.0267339944839478,
+                -1.66822266578674,
+                0.131154283881187
+              ],
+              "bone": "Spine",
+              "hit": true,
+              "impulse": [
+                -1.93641149997711,
+                -0.937045276165009,
+                -12.3134994506836
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                -0.0992062091827393,
+                0.0197238922119141,
+                0.23065710067749
+              ],
+              "model": "beach-tourist-male",
+              "point": [
+                -1.30831825733185,
+                1.21345746517181,
+                -3.62747097015381
+              ],
+              "world": false,
+              "zombie": "Zombie_27"
+            },
+            {
+              "angular_impulse": [
+                0.586562752723694,
+                0.907290101051331,
+                -0.126640766859055
+              ],
+              "bone": "Spine",
+              "hit": true,
+              "impulse": [
+                -0.794828951358795,
+                -1.2190455198288,
+                -12.4149980545044
+              ],
+              "impulse_ns": 12.5,
+              "lever": [
+                0.0889813899993896,
+                -0.0228582620620728,
+                0.248372554779053
+              ],
+              "model": "beach-tourist-male",
+              "point": [
+                -1.12013065814972,
+                1.17087531089783,
+                -3.60975551605225
+              ],
+              "world": false,
+              "zombie": "Zombie_27"
+            }
+          ],
+          "point": [
+            -1.12013065814972,
+            1.17087531089783,
+            -3.60975551605225
+          ],
+          "profile": 2,
+          "projectile_energy_j": 226.8,
+          "sequence": 2,
+          "world": false,
+          "zombie": "Zombie_27"
+        },
+        "test": "shotgun_chest_recovers"
+      }
+    ],
+    "performance": {
+      "body_hits": 24,
+      "cpu_max_ms": 28.485,
+      "cpu_p50_ms": 7.679,
+      "cpu_p95_ms": 20.027,
+      "debris_limit": 32,
+      "debris_peak": 32,
+      "rate_hz": 10,
+      "removed_cells": 164,
+      "shots": 72,
+      "zombies": 12
+    },
+    "renderer_geometry_checked": true,
+    "status": "pass"
+  },
+  "browser": {
+    "status": "pass",
+    "full_suite": true,
+    "pointer_lock": true,
+    "wasd": true,
+    "recoveries": [
+      {
+        "kind": "prone",
+        "models": [
+          "beach-zombie-female",
+          "beach-tourist-male"
+        ],
+        "completed": [
+          1,
+          1
+        ]
+      },
+      {
+        "kind": "supine",
+        "models": [
+          "beach-zombie-female",
+          "beach-tourist-male"
+        ],
+        "completed": [
+          1,
+          1
+        ]
+      }
+    ],
+    "head_damage": {
+      "brain_energy_j": 894.348,
+      "budget_cm3": 357.7392,
+      "cells_total": 1532,
+      "cpu_ms": 43.1,
+      "fatal": true,
+      "rebuilds": 1,
+      "removed_cells": 15,
+      "removed_cm3": 356.668932621687,
+      "sever_ms": 0,
+      "severed": [],
+      "wound": {
+        "budget_cm3": 357.7392,
+        "cells": 15,
+        "deposited_j": 894.348,
+        "energy_j": 1375.92,
+        "radius_m": 0.0230185902663958,
+        "region": "Head",
+        "removed_cm3": 356.668932621687
+      }
+    },
+    "automatic_fire": {
+      "shots": 6,
+      "damage": {
+        "brain_energy_j": 0,
+        "budget_cm3": 1290.24,
+        "cells_total": 2383,
+        "cpu_ms": 15,
+        "fatal": false,
+        "rebuilds": 6,
+        "removed_cells": 40,
+        "removed_cm3": 1159.84743691661,
+        "sever_ms": 0,
+        "severed": [],
+        "wound": {
+          "budget_cm3": 215.04,
+          "cells": 2,
+          "deposited_j": 537.6,
+          "energy_j": 1280,
+          "radius_m": 0.0139846199115786,
+          "region": "Spine2",
+          "removed_cm3": 132.228710164782
+        }
+      },
+      "debris": 24,
+      "limit": 32
+    },
+    "console_errors": []
+  },
+  "real_time_rendering": {
+    "automatic_fire": {
+      "body_hits": 18,
+      "debris": 32,
+      "debris_peak": 32,
+      "fps_mean": 25.4557782715758,
+      "frame_max_ms": 179.317,
+      "frame_p95_ms": 60.78,
+      "frames": 154,
+      "shots": 61,
+      "wall_seconds": 6.058006
+    },
+    "baseline": {
+      "body_hits": 0,
+      "debris": 0,
+      "debris_peak": 0,
+      "fps_mean": 54.1917123251237,
+      "frame_max_ms": 52.769,
+      "frame_p95_ms": 27.525,
+      "frames": 163,
+      "shots": 0,
+      "wall_seconds": 3.007865
+    },
+    "bodies": 204,
+    "display": "macOS",
+    "godot": "4.7.1-stable (official)",
+    "limits": "Local real-time sample with other applications open; scripted close-range shots, not an input acceptance test or cross-device FPS guarantee.",
+    "processor": "Apple M1 Pro",
+    "zombies": 12
+  },
+  "existing_regressions": {
+    "crowd_physics": "pass",
+    "impact_momentum_and_buckshot": "pass",
+    "both_getup_sequences": "pass",
+    "python_tests": 95,
+    "character_web_lab": {
+      "status": "pass",
+      "characters": 2,
+      "clips_per_character": 13,
+      "console_errors": []
+    }
+  },
+  "local_web_port": 8010,
+  "original_glbs_modified": false,
+  "new_large_files_in_git": false
+}

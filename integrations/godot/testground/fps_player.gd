@@ -1,5 +1,6 @@
 extends CharacterBody3D
 ## Semi-automatic hitscan pistol: camera aim, muzzle obstruction, point impulse.
+const DamageModel = preload("res://testground/damage_model.gd")
 var arena: Node3D
 var camera: Camera3D
 var weapon: Node3D
@@ -111,7 +112,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		elif event.keycode == KEY_ESCAPE:
 			arena.set_menu(true)
-		elif event.keycode in [KEY_1,KEY_2,KEY_3]:
+		elif event.keycode in [KEY_1,KEY_2,KEY_3,KEY_4]:
 			arena.select_profile(event.keycode-KEY_1)
 		elif event.keycode == KEY_R:
 			reload()
@@ -141,6 +142,7 @@ func _physics_process(delta: float) -> void:
 		reload_time -= delta
 		if reload_time <= 0.0:
 			magazine = 12
+	if arena.shot_profile==3 and Input.mouse_mode==Input.MOUSE_MODE_CAPTURED and not arena.menu.visible and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT): fire()
 	var walking: bool = Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and not arena.menu.visible
 	var input := Vector2.ZERO
 	if walking:
@@ -175,10 +177,37 @@ func _process(delta: float) -> void:
 	camera.fov = lerpf(camera.fov,55.0 if ads else 74.0,minf(1.0,delta*12.0))
 
 func cast_shot(origin: Vector3, direction: Vector3, maximum_distance := 80.0) -> Dictionary:
-	var query := PhysicsRayQueryParameters3D.create(origin,origin+direction.normalized()*maximum_distance,1|2)
+	# Skin may lie in front of its coarse capsule. Extend the broad search,
+	# but accept refined skin/world hits only within the requested segment.
+	var refine: bool=arena.damage_enabled or arena.mesh_damage_present
+	var query := PhysicsRayQueryParameters3D.create(origin,origin+direction.normalized()*(maximum_distance+(0.35 if refine else 0.0)),1|2)
 	query.exclude = [get_rid()]
 	query.hit_from_inside = true
-	return get_world_3d().direct_space_state.intersect_ray(query)
+	if not refine: return get_world_3d().direct_space_state.intersect_ray(query)
+	var nearest: Dictionary={}
+	var limit:=maximum_distance
+	var ray:=direction.normalized()
+	# Each character is refined once, regardless of its 17 proxy bodies. Keep
+	# looking for nearer world/other character hits after refining a proxy.
+	for attempt in range(16):
+		var broad:=get_world_3d().direct_space_state.intersect_ray(query)
+		if broad.is_empty(): break
+		var broad_distance: float=origin.distance_to(broad.position)
+		if broad_distance>limit+0.35: break
+		var collider: Node=broad.collider
+		if not collider.has_meta("zombie"):
+			if broad_distance>limit: break
+			return broad if nearest.is_empty() or origin.distance_to(broad.position)<limit else nearest
+		var zombie: Node3D=collider.get_meta("zombie")
+		if collider.get_meta("severed",false):
+			return broad if broad_distance<=limit else nearest
+		var exact: Dictionary=zombie.damage.refine_ray(origin,ray,limit)
+		if not exact.is_empty(): nearest=exact;limit=origin.distance_to(exact.position)
+		var excludes: Array[RID]=query.exclude
+		for part: Dictionary in zombie.physics.bodies:
+			if not part.get("detached",false): excludes.append(part.body.get_rid())
+		query.exclude=excludes
+	return nearest
 
 func apply_shot(hit: Dictionary, direction: Vector3, impulse := -1.0) -> Dictionary:
 	if hit.is_empty():
@@ -187,7 +216,7 @@ func apply_shot(hit: Dictionary, direction: Vector3, impulse := -1.0) -> Diction
 	var result := {"hit":true,"world":true,"point":[hit.position.x,hit.position.y,hit.position.z]}
 	if collider.has_meta("zombie"):
 		var zombie: Node3D = collider.get_meta("zombie")
-		result = zombie.receive_hit(collider,hit.position,direction,arena.shot_impulse if impulse<0.0 else impulse)
+		result = zombie.receive_hit(collider,hit.position,direction,arena.shot_impulse if impulse<0.0 else impulse, DamageModel.projectile(arena.shot_profile,arena.tissue_multiplier) if arena.damage_enabled else {}, int(hit.get("cell",-1)))
 		result["hit"] = true
 		result["world"] = false
 	arena.mark_impact(hit.position,hit.normal,result.get("world",true))
@@ -201,12 +230,12 @@ func fire() -> void:
 		return
 	magazine -= 1
 	shots += 1
-	cooldown = 0.22
+	cooldown = DamageModel.PROFILES[arena.shot_profile].interval
 	recoil = 1.0
 	flash_time = 0.055
 	sound.play()
 	var direction := -camera.global_basis.z
-	var pellet_count := 8 if arena.shot_profile==2 else 1
+	var pellet_count: int=DamageModel.PROFILES[arena.shot_profile].pellets
 	var pellets := []
 	var best := {"hit":false}
 	var delivered := 0.0
@@ -234,6 +263,8 @@ func fire() -> void:
 	last_shot = best
 	last_shot["sequence"] = shots
 	last_shot["profile"] = arena.shot_profile
+	last_shot["projectile_energy_j"] = DamageModel.projectile(arena.shot_profile).energy_j
+	last_shot["energy_budget_j"] = DamageModel.projectile(arena.shot_profile).energy_j*pellet_count
 	last_shot["pellets"] = pellets
 	last_shot["body_hits"] = body_hits
 	last_shot["delivered_ns"] = delivered

@@ -57,7 +57,7 @@ godot --path output/zombie-beach/rodin-tpose-v1/godot-review --log-file /tmp/act
 
 The playable demo is published at [Nordic Forest · Fysiklabb](https://donnybystrom.github.io/nordic-forest/). In repository **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source. The workflow **Character physics demo on Pages** builds and tests changes on `main`, then deploys the generated site. It can also be started with **Run workflow**. A failed browser test prevents deployment.
 
-`tools/build_character_web.py` copies the tracked runtime catalog and its two hash-checked GLBs into `build/character-web/project/`, adds the authored reviewer, and exports to `build/character-web/site/`. Neither ignored generation jobs nor Blender is needed. The workflow pins Godot 4.7.1 and verifies its downloads with SHA-256. Build output stays outside Git; Pages receives an artifact containing HTML, JavaScript, WebAssembly and the resource pack. The first download is approximately 92 MiB before transfer compression.
+`tools/build_character_web.py` copies the tracked runtime catalog and its two hash-checked GLBs into `build/character-web/project/`, adds the authored reviewer, and exports to `build/character-web/site/`. Neither ignored generation jobs nor Blender is needed. The workflow pins Godot 4.7.1 and verifies its downloads with SHA-256. Build output stays outside Git; Pages receives an artifact containing HTML, JavaScript, WebAssembly and the resource pack. The first download is approximately 101 MiB before transfer compression.
 
 The single-thread export uses Compatibility/WebGL 2 and built-in Jolt. It works on ordinary Pages hosting without cross-origin isolation headers. Start with **Starta fysiklabbet**; a desktop browser with mouse and keyboard is recommended. Q/E changes model, left/right changes clip, space pauses, R resets the body, B retrieves the ball, and 1/2/3 selects animation/active/passive mode. The on-screen controls expose the same choices.
 
@@ -65,10 +65,10 @@ To export locally, install Godot 4.7.1 and its export templates, then run:
 
 ```sh
 python3 tools/build_character_web.py
-python3 -m http.server 8000 --directory build/character-web/site
+python3 -m http.server 8010 --bind 127.0.0.1 --directory build/character-web/site
 ```
 
-Open `http://localhost:8000/`; loading the HTML directly from disk does not work. To run the browser acceptance test, install Playwright 1.62.1 and its Chromium runtime, then run `node tools/test_character_web.cjs`. For an existing Chrome installation use `--channel chrome`. `--url https://donnybystrom.github.io/nordic-forest/` runs the same test against the hosted demo. Evidence is written under `build/character-web/verification/` and retained as a CI artifact.
+Open `http://localhost:8010/?mode=arena` for the FPS testground, or `http://localhost:8010/` for the character lab; loading the HTML directly from disk does not work. `tools/serve_character_web.command` starts this server on port 8010. To run the browser acceptance test, install Playwright 1.62.1 and its Chromium runtime, then run `node tools/test_character_web.cjs`. For an existing Chrome installation use `--channel chrome`. `--url https://donnybystrom.github.io/nordic-forest/` runs the same test against the hosted demo. Evidence is written under `build/character-web/verification/` and retained as a CI artifact.
 
 The browser test uses actual canvas clicks, mouse dragging and keyboard events. It checks both characters, all 13 clip selections per character, ball contacts and displacement, spring dragging, passive falls, reset, pause and physics sliders. This verifies controls and the physics prototype; it does not establish anatomical accuracy, autonomous balance or performance on every device. The test reads diagnostics exposed only when `?test` is present. Normal use does not publish those diagnostic snapshots.
 
@@ -83,11 +83,11 @@ See [Godot web export](https://docs.godotengine.org/en/stable/tutorials/export/e
 | Spela / klicka i banan | Fångar musen för FPS-vyn |
 | WASD / Shift / Space | Gå, spring, hoppa; spelaren kolliderar med banan och zombierna |
 | Mus / höger musknapp | Se dig omkring / sikta närmare |
-| Vänster musknapp | Avfyra ett halvautomatiskt skott |
+| Vänster musknapp | Avfyra; håll in för automateld med profil 4 |
 | R | Ladda om ett magasin med 12 skott; reservammunitionen är obegränsad |
 | Tab / Esc | Visa inställningar / släpp musen |
 | F2 | Visa de förenklade träff- och kollisionskropparna |
-| 1 / 2 / 3 | Välj pistol, tung kula eller hagelsvärm; sätter även profilens provimpuls |
+| 1 / 2 / 3 / 4 | Pistol, .44-spelprofil, hagelsvärm eller automateld; sätter även provimpulsen |
 
 Menyn väljer 1–12 zombier, en eller båda modellerna, rörelse och spridd eller trängre formation. **Spawna om grupp** tillämpar de valen; **Lägg till en** använder samma modell-/rörelseval utan att byta ut de andra. Rörelserna är vilopose, ostadig gång, gång, löpning och krypning. Blandat ger olika klipp och tidsfaser. **Följ spelaren** ändrar beteendet direkt; avstängt begär ingen förflyttning medan animation och fysik fortsätter. Kroppen kan fortfarande knuffas bort från sin startplats.
 
@@ -97,15 +97,15 @@ Testbanan använder en separat, begränsad balanshjälp. Den beräknar masscentr
 
 Det finns ingen horisontell fjäder mot startplatsen. Animationsreferensen följer den simulerade höften. Följandet begär i stället en hastighet och använder en begränsad drivkraft när balanshjälpen är tillgänglig. Upprättningshjälpen använder höjdkraft på höften och begränsade vridmoment på höft och bål. Den kan ge efter även vid krafter som kommer direkt från fysikmotorn. En enkel vägpunkt leder mot öppningen mellan väggarna. Det är ingen generell navigation, och fötterna kan fortfarande glida.
 
-Pistolen är en procedurbyggd prototyp med synliga armar, siktning, vapengung, rekyl, mantelrörelse, mynningsljus, ljud, träffmarkör och tidsstyrd omladdning. Kameran bestämmer siktpunkten, sedan kontrolleras vägen till och från pipan så att närliggande skydd kan stoppa skottet även om pipan hamnar i eller bakom en vägg. Skottet stannar vid första träffen. Ingen ballistisk bana eller penetration simuleras.
+Pistolen är en procedurbyggd prototyp med synliga armar, siktning, vapengung, rekyl, mantelrörelse, mynningsljus, ljud, träffmarkör och tidsstyrd omladdning. Kameran bestämmer siktpunkten, sedan kontrolleras vägen till och från pipan så att närliggande skydd kan stoppa skottet även om pipan hamnar i eller bakom en vägg. Skottet stannar vid första intakta ytan; befintliga meshhål kan skjutas igenom när skaderefineringen används. Ingen ballistisk bana eller kvarvarande energi genom flera kroppar simuleras.
 
 En kroppsträff ger `RigidBody3D.apply_impulse` en gång på den träffade benkroppen, med hävarmen i världskoordinater. Träffplats, riktning och kroppens massa påverkar förskjutning och rotation. Axelträffar från samma riktning kan därför vrida kroppen åt motsatta håll. Det används ingen förvald träff- eller fallanimation.
 
-Profilerna **Pistol**, **Tung kula** och **Hagelsvärm** sätter totalimpulsen till 14, 70 respektive 100 N s. Reglaget tillåter 2–180 N s. Hagelsvärmen använder åtta separata strålar med 2,2° spridning; varje stråle får en åttondel av budgeten. Missar överför ingen impuls, och hinder stoppar varje stråle separat. HUD visar levererad totalimpuls och antal kroppsträffar. 8 g vid 350 m/s har rörelsemängden 2,8 N s: dessa större provvärden är avsiktligt förstärkt spelrespons, inte kalibrerad ammunition. Samma prototyppistol används visuellt för alla impulsprofiler.
+Profilerna **Pistol**, **.44**, **Hagelsvärm** och **Automateld** sätter totalimpulsen till 14, 70, 100 respektive 18 N s. Reglaget tillåter 2–180 N s. Hagelsvärmen använder åtta separata strålar med 2,2° spridning; varje stråle får en åttondel av budgeten. Missar överför ingen impuls, och hinder stoppar varje stråle separat. HUD visar levererad totalimpuls och antal kroppsträffar. 8 g vid 350 m/s har rörelsemängden 2,8 N s: dessa större provvärden är avsiktligt förstärkt spelrespons, inte kalibrerad ammunition. Samma prototyppistol används visuellt för alla impulsprofiler.
 
-Skott släpper balanshjälpen en kort stund utifrån överförd rörelsemängd per kroppsmassa. Flera hagel i samma bildruta räknas ihop. **Ledmotorernas muskelkraft sänks inte av träffen eller fallet.** Kroppen kan därför reagera och falla med aktiva leder. När höften faller under gränsen går agenten till `downed`, med upprättningshjälpen avstängd. Om **Res dig med animation och stöd** är på kan en lugnad kropp försöka resa sig efter minst två sekunder. Förloppet använder sekvenserna nedan och återgår sedan till sin tidigare rörelse. Vid en ny träff avbryts försöket; hastigheter och fysisk pose bevaras.
+Skott släpper balanshjälpen en kort stund utifrån överförd rörelsemängd per kroppsmassa. Flera hagel i samma bildruta räknas ihop. **Själva impulsen eller fallet sänker inte muskelkraften.** Med meshskador aktiverade kan vävnadsförlust separat försvaga eller koppla bort muskler. Kroppen kan därför reagera och falla med aktiva leder. När höften faller under gränsen går agenten till `downed`, med upprättningshjälpen avstängd. Om **Res dig med animation och stöd** är på kan en lugnad kropp försöka resa sig efter minst två sekunder. Förloppet använder sekvenserna nedan och återgår sedan till sin tidigare rörelse. Vid en ny träff avbryts försöket; hastigheter och fysisk pose bevaras.
 
-Bålens ledade kroppar kan vika sig; bukens mesh har ingen separat mjukvävnadssimulering. Anatomiska ledgränser, aktivt återhämtningssteg, kontaktstyrd fot-IK under gång, aktiv klättring, muskelskador och limb destruction återstår.
+Bålens ledade kroppar kan vika sig; bukens mesh har ingen separat mjukvävnadssimulering. Anatomiska ledgränser, aktivt återhämtningssteg, kontaktstyrd fot-IK under gång, aktiv klättring och detaljerad mjukvävnadsfysik återstår. Den första versionen av muskelskador, meshhål och avskiljning beskrivs i [skadesystemets dokumentation](DAMAGE-SYSTEM.md).
 
 ### Uppresning från mage och rygg
 

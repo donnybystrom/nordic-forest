@@ -91,6 +91,7 @@ def build(destination, engine, prepare_only=False):
     version = subprocess.check_output([engine, "--version"], text=True).strip()
     assert version.startswith("4.7.1."), f"Expected pinned Godot 4.7.1, got {version}"
     run(engine, project, ["--editor", "--import"], destination / "import.log")
+    run(engine, project, ["--script", "res://testground/bake_damage.gd"], destination / "fracture-bake.log")
     run(engine, project, ["--export-release", "Web", str(site / "index.html")], destination / "export.log")
     required = [site / ("index" + suffix) for suffix in (".html", ".js", ".wasm", ".pck")]
     assert all(p.is_file() and p.stat().st_size > 0 for p in required)

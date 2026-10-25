@@ -84,6 +84,18 @@ jobs:
           assert json.loads(report.read_text())['status'] == 'pass'
           shutil.copyfile(report, 'build/character-web/verification/recovery-physics.json')
           PY
+      - name: Test mesh damage budgets, severed limbs and sustained fire
+        run: |
+          build/godot-ci/godot --headless --path build/character-web/project --fixed-fps 120 --script res://testground/damage_smoke.gd --log-file "$PWD/build/character-web/verification/damage-physics.log" > build/character-web/verification/damage-console.log 2>&1
+          python - <<'PY'
+          from pathlib import Path
+          import json, shutil
+          log = Path('build/character-web/verification/damage-console.log').read_text()
+          assert 'TESTGROUND_DAMAGE_PASS ' in log and 'SCRIPT ERROR:' not in log and 'ERROR:' not in log, log
+          report = Path('build/character-web/damage-validation.json')
+          assert json.loads(report.read_text())['status'] == 'pass'
+          shutil.copyfile(report, 'build/character-web/verification/damage-physics.json')
+          PY
       - uses: actions/setup-node@v4
         with:
           node-version: '22'

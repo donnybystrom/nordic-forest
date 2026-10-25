@@ -18,6 +18,7 @@ func _run() -> void:
 	create_timer(120).timeout.connect(func(): push_error("Testground smoke timed out");quit(1))
 	world = load("res://testground/testground.tscn").instantiate()
 	root.add_child(world)
+	world.damage_enabled=false
 	await frames(300)
 	assert(world.zombies.size()==4)
 	var ids := {}

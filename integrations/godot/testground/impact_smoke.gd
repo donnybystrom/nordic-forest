@@ -68,6 +68,7 @@ func run() -> void:
 	create_timer(120).timeout.connect(func(): push_error("Impact test timeout");quit(1))
 	world = load("res://testground/testground.tscn").instantiate()
 	root.add_child(world)
+	world.damage_enabled=false
 	world.amount.value=1
 	world.motions.select(1)
 	world.auto_recover=false

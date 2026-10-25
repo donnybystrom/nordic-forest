@@ -17,6 +17,7 @@ func run() -> void:
 	create_timer(150).timeout.connect(func(): push_error("Recovery test timed out");quit(1))
 	world=load("res://testground/testground.tscn").instantiate()
 	root.add_child(world)
+	world.damage_enabled=false
 	world.amount.value=1
 	for model in range(2):
 		for choice in [6,7]:

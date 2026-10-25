@@ -1,6 +1,7 @@
 extends Node3D
 ## The host never moves: only the hidden animation reference advances. All visible
 ## motion comes from the articulated bodies and the shared skeleton modifier.
+const Damage = preload("res://testground/mesh_damage.gd")
 const Recovery = preload("res://testground/recovery_motion.gd")
 const Ragdoll = preload("res://active_ragdoll.gd")
 var arena: Node3D
@@ -27,6 +28,7 @@ var support_pause := 0.0
 var impact_momentum := Vector3.ZERO
 var imbalance_time := 0.0
 var recovery
+var damage
 var recovery_attempts := 0
 var recovery_interruptions := 0
 var recovery_completed := 0
@@ -60,6 +62,8 @@ func setup(world: Node3D, index: int, model: int, spawn: Vector3, motion: String
 	recovery = Recovery.new()
 	recovery.configure(physics)
 	last_root = physics.root_body().global_position
+	damage=Damage.new()
+	damage.configure(self)
 
 func selected_clip() -> String:
 	return clip
@@ -78,13 +82,14 @@ func set_motion(motion: String, phase := 0.0) -> void:
 func root_position() -> Vector3:
 	return physics.root_body().global_position
 
-func receive_hit(body: RigidBody3D, point: Vector3, direction: Vector3, magnitude: float) -> Dictionary:
+func receive_hit(body: RigidBody3D, point: Vector3, direction: Vector3, magnitude: float, projectile: Dictionary = {}, cell := -1) -> Dictionary:
 	var impulse := direction.normalized() * magnitude
 	var lever := point - body.global_position
 	# apply_impulse expects a world-space offset from the body origin. Applying
 	# centrally here would erase the requested dependence on the impact location.
 	body.apply_impulse(impulse, lever)
 	body.sleeping = false
+	damage.queue_hit(body,point,direction,projectile,cell)
 	received_hits += 1
 	if state=="recovering":
 		recovery_interruptions += 1
@@ -110,6 +115,22 @@ func receive_hit(body: RigidBody3D, point: Vector3, direction: Vector3, magnitud
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(physics):
 		return
+	damage.flush()
+	if state=="dead":
+		physics.passive=true
+		physics.desired_velocity=Vector3.ZERO
+		physics.recovery_support=false
+		physics.recovery_reach=0.0
+		return
+	# A missing/disabled leg changes the locomotion target, without granting
+	# standing support to an invisible foot. Further crawl tuning is separate.
+	if physics.part_strength(physics.by_bone[skeleton.find_bone("LeftFoot")])<0.15 or physics.part_strength(physics.by_bone[skeleton.find_bone("RightFoot")])<0.15:
+		if "Crawl" not in clip:
+			if recovery.running: recovery.stop()
+			set_motion("Rodin_HumanZombieCrawl")
+			physics.recovery_pose.clear()
+			state="active"
+			state_time=0.0
 	var root := physics.root_body() as RigidBody3D
 	travel += Vector2(root.global_position.x-last_root.x,root.global_position.z-last_root.z).length()
 	last_root = root.global_position
@@ -134,6 +155,10 @@ func _physics_process(delta: float) -> void:
 		state_time = 0.0
 	var quiet: bool = physics.com_velocity.length()<0.65 and root.angular_velocity.length()<2.5
 	resting_time = resting_time+delta if quiet and support_pause<=0.0 else 0.0
+	if state=="downed" and "Crawl" in clip:
+		physics.recovery_pose.clear()
+		state="active"
+		state_time=0.0
 	if state=="downed" and arena.auto_recover and state_time>2.0 and resting_time>0.25:
 		state="recovering"
 		state_time=0.0
@@ -204,3 +229,16 @@ func start_lying(kind: String) -> void:
 func dispose() -> void:
 	physics.shutdown()
 	queue_free()
+
+
+func kill() -> void:
+	if recovery.running: recovery.stop()
+	player.pause()
+	for part: Dictionary in physics.bodies: part.body.can_sleep=true
+	state="dead"
+	physics.passive=true
+	physics.assistance_scale=0.0
+	physics.recovery_support=false
+	physics.recovery_reach=0.0
+	physics.desired_velocity=Vector3.ZERO
+	physics.recovery_pose.clear()

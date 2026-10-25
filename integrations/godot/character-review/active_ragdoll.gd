@@ -153,7 +153,7 @@ func _build_bodies() -> void:
 		visual.visible = false
 		body.add_child(visual)
 		var entry := {"index":index, "name":str(segment[0]), "body":body, "offset":offset,
-			"radius":radius, "length":length, "axis":local_tip.normalized(), "height":capsule.height, "visual":visual}
+			"muscle_health":1.0, "detached":false, "radius":radius, "length":length, "axis":local_tip.normalized(), "height":capsule.height, "visual":visual}
 		bodies.append(entry)
 		by_bone[index] = entry
 
@@ -185,6 +185,7 @@ func _build_joints() -> void:
 		joint.node_a = joint.get_path_to(by_bone[parent].body)
 		joint.node_b = joint.get_path_to(entry.body)
 		joint.exclude_nodes_from_collision = true
+		entry["joint"] = joint
 		entry["parent_index"] = parent
 		entry["anchor_a"] = by_bone[parent].body.to_local(joint.global_position)
 		entry["anchor_b"] = entry.body.to_local(joint.global_position)
@@ -339,7 +340,8 @@ func _physics_process(delta: float) -> void:
 		_measure_support(delta)
 	for entry in bodies:
 		var body := entry.body as RigidBody3D
-		if not passive and muscles > 0.0 and (not free_balance or entry.has("parent_index")):
+		var strength := muscles * part_strength(entry)
+		if not passive and strength > 0.0 and (not free_balance or entry.has("parent_index")):
 			var desired := _target_body(entry).basis.get_rotation_quaternion()
 			var current := body.global_basis.get_rotation_quaternion()
 			var relative_velocity := body.angular_velocity
@@ -358,8 +360,8 @@ func _physics_process(delta: float) -> void:
 			var angle := error.get_angle()
 			# Implicit PD gains and the actual world-space inertia avoid overdriving
 			# the light twist axis of a long capsule with its bending-axis inertia.
-			var kp := (6000.0 if free_balance else 2200.0) * muscles
-			var kd := (120.0 if free_balance else 90.0) * sqrt(muscles)
+			var kp := (6000.0 if free_balance else 2200.0) * strength
+			var kd := (120.0 if free_balance else 90.0) * sqrt(strength)
 			var gain := 1.0 / (1.0 + kd * delta + kp * delta * delta)
 			var acceleration := (error.get_axis() * angle * kp - relative_velocity * (kd + kp * delta)) * gain
 			var inverse_inertia := body.get_inverse_inertia_tensor()
@@ -369,13 +371,13 @@ func _physics_process(delta: float) -> void:
 			var torque := Vector3.ZERO
 			if absf(inverse_inertia.determinant()) > 0.000001:
 				torque = inverse_inertia.inverse() * acceleration
-			torque = torque.limit_length(body.mass * 12.0 * muscles)
+			torque = torque.limit_length(body.mass * 12.0 * strength)
 			body.apply_torque(torque)
 			if free_balance:
 				parent_body.apply_torque(-torque)
 			max_drive_torque = maxf(max_drive_torque, torque.length())
 		entry.visual.visible = debug_shapes
-		if entry.has("parent_index"):
+		if entry.has("parent_index") and not entry.get("detached",false):
 			var parent_body: RigidBody3D = by_bone[entry.parent_index].body
 			var gap := parent_body.to_global(entry.anchor_a).distance_to(body.to_global(entry.anchor_b))
 			if gap > max_joint_gap:
@@ -401,6 +403,7 @@ func _measure_support(delta: float) -> void:
 	com_velocity = Vector3.ZERO
 	var contacts: Array[Vector3] = []
 	for entry in bodies:
+		if entry.get("detached",false): continue
 		var body: RigidBody3D = entry.body
 		center_of_mass += body.global_position * body.mass / total_mass
 		com_velocity += body.linear_velocity * body.mass / total_mass
@@ -408,6 +411,7 @@ func _measure_support(delta: float) -> void:
 		var crawl := "Crawl" in last_clip
 		if "Foot" not in entry.name and not (crawl and ("Hand" in entry.name or "Leg" in entry.name)):
 			continue
+		if part_strength(entry)<0.1: continue
 		var state := PhysicsServer3D.body_get_direct_state(body.get_rid())
 		if state == null: continue
 		for i in range(state.get_contact_count()):
@@ -455,9 +459,10 @@ func _apply_free_support(delta: float) -> void:
 	var hips := root_body()
 	var entry: Dictionary = by_bone[target_rig.find_bone("Hips")]
 	var desired := _target_body(entry)
-	var gain := stability * assistance_scale * balance
+	var support_health := locomotion_strength()
+	var gain := stability * assistance_scale * balance * support_health
 	# Recovery is deliberately an optional virtual lifting aid, never a reset.
-	if recovery_support: gain = assistance_scale * balance
+	if recovery_support: gain = assistance_scale * balance * support_health
 	if gain <= 0.001: return
 	var height_error := desired.origin.y-hips.global_position.y
 	last_support_force.y = clampf(total_mass*9.8+height_error*1800.0-hips.linear_velocity.y*240.0,0.0,total_mass*9.8*1.8)*gain
@@ -476,15 +481,17 @@ func _apply_free_support(delta: float) -> void:
 		# Collision response remains active; no limb transform is overwritten.
 		for bone in ["LeftHand","RightHand","LeftFoot","RightFoot"]:
 			var limb: Dictionary = by_bone[target_rig.find_bone(bone)]
+			if part_strength(limb)<=0.0: continue
 			var body: RigidBody3D = limb.body
 			var error := _target_body(limb).origin-body.global_position
 			var force := (error*80.0-body.linear_velocity*10.0)*body.mass
-			body.apply_central_force(force.limit_length(total_mass*9.8*0.12)*recovery_reach*balance)
+			body.apply_central_force(force.limit_length(total_mass*9.8*0.12)*recovery_reach*balance*part_strength(limb))
 	# Distributed virtual upright assistance. Joint motors above still act in
 	# equal opposite pairs; only this explicitly named support rights the body.
 	for part in bodies:
 		var core: bool = part.name in ["Hips","Spine","Spine2"]
 		var pose_gain := 1.0 if core else (recovery_reach if recovery_support else 0.0)
+		pose_gain *= part_strength(part)
 		if pose_gain<=0.0: continue
 		var body: RigidBody3D = part.body
 		var error := (_target_body(part).basis.get_rotation_quaternion()*body.global_basis.get_rotation_quaternion().inverse()).normalized()
@@ -529,3 +536,55 @@ func shutdown() -> void:
 		ball.collision_layer = 0
 		ball.collision_mask = 0
 		ball.freeze = true
+
+
+func part_strength(part: Dictionary) -> float:
+	if part.get("detached",false): return 0.0
+	var health: float=part.get("muscle_health",1.0)
+	var index: int=part.index
+	while by_bone[index].has("parent_index"):
+		index=by_bone[index].parent_index
+		health=minf(health,by_bone[index].get("muscle_health",1.0))
+	return health
+
+func locomotion_strength() -> float:
+	var crawl := "Crawl" in last_clip
+	var strength := 0.0
+	for name in (["LeftArm","RightArm"] if crawl else ["LeftUpLeg","RightUpLeg"]):
+		var end_name: String=name.replace("UpLeg","Foot") if not crawl else name.replace("Arm","Hand")
+		strength+=part_strength(by_bone[target_rig.find_bone(end_name)])*0.5
+	return strength
+
+func injure(bone: String, remaining: float) -> void:
+	var part: Dictionary=by_bone[target_rig.find_bone(bone)]
+	part.muscle_health=minf(part.get("muscle_health",1.0),remaining)
+
+func detach(bone: String) -> Array:
+	var first: Dictionary=by_bone[target_rig.find_bone(bone)]
+	if first.get("detached",false) or not first.has("parent_index"): return []
+	if is_instance_valid(first.get("joint")): first.joint.queue_free()
+	var pieces: Array=[]
+	for part: Dictionary in bodies:
+		if not _ancestors(part.index).has(first.index): continue
+		part.detached=true
+		part.body.can_sleep=true
+		part.body.set_meta("severed",true)
+		part.muscle_health=0.0
+		pieces.append(part)
+	# Leave downstream joints intact; remove exclusions against the living
+	# remainder after a brief separation grace, never teleport the limb.
+	get_tree().create_timer(0.2).timeout.connect(func():
+		if not is_instance_valid(self) or not is_instance_valid(view): return
+		for part: Dictionary in pieces:
+			for other: Dictionary in bodies:
+				if other.get("detached",false): continue
+				part.body.remove_collision_exception_with(other.body)
+				other.body.remove_collision_exception_with(part.body))
+	recount_mass()
+	return pieces
+
+func recount_mass() -> void:
+	total_mass=0.0
+	for part: Dictionary in bodies:
+		if not part.get("detached",false): total_mass+=part.body.mass
+	total_mass=maxf(total_mass,0.1)

@@ -16,10 +16,19 @@ const messages=[],errors=[];
 const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function state(){return page.evaluate(()=>window.__testgroundDemo);}
 async function until(predicate,label,timeout=30000){
-  const start=Date.now();while(Date.now()-start<timeout){const s=await state();if(s&&predicate(s))return s;await sleep(180);}
+  const start=Date.now();while(Date.now()-start<timeout){const s=await state();if(s&&predicate(s)){console.log('PASS',label);return s;}await sleep(180);}
   throw Error(label+': '+JSON.stringify(await state()));
 }
-async function control(name){const s=await state();await point(s.controls[name]);}
+async function control(name){
+  for(let i=0;i<12;i++){
+    const s=await state(),p=s.controls[name];
+    if(name==='play'||(p[1]>55&&p[1]<650)){await point(p);return;}
+    const box=await page.locator('#canvas').boundingBox();
+    await page.mouse.move(box.x+180/1100*box.width,box.y+350/850*box.height);
+    await page.mouse.wheel(0,p[1]<55?-300:300);await sleep(250);
+  }
+  throw Error('Menu control remained outside scroll area: '+name);
+}
 async function point(p){const box=await page.locator('#canvas').boundingBox();mouse={x:box.x+p[0]/1100*box.width,y:box.y+p[1]/850*box.height};await page.mouse.click(mouse.x,mouse.y);}
 async function serve(){
   server=http.createServer((req,res)=>{
@@ -63,9 +72,13 @@ async function aimAt(index,bone){
     },true);
   });
   await page.getByRole('button',{name:'Starta FPS-testbanan',exact:true}).click();
+  const damageOnly=args.includes('--damage-only');
+  let hit=null,heavy=null,buckshot=null,generation2=0;const recoveries=[];
   let s=await until(n=>n.zombies.length===4,'FPS arena startup',180000);
+  await control('damage');await until(n=>!n.damage_enabled,'Isolate the existing impact/recovery regression');
   assert.equal(new Set(s.zombies.map(z=>z.model)).size,2);assert.equal(new Set(s.zombies.map(z=>z.clip)).size,4);
   await page.screenshot({path:path.join(out,'group-settings.png')});
+  if(!damageOnly){
   // The number and animation dropdown are edited through actual Godot UI.
   await control('amount');await until(n=>n.count_focused,'Count field focus');
   await page.keyboard.press(process.platform==='darwin'?'Meta+A':'Control+A');await page.keyboard.type('2');await page.keyboard.press('Enter');
@@ -87,7 +100,7 @@ async function aimAt(index,bone){
   await page.mouse.down();await page.mouse.up();
   s=await until(n=>n.shots>shots&&n.last_shot.bone==='Head','Actual FPS headshot');
   assert.equal(s.ammo,11);assert.equal(s.zombies[0].hits,1);
-  const hit=s.last_shot;
+  hit=s.last_shot;
   await page.screenshot({path:path.join(out,'fps-headshot.png')});
   await page.mouse.down({button:'right'});await until(n=>n.fov<60,'Aim down sights');await page.mouse.up({button:'right'});
   await page.keyboard.press('r');await until(n=>n.reloading,'Reload starts');await until(n=>!n.reloading&&n.ammo===12,'Reload completes');
@@ -100,7 +113,7 @@ async function aimAt(index,bone){
   await page.screenshot({path:path.join(out,'follow-settings.png')});
   // Heavy and buckshot profiles must also work through real keyboard input,
   // aim and shooting, with physical movement observed from the rendered game.
-  let generation2=s.generation;await control('spawn');
+  generation2=s.generation;await control('spawn');
   s=await until(n=>n.generation>generation2&&n.zombies.length===2,'Fresh impact targets');
   await control('play');await until(n=>n.captured,'Recapture for impact profiles');
   await page.keyboard.press('2');await until(n=>n.profile===1&&n.impulse===70,'Heavy impulse profile');
@@ -108,7 +121,7 @@ async function aimAt(index,bone){
   const shoulderStart=s.zombies[0].root,heavySequence=s.shots;
   await page.mouse.down();await page.mouse.up();
   s=await until(n=>n.shots>heavySequence&&n.last_shot.bone,'Heavy shoulder shot');
-  const heavy=s.last_shot;assert.equal(heavy.budget_ns,70);
+  heavy=s.last_shot;assert.equal(heavy.budget_ns,70);
   s=await until(n=>n.zombies[0].root[2]<shoulderStart[2]-.2&&['downed','recovering'].includes(n.zombies[0].state),'Physical shoulder knockdown',45000);
   assert.equal(s.zombies[0].muscles,1,'Impact retains muscle motors');
   await page.screenshot({path:path.join(out,'heavy-shoulder-fall.png')});
@@ -119,13 +132,12 @@ async function aimAt(index,bone){
   await aimAt(0,'Spine');s=await state();const buckSequence=s.shots;
   await page.mouse.down();await page.mouse.up();
   s=await until(n=>n.shots>buckSequence&&n.last_shot.body_hits>1,'Actual buckshot body hits');
-  const buckshot=s.last_shot;assert.equal(buckshot.pellets.length,8);assert(buckshot.delivered_ns<=100);
+  buckshot=s.last_shot;assert.equal(buckshot.pellets.length,8);assert(buckshot.delivered_ns<=100);
   assert(buckshot.pellets.filter(p=>p.bone).every(p=>p.impulse_ns===12.5));
   await page.screenshot({path:path.join(out,'buckshot-torso.png')});
   // Select both lying starts through the actual Godot dropdown. Recovery
   // must choose the observed body orientation, run the phases and exit.
   await page.keyboard.press('Tab');await until(n=>n.menu&&!n.captured,'Menu for recovery scenarios');
-  const recoveries=[];
   for(const [choice,kind] of [[6,'prone'],[7,'supine']]){
     await control('motions');s=await until(n=>n.motions_open,'Recovery scenario dropdown');
     const rect=s.motion_popup;await point([rect[0]+rect[2]/2,rect[1]+rect[3]*(choice+.5)/s.motion_count]);
@@ -138,8 +150,39 @@ async function aimAt(index,bone){
     assert(s.zombies.every(z=>z.root[1]>.65));
     recoveries.push({kind,models:s.zombies.map(z=>z.model),completed:s.zombies.map(z=>z.recovery_completed)});
   }
+  }
+  // Enable destruction and use real pointer-lock input for both the .44
+  // head rule and held-trigger automatic fire. No state-mutating test API.
+  await control('damage');await until(n=>n.damage_enabled,'Mesh destruction enabled');
+  await control('motions');s=await until(n=>n.motions_open,'Rest choice for damage targets');
+  {const rect=s.motion_popup;await point([rect[0]+rect[2]/2,rect[1]+rect[3]*1.5/s.motion_count]);}
+  await until(n=>n.selected_motion===1,'Rest targets selected');
+  generation2=s.generation;await control('spawn');await until(n=>n.generation>generation2,'Fresh damage targets');
+  await control('play');await until(n=>n.captured,'Capture for actual mesh destruction');
+  await page.keyboard.press('r');await until(n=>n.ammo===12&&!n.reloading,'Reload for destruction test');
+  await page.keyboard.press('2');await until(n=>n.profile===1,'Select .44 damage profile');
+  await aimAt(0,'Head');s=await state();const damageStart=s.shots;
+  await page.mouse.down();await page.mouse.up();
+  s=await until(n=>n.shots>damageStart&&n.zombies[0].damage.fatal&&n.zombies[0].damage.removed_cells>0,'Head geometry removed and brain rule collapses body');
+  assert.equal(s.zombies[0].state,'dead');assert(s.debris<=s.debris_limit);
+  const headDamage=s.zombies[0].damage;
+  await page.screenshot({path:path.join(out,'damage-head-collapse.png')});
+  await page.keyboard.press('4');await until(n=>n.profile===3,'Automatic rifle profile');
+  // Move to the opening: the right target is correctly occluded by the
+  // right wall when the earlier WASD test leaves the player far to the right.
+  s=await state();
+  if(s.player[0]>.15){await page.keyboard.down('a');await until(n=>n.player[0]<.1,'Move to a clear firing lane');await page.keyboard.up('a');await until(n=>n.player_speed<.05,'Stop at the opening');}
+  await aimAt(1,'Spine');s=await state();const autoStart=s.shots;
+  await page.mouse.down();await until(n=>n.shots>=autoStart+5,'Held trigger fires several rounds',20000);await page.mouse.up();
+  s=await until(n=>n.zombies[1].damage.removed_cells>0,'Automatic fire removes torso mesh cells');
+  // The physical head can fall through the held firing line after a torso
+  // hit. Chest-only survival is tested with recorded pellets in damage_smoke.
+  if(s.zombies[1].damage.fatal)assert(s.zombies[1].damage.brain_energy_j>=400||s.zombies[1].damage.severed.includes('Head'),'A terminal hit needs the brain/sever rule');
+  assert(s.debris<=s.debris_limit);
+  const automatic={shots:s.shots-autoStart,damage:s.zombies[1].damage,debris:s.debris,limit:s.debris_limit};
+  await page.screenshot({path:path.join(out,'damage-automatic-torso.png')});
   assert.deepEqual(errors,[],'Browser and GDScript errors');
-  const report={status:'pass',url:target,pointer_lock:true,wasd:true,mouselook:true,actual_headshot:hit,heavy_shoulder_knockdown:heavy,buckshot,recoveries,ads:true,reload:true,group_spawn_and_animation_ui:true,follow_toggle:true,console_errors:errors};
+  const report={damage_only:damageOnly,head_damage:headDamage,automatic_fire:automatic,status:'pass',url:target,pointer_lock:true,wasd:!damageOnly,mouselook:true,actual_headshot:hit,heavy_shoulder_knockdown:heavy,buckshot,recoveries,ads:!damageOnly,reload:true,group_spawn_and_animation_ui:true,follow_toggle:!damageOnly,console_errors:errors};
   fs.writeFileSync(path.join(out,'validation.json'),JSON.stringify(report,null,2)+'\n');console.log('TESTGROUND_WEB_PASS',JSON.stringify(report));
 })().catch(async e=>{
   if(page){await page.screenshot({path:path.join(out,'failure.png')}).catch(()=>{});fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({state:await state().catch(()=>null),mouse_moves:await page.evaluate(()=>window.__testMouseMoves)},null,2));}

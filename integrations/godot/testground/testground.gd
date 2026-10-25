@@ -1,7 +1,15 @@
 extends Node3D
+const Debris = preload("res://testground/damage_debris.gd")
 const Agent = preload("res://testground/zombie_agent.gd")
 const Player = preload("res://testground/fps_player.gd")
 const MOTIONS := ["Meshy_Unsteady_Walk","Meshy_Walking","Meshy_Running","Rodin_HumanZombieCrawl"]
+var debris
+var latest_wound := {}
+var mesh_damage_present := false
+var damage_enabled := true
+var tissue_multiplier := 1.0
+var damage_check: CheckBox
+var settings_scroll: ScrollContainer
 var catalog: Dictionary
 var player: CharacterBody3D
 var zombies: Array[Node3D] = []
@@ -39,6 +47,8 @@ var impacts: Array[Node3D] = []
 func _ready() -> void:
 	catalog = JSON.parse_string(FileAccess.get_file_as_string("res://characters.json"))
 	_build_world()
+	debris=Debris.new()
+	add_child(debris)
 	player = Player.new()
 	add_child(player)
 	player.position = Vector3(0,0.1,7)
@@ -186,12 +196,27 @@ func _build_ui() -> void:
 	add_child(layer)
 	menu = PanelContainer.new()
 	menu.position = Vector2(18,18)
-	menu.custom_minimum_size.x = 350
+	menu.custom_minimum_size = Vector2(350,700)
+	menu.size=Vector2(350,700)
 	layer.add_child(menu)
+	var layout := VBoxContainer.new()
+	menu.add_child(layout)
+	_label(layout,"FPS / TESTGROUND",22)
+	settings_scroll=ScrollContainer.new()
+	settings_scroll.custom_minimum_size=Vector2(350,600)
+	settings_scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL
+	settings_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	layout.add_child(settings_scroll)
 	var box := VBoxContainer.new()
+	box.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	box.add_theme_constant_override("separation",7)
-	menu.add_child(box)
-	_label(box,"FPS / TESTGROUND",22)
+	settings_scroll.add_child(box)
+	damage_check=CheckBox.new()
+	damage_check.text="Meshskador och muskelförlust"
+	damage_check.button_pressed=true
+	damage_check.focus_mode=Control.FOCUS_NONE
+	damage_check.toggled.connect(func(enabled: bool): damage_enabled=enabled)
+	box.add_child(damage_check)
 	_label(box,"Grupp och rörelse",16)
 	var row := HBoxContainer.new()
 	box.add_child(row)
@@ -233,10 +258,11 @@ func _build_ui() -> void:
 	box.add_child(recovery)
 	profile = OptionButton.new()
 	profile.focus_mode = Control.FOCUS_NONE
-	for text in ["1 · Pistol", "2 · Tung kula", "3 · Hagelsvärm (8 hagel)"]: profile.add_item(text)
+	for text in ["1 · Pistol", "2 · .44 (spelprofil)", "3 · Hagelsvärm (8 hagel)", "4 · Automateld (håll in)"]: profile.add_item(text)
 	profile.item_selected.connect(select_profile)
 	box.add_child(profile)
 	impulse_slider = _slider(box,"Total skottimpuls · N s",2.0,180.0,14.0,func(n: float): shot_impulse=n)
+	_slider(box,"Vävnadsförlust · multiplikator",0.25,2.0,1.0,func(n: float): tissue_multiplier=n)
 	_slider(box,"Muskelkraft",0.0,1.5,1.0,func(n: float): muscle_strength=n)
 	_slider(box,"Höftstöd",0.0,1.0,1.0,func(n: float): balance_strength=n)
 	colliders_check = CheckBox.new()
@@ -245,7 +271,7 @@ func _build_ui() -> void:
 	colliders_check.toggled.connect(func(enabled: bool): show_colliders=enabled)
 	box.add_child(colliders_check)
 	_label(box,"Impulsen är ett provvärde.\nHagel delar totalimpulsen mellan 8 strålar.\nBalanshjälpen ger efter vid störning.\nFotarbete och självbärande balans återstår.",13)
-	play_button = _button(box,"Spela · fånga musen",func(): set_menu(false))
+	play_button = _button(layout,"Spela · fånga musen",func(): set_menu(false))
 	crosshair = _label(layer,"+",26)
 	crosshair.position = Vector2(542,405)
 	ammo = _label(layer,"",20)
@@ -261,7 +287,7 @@ func _build_ui() -> void:
 func select_profile(index: int) -> void:
 	shot_profile = index
 	profile.select(index)
-	impulse_slider.value = [14.0,70.0,100.0][index]
+	impulse_slider.value = [14.0,70.0,100.0,18.0][index]
 
 func set_menu(open: bool) -> void:
 	menu.visible = open
@@ -269,6 +295,9 @@ func set_menu(open: bool) -> void:
 	player.aiming = false
 
 func spawn_group() -> void:
+	debris.clear()
+	latest_wound={}
+	mesh_damage_present=false
 	for zombie in zombies:
 		zombie.dispose()
 	zombies.clear()
@@ -330,9 +359,10 @@ func _process(delta: float) -> void:
 		if zombie.state in ["downed","recovering"]: fallen += 1
 		contacts += zombie.crowd_contacts
 	info.text = "%d zombier · %d fysikkroppar\n%s · %d nere/återhämtar · %d kroppskontakter\nWASD: gå · Shift: spring · Space: hoppa" % [zombies.size(),zombies.size()*17,"Följer dig" if follow_player else "Står kvar",fallen,contacts]
-	hint.text = "Tab: inställningar · 1/2/3: impulsprofil · högerklick: sikta"
+	hint.text = "Tab: inställningar · 1/2/3/4: vapenprofil · högerklick: sikta"
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not menu.visible:
 		hint.text = "Klicka i banan för att spela · Tab: inställningar"
+	hit_label.text=""
 	if not player.last_shot.is_empty():
 		var hit: Dictionary = player.last_shot
 		if hit.has("bone"):
@@ -340,6 +370,13 @@ func _process(delta: float) -> void:
 			if hit.get("profile",0)==2: hit_label.text += " · %d/8 hagel" % hit.body_hits
 		else:
 			hit_label.text = "Träff i banan" if hit.get("hit",false) else "Miss"
+	if damage_enabled:
+		var loss:=0.0
+		var last: Dictionary=latest_wound
+		for zombie in zombies:
+			loss+=zombie.damage.removed_volume*1000000.0
+		info.text+="\nVävnad: %.0f cm³ · fragment: %d/%d" % [loss,debris.pieces.size(),Debris.LIMIT]
+		if not last.is_empty(): hit_label.text+="\n%.0f J → %.0f cm³ · %d celler" % [last.deposited_j,last.removed_cm3,last.cells]
 	for zombie in zombies:
 		if zombie.state=="recovering":
 			info.text += "\n%s · %s" % ["Mage" if zombie.recovery.kind=="prone" else "Rygg",zombie.recovery.stage]
@@ -364,19 +401,19 @@ func _publish_probe() -> void:
 		for part: Dictionary in zombie.physics.bodies:
 			var p: Vector3 = part.body.global_position
 			var screen: Vector2 = player.camera.unproject_position(p)
-			parts[part.name] = {"position":[p.x,p.y,p.z],"screen":[screen.x,screen.y]}
+			parts[part.name] = {"position":[p.x,p.y,p.z],"screen":[screen.x,screen.y],"strength":zombie.physics.part_strength(part),"detached":part.get("detached",false)}
 		agents.append({"id":zombie.name,"model":zombie.characters[zombie.model_index].id,"clip":zombie.clip,
 			"root":[root.x,root.y,root.z],"anchor":[zombie.anchor.x,zombie.anchor.y,zombie.anchor.z],
 			"recovery_kind":zombie.recovery.kind,"recovery_stage":zombie.recovery.stage,
 			"recovery_time":zombie.recovery.time,"recovery_duration":zombie.recovery.duration() if not zombie.recovery.kind.is_empty() else 0,
 			"recovery_attempts":zombie.recovery_attempts,"recovery_completed":zombie.recovery_completed,"recovery_interruptions":zombie.recovery_interruptions,
-			"state":zombie.state,"hits":zombie.received_hits,"contacts":zombie.crowd_contacts,
+			"damage":zombie.damage.report(),"state":zombie.state,"hits":zombie.received_hits,"contacts":zombie.crowd_contacts,
 			"stability":zombie.physics.stability,"support_distance":zombie.physics.support_distance,
 			"support_force":[zombie.physics.last_support_force.x,zombie.physics.last_support_force.y,zombie.physics.last_support_force.z],
 			"muscles":zombie.physics.muscles,"travel":zombie.travel,"skin_error":zombie.physics.max_skin_pose_error,"parts":parts})
 	var at := player.global_position
 	var popup := motions.get_popup()
-	var state := {"generation":generation,"zombies":agents,"follow":follow_player,"menu":menu.visible,
+	var state := {"damage_enabled":damage_enabled,"debris":debris.pieces.size(),"debris_peak":debris.peak,"debris_limit":Debris.LIMIT,"scroll":settings_scroll.scroll_vertical,"generation":generation,"zombies":agents,"follow":follow_player,"menu":menu.visible,
 		"player":[at.x,at.y,at.z],"yaw":player.rotation.y,"pitch":player.pitch,"sensitivity":player.sensitivity,
 		"player_speed":Vector2(player.velocity.x,player.velocity.z).length(),
 		"captured":Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,"fov":player.camera.fov,"shots":player.shots,"ammo":player.magazine,
@@ -384,5 +421,5 @@ func _publish_probe() -> void:
 		"motion_popup":[popup.position.x,popup.position.y,popup.size.x,popup.size.y],
 		"selected_count":amount.value,"count_focused":amount.get_line_edit().has_focus(),
 		"profile":shot_profile,"reloading":player.reload_time>0.0,"last_shot":player.last_shot,"impulse":shot_impulse,
-		"viewport":[1100,850],"controls":{"play":_center(play_button),"follow":_center(follow),"spawn":_center(respawn_button),"add":_center(add_button),"amount":_center(amount),"models":_center(models),"motions":_center(motions),"formation":_center(formation),"impulse":_center(impulse_slider),"profile":_center(profile)}}
+		"viewport":[1100,850],"controls":{"damage":_center(damage_check),"play":_center(play_button),"follow":_center(follow),"spawn":_center(respawn_button),"add":_center(add_button),"amount":_center(amount),"models":_center(models),"motions":_center(motions),"formation":_center(formation),"impulse":_center(impulse_slider),"profile":_center(profile)}}
 	JavaScriptBridge.eval("window.__testgroundDemo="+JSON.stringify(state)+";",true)
