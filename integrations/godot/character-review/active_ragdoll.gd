@@ -68,6 +68,7 @@ var corpse_support_contacts := 0
 var corpse_quiet_time := 0.0
 var corpse_sleep_promotions := 0
 var corpse_rest_poses: Array[Transform3D] = []
+var corpse_kinetic_energy_j := 0.0
 
 func configure(owner_view: Node, options: Dictionary = {}) -> void:
 	set_process(false)
@@ -677,10 +678,22 @@ func _process(delta: float) -> void:
 	_write_corpse_pose()
 	var awake := false
 	var quiet := corpse_rest_poses.size()==bodies.size()
+	var mass := 0.0
+	corpse_kinetic_energy_j = 0.0
 	for i in range(bodies.size()):
 		var body: RigidBody3D = bodies[i].body
 		if not body.sleeping: awake = true
-		if quiet:
+		mass += body.mass
+		var omega := body.angular_velocity
+		corpse_kinetic_energy_j += 0.5*body.mass*body.linear_velocity.length_squared()
+		var inverse_inertia := body.get_inverse_inertia_tensor()
+		if absf(inverse_inertia.determinant())>0.000001:
+			corpse_kinetic_energy_j += 0.5*omega.dot(inverse_inertia.inverse()*omega)
+		else:
+			quiet = false
+		# Never sleep a thrown limb or a fast-spinning part, even when light.
+		if body.linear_velocity.length_squared()>0.0144 or omega.length_squared()>4.0: quiet = false
+		if quiet and bodies[i].name in ["Hips","Spine","Spine2"]:
 			var before: Transform3D = corpse_rest_poses[i]
 			if before.origin.distance_to(body.global_position)>0.008 or before.basis.get_rotation_quaternion().angle_to(body.global_basis.get_rotation_quaternion())>0.06:
 				quiet = false
@@ -688,9 +701,10 @@ func _process(delta: float) -> void:
 		corpse_rest_poses.clear()
 		set_process(false)
 		return
-	# Observe displacement over a full rest window: solver velocity jitter can
-	# be large even while a constrained body barely moves. Continuous rolling,
-	# dragging and falling exceed these pose bounds and restart the window.
+	# Per-limb velocity sleep can keep a whole constrained island awake because
+	# of a light wrist/head. Require a still core AND low actual kinetic energy
+	# per kg for the full rest window; dragging/falls/fast limbs restart it.
+	quiet = quiet and corpse_kinetic_energy_j/maxf(mass,0.1)<0.001
 	if quiet:
 		corpse_quiet_time += delta
 	else:

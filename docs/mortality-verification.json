@@ -3,11 +3,11 @@
   "status": "pass",
   "scope": "Functional movement-capacity death; permanent passive, shootable corpses; retained corpse spawning and low-pile traversal.",
   "source_sha256": {
-    "integrations/godot/character-review/active_ragdoll.gd": "aa61f3671fcbd0fd944dce37cf04bc50dd488f3d882b121a304116ea9725add0",
+    "integrations/godot/character-review/active_ragdoll.gd": "cd6d5b15b739dfbd4948d9dc3e0207efc27bdea7c75299b012de40442051c37e",
     "integrations/godot/testground/zombie_agent.gd": "60632fe81385335bf12ee1646095e0dfcca5fb8082afc9d1e66dcadf6720249d",
     "integrations/godot/testground/mesh_damage.gd": "589b7f5cc65ded2382a74f001e135a84d0ba6ad6de9fce2bda588f3486f7c364",
     "integrations/godot/testground/testground.gd": "7a1a48418508ed71e9e26b9bd6448aeb4144f9fa22b71bf99c3dc57b9f2f3b92",
-    "integrations/godot/testground/mortality_smoke.gd": "829d31b5e0cdc445ec606e3e777f0c08c4e5fdbef4cc161f8ba06657186f846e",
+    "integrations/godot/testground/mortality_smoke.gd": "b2a1435322436f26c3f6dfb1f1a56e9c94d16db16baf9efc2c698e4102c57272",
     "tools/test_testground_web.cjs": "532bad7d9c0d4879aa47287074c4442149b4a100fbd8b5c3202833ab96d235cf"
   },
   "runtime": {
@@ -39,14 +39,14 @@
           "brain_energy_j": 0.0,
           "budget_cm3": 1073.2176,
           "cells_total": 1532,
-          "cpu_ms": 14.755,
+          "cpu_ms": 16.774,
           "fatal": true,
           "pending": 0,
           "processed_projectiles": 3,
           "rebuilds": 3,
           "removed_cells": 87,
           "removed_cm3": 1017.78554321209,
-          "sever_ms": 7.335,
+          "sever_ms": 7.626,
           "severed": [
             "LeftForeArm",
             "LeftHand"
@@ -92,14 +92,14 @@
           "brain_energy_j": 0.0,
           "budget_cm3": 1788.696,
           "cells_total": 2383,
-          "cpu_ms": 22.2,
+          "cpu_ms": 29.163,
           "fatal": true,
           "pending": 0,
           "processed_projectiles": 5,
           "rebuilds": 5,
           "removed_cells": 150,
           "removed_cm3": 1665.45898557524,
-          "sever_ms": 13.37,
+          "sever_ms": 15.539,
           "severed": [
             "LeftForeArm",
             "LeftHand"
@@ -127,6 +127,10 @@
         "brain_energy_j": 894.348,
         "model": 1,
         "test": "delayed_channel_rotates_with_impact_body"
+      },
+      {
+        "distance_m": 2.78754305839539,
+        "test": "light_thrown_limb_keeps_passive_physics_awake"
       },
       {
         "test": "twelve_corpses_plus_twelve_living_and_explicit_cleanup"
@@ -161,16 +165,16 @@
     "status": "pass",
     "traversal": [
       {
-        "corpse_support_samples": 684,
-        "distance_m": 3.97043204307556,
-        "max_floor_m": 0.318054616451263,
+        "corpse_support_samples": 397,
+        "distance_m": 3.97245383262634,
+        "max_floor_m": 0.315298974514008,
         "model": 0,
         "naturally_sleeping_before_contact": 17
       },
       {
-        "corpse_support_samples": 298,
-        "distance_m": 4.04058265686035,
-        "max_floor_m": 0.307220816612244,
+        "corpse_support_samples": 300,
+        "distance_m": 4.04059791564941,
+        "max_floor_m": 0.307705491781235,
         "model": 1,
         "naturally_sleeping_before_contact": 17
       }
@@ -315,8 +319,11 @@
   },
   "sleep_rule": {
     "window_seconds": 1.25,
-    "max_position_change_m": 0.008,
-    "max_rotation_change_rad": 0.06,
-    "basis": "Observed pose change over the full window, independent of solver velocity jitter."
+    "core_max_position_change_m": 0.008,
+    "core_max_rotation_change_rad": 0.06,
+    "max_kinetic_energy_j_per_kg": 0.001,
+    "max_limb_speed_mps": 0.12,
+    "max_limb_angular_speed_radps": 2.0,
+    "basis": "Still core plus low inertia-based kinetic energy, with separate fast-limb safeguards."
   }
 }

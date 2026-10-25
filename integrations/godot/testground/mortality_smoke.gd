@@ -183,6 +183,25 @@ func run() -> void:
 			root.get_texture().get_image().save_png("res://../verification/mortality/corpse-traversal-%d.png" % model)
 		world.follow_player=false
 		world.auto_recover=false
+	# A very light detached limb must not be frozen in flight just because
+	# its energy is tiny relative to the corpse. This isolates the speed guard.
+	var moving=await fresh(0)
+	moving.physics.set_neural_strength(0.0)
+	await frames(900)
+	moving.physics.detach("LeftHand")
+	await frames(3)
+	var flying: RigidBody3D=part(moving,"LeftHand").body
+	flying.mass=0.001
+	flying.gravity_scale=0.0
+	flying.global_position=Vector3(0,3,-4)
+	PhysicsServer3D.body_set_state(flying.get_rid(),PhysicsServer3D.BODY_STATE_TRANSFORM,flying.global_transform)
+	flying.linear_velocity=Vector3.RIGHT*2.0
+	flying.angular_velocity=Vector3.ZERO
+	flying.sleeping=false
+	var launched: Vector3=flying.global_position
+	await frames(200)
+	assert(not flying.sleeping and moving.physics.is_processing() and flying.global_position.distance_to(launched)>2.0,"Low-energy thrown limb was slept while moving")
+	report.cases.append({"test":"light_thrown_limb_keeps_passive_physics_awake","distance_m":flying.global_position.distance_to(launched)})
 	# Burst work drains over rendered frames, not a callback on every corpse.
 	var z=await fresh(0)
 	z.physics.set_neural_strength(0.0)
