@@ -172,9 +172,10 @@ func _process(delta: float) -> void:
 	slide.position.z = -0.015+recoil*0.065
 	camera.fov = lerpf(camera.fov,55.0 if ads else 74.0,minf(1.0,delta*12.0))
 
-func cast_shot(origin: Vector3, direction: Vector3) -> Dictionary:
-	var query := PhysicsRayQueryParameters3D.create(origin,origin+direction.normalized()*80.0,1|2)
+func cast_shot(origin: Vector3, direction: Vector3, maximum_distance := 80.0) -> Dictionary:
+	var query := PhysicsRayQueryParameters3D.create(origin,origin+direction.normalized()*maximum_distance,1|2)
 	query.exclude = [get_rid()]
+	query.hit_from_inside = true
 	return get_world_3d().direct_space_state.intersect_ray(query)
 
 func apply_shot(hit: Dictionary, direction: Vector3) -> Dictionary:
@@ -205,10 +206,12 @@ func fire() -> void:
 	var direction := -camera.global_basis.z
 	var aim := cast_shot(camera.global_position,direction)
 	var destination: Vector3 = aim.position if not aim.is_empty() else camera.global_position+direction*80.0
-	# A second ray from the barrel prevents firing through nearby cover even
-	# when the camera can see around its edge.
+	# Check the segment to the muzzle as well: the barrel can poke through cover
+	# while the camera remains outside it, or below a wall the camera sees over.
+	var to_muzzle := muzzle.global_position-camera.global_position
+	var obstruction := cast_shot(camera.global_position,to_muzzle,to_muzzle.length())
 	var barrel_direction := (destination-muzzle.global_position).normalized()
-	var hit := cast_shot(muzzle.global_position,barrel_direction)
-	last_shot = apply_shot(hit,barrel_direction)
+	var hit := obstruction if not obstruction.is_empty() else cast_shot(muzzle.global_position,barrel_direction,minf(80.0,muzzle.global_position.distance_to(destination)+0.02))
+	last_shot = apply_shot(hit,direction if not obstruction.is_empty() else barrel_direction)
 	last_shot["sequence"] = shots
 	arena.hit_flash = 0.18 if last_shot.get("hit",false) and not last_shot.get("world",true) else 0.0

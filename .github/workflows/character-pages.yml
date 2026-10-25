@@ -67,14 +67,14 @@ jobs:
         run: |
           npm install --prefix build/browser-test --no-package-lock playwright@1.62.1
           build/browser-test/node_modules/.bin/playwright install --with-deps chromium
-      - name: Test actual WebGL physics and controls
-        env:
-          NODE_PATH: ${{ github.workspace }}/build/browser-test/node_modules
-        run: node tools/test_character_web.cjs
       - name: Test FPS mouse capture, shooting and crowd controls
         env:
           NODE_PATH: ${{ github.workspace }}/build/browser-test/node_modules
         run: node tools/test_testground_web.cjs
+      - name: Test actual WebGL physics and controls
+        env:
+          NODE_PATH: ${{ github.workspace }}/build/browser-test/node_modules
+        run: node tools/test_character_web.cjs
       - name: Preserve browser evidence
         if: always()
         uses: actions/upload-artifact@v4

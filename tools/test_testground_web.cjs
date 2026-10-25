@@ -19,8 +19,8 @@ async function until(predicate,label,timeout=30000){
   const start=Date.now();while(Date.now()-start<timeout){const s=await state();if(s&&predicate(s))return s;await sleep(180);}
   throw Error(label+': '+JSON.stringify(await state()));
 }
-async function control(name){const s=await state(),box=await page.locator('#canvas').boundingBox(),p=s.controls[name];await page.mouse.click(box.x+p[0]/1100*box.width,box.y+p[1]/850*box.height);}
-async function point(p){const box=await page.locator('#canvas').boundingBox();await page.mouse.click(box.x+p[0]/1100*box.width,box.y+p[1]/850*box.height);}
+async function control(name){const s=await state();await point(s.controls[name]);}
+async function point(p){const box=await page.locator('#canvas').boundingBox();mouse={x:box.x+p[0]/1100*box.width,y:box.y+p[1]/850*box.height};await page.mouse.click(mouse.x,mouse.y);}
 async function serve(){
   server=http.createServer((req,res)=>{
     const name=new URL(req.url,'http://localhost').pathname.replace(/^\/nordic-forest\//,'')||'index.html';
@@ -40,16 +40,27 @@ async function aimAt(index,bone){
     const yawError=Math.atan2(Math.sin(yaw-s.yaw),Math.cos(yaw-s.yaw));
     if(Math.abs(yawError)<.004&&Math.abs(pitch-s.pitch)<.004)return;
     mouse.x-=yawError/s.sensitivity;mouse.y-=(pitch-s.pitch)/s.sensitivity;
-    await page.mouse.move(mouse.x,mouse.y,{steps:8});await sleep(700);
+    await page.mouse.move(mouse.x,mouse.y,{steps:8});
+    await until(n=>Math.abs(n.yaw-s.yaw)+Math.abs(n.pitch-s.pitch)>.0001,'FPS receives mouse movement');
+    await sleep(300);
   }
   const s=await state();throw Error('FPS mouselook did not converge: '+JSON.stringify({yaw:s.yaw,pitch:s.pitch}));
 }
 (async()=>{
   const target=option('--url')||await serve(),url=new URL(target);url.searchParams.set('mode','arena');url.searchParams.set('test','1');
-  browser=await chromium.launch({headless:true,channel:option('--channel',undefined),args:['--enable-webgl','--ignore-gpu-blocklist','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+  // Exercise pointer lock with the same headless implementation as real Chrome.
+  browser=await chromium.launch({headless:true,channel:option('--channel','chromium'),args:['--enable-webgl','--ignore-gpu-blocklist','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
   page=await browser.newPage({viewport:{width:1280,height:1000}});
   page.on('pageerror',e=>errors.push(String(e)));page.on('console',m=>{messages.push({type:m.type(),text:m.text()});if(m.type()==='error')errors.push(m.text());});
   await page.goto(url.toString(),{waitUntil:'domcontentloaded'});
+  await page.evaluate(()=>{
+    window.__testMouseMoves=[];
+    document.addEventListener('mousemove',event=>{
+      if(!document.pointerLockElement)return;
+      window.__testMouseMoves.push({x:event.clientX,y:event.clientY,dx:event.movementX,dy:event.movementY,trusted:event.isTrusted,target:event.target.id});
+      if(window.__testMouseMoves.length>64)window.__testMouseMoves.shift();
+    },true);
+  });
   await page.getByRole('button',{name:'Starta FPS-testbanan',exact:true}).click();
   let s=await until(n=>n.zombies.length===4,'FPS arena startup',180000);
   assert.equal(new Set(s.zombies.map(z=>z.model)).size,2);assert.equal(new Set(s.zombies.map(z=>z.clip)).size,4);
@@ -90,6 +101,6 @@ async function aimAt(index,bone){
   const report={status:'pass',url:target,pointer_lock:true,wasd:true,mouselook:true,actual_headshot:hit,ads:true,reload:true,group_spawn_and_animation_ui:true,follow_toggle:true,console_errors:errors};
   fs.writeFileSync(path.join(out,'validation.json'),JSON.stringify(report,null,2)+'\n');console.log('TESTGROUND_WEB_PASS',JSON.stringify(report));
 })().catch(async e=>{
-  if(page){await page.screenshot({path:path.join(out,'failure.png')}).catch(()=>{});fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify(await state().catch(()=>null),null,2));}
+  if(page){await page.screenshot({path:path.join(out,'failure.png')}).catch(()=>{});fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({state:await state().catch(()=>null),mouse_moves:await page.evaluate(()=>window.__testMouseMoves)},null,2));}
   console.error(e);process.exitCode=1;
 }).finally(async()=>{fs.writeFileSync(path.join(out,'console.json'),JSON.stringify(messages,null,2));await browser?.close();if(server)await new Promise(resolve=>server.close(resolve));});

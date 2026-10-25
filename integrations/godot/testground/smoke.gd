@@ -74,8 +74,10 @@ func _run() -> void:
 	assert(not cover.is_empty() and cover.collider is StaticBody3D)
 	var cover_result: Dictionary=world.player.apply_shot(cover,Vector3.FORWARD)
 	assert(cover_result.world and not cover_result.has("bone"))
-	world.player.position=Vector3(-3.2,0.1,2)
+	world.player.position=Vector3(-3.2,0.1,0.55)
+	assert(world.player.cast_shot(world.player.camera.global_position,Vector3.FORWARD).is_empty(),"Camera should see over low cover in this test")
 	world.player.fire()
+	assert(world.player.last_shot.get("world",false),"Cover between camera and barrel must stop the shot")
 	var shots: int=world.player.shots
 	world.player.fire()
 	assert(world.player.shots==shots,"Semi-auto cooldown failed")
@@ -84,6 +86,7 @@ func _run() -> void:
 	await frames(180)
 	assert(world.player.magazine==12 and world.player.reload_time<=0.0)
 	report["cover_blocks_shots"]=true
+	report["muzzle_obstruction"]=true
 	report["cooldown_and_reload"]=true
 	# A fall and recovery must use simulation; no reset_pose or body transform
 	# writes occur in the agent state machine. Capture the observed transition.
