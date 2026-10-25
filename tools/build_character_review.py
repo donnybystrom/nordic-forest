@@ -67,7 +67,7 @@ def build(catalog_path, project):
     arena = project / "testground"
     arena.mkdir(exist_ok=True)
     for source in (ROOT / "integrations/godot/testground").iterdir():
-        if source.suffix in {".gd", ".tscn"}:
+        if source.suffix in {".gd", ".tscn", ".tres"}:
             shutil.copyfile(source, arena / source.name)
     print(json.dumps({"project": str(project), "characters": len(entries), "shared_clips": len(catalog["clips"])}, indent=2))
 

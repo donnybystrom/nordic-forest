@@ -208,7 +208,7 @@ func _build_ui() -> void:
 	box.add_child(models)
 	motions = OptionButton.new()
 	motions.focus_mode = Control.FOCUS_NONE
-	for text in ["Blandat: gång, löpning, krypning","Vilopose","Ostadig gång","Gång","Löpning","Krypning"]:
+	for text in ["Blandat: gång, löpning, krypning","Vilopose","Ostadig gång","Gång","Löpning","Krypning","Uppresningsprov · mage","Uppresningsprov · rygg"]:
 		motions.add_item(text)
 	box.add_child(motions)
 	formation = OptionButton.new()
@@ -226,7 +226,7 @@ func _build_ui() -> void:
 	follow.toggled.connect(func(enabled: bool): follow_player = enabled)
 	box.add_child(follow)
 	var recovery := CheckBox.new()
-	recovery.text = "Försök resa sig med höftstöd"
+	recovery.text = "Res dig med animation och stöd"
 	recovery.button_pressed = true
 	recovery.focus_mode = Control.FOCUS_NONE
 	recovery.toggled.connect(func(enabled: bool): auto_recover = enabled)
@@ -283,6 +283,8 @@ func spawn_one() -> Node3D:
 	var motion := ""
 	if motions.selected == 0:
 		motion = MOTIONS[zombies.size()%MOTIONS.size()]
+	elif motions.selected >= 6:
+		motion = MOTIONS[0]
 	elif motions.selected >= 2:
 		motion = MOTIONS[motions.selected-2]
 	var index := zombies.size()
@@ -291,6 +293,7 @@ func spawn_one() -> Node3D:
 	var zombie := Agent.new()
 	add_child(zombie)
 	zombie.setup(self,next_id,model,spawn,motion)
+	if motions.selected>=6: zombie.start_lying("prone" if motions.selected==6 else "supine")
 	next_id += 1
 	zombies.append(zombie)
 	return zombie
@@ -337,6 +340,10 @@ func _process(delta: float) -> void:
 			if hit.get("profile",0)==2: hit_label.text += " · %d/8 hagel" % hit.body_hits
 		else:
 			hit_label.text = "Träff i banan" if hit.get("hit",false) else "Miss"
+	for zombie in zombies:
+		if zombie.state=="recovering":
+			info.text += "\n%s · %s" % ["Mage" if zombie.recovery.kind=="prone" else "Rygg",zombie.recovery.stage]
+			break
 	add_button.disabled = zombies.size()>=12
 	colliders_check.set_pressed_no_signal(show_colliders)
 	if probe_enabled:
@@ -360,6 +367,9 @@ func _publish_probe() -> void:
 			parts[part.name] = {"position":[p.x,p.y,p.z],"screen":[screen.x,screen.y]}
 		agents.append({"id":zombie.name,"model":zombie.characters[zombie.model_index].id,"clip":zombie.clip,
 			"root":[root.x,root.y,root.z],"anchor":[zombie.anchor.x,zombie.anchor.y,zombie.anchor.z],
+			"recovery_kind":zombie.recovery.kind,"recovery_stage":zombie.recovery.stage,
+			"recovery_time":zombie.recovery.time,"recovery_duration":zombie.recovery.duration() if not zombie.recovery.kind.is_empty() else 0,
+			"recovery_attempts":zombie.recovery_attempts,"recovery_completed":zombie.recovery_completed,"recovery_interruptions":zombie.recovery_interruptions,
 			"state":zombie.state,"hits":zombie.received_hits,"contacts":zombie.crowd_contacts,
 			"stability":zombie.physics.stability,"support_distance":zombie.physics.support_distance,
 			"support_force":[zombie.physics.last_support_force.x,zombie.physics.last_support_force.y,zombie.physics.last_support_force.z],
@@ -370,7 +380,7 @@ func _publish_probe() -> void:
 		"player":[at.x,at.y,at.z],"yaw":player.rotation.y,"pitch":player.pitch,"sensitivity":player.sensitivity,
 		"player_speed":Vector2(player.velocity.x,player.velocity.z).length(),
 		"captured":Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,"fov":player.camera.fov,"shots":player.shots,"ammo":player.magazine,
-		"selected_motion":motions.selected,"motions_open":motions.get_popup().visible,
+		"motion_count":motions.item_count,"selected_motion":motions.selected,"motions_open":motions.get_popup().visible,
 		"motion_popup":[popup.position.x,popup.position.y,popup.size.x,popup.size.y],
 		"selected_count":amount.value,"count_focused":amount.get_line_edit().has_focus(),
 		"profile":shot_profile,"reloading":player.reload_time>0.0,"last_shot":player.last_shot,"impulse":shot_impulse,

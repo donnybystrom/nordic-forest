@@ -71,7 +71,7 @@ async function aimAt(index,bone){
   await page.keyboard.press(process.platform==='darwin'?'Meta+A':'Control+A');await page.keyboard.type('2');await page.keyboard.press('Enter');
   await until(n=>n.selected_count===2,'Count field commit');
   await control('motions');s=await until(n=>n.motions_open,'Animation dropdown opens');
-  const popup=s.motion_popup;await point([popup[0]+popup[2]/2,popup[1]+popup[3]*1.5/6]);
+  const popup=s.motion_popup;await point([popup[0]+popup[2]/2,popup[1]+popup[3]*1.5/s.motion_count]);
   await until(n=>n.selected_motion===1,'Rest pose dropdown');
   const generation=s.generation;await control('spawn');
   s=await until(n=>n.generation>generation&&n.zombies.length===2,'Respawn with UI choices');
@@ -122,8 +122,24 @@ async function aimAt(index,bone){
   const buckshot=s.last_shot;assert.equal(buckshot.pellets.length,8);assert(buckshot.delivered_ns<=100);
   assert(buckshot.pellets.filter(p=>p.bone).every(p=>p.impulse_ns===12.5));
   await page.screenshot({path:path.join(out,'buckshot-torso.png')});
+  // Select both lying starts through the actual Godot dropdown. Recovery
+  // must choose the observed body orientation, run the phases and exit.
+  await page.keyboard.press('Tab');await until(n=>n.menu&&!n.captured,'Menu for recovery scenarios');
+  const recoveries=[];
+  for(const [choice,kind] of [[6,'prone'],[7,'supine']]){
+    await control('motions');s=await until(n=>n.motions_open,'Recovery scenario dropdown');
+    const rect=s.motion_popup;await point([rect[0]+rect[2]/2,rect[1]+rect[3]*(choice+.5)/s.motion_count]);
+    await until(n=>n.selected_motion===choice,'Recovery scenario selection');
+    generation2=s.generation;await control('spawn');
+    await until(n=>n.generation>generation2,'Lying group spawn');
+    s=await until(n=>n.zombies.every(z=>z.state==='recovering'&&z.recovery_kind===kind&&z.recovery_time>1),'Animation starts from '+kind,45000);
+    await page.screenshot({path:path.join(out,'getup-'+kind+'.png')});
+    s=await until(n=>n.zombies.every(z=>z.recovery_completed>0),'Animation blends back to locomotion from '+kind,80000);
+    assert(s.zombies.every(z=>z.root[1]>.65));
+    recoveries.push({kind,models:s.zombies.map(z=>z.model),completed:s.zombies.map(z=>z.recovery_completed)});
+  }
   assert.deepEqual(errors,[],'Browser and GDScript errors');
-  const report={status:'pass',url:target,pointer_lock:true,wasd:true,mouselook:true,actual_headshot:hit,heavy_shoulder_knockdown:heavy,buckshot,ads:true,reload:true,group_spawn_and_animation_ui:true,follow_toggle:true,console_errors:errors};
+  const report={status:'pass',url:target,pointer_lock:true,wasd:true,mouselook:true,actual_headshot:hit,heavy_shoulder_knockdown:heavy,buckshot,recoveries,ads:true,reload:true,group_spawn_and_animation_ui:true,follow_toggle:true,console_errors:errors};
   fs.writeFileSync(path.join(out,'validation.json'),JSON.stringify(report,null,2)+'\n');console.log('TESTGROUND_WEB_PASS',JSON.stringify(report));
 })().catch(async e=>{
   if(page){await page.screenshot({path:path.join(out,'failure.png')}).catch(()=>{});fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({state:await state().catch(()=>null),mouse_moves:await page.evaluate(()=>window.__testMouseMoves)},null,2));}

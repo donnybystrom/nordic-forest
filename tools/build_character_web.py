@@ -65,7 +65,7 @@ def prepare(destination, clean_site=True):
     arena = project / "testground"
     arena.mkdir(exist_ok=True)
     for source in (ROOT / "integrations/godot/testground").iterdir():
-        if source.suffix in {".gd", ".tscn"}:
+        if source.suffix in {".gd", ".tscn", ".tres"}:
             shutil.copyfile(source, arena / source.name)
     shutil.copyfile(ROOT / "integrations/godot/web/shell.html", project / "web-shell.html")
     shutil.copyfile(ROOT / "integrations/godot/web/export_presets.cfg", project / "export_presets.cfg")

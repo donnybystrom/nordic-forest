@@ -72,6 +72,18 @@ jobs:
           assert json.loads(report.read_text())['status'] == 'pass'
           shutil.copyfile(report, 'build/character-web/verification/impact-physics.json')
           PY
+      - name: Test prone and supine get-ups, transitions and interruption
+        run: |
+          build/godot-ci/godot --headless --path build/character-web/project --fixed-fps 120 --script res://testground/recovery_smoke.gd --log-file "$PWD/build/character-web/verification/recovery-physics.log" > build/character-web/verification/recovery-console.log 2>&1
+          python - <<'PY'
+          from pathlib import Path
+          import json, shutil
+          log = Path('build/character-web/verification/recovery-console.log').read_text()
+          assert 'TESTGROUND_RECOVERY_PASS ' in log and 'SCRIPT ERROR:' not in log and 'ERROR:' not in log, log
+          report = Path('build/character-web/recovery-validation.json')
+          assert json.loads(report.read_text())['status'] == 'pass'
+          shutil.copyfile(report, 'build/character-web/verification/recovery-physics.json')
+          PY
       - uses: actions/setup-node@v4
         with:
           node-version: '22'

@@ -54,6 +54,8 @@ var support_distance := 0.0
 var stability := 1.0
 var upright := 1.0
 var support_grace := 0.0
+var recovery_pose := {}
+var recovery_reach := 0.0
 
 func configure(owner_view: Node, options: Dictionary = {}) -> void:
 	view = owner_view
@@ -312,6 +314,10 @@ func root_body() -> RigidBody3D:
 	return by_bone[target_rig.find_bone("Hips")].body
 
 func _target_body(entry: Dictionary) -> Transform3D:
+	if recovery_pose.has(entry.index): return recovery_pose[entry.index]
+	return _animation_body(entry)
+
+func _animation_body(entry: Dictionary) -> Transform3D:
 	var pose: Transform3D = target_rig.global_transform * target_rig.get_bone_global_pose(entry.index) * entry.offset
 	# Keep the sandbox near the origin across locomotion loops. Animated vertical
 	# movement and rotations remain targets; horizontal root motion is in-place.
@@ -458,20 +464,35 @@ func _apply_free_support(delta: float) -> void:
 	# Velocity control at the current location: no horizontal position spring,
 	# no stored spawn target, and no braking while the support has yielded.
 	var velocity_error := desired_velocity-Vector3(com_velocity.x,0,com_velocity.z)
+	if recovery_support:
+		var placement := desired.origin-hips.global_position
+		placement.y=0.0
+		velocity_error += placement*2.5
 	var horizontal := (velocity_error * total_mass * 3.0).limit_length(total_mass*2.0)*gain
 	last_support_force += horizontal
 	hips.apply_central_force(last_support_force)
+	if recovery_support and recovery_reach>0.0:
+		# Bounded virtual hand/foot placement during this authored manoeuvre.
+		# Collision response remains active; no limb transform is overwritten.
+		for bone in ["LeftHand","RightHand","LeftFoot","RightFoot"]:
+			var limb: Dictionary = by_bone[target_rig.find_bone(bone)]
+			var body: RigidBody3D = limb.body
+			var error := _target_body(limb).origin-body.global_position
+			var force := (error*80.0-body.linear_velocity*10.0)*body.mass
+			body.apply_central_force(force.limit_length(total_mass*9.8*0.12)*recovery_reach*balance)
 	# Distributed virtual upright assistance. Joint motors above still act in
 	# equal opposite pairs; only this explicitly named support rights the body.
-	for bone in ["Hips","Spine","Spine2"]:
-		var part: Dictionary = by_bone[target_rig.find_bone(bone)]
+	for part in bodies:
+		var core: bool = part.name in ["Hips","Spine","Spine2"]
+		var pose_gain := 1.0 if core else (recovery_reach if recovery_support else 0.0)
+		if pose_gain<=0.0: continue
 		var body: RigidBody3D = part.body
 		var error := (_target_body(part).basis.get_rotation_quaternion()*body.global_basis.get_rotation_quaternion().inverse()).normalized()
 		if error.w<0: error = -error
 		var acceleration := (error.get_axis()*error.get_angle()*2200.0-body.angular_velocity*(90.0+2200.0*delta))/(1.0+90.0*delta+2200.0*delta*delta)
 		var inverse_inertia := body.get_inverse_inertia_tensor()
 		if absf(inverse_inertia.determinant())>0.000001:
-			body.apply_torque((inverse_inertia.inverse()*acceleration).limit_length(body.mass*12.0)*gain)
+			body.apply_torque((inverse_inertia.inverse()*acceleration).limit_length(body.mass*12.0)*gain*pose_gain)
 
 func begin_drag(point: Vector2, camera: Camera3D) -> bool:
 	var from := camera.project_ray_origin(point)

@@ -103,9 +103,24 @@ En kroppsträff ger `RigidBody3D.apply_impulse` en gång på den träffade benkr
 
 Profilerna **Pistol**, **Tung kula** och **Hagelsvärm** sätter totalimpulsen till 14, 70 respektive 100 N s. Reglaget tillåter 2–180 N s. Hagelsvärmen använder åtta separata strålar med 2,2° spridning; varje stråle får en åttondel av budgeten. Missar överför ingen impuls, och hinder stoppar varje stråle separat. HUD visar levererad totalimpuls och antal kroppsträffar. 8 g vid 350 m/s har rörelsemängden 2,8 N s: dessa större provvärden är avsiktligt förstärkt spelrespons, inte kalibrerad ammunition. Samma prototyppistol används visuellt för alla impulsprofiler.
 
-Skott släpper balanshjälpen en kort stund utifrån överförd rörelsemängd per kroppsmassa. Flera hagel i samma bildruta räknas ihop. **Ledmotorernas muskelkraft sänks inte av träffen eller fallet.** Kroppen kan därför reagera och falla med aktiva leder. När höften faller under gränsen går agenten till `downed`, med upprättningshjälpen avstängd. Om **Försök resa sig med höftstöd** är på återkommer hjälpen gradvis efter två sekunder, från kroppens nya plats. Denna valfria återhämtning får hjälpa även utanför fotstödet; den är fortfarande ett virtuellt lyft, utan kroppsteleportering eller nollställda hastigheter. I svåra lägen kan uppresningen misslyckas.
+Skott släpper balanshjälpen en kort stund utifrån överförd rörelsemängd per kroppsmassa. Flera hagel i samma bildruta räknas ihop. **Ledmotorernas muskelkraft sänks inte av träffen eller fallet.** Kroppen kan därför reagera och falla med aktiva leder. När höften faller under gränsen går agenten till `downed`, med upprättningshjälpen avstängd. Om **Res dig med animation och stöd** är på kan en lugnad kropp försöka resa sig efter minst två sekunder. Förloppet använder sekvenserna nedan och återgår sedan till sin tidigare rörelse. Vid en ny träff avbryts försöket; hastigheter och fysisk pose bevaras.
 
-Bålens ledade kroppar kan vika sig; bukens mesh har ingen separat mjukvävnadssimulering. Anatomiska ledgränser, aktivt återhämtningssteg, fot-IK, aktiv klättring, muskelskador och limb destruction återstår.
+Bålens ledade kroppar kan vika sig; bukens mesh har ingen separat mjukvävnadssimulering. Anatomiska ledgränser, aktivt återhämtningssteg, kontaktstyrd fot-IK under gång, aktiv klättring, muskelskador och limb destruction återstår.
+
+### Uppresning från mage och rygg
+
+Två lokalt skapade Godot-animationer finns i `get_up_prone.tres` och `get_up_supine.tres` under `integrations/godot/testground/`. De är små resurser med nycklade kanaler för höft, bål, rullning, händer och fötter. `recovery_motion.gd` samplar kanalerna med mjuk interpolation och löser armar och ben som kedjor med två länkar efter varje riggs egna benlängder. De ursprungliga GLB-filerna och deras 13 klipp behålls.
+
+- **Mage:** handstöd → pressa upp bålen → dra in knäna → sätt fram en fot → res dig.
+- **Rygg:** rulla åt sidan → sitt upp → vänd upp på knä → res dig.
+
+Bröstets faktiska riktning avgör sekvens. Riktningen mot huvudet längs golvet ger manöverns orientering på kroppens nuvarande plats. En ingångsblandning på 0,65 s går från de simulerade kropparnas rotationer till första posen; efter sekvensens 4,6 respektive 4,9 s blandas målen tillbaka till en fast ingångspose i den ursprungliga rörelsen över 0,8 s. Rörelsens tidslinje pausas under uppresningen och startar från ingångsposen när blandningen är klar. Normal förföljning återupptas först när kroppen är uppe och tillräckligt upprätt.
+
+Animationen styr motorernas mål; under uppresningen tillkommer begränsad hjälp med kroppsorientering, höjd och hand-/fotplacering. Hjälpen tonas in och ut, och kollisioner är fortsatt aktiva. Det är en assisterad uppresning, inte en självförsörjande biomekanisk lösare. Placeringshjälpen gäller bara denna manöver, på ett plant referensgolv; gångens fotarbete och kontaktanpassning på ojämn terräng återstår. En blockerad sekvens ger upp efter en tidsgräns och kan senare försöka igen. Inga kroppstransformer skrivs och inga hastigheter nollställs under verkliga fall, uppresningar eller avbrott.
+
+För ett reproducerbart prov: välj **Uppresningsprov · mage** eller **Uppresningsprov · rygg** i rörelsemenyn och klicka **Spawna om grupp**. Denna särskilda start placerar nya kroppar liggande en gång vid spawn; därefter sker allt med simulationen. Slutposen övergår till ostadig gång. Stäng av **Res dig med animation och stöd** för att låta dem ligga kvar. HUD visar aktuell uppresningsfas.
+
+`recovery_smoke.gd` provar båda sekvenserna på båda modellerna: riktningsval, alla faser, övergångarnas kontinuitet, bibehållen muskelkraft, återupptagen förföljning, skottavbrott, nytt försök och otillräcklig takhöjd. Webbläsarprovet väljer båda liggande starterna via den riktiga menyn och inväntar avslut på båda modellerna. Resultaten sparas i `build/character-web/recovery-validation.json` och CI:s verifieringsartefakt.
 
 `integrations/godot/testground/` innehåller arena, FPS-spelare, zombieagent och fysikprov. Den delade ragdoll-kontrollern används även av det tidigare labbet. `smoke.gd` provar olika modeller och rörelser, stillastående mål, fysisk förföljning, träff i huvud/underarm med vridning, skymmande vägg, skottspärr/omladdning, nedslag/assisterad återhämtning och kollisioner mellan gruppmedlemmar. `tools/test_testground_web.cjs` använder riktiga webbläsarhändelser för gruppval, musfångst, WASD, siktning, skott, omladdning och följande. Det separata `impact_smoke.gd` jämför svag/stark bålträff, båda axlarnas motsatta vridning, direkt yttre impuls, kvarvarande muskelkraft, slutlig förskjutning, rotation utan markstöd och hagelbudget på båda modellerna. Webbläsarprovet skjuter också med tung profil och hagel genom riktiga mus-/tangentbordshändelser. Proven körs före Pages-publicering. De godkänner funktion och begränsad fysikstabilitet, inte anatomisk realism eller en generell FPS-prestandanivå.
 
@@ -113,6 +128,7 @@ Bålens ledade kroppar kan vika sig; bukens mesh har ingen separat mjukvävnadss
 python3 tools/build_character_web.py
 godot --headless --path build/character-web/project --fixed-fps 120 --script res://testground/smoke.gd --log-file /tmp/testground-physics.log
 godot --headless --path build/character-web/project --fixed-fps 120 --script res://testground/impact_smoke.gd --log-file /tmp/testground-impacts.log
+godot --headless --path build/character-web/project --fixed-fps 120 --script res://testground/recovery_smoke.gd --log-file /tmp/testground-recovery.log
 node tools/test_testground_web.cjs --channel chrome
 ```
 
