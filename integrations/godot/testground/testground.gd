@@ -9,6 +9,8 @@ var follow_player := false
 var auto_recover := true
 var show_colliders := false
 var shot_impulse := 14.0
+var shot_profile := 0
+var profile: OptionButton
 var muscle_strength := 1.0
 var balance_strength := 1.0
 var menu: PanelContainer
@@ -229,7 +231,12 @@ func _build_ui() -> void:
 	recovery.focus_mode = Control.FOCUS_NONE
 	recovery.toggled.connect(func(enabled: bool): auto_recover = enabled)
 	box.add_child(recovery)
-	impulse_slider = _slider(box,"Skottimpuls · N s",2.0,60.0,14.0,func(n: float): shot_impulse=n)
+	profile = OptionButton.new()
+	profile.focus_mode = Control.FOCUS_NONE
+	for text in ["1 · Pistol", "2 · Tung kula", "3 · Hagelsvärm (8 hagel)"]: profile.add_item(text)
+	profile.item_selected.connect(select_profile)
+	box.add_child(profile)
+	impulse_slider = _slider(box,"Total skottimpuls · N s",2.0,180.0,14.0,func(n: float): shot_impulse=n)
 	_slider(box,"Muskelkraft",0.0,1.5,1.0,func(n: float): muscle_strength=n)
 	_slider(box,"Höftstöd",0.0,1.0,1.0,func(n: float): balance_strength=n)
 	colliders_check = CheckBox.new()
@@ -237,7 +244,7 @@ func _build_ui() -> void:
 	colliders_check.focus_mode = Control.FOCUS_NONE
 	colliders_check.toggled.connect(func(enabled: bool): show_colliders=enabled)
 	box.add_child(colliders_check)
-	_label(box,"Impulsen är ett provvärde.\n2.8 N s motsvarar 8 g vid 350 m/s.\nHöftstödet ger assisterad återhämtning.\nFotplacering och aktiv klättring återstår.",13)
+	_label(box,"Impulsen är ett provvärde.\nHagel delar totalimpulsen mellan 8 strålar.\nBalanshjälpen ger efter vid störning.\nFotarbete och självbärande balans återstår.",13)
 	play_button = _button(box,"Spela · fånga musen",func(): set_menu(false))
 	crosshair = _label(layer,"+",26)
 	crosshair.position = Vector2(542,405)
@@ -250,6 +257,11 @@ func _build_ui() -> void:
 	hint = _label(layer,"",15)
 	hint.position = Vector2(365,18)
 	set_menu(true)
+
+func select_profile(index: int) -> void:
+	shot_profile = index
+	profile.select(index)
+	impulse_slider.value = [14.0,70.0,100.0][index]
 
 func set_menu(open: bool) -> void:
 	menu.visible = open
@@ -315,12 +327,16 @@ func _process(delta: float) -> void:
 		if zombie.state in ["downed","recovering"]: fallen += 1
 		contacts += zombie.crowd_contacts
 	info.text = "%d zombier · %d fysikkroppar\n%s · %d nere/återhämtar · %d kroppskontakter\nWASD: gå · Shift: spring · Space: hoppa" % [zombies.size(),zombies.size()*17,"Följer dig" if follow_player else "Står kvar",fallen,contacts]
-	hint.text = "Tab: inställningar · Esc: släpp mus · högerklick: sikta"
+	hint.text = "Tab: inställningar · 1/2/3: impulsprofil · högerklick: sikta"
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not menu.visible:
 		hint.text = "Klicka i banan för att spela · Tab: inställningar"
 	if not player.last_shot.is_empty():
 		var hit: Dictionary = player.last_shot
-		hit_label.text = "%s · %s · %.1f N s" % [hit.zombie,hit.bone,hit.impulse_ns] if hit.has("bone") else ("Träff i banan" if hit.get("hit",false) else "Miss")
+		if hit.has("bone"):
+			hit_label.text = "%s · %s · %.1f N s" % [hit.zombie,hit.bone,hit.get("delivered_ns",hit.impulse_ns)]
+			if hit.get("profile",0)==2: hit_label.text += " · %d/8 hagel" % hit.body_hits
+		else:
+			hit_label.text = "Träff i banan" if hit.get("hit",false) else "Miss"
 	add_button.disabled = zombies.size()>=12
 	colliders_check.set_pressed_no_signal(show_colliders)
 	if probe_enabled:
@@ -345,7 +361,9 @@ func _publish_probe() -> void:
 		agents.append({"id":zombie.name,"model":zombie.characters[zombie.model_index].id,"clip":zombie.clip,
 			"root":[root.x,root.y,root.z],"anchor":[zombie.anchor.x,zombie.anchor.y,zombie.anchor.z],
 			"state":zombie.state,"hits":zombie.received_hits,"contacts":zombie.crowd_contacts,
-			"travel":zombie.travel,"skin_error":zombie.physics.max_skin_pose_error,"parts":parts})
+			"stability":zombie.physics.stability,"support_distance":zombie.physics.support_distance,
+			"support_force":[zombie.physics.last_support_force.x,zombie.physics.last_support_force.y,zombie.physics.last_support_force.z],
+			"muscles":zombie.physics.muscles,"travel":zombie.travel,"skin_error":zombie.physics.max_skin_pose_error,"parts":parts})
 	var at := player.global_position
 	var popup := motions.get_popup()
 	var state := {"generation":generation,"zombies":agents,"follow":follow_player,"menu":menu.visible,
@@ -355,6 +373,6 @@ func _publish_probe() -> void:
 		"selected_motion":motions.selected,"motions_open":motions.get_popup().visible,
 		"motion_popup":[popup.position.x,popup.position.y,popup.size.x,popup.size.y],
 		"selected_count":amount.value,"count_focused":amount.get_line_edit().has_focus(),
-		"reloading":player.reload_time>0.0,"last_shot":player.last_shot,"impulse":shot_impulse,
-		"viewport":[1100,850],"controls":{"play":_center(play_button),"follow":_center(follow),"spawn":_center(respawn_button),"add":_center(add_button),"amount":_center(amount),"models":_center(models),"motions":_center(motions),"formation":_center(formation),"impulse":_center(impulse_slider)}}
+		"profile":shot_profile,"reloading":player.reload_time>0.0,"last_shot":player.last_shot,"impulse":shot_impulse,
+		"viewport":[1100,850],"controls":{"play":_center(play_button),"follow":_center(follow),"spawn":_center(respawn_button),"add":_center(add_button),"amount":_center(amount),"models":_center(models),"motions":_center(motions),"formation":_center(formation),"impulse":_center(impulse_slider),"profile":_center(profile)}}
 	JavaScriptBridge.eval("window.__testgroundDemo="+JSON.stringify(state)+";",true)

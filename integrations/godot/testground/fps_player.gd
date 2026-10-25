@@ -111,6 +111,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		elif event.keycode == KEY_ESCAPE:
 			arena.set_menu(true)
+		elif event.keycode in [KEY_1,KEY_2,KEY_3]:
+			arena.select_profile(event.keycode-KEY_1)
 		elif event.keycode == KEY_R:
 			reload()
 		elif event.keycode == KEY_F2:
@@ -178,14 +180,14 @@ func cast_shot(origin: Vector3, direction: Vector3, maximum_distance := 80.0) ->
 	query.hit_from_inside = true
 	return get_world_3d().direct_space_state.intersect_ray(query)
 
-func apply_shot(hit: Dictionary, direction: Vector3) -> Dictionary:
+func apply_shot(hit: Dictionary, direction: Vector3, impulse := -1.0) -> Dictionary:
 	if hit.is_empty():
 		return {"hit":false}
 	var collider: Node = hit.collider
 	var result := {"hit":true,"world":true,"point":[hit.position.x,hit.position.y,hit.position.z]}
 	if collider.has_meta("zombie"):
 		var zombie: Node3D = collider.get_meta("zombie")
-		result = zombie.receive_hit(collider,hit.position,direction,arena.shot_impulse)
+		result = zombie.receive_hit(collider,hit.position,direction,arena.shot_impulse if impulse<0.0 else impulse)
 		result["hit"] = true
 		result["world"] = false
 	arena.mark_impact(hit.position,hit.normal,result.get("world",true))
@@ -204,14 +206,36 @@ func fire() -> void:
 	flash_time = 0.055
 	sound.play()
 	var direction := -camera.global_basis.z
-	var aim := cast_shot(camera.global_position,direction)
-	var destination: Vector3 = aim.position if not aim.is_empty() else camera.global_position+direction*80.0
-	# Check the segment to the muzzle as well: the barrel can poke through cover
-	# while the camera remains outside it, or below a wall the camera sees over.
+	var pellet_count := 8 if arena.shot_profile==2 else 1
+	var pellets := []
+	var best := {"hit":false}
+	var delivered := 0.0
+	var body_hits := 0
+	# Check to the muzzle once, then each pellet independently stops at its
+	# first obstruction. Misses keep their share; they never boost other hits.
 	var to_muzzle := muzzle.global_position-camera.global_position
 	var obstruction := cast_shot(camera.global_position,to_muzzle,to_muzzle.length())
-	var barrel_direction := (destination-muzzle.global_position).normalized()
-	var hit := obstruction if not obstruction.is_empty() else cast_shot(muzzle.global_position,barrel_direction,minf(80.0,muzzle.global_position.distance_to(destination)+0.02))
-	last_shot = apply_shot(hit,direction if not obstruction.is_empty() else barrel_direction)
+	for i in range(pellet_count):
+		var ray_direction := direction
+		if i>0:
+			var angle := float(i)*2.399963+float(shots)*0.73
+			var radius := tan(deg_to_rad(2.2))*sqrt(float(i)/7.0)
+			ray_direction = (direction+camera.global_basis.x*cos(angle)*radius+camera.global_basis.y*sin(angle)*radius).normalized()
+		var aim := cast_shot(camera.global_position,ray_direction)
+		var destination: Vector3 = aim.position if not aim.is_empty() else camera.global_position+ray_direction*80.0
+		var barrel_direction := (destination-muzzle.global_position).normalized()
+		var hit := obstruction if not obstruction.is_empty() else cast_shot(muzzle.global_position,barrel_direction,minf(80.0,muzzle.global_position.distance_to(destination)+0.02))
+		var result := apply_shot(hit,ray_direction if not obstruction.is_empty() else barrel_direction,arena.shot_impulse/pellet_count)
+		pellets.append(result.duplicate(true))
+		if result.has("bone"):
+			delivered += float(result.impulse_ns)
+			body_hits += 1
+		if result.has("bone") or (not best.has("bone") and result.get("hit",false)): best = result.duplicate(true)
+	last_shot = best
 	last_shot["sequence"] = shots
-	arena.hit_flash = 0.18 if last_shot.get("hit",false) and not last_shot.get("world",true) else 0.0
+	last_shot["profile"] = arena.shot_profile
+	last_shot["pellets"] = pellets
+	last_shot["body_hits"] = body_hits
+	last_shot["delivered_ns"] = delivered
+	last_shot["budget_ns"] = arena.shot_impulse
+	arena.hit_flash = 0.18 if body_hits>0 else 0.0

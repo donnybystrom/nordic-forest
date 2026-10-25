@@ -22,6 +22,9 @@ var crowd_contacts := 0
 var travel := 0.0
 var last_root := Vector3.ZERO
 var last_hit := {}
+var support_pause := 0.0
+var impact_momentum := Vector3.ZERO
+var imbalance_time := 0.0
 
 func setup(world: Node3D, index: int, model: int, spawn: Vector3, motion: String) -> void:
 	arena = world
@@ -37,7 +40,7 @@ func setup(world: Node3D, index: int, model: int, spawn: Vector3, motion: String
 	set_motion(motion, float(index) * 0.23)
 	physics = Ragdoll.new()
 	add_child(physics)
-	physics.configure(self, {"push_ball":false, "reference_transform":Transform3D(Basis.IDENTITY, spawn)})
+	physics.configure(self, {"push_ball":false, "free_balance":true, "reference_transform":Transform3D(Basis.IDENTITY, spawn)})
 	for part: Dictionary in physics.bodies:
 		var body: RigidBody3D = part.body
 		body.collision_mask |= 8
@@ -75,10 +78,12 @@ func receive_hit(body: RigidBody3D, point: Vector3, direction: Vector3, magnitud
 	body.sleeping = false
 	received_hits += 1
 	var bone := str(body.get_meta("bone"))
-	var duration := clampf(magnitude / 18.0, 0.25, 1.8)
+	impact_momentum += impulse
+	var duration := clampf(impact_momentum.length() / physics.total_mass * 1.2, 0.12, 0.9)
 	if "Leg" in bone or bone == "Head":
 		duration *= 1.25
-	stagger_time = maxf(stagger_time, duration)
+	stagger_time = maxf(stagger_time, duration + 0.45)
+	support_pause = maxf(support_pause, duration)
 	if state == "active":
 		state = "stagger"
 		state_time = 0.0
@@ -98,35 +103,39 @@ func _physics_process(delta: float) -> void:
 	last_root = root.global_position
 	state_time += delta
 	stagger_time = maxf(0.0, stagger_time-delta)
+	support_pause = maxf(0.0, support_pause-delta)
+	impact_momentum = impact_momentum.move_toward(Vector3.ZERO,physics.total_mass*1.5*delta)
+	var disturbed: bool = physics.stability<0.2 and (physics.upright<0.6 or (physics.com_velocity-physics.desired_velocity).length()>0.6)
+	imbalance_time = imbalance_time+delta if disturbed else 0.0
+	if state=="active" and imbalance_time>0.12 and state_time>0.5:
+		state="stagger"
+		state_time=0.0
+		stagger_time=0.6
 	var expected: Transform3D = physics._target_body(physics.by_bone[physics.target_rig.find_bone("Hips")])
 	var relative_height: float = root.global_position.y - arena.floor_height(root.global_position)
 	var expected_height := expected.origin.y - anchor.y
-	var fallen: bool = relative_height < maxf(0.20, expected_height * 0.48)
+	var fallen: bool = relative_height < maxf(0.10 if "Crawl" in clip else 0.20, expected_height * 0.40)
 	if state in ["active", "stagger"] and fallen and state_time > 0.4:
 		state = "downed"
 		state_time = 0.0
 	if state == "stagger" and stagger_time <= 0.0:
 		state = "active"
 		state_time = 0.0
-	if state in ["stagger", "downed", "recovering"]:
-		anchor.x = root.global_position.x
-		anchor.z = root.global_position.z
 	if state == "downed" and arena.auto_recover and state_time > 2.0 and stagger_time <= 0.0:
 		state = "recovering"
 		state_time = 0.0
 	if state == "recovering" and state_time > 1.5 and relative_height > expected_height * 0.82:
 		state = "active"
 		state_time = 0.0
-	physics.passive = state == "downed"
+	physics.passive = false
 	physics.muscles = arena.muscle_strength
 	physics.balance = arena.balance_strength
-	if state == "stagger":
-		physics.muscles *= 0.3
-		physics.balance = 0.0
-	elif state == "recovering":
+	physics.assistance_scale = 0.0 if support_pause>0.0 or state=="downed" else 1.0
+	physics.recovery_support = state=="recovering"
+	physics.desired_velocity = Vector3.ZERO
+	if state == "recovering":
 		var ramp := clampf(state_time / 3.0, 0.0, 1.0)
-		physics.muscles *= lerpf(0.25, 1.0, ramp)
-		physics.balance *= lerpf(0.2, 1.0, ramp)
+		physics.assistance_scale = lerpf(0.2, 1.0, ramp)
 	physics.debug_shapes = arena.show_colliders
 	if state == "active" and arena.follow_player:
 		var destination: Vector3 = arena.steering_target(root.global_position)
@@ -136,13 +145,9 @@ func _physics_process(delta: float) -> void:
 		if offset.length() > 0.1 and player_distance > 1.2:
 			var direction := offset.normalized()
 			heading = lerp_angle(heading, atan2(direction.x,direction.z), minf(1.0,delta*2.2))
-			anchor += direction * speed * delta
-			# A blocked body cannot accumulate an arbitrarily distant spring target.
-			var lead := Vector2(anchor.x-root.global_position.x,anchor.z-root.global_position.z).limit_length(0.55)
-			anchor.x = root.global_position.x+lead.x
-			anchor.z = root.global_position.z+lead.y
-	anchor.x = clampf(anchor.x,-13.0,13.0)
-	anchor.z = clampf(anchor.z,-13.0,13.0)
+			physics.desired_velocity = direction * speed
+	anchor.x = root.global_position.x
+	anchor.z = root.global_position.z
 	anchor.y = arena.floor_height(Vector3(anchor.x,0.0,anchor.z))
 	physics.target.global_transform = Transform3D(Basis(Vector3.UP, heading), anchor)
 

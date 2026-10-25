@@ -75,8 +75,8 @@ async function aimAt(index,bone){
   await until(n=>n.selected_motion===1,'Rest pose dropdown');
   const generation=s.generation;await control('spawn');
   s=await until(n=>n.generation>generation&&n.zombies.length===2,'Respawn with UI choices');
-  const anchors=s.zombies.map(z=>z.anchor);
-  await sleep(1000);s=await state();assert.deepEqual(s.zombies.map(z=>z.anchor),anchors,'Stationary group targets');
+  const stationary=s.zombies.map(z=>z.root);
+  await sleep(1000);s=await state();s.zombies.forEach((z,i)=>assert(Math.hypot(z.root[0]-stationary[i][0],z.root[2]-stationary[i][2])<.3,'Resting group should not walk away'));
   await control('play');await until(n=>n.captured&&!n.menu,'Pointer capture');
   assert.equal(await page.evaluate(()=>document.pointerLockElement?.id),'canvas');
   const before=s.player;
@@ -98,8 +98,32 @@ async function aimAt(index,bone){
   assert(Math.hypot(s.zombies[1].root[0]-s.player[0],s.zombies[1].root[2]-s.player[2])<Math.hypot(old[0]-s.player[0],old[2]-s.player[2]));
   await control('follow');await until(n=>!n.follow,'Stationary checkbox');
   await page.screenshot({path:path.join(out,'follow-settings.png')});
+  // Heavy and buckshot profiles must also work through real keyboard input,
+  // aim and shooting, with physical movement observed from the rendered game.
+  let generation2=s.generation;await control('spawn');
+  s=await until(n=>n.generation>generation2&&n.zombies.length===2,'Fresh impact targets');
+  await control('play');await until(n=>n.captured,'Recapture for impact profiles');
+  await page.keyboard.press('2');await until(n=>n.profile===1&&n.impulse===70,'Heavy impulse profile');
+  await aimAt(0,'LeftArm');s=await state();
+  const shoulderStart=s.zombies[0].root,heavySequence=s.shots;
+  await page.mouse.down();await page.mouse.up();
+  s=await until(n=>n.shots>heavySequence&&n.last_shot.bone,'Heavy shoulder shot');
+  const heavy=s.last_shot;assert.equal(heavy.budget_ns,70);
+  s=await until(n=>n.zombies[0].root[2]<shoulderStart[2]-.2&&['downed','recovering'].includes(n.zombies[0].state),'Physical shoulder knockdown',45000);
+  assert.equal(s.zombies[0].muscles,1,'Impact retains muscle motors');
+  await page.screenshot({path:path.join(out,'heavy-shoulder-fall.png')});
+  await page.keyboard.press('Tab');await until(n=>n.menu&&!n.captured,'Menu for buckshot target');
+  generation2=s.generation;await control('spawn');await until(n=>n.generation>generation2,'Fresh buckshot target');
+  await control('play');await until(n=>n.captured,'Recapture for buckshot');
+  await page.keyboard.press('3');await until(n=>n.profile===2&&n.impulse===100,'Buckshot profile');
+  await aimAt(0,'Spine');s=await state();const buckSequence=s.shots;
+  await page.mouse.down();await page.mouse.up();
+  s=await until(n=>n.shots>buckSequence&&n.last_shot.body_hits>1,'Actual buckshot body hits');
+  const buckshot=s.last_shot;assert.equal(buckshot.pellets.length,8);assert(buckshot.delivered_ns<=100);
+  assert(buckshot.pellets.filter(p=>p.bone).every(p=>p.impulse_ns===12.5));
+  await page.screenshot({path:path.join(out,'buckshot-torso.png')});
   assert.deepEqual(errors,[],'Browser and GDScript errors');
-  const report={status:'pass',url:target,pointer_lock:true,wasd:true,mouselook:true,actual_headshot:hit,ads:true,reload:true,group_spawn_and_animation_ui:true,follow_toggle:true,console_errors:errors};
+  const report={status:'pass',url:target,pointer_lock:true,wasd:true,mouselook:true,actual_headshot:hit,heavy_shoulder_knockdown:heavy,buckshot,ads:true,reload:true,group_spawn_and_animation_ui:true,follow_toggle:true,console_errors:errors};
   fs.writeFileSync(path.join(out,'validation.json'),JSON.stringify(report,null,2)+'\n');console.log('TESTGROUND_WEB_PASS',JSON.stringify(report));
 })().catch(async e=>{
   if(page){await page.screenshot({path:path.join(out,'failure.png')}).catch(()=>{});fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({state:await state().catch(()=>null),mouse_moves:await page.evaluate(()=>window.__testMouseMoves)},null,2));}

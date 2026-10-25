@@ -41,9 +41,23 @@ var modifier_samples := 0
 var max_skin_pose_error := 0.0
 var joint_gap_peak := {}
 var ball_resets := 0
+# The review lab retains its explicit fixed support. Arena mode instead uses
+# internal joint motors and a yielding support at the body's current location.
+var free_balance := false
+var desired_velocity := Vector3.ZERO
+var assistance_scale := 1.0
+var recovery_support := false
+var center_of_mass := Vector3.ZERO
+var com_velocity := Vector3.ZERO
+var support_points: Array[Vector3] = []
+var support_distance := 0.0
+var stability := 1.0
+var upright := 1.0
+var support_grace := 0.0
 
 func configure(owner_view: Node, options: Dictionary = {}) -> void:
 	view = owner_view
+	free_balance = options.get("free_balance", false)
 	total_mass = float(view.characters[view.model_index].get("physics_mass_kg", 80.0))
 	target = (load(str(view.characters[view.model_index].scene)) as PackedScene).instantiate()
 	target.name = "AnimationReference"
@@ -315,27 +329,44 @@ func _physics_process(delta: float) -> void:
 	elapsed += delta
 	_sync_reference()
 	max_drive_torque = 0.0
+	if free_balance:
+		_measure_support(delta)
 	for entry in bodies:
 		var body := entry.body as RigidBody3D
-		if not passive and muscles > 0.0:
+		if not passive and muscles > 0.0 and (not free_balance or entry.has("parent_index")):
 			var desired := _target_body(entry).basis.get_rotation_quaternion()
 			var current := body.global_basis.get_rotation_quaternion()
+			var relative_velocity := body.angular_velocity
+			var parent_body: RigidBody3D
+			if free_balance:
+				var parent: Dictionary = by_bone[entry.parent_index]
+				parent_body = parent.body
+				# Preserve the animated child-to-parent rotation, allowing the whole
+				# body to rotate freely. Each motor has an equal opposite reaction.
+				var relative_target := _target_body(parent).basis.inverse() * _target_body(entry).basis
+				desired = (parent_body.global_basis * relative_target).get_rotation_quaternion()
+				relative_velocity -= parent_body.angular_velocity
 			var error := (desired * current.inverse()).normalized()
 			if error.w < 0:
 				error = -error
 			var angle := error.get_angle()
 			# Implicit PD gains and the actual world-space inertia avoid overdriving
 			# the light twist axis of a long capsule with its bending-axis inertia.
-			var kp := 2200.0 * muscles
-			var kd := 90.0 * sqrt(muscles)
+			var kp := (6000.0 if free_balance else 2200.0) * muscles
+			var kd := (120.0 if free_balance else 90.0) * sqrt(muscles)
 			var gain := 1.0 / (1.0 + kd * delta + kp * delta * delta)
-			var acceleration := (error.get_axis() * angle * kp - body.angular_velocity * (kd + kp * delta)) * gain
+			var acceleration := (error.get_axis() * angle * kp - relative_velocity * (kd + kp * delta)) * gain
 			var inverse_inertia := body.get_inverse_inertia_tensor()
+			if free_balance:
+				var parent_inverse := parent_body.get_inverse_inertia_tensor()
+				inverse_inertia = Basis(inverse_inertia.x+parent_inverse.x,inverse_inertia.y+parent_inverse.y,inverse_inertia.z+parent_inverse.z)
 			var torque := Vector3.ZERO
 			if absf(inverse_inertia.determinant()) > 0.000001:
 				torque = inverse_inertia.inverse() * acceleration
 			torque = torque.limit_length(body.mass * 12.0 * muscles)
 			body.apply_torque(torque)
+			if free_balance:
+				parent_body.apply_torque(-torque)
 			max_drive_torque = maxf(max_drive_torque, torque.length())
 		entry.visual.visible = debug_shapes
 		if entry.has("parent_index"):
@@ -345,7 +376,9 @@ func _physics_process(delta: float) -> void:
 				max_joint_gap = gap
 				joint_gap_peak = {"bone":entry.name, "clip":last_clip, "elapsed_s":elapsed, "passive":passive}
 	last_support_force = Vector3.ZERO
-	if not passive and balance > 0.0:
+	if free_balance:
+		_apply_free_support(delta)
+	elif not passive and balance > 0.0:
 		var hips := root_body()
 		var destination := _target_body(by_bone[target_rig.find_bone("Hips")]).origin
 		# A visible, bounded virtual pelvis support, NOT a self-balancing controller.
@@ -356,6 +389,89 @@ func _physics_process(delta: float) -> void:
 		var force := ((drag_target - ball.global_position) * 950.0 - ball.linear_velocity * 75.0).limit_length(850.0)
 		ball.apply_central_force(force)
 		ball.sleeping = false
+
+func _measure_support(delta: float) -> void:
+	center_of_mass = Vector3.ZERO
+	com_velocity = Vector3.ZERO
+	var contacts: Array[Vector3] = []
+	for entry in bodies:
+		var body: RigidBody3D = entry.body
+		center_of_mass += body.global_position * body.mass / total_mass
+		com_velocity += body.linear_velocity * body.mass / total_mass
+		# Feet for standing; hands/knees can support the crawl reference too.
+		var crawl := "Crawl" in last_clip
+		if "Foot" not in entry.name and not (crawl and ("Hand" in entry.name or "Leg" in entry.name)):
+			continue
+		var state := PhysicsServer3D.body_get_direct_state(body.get_rid())
+		if state == null: continue
+		for i in range(state.get_contact_count()):
+			var other := state.get_contact_collider_object(i)
+			var point := state.get_contact_local_position(i)
+			# Reject wall contacts and other characters as a standing platform.
+			if other is StaticBody3D and other.get_meta("walkable", false) and point.y < body.global_position.y:
+				contacts.append(point)
+		# Animation can lift a foot briefly. Allow a short leg-reach margin, but
+		# expire the support once the feet leave this ground-reach margin.
+		var half_segment := maxf(float(entry.height)*0.5-float(entry.radius),0.0)
+		var bottom := body.global_position.y-absf((body.global_basis*entry.axis).y)*half_segment-float(entry.radius)
+		var query := PhysicsRayQueryParameters3D.create(body.global_position+Vector3.UP*0.3,body.global_position-Vector3.UP*0.7,1)
+		var floor_hit := get_world_3d().direct_space_state.intersect_ray(query)
+		if not floor_hit.is_empty() and floor_hit.collider.get_meta("walkable",false) and bottom-floor_hit.position.y<0.20:
+			contacts.append(floor_hit.position)
+	if not contacts.is_empty():
+		support_points = contacts
+		support_grace = 0.16
+	else:
+		support_grace = maxf(0.0, support_grace-delta)
+		if support_grace <= 0.0: support_points.clear()
+	var hips_entry: Dictionary = by_bone[target_rig.find_bone("Hips")]
+	var rotation_error := root_body().global_basis * _target_body(hips_entry).basis.inverse()
+	upright = (rotation_error * Vector3.UP).dot(Vector3.UP)
+	# Velocity shifts the projected COM towards the place it would need a new
+	# step. This is a broad capsule footprint, not a foot-placement controller.
+	var projected := center_of_mass + Vector3(com_velocity.x-desired_velocity.x,0,com_velocity.z-desired_velocity.z)*0.30
+	projected.y = 0.0
+	support_distance = 10.0
+	for a in support_points:
+		a.y = 0.0
+		for b in support_points:
+			b.y = 0.0
+			var closest := a
+			if a.distance_squared_to(b)>0.00001:
+				closest = Geometry3D.get_closest_point_to_segment(projected,a,b)
+			support_distance = minf(support_distance,projected.distance_to(closest))
+	var footprint := 1.0-smoothstep(0.20,0.55,support_distance)
+	var tilt := smoothstep(0.35,0.85,upright)
+	stability = footprint * tilt if not support_points.is_empty() else 0.0
+
+func _apply_free_support(delta: float) -> void:
+	if passive or balance <= 0.0: return
+	var hips := root_body()
+	var entry: Dictionary = by_bone[target_rig.find_bone("Hips")]
+	var desired := _target_body(entry)
+	var gain := stability * assistance_scale * balance
+	# Recovery is deliberately an optional virtual lifting aid, never a reset.
+	if recovery_support: gain = assistance_scale * balance
+	if gain <= 0.001: return
+	var height_error := desired.origin.y-hips.global_position.y
+	last_support_force.y = clampf(total_mass*9.8+height_error*1800.0-hips.linear_velocity.y*240.0,0.0,total_mass*9.8*1.8)*gain
+	# Velocity control at the current location: no horizontal position spring,
+	# no stored spawn target, and no braking while the support has yielded.
+	var velocity_error := desired_velocity-Vector3(com_velocity.x,0,com_velocity.z)
+	var horizontal := (velocity_error * total_mass * 3.0).limit_length(total_mass*2.0)*gain
+	last_support_force += horizontal
+	hips.apply_central_force(last_support_force)
+	# Distributed virtual upright assistance. Joint motors above still act in
+	# equal opposite pairs; only this explicitly named support rights the body.
+	for bone in ["Hips","Spine","Spine2"]:
+		var part: Dictionary = by_bone[target_rig.find_bone(bone)]
+		var body: RigidBody3D = part.body
+		var error := (_target_body(part).basis.get_rotation_quaternion()*body.global_basis.get_rotation_quaternion().inverse()).normalized()
+		if error.w<0: error = -error
+		var acceleration := (error.get_axis()*error.get_angle()*2200.0-body.angular_velocity*(90.0+2200.0*delta))/(1.0+90.0*delta+2200.0*delta*delta)
+		var inverse_inertia := body.get_inverse_inertia_tensor()
+		if absf(inverse_inertia.determinant())>0.000001:
+			body.apply_torque((inverse_inertia.inverse()*acceleration).limit_length(body.mass*12.0)*gain)
 
 func begin_drag(point: Vector2, camera: Camera3D) -> bool:
 	var from := camera.project_ray_origin(point)

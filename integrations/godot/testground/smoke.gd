@@ -33,7 +33,7 @@ func _run() -> void:
 		anchors.append(zombie.anchor)
 	assert(ids.size()==2 and clips.size()==4)
 	await frames(180)
-	for i in range(4): assert(world.zombies[i].anchor.distance_to(anchors[i])<0.001,"Stationary targets moved")
+	for zombie in world.zombies: assert(zombie.physics.desired_velocity==Vector3.ZERO,"Stationary group requested locomotion")
 	world.set_menu(false)
 	await snapshot("group")
 	world.set_menu(true)
@@ -108,6 +108,7 @@ func _run() -> void:
 	assert(states.has("downed") and states.has("recovering"),"No physical knockdown/recovery observed")
 	assert(recovering.state=="active" and recovering.root_position().y>0.65,"Assisted recovery did not stand")
 	report["assisted_recovery"]={"states":states.keys(),"minimum_hips_y":minimum_height,"final_hips_y":recovering.root_position().y}
+	world.player.position=Vector3(0,0.1,-1.0)
 	world.amount.value=4
 	world.motions.select(3)
 	world.formation.select(1)
