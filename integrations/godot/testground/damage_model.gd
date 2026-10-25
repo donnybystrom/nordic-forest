@@ -13,4 +13,4 @@ static func projectile(profile: int, multiplier := 1.0) -> Dictionary:
 	return {"energy_j":energy,"deposited_j":energy*p.deposit,
 		"volume_m3":energy*p.deposit/JOULES_PER_CM3*0.000001*maxf(multiplier,0.0),"profile":profile}
 static func channel_radius(volume: float, length: float) -> float:
-	return clampf(sqrt(maxf(0.0,volume)/(PI*maxf(length,0.05))),0.009,0.11)
+	return clampf(sqrt(maxf(0.0,volume)/(PI*maxf(length,0.05))),0.009,0.60)

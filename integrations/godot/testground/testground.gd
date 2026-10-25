@@ -8,6 +8,7 @@ var latest_wound := {}
 var mesh_damage_present := false
 var damage_enabled := true
 var tissue_multiplier := 1.0
+var tissue_slider: HSlider
 var damage_check: CheckBox
 var settings_scroll: ScrollContainer
 var catalog: Dictionary
@@ -186,14 +187,15 @@ func _button(parent: Node, text: String, callback: Callable) -> Button:
 	parent.add_child(button)
 	return button
 
-func _slider(parent: Node, text: String, low: float, high: float, initial: float, callback: Callable) -> HSlider:
+func _slider(parent: Node, text: String, low: float, high: float, initial: float, callback: Callable, value_step := 0.0, exponential := false) -> HSlider:
 	_label(parent,text)
 	var row := HBoxContainer.new()
 	parent.add_child(row)
 	var slider := HSlider.new()
 	slider.min_value = low
 	slider.max_value = high
-	slider.step = 1.0 if high > 2.0 else 0.05
+	slider.step = value_step if value_step>0.0 else (1.0 if high > 2.0 else 0.05)
+	slider.exp_edit = exponential
 	slider.value = initial
 	slider.custom_minimum_size.x = 245
 	slider.focus_mode = Control.FOCUS_NONE
@@ -275,7 +277,7 @@ func _build_ui() -> void:
 	profile.item_selected.connect(select_profile)
 	box.add_child(profile)
 	impulse_slider = _slider(box,"Total skottimpuls · N s",2.0,180.0,14.0,func(n: float): shot_impulse=n)
-	_slider(box,"Vävnadsförlust · multiplikator",0.25,2.0,1.0,func(n: float): tissue_multiplier=n)
+	tissue_slider = _slider(box,"Vävnadsförlust · multiplikator",0.25,100.0,1.0,func(n: float): tissue_multiplier=n,0.25,true)
 	_slider(box,"Muskelkraft",0.0,1.5,1.0,func(n: float): muscle_strength=n)
 	_slider(box,"Höftstöd",0.0,1.0,1.0,func(n: float): balance_strength=n)
 	colliders_check = CheckBox.new()
@@ -479,7 +481,8 @@ func _publish_probe() -> void:
 			"muscles":zombie.physics.muscles,"travel":zombie.travel,"skin_error":zombie.physics.max_skin_pose_error,"parts":parts})
 	var at := player.global_position
 	var popup := motions.get_popup()
-	var state := {"living":living_count(),"corpses":zombies.size()-living_count(),"damage_jobs":damage_queue.size(),"damage_batches":damage_batches,"damage_batch_peak_ms":damage_batch_peak_ms,"damage_enabled":damage_enabled,"debris":debris.pieces.size(),"debris_peak":debris.peak,"debris_limit":Debris.LIMIT,"scroll":settings_scroll.scroll_vertical,"generation":generation,"zombies":agents,"follow":follow_player,"menu":menu.visible,
+	var tissue_rect := tissue_slider.get_global_rect()
+	var state := {"tissue_multiplier":tissue_multiplier,"tissue_max":tissue_slider.max_value,"tissue_slider_rect":[tissue_rect.position.x,tissue_rect.position.y,tissue_rect.size.x,tissue_rect.size.y],"living":living_count(),"corpses":zombies.size()-living_count(),"damage_jobs":damage_queue.size(),"damage_batches":damage_batches,"damage_batch_peak_ms":damage_batch_peak_ms,"damage_enabled":damage_enabled,"debris":debris.pieces.size(),"debris_peak":debris.peak,"debris_limit":Debris.LIMIT,"scroll":settings_scroll.scroll_vertical,"generation":generation,"zombies":agents,"follow":follow_player,"menu":menu.visible,
 		"player":[at.x,at.y,at.z],"yaw":player.rotation.y,"pitch":player.pitch,"sensitivity":player.sensitivity,
 		"player_speed":Vector2(player.velocity.x,player.velocity.z).length(),
 		"captured":Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,"fov":player.camera.fov,"shots":player.shots,"ammo":player.magazine,
@@ -487,5 +490,5 @@ func _publish_probe() -> void:
 		"motion_popup":[popup.position.x,popup.position.y,popup.size.x,popup.size.y],
 		"selected_count":amount.value,"count_focused":amount.get_line_edit().has_focus(),
 		"profile":shot_profile,"reloading":player.reload_time>0.0,"last_shot":player.last_shot,"impulse":shot_impulse,
-		"viewport":[1100,850],"controls":{"damage":_center(damage_check),"play":_center(play_button),"follow":_center(follow),"spawn":_center(respawn_button),"add":_center(add_button),"clear_corpses":_center(clear_corpses_button),"amount":_center(amount),"models":_center(models),"motions":_center(motions),"formation":_center(formation),"impulse":_center(impulse_slider),"profile":_center(profile)}}
+		"viewport":[1100,850],"controls":{"damage":_center(damage_check),"play":_center(play_button),"follow":_center(follow),"spawn":_center(respawn_button),"add":_center(add_button),"clear_corpses":_center(clear_corpses_button),"amount":_center(amount),"models":_center(models),"motions":_center(motions),"formation":_center(formation),"impulse":_center(impulse_slider),"tissue":_center(tissue_slider),"profile":_center(profile)}}
 	JavaScriptBridge.eval("window.__testgroundDemo="+JSON.stringify(state)+";",true)

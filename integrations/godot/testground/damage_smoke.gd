@@ -136,6 +136,25 @@ func run() -> void:
 		assert(fallen and z.recovery_completed>0,"Wounded torso could not get up again")
 		report.cases.append({"model":model,"test":"shotgun_chest_recovers","getups":z.recovery_completed,"damage":z.damage.report(),"shot":world.player.last_shot.duplicate(true)})
 		world.auto_recover=false
+	# The high-end tissue control must change actual damage, not just its label.
+	assert(world.tissue_slider.max_value==100.0 and world.tissue_slider.value==1.0 and world.tissue_slider.exp_edit)
+	world.tissue_slider.value=100.0
+	assert(world.tissue_multiplier==100.0)
+	for model in range(2):
+		for region: String in ["Head","LeftArm"]:
+			var z=await fresh(model)
+			var body: RigidBody3D=part(z,region).body
+			# Side shoulder rays avoid the head occluding the upper arm.
+			var offset:=Vector3.BACK if region=="Head" else Vector3.RIGHT
+			var direction: Vector3=-offset
+			var contact: Dictionary=z.damage.refine_ray(body.global_position+offset,direction,2.0)
+			assert(not contact.is_empty() and contact.collider.get_meta("bone")==region)
+			z.receive_hit(contact.collider,contact.position,direction,70.0,Model.projectile(1,world.tissue_multiplier),contact.cell)
+			z.damage.flush(true)
+			assert(z.damage.detached.has(region),"100x must remove the targeted head/shoulder in one shot")
+			assert(z.damage.removed_volume<=z.damage.budget_volume+0.0000001)
+			report.cases.append({"model":model,"test":"single_shot_100x_"+region,"damage":z.damage.report()})
+	world.tissue_slider.value=1.0
 	# Sustained ten-projectile-per-second work across the full crowd. This is
 	# a CPU workload measurement, not an FPS claim from a headless renderer.
 	world.models.select(0);world.amount.value=12;world.spawn_group()

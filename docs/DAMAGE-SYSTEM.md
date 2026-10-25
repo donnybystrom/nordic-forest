@@ -1,6 +1,6 @@
 # Skadesystemets första prototyp
 
-Slå på **Meshskador och muskelförlust** i FPS-menyn. **1** väljer pistol, **2** en .44-spelprofil, **3** åtta hagel och **4** automateld när vänster musknapp hålls in. Alla använder tills vidare samma prototypvapen och magasin med 12 skott. Reglaget **Vävnadsförlust** ändrar geometri-/muskelverkan; **Total skottimpuls** ändrar den tidigare fysiska knuffen separat. Avstängda nya skador återställer inte redan skadade kroppar; **Spawna om grupp** ersätter levande zombier men behåller döda kroppar. Använd **Rensa döda kroppar** för att ta bort lik och deras större avskilda delar.
+Slå på **Meshskador och muskelförlust** i FPS-menyn. **1** väljer pistol, **2** en .44-spelprofil, **3** åtta hagel och **4** automateld när vänster musknapp hålls in. Alla använder tills vidare samma prototypvapen och magasin med 12 skott. Reglaget **Vävnadsförlust** går från **0,25× till 100×**, med logaritmisk skala och oförändrat normalvärde 1×. Det ändrar geometri-/muskelverkan; **Total skottimpuls** ändrar den tidigare fysiska knuffen separat. Avstängda nya skador återställer inte redan skadade kroppar; **Spawna om grupp** ersätter levande zombier men behåller döda kroppar. Använd **Rensa döda kroppar** för att ta bort lik och deras större avskilda delar.
 
 ## Energi, vävnad och funktion
 
@@ -13,7 +13,7 @@ volymbudget_cm³ = E_avsatt / 2,5 × vävnadsmultiplikator
 kanalradie = sqrt(volymbudget_m³ / (pi × kanallängd))
 ```
 
-Massor, hastigheter, avsättningsandelar och särskilt **2,5 J/cm³ är författade spelparametrar**, inte en kalibrerad sårballistisk funktion. Kanallängden uppskattas från nästa intakta meshskärning, med en reservlängd när ingen utgång hittas. Cellens borttagna volym uppskattas som ursprunglig ytarea × 24 mm skaltjocklek. Hela celler väljs inom budgeten; upplösningen kan därför ge mindre vävnadsförlust än budgeten. HUD:s cm³ är denna modelluppskattning.
+Massor, hastigheter, avsättningsandelar och särskilt **2,5 J/cm³ är författade spelparametrar**, inte en kalibrerad sårballistisk funktion. Kanallängden uppskattas från nästa intakta meshskärning, med en reservlängd när ingen utgång hittas. Sårkanalens radie begränsas till 9–600 mm, så att höga multiplikatorer faktiskt kan ta bort en hel axel eller ett huvud med ett skott. Cellens borttagna volym uppskattas som ursprunglig ytarea × 24 mm skaltjocklek. Hela celler väljs inom budgeten; upplösningen kan därför ge mindre vävnadsförlust än budgeten. HUD:s cm³ är denna modelluppskattning.
 
 | Spelprofil | Energi per projektil | Avsatt andel | Förstärkt totalimpuls |
 | --- | ---: | ---: | ---: |
