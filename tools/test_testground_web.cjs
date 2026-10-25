@@ -33,7 +33,7 @@ async function serve(){
 }
 let mouse={x:640,y:500};
 async function aimAt(index,bone){
-  for(let attempt=0;attempt<4;attempt++){
+  for(let attempt=0;attempt<8;attempt++){
     const s=await state(),target=s.zombies[index].parts[bone].position;
     const dx=target[0]-s.player[0],dy=target[1]-(s.player[1]+1.65),dz=target[2]-s.player[2];
     const yaw=Math.atan2(-dx,-dz),pitch=Math.atan2(dy,Math.hypot(dx,dz));
@@ -41,10 +41,11 @@ async function aimAt(index,bone){
     if(Math.abs(yawError)<.004&&Math.abs(pitch-s.pitch)<.004)return;
     mouse.x-=yawError/s.sensitivity;mouse.y-=(pitch-s.pitch)/s.sensitivity;
     await page.mouse.move(mouse.x,mouse.y,{steps:8});
-    await until(n=>Math.abs(n.yaw-s.yaw)+Math.abs(n.pitch-s.pitch)>.0001,'FPS receives mouse movement');
-    await sleep(300);
+    await until(n=>Math.abs(Math.atan2(Math.sin(n.yaw-yaw),Math.cos(n.yaw-yaw)))<.005&&Math.abs(n.pitch-pitch)<.005,'FPS applies the complete mouse movement');
   }
-  const s=await state();throw Error('FPS mouselook did not converge: '+JSON.stringify({yaw:s.yaw,pitch:s.pitch}));
+  const s=await state(),p=s.zombies[index].parts[bone].screen;
+  if(Math.hypot(p[0]-550,p[1]-425)<3)return;
+  throw Error('FPS mouselook did not converge: '+JSON.stringify({yaw:s.yaw,pitch:s.pitch,point:p}));
 }
 (async()=>{
   const target=option('--url')||await serve(),url=new URL(target);url.searchParams.set('mode','arena');url.searchParams.set('test','1');
@@ -79,8 +80,8 @@ async function aimAt(index,bone){
   await control('play');await until(n=>n.captured&&!n.menu,'Pointer capture');
   assert.equal(await page.evaluate(()=>document.pointerLockElement?.id),'canvas');
   const before=s.player;
-  await page.keyboard.down('d');await sleep(1200);await page.keyboard.up('d');
-  s=await until(n=>n.player[0]>before[0]+.1,'WASD strafe');
+  await page.keyboard.down('d');await until(n=>n.player[0]>before[0]+.25,'WASD strafe');await page.keyboard.up('d');
+  s=await until(n=>n.player_speed<.05,'Player stops after key release');
   await aimAt(0,'Head');
   const shots=s.shots;
   await page.mouse.down();await page.mouse.up();

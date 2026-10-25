@@ -350,6 +350,7 @@ func _publish_probe() -> void:
 	var popup := motions.get_popup()
 	var state := {"generation":generation,"zombies":agents,"follow":follow_player,"menu":menu.visible,
 		"player":[at.x,at.y,at.z],"yaw":player.rotation.y,"pitch":player.pitch,"sensitivity":player.sensitivity,
+		"player_speed":Vector2(player.velocity.x,player.velocity.z).length(),
 		"captured":Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,"fov":player.camera.fov,"shots":player.shots,"ammo":player.magazine,
 		"selected_motion":motions.selected,"motions_open":motions.get_popup().visible,
 		"motion_popup":[popup.position.x,popup.position.y,popup.size.x,popup.size.y],
