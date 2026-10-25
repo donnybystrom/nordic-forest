@@ -74,6 +74,40 @@ The browser test uses actual canvas clicks, mouse dragging and keyboard events. 
 
 See [Godot web export](https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html) and [GitHub Pages publishing sources](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
+## FPS-testground
+
+Öppna [FPS-testbanan](https://donnybystrom.github.io/nordic-forest/?mode=arena), eller växla med länken i sidhuvudet. Det tidigare fysiklabbet finns kvar på samma webbplats. Lokalt startas banan med `tools/open_testground.command`; det bygger ett tillfälligt projekt från de granskade, spårade GLB-filerna och kräver inga genereringsjobb eller Blender.
+
+| Kontroll | Funktion |
+| --- | --- |
+| Spela / klicka i banan | Fångar musen för FPS-vyn |
+| WASD / Shift / Space | Gå, spring, hoppa; spelaren kolliderar med banan och zombierna |
+| Mus / höger musknapp | Se dig omkring / sikta närmare |
+| Vänster musknapp | Avfyra ett halvautomatiskt skott |
+| R | Ladda om ett magasin med 12 skott; reservammunitionen är obegränsad |
+| Tab / Esc | Visa inställningar / släpp musen |
+| F2 | Visa de förenklade träff- och kollisionskropparna |
+
+Menyn väljer 1–12 zombier, en eller båda modellerna, rörelse och spridd eller trängre formation. **Spawna om grupp** tillämpar de valen; **Lägg till en** använder samma modell-/rörelseval utan att byta ut de andra. Rörelserna är vilopose, ostadig gång, gång, löpning och krypning. Blandat ger olika klipp och tidsfaser. **Följ spelaren** ändrar beteendet direkt; avstängt håller målpunkterna stilla medan animation och fysik fortsätter.
+
+Varje zombie har 17 fysiska kroppar och 16 leder, med kollisioner mellan olika zombier. Ingen kollisionsutsläckning görs mellan gruppmedlemmar. Ragdoll-kropparnas föräldranod hålls stilla. Följandet förflyttar och vrider en dold animationsreferens; begränsade krafter och vridmoment driver de synliga kropparna dit. Målpunkten får ligga högst 0,55 m framför den faktiska kroppen för att begränsa drivningen när någon blockeras. En enkel vägpunkt leder mot öppningen mellan väggarna. Det är ingen generell navigationslösning runt godtyckliga hinder, och fötterna kan glida.
+
+Pistolen är en procedurbyggd prototyp med synliga armar, siktning, vapengung, rekyl, mantelrörelse, mynningsljus, ljud, träffmarkör och tidsstyrd omladdning. Den använder två raycasts: kameran bestämmer siktpunkten, sedan kontrolleras vägen från pipan så att närliggande skydd kan stoppa skottet. Skottet stannar vid första träffen. Ingen ballistisk bana eller penetration simuleras.
+
+En kroppsträff ger `RigidBody3D.apply_impulse` på den träffade benkroppen, med förskjutningen från kroppens origo till träffpunkten i världskoordinater. Därmed skapas både linjär rörelse och ett vridmoment beroende på hävarmen. HUD visar zombie, kroppsdel och impuls. **Skottimpuls** anges i N s: 8 g vid 350 m/s har rörelsemängden 2,8 N s. Standardvärdet 14 N s och reglagets större värden är förstärkta provimpulser för att synliggöra responsen, inte en kalibrerad pistolkula eller skademodell.
+
+Träffen ger också en kortvarig försvagning av posmotorerna och släpper höftstödet; huvud och ben får längre störning. En kropp som faller övergår till passiv ragdoll. Om **Försök resa sig med höftstöd** är på återkommer motorer och stöd gradvis efter en stund. Återhämtningen flyttar inte kropparnas transform och återställer inte deras hastigheter. Det är ett assisterat försök att nå referensposen, utan särskild uppresningsanimation, fot-IK eller självbärande balans. Om hjälpen är otillräcklig kan zombien bli liggande. Aktiv klättring över andra, realistiskt fotarbete, sår, hälsa och spelarskada ingår inte i denna första bana.
+
+`integrations/godot/testground/` innehåller arena, FPS-spelare, zombieagent och fysikprov. Den delade ragdoll-kontrollern används även av det tidigare labbet. `smoke.gd` provar olika modeller och rörelser, stillastående mål, fysisk förföljning, träff i huvud/underarm med vridning, skymmande vägg, skottspärr/omladdning, nedslag/assisterad återhämtning och kollisioner mellan gruppmedlemmar. `tools/test_testground_web.cjs` använder riktiga webbläsarhändelser för gruppval, musfångst, WASD, siktning, skott, omladdning och följande. Båda proven körs före Pages-publicering. De godkänner funktion och begränsad fysikstabilitet, inte anatomisk realism eller en generell FPS-prestandanivå.
+
+```sh
+python3 tools/build_character_web.py
+godot --headless --path build/character-web/project --fixed-fps 120 --script res://testground/smoke.gd --log-file /tmp/testground-physics.log
+node tools/test_testground_web.cjs --channel chrome
+```
+
+Resultatet från motorn sparas i `build/character-web/testground-validation.json`, webbläsarens rapport och bilder i `build/character-web/verification/testground/`. CI bevarar dem i verifieringsartefakten. `--url https://donnybystrom.github.io/nordic-forest/` testar den publicerade FPS-banan. `?test` aktiverar enbart läsbara diagnostiksnapshots i webbläsaren; vanliga spelare får inte den löpande diagnostiken.
+
 ## Rörelseöverföring
 
 `tools/retarget_character_motions.py` körs i isolerad Blender och bakar kvinnans rörelser till mannens rigg. De delar 22 kroppsben. Kvinnans T-pose och mannens A-pose förenas genom riktningsanpassade referensramar, därefter överförs rotationerna i modellrymden tillbaka till målriggens lokala benrymder. Målets egna benlängder behålls; höftens förflyttning skalas med höjdrelationen 0,94. Klippens ursprungliga namn och tider behålls, med 30 bakade prover per sekund.

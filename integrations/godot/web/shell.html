@@ -31,6 +31,7 @@
   <header>
     <h1>Nordic Forest <span aria-hidden="true">·</span> Fysiklabb</h1>
     <span class="badge">Utvecklingsversion</span><span class="spacer"></span>
+    <a href="?mode=arena" id="mode-link">FPS-testbana</a>
     <a href="https://github.com/donnybystrom/nordic-forest" target="_blank" rel="noopener">Följ utvecklingen</a>
     <button id="fullscreen" type="button">Helskärm</button>
   </header>
@@ -50,7 +51,7 @@
     </div>
   </main>
   <footer>
-    <p>Dra bollen · Q/E: modell · ←/→: animation · mellanslag: pausa animation · R: återställ · B: hämta boll.<br>Balanshjälpen är ett virtuellt höftstöd. Egen balans, fotplacering och anatomiska ledgränser utvecklas vidare.</p>
+    <p id="instructions">Dra bollen · Q/E: modell · ←/→: animation · mellanslag: pausa animation · R: återställ · B: hämta boll.<br>Balanshjälpen är ett virtuellt höftstöd. Egen balans, fotplacering och anatomiska ledgränser utvecklas vidare.</p>
     <span class="spacer"></span><span id="revision"></span>
   </footer>
   <noscript>Aktivera JavaScript för att köra fysiklabbet.</noscript>
@@ -64,6 +65,18 @@
     const message = document.getElementById('message');
     const loading = document.getElementById('loading');
     const engine = new Engine(config);
+    const arena = new URLSearchParams(location.search).get('mode')==='arena';
+    if(arena){
+      document.title='Nordic Forest · FPS-testbana';
+      document.querySelector('header h1').textContent='Nordic Forest · FPS-testbana';
+      document.querySelector('.intro h2').textContent='En pistol. En grupp zombier.';
+      start.textContent='Starta FPS-testbanan';
+      document.querySelector('.intro p').textContent='Spawna olika zombier, låt dem följa dig och prova träffar på olika kroppsdelar. Kropparna kolliderar med varandra och reagerar på träffpunkt och impuls.';
+      document.getElementById('mode-link').textContent='Fysiklabb';
+      document.getElementById('mode-link').href='?mode=lab';
+      document.getElementById('instructions').textContent='Klicka i banan: fånga mus · WASD: gå · Shift: spring · högerklick: sikta · R: ladda om · Tab: inställningar · Esc: släpp mus. Återhämtning använder virtuellt höftstöd. Självbärande balans och aktiv klättring utvecklas vidare.';
+      canvas.setAttribute('aria-label','FPS-testbana med zombier och fysikbaserade träffreaktioner');
+    }
     function fitCanvas(){
       const area = stage.getBoundingClientRect();
       const scale = Math.min(area.width / 1100, area.height / 850);
@@ -88,7 +101,7 @@
       if(missing.length){message.textContent=`Webbläsaren saknar: ${missing.join(', ')}. Prova en aktuell Chrome, Edge eller Firefox.`;return;}
       start.disabled=true;progress.hidden=false;message.textContent='Laddar motorn och karaktärerna…';
       try{
-        await engine.startGame({canvas,canvasResizePolicy:0,focusCanvas:true,args:['--','--physics'],
+        await engine.startGame({canvas,canvasResizePolicy:0,focusCanvas:true,args:['--',arena?'--testground':'--physics'],
           onProgress:(current,total)=>{if(total>0){progress.value=current/total*100;message.textContent=`Laddar… ${Math.round(current/total*100)} %`; }},
           onPrint:(...args)=>console.log(...args),onPrintError:(...args)=>console.error(...args),
           onExit:()=>{loading.hidden=false;message.textContent='Demot har avslutats. Ladda om sidan för att starta igen.';}

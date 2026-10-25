@@ -9,12 +9,14 @@ on:
       - 'tools/build_character_web.py'
       - 'tools/install_godot_web_ci.sh'
       - 'tools/test_character_web.cjs'
+      - 'tools/test_testground_web.cjs'
       - '.github/workflows/character-pages.yml'
   pull_request:
     paths:
       - 'integrations/godot/**'
       - 'output/zombie-beach/rodin-tpose-v1/godot-review/**'
       - 'tools/*character*web*'
+      - 'tools/test_testground_web.cjs'
       - 'tools/install_godot_web_ci.sh'
       - '.github/workflows/character-pages.yml'
   workflow_dispatch:
@@ -45,6 +47,19 @@ jobs:
         run: bash tools/install_godot_web_ci.sh
       - name: Build only the reviewed character demo
         run: python tools/build_character_web.py --godot "$PWD/build/godot-ci/godot"
+      - name: Test crowd physics and body-location impulses
+        run: |
+          mkdir -p build/character-web/verification
+          build/godot-ci/godot --headless --path build/character-web/project --fixed-fps 120 --script res://testground/smoke.gd --log-file "$PWD/build/character-web/verification/testground-physics.log" > build/character-web/verification/testground-console.log 2>&1
+          python - <<'PY'
+          from pathlib import Path
+          import json, shutil
+          log = Path('build/character-web/verification/testground-console.log').read_text()
+          assert 'TESTGROUND_PHYSICS_PASS ' in log and 'SCRIPT ERROR:' not in log and 'ERROR:' not in log, log
+          report = Path('build/character-web/testground-validation.json')
+          assert json.loads(report.read_text())['status'] == 'pass'
+          shutil.copyfile(report, 'build/character-web/verification/testground-physics.json')
+          PY
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -56,6 +71,10 @@ jobs:
         env:
           NODE_PATH: ${{ github.workspace }}/build/browser-test/node_modules
         run: node tools/test_character_web.cjs
+      - name: Test FPS mouse capture, shooting and crowd controls
+        env:
+          NODE_PATH: ${{ github.workspace }}/build/browser-test/node_modules
+        run: node tools/test_testground_web.cjs
       - name: Preserve browser evidence
         if: always()
         uses: actions/upload-artifact@v4

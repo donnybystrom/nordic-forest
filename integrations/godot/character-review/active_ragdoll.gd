@@ -42,13 +42,14 @@ var max_skin_pose_error := 0.0
 var joint_gap_peak := {}
 var ball_resets := 0
 
-func configure(owner_view: Node) -> void:
+func configure(owner_view: Node, options: Dictionary = {}) -> void:
 	view = owner_view
 	total_mass = float(view.characters[view.model_index].get("physics_mass_kg", 80.0))
 	target = (load(str(view.characters[view.model_index].scene)) as PackedScene).instantiate()
 	target.name = "AnimationReference"
 	target.visible = false
 	add_child(target)
+	target.global_transform = options.get("reference_transform", Transform3D.IDENTITY)
 	target_rig = target.find_children("*", "Skeleton3D", true, false)[0]
 	target_player = target.find_children("*", "AnimationPlayer", true, false)[0]
 	target_player.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
@@ -56,7 +57,8 @@ func configure(owner_view: Node) -> void:
 	_build_bodies()
 	_build_joints()
 	_exclude_joint_neighbors()
-	_build_ball()
+	if options.get("push_ball", true):
+		_build_ball()
 	modifier = PoseModifier.new()
 	modifier.controller = self
 	view.skeleton.add_child(modifier)
@@ -264,6 +266,8 @@ func reset_pose() -> void:
 	reset_ball()
 
 func reset_ball() -> void:
+	if not is_instance_valid(ball):
+		return
 	ball_resets += 1
 	end_drag()
 	ball.global_position = root_body().global_position - view.camera.global_basis.x * 0.85 + view.camera.global_basis.z * 0.05 + Vector3.DOWN * 0.3

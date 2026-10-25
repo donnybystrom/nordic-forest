@@ -6,6 +6,8 @@ Start with [the project brief](docs/PROJECT.md), [the milestone roadmap](docs/RO
 
 Try the [character physics lab](https://donnybystrom.github.io/nordic-forest/): two zombies, shared animation controls and a draggable physics ball. The [web build instructions](docs/CHARACTER-REVIEW.md#github-pages) describe deployment and local testing. The prototype uses virtual pelvis support; autonomous balance and recovery stepping remain future work.
 
+The [FPS testground](https://donnybystrom.github.io/nordic-forest/?mode=arena) adds a first-person pistol, configurable groups, following and body-part impacts. [Controls and physics boundaries](docs/CHARACTER-REVIEW.md#fps-testground) describe the assisted knockdown/recovery prototype.
+
 ## What is here
 
 - [Agent orchestration](docs/AGENT-WORKFLOW.md): project separation, role mandates, platform configuration and the local Python planning harness.
@@ -20,7 +22,7 @@ Try the [character physics lab](https://donnybystrom.github.io/nordic-forest/): 
 - [Langflow integration](docs/LANGFLOW.md): the installed planning, role and PR flows and local job service.
 - [Source register](docs/SOURCES.md): official technical documentation and starting points for ecology and regional folklore.
 
-This is a planning and pipeline foundation. There is no main-game scene, biome generator, paint editor or accepted production art yet. The separate [beach zombie experiment](output/zombie-beach/rodin-tpose-v1/README.md) now uses the new Rodin T-pose source with a fitted 52-bone rig, 13 transferred clips and a working Godot animation reviewer. Blender/GLB roundtrip, Godot import and review controls have focused checks; contact cleanup, physics and procedural gameplay remain pending. The Langflow bridge and local job dashboard are installed; broader shared memory and agent publication remain future work. Local role prompts and platform configuration are separate artifacts; consult the agent workflow for the verification boundary.
+This is a planning and pipeline foundation. There is no main-game scene, biome generator, paint editor or accepted production art yet. The separate [beach zombie experiment](output/zombie-beach/rodin-tpose-v1/README.md) uses the Rodin T-pose source with a fitted 52-bone rig, 13 transferred clips, an animation reviewer and a physics/FPS testground. Blender/GLB roundtrip, Godot import, review controls and prototype contacts have focused checks; contact cleanup, anatomical limits, self-supported balance and production gameplay remain pending. The Langflow bridge and local job dashboard are installed; broader shared memory and agent publication remain future work. Local role prompts and platform configuration are separate artifacts; consult the agent workflow for the verification boundary.
 
 The OpenAI projects are separated: Nordic Forest contains the forest role catalog, and `proj_sBhh0dtFlUyaAAAKqMBy0jII` contains verified copies of all 16 original definitions. [The migration map](config/project-migration.json) preserves every old/new agent ID and configuration hash. The user confirmed the project display name is now **Nordic Forest**, without a hyphen.
 

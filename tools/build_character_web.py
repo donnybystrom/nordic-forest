@@ -16,20 +16,20 @@ ROOT = Path(__file__).resolve().parents[1]
 RUNTIME = ROOT / "output/zombie-beach/rodin-tpose-v1/godot-review"
 AUTHORED = ROOT / "integrations/godot/character-review"
 DEFAULT_BUILD = ROOT / "build/character-web"
-RUNTIME_FILES = ("review.gd", "active_ragdoll.gd", "physical_pose.gd", "web_status.gd", "review.tscn", "project.godot")
+RUNTIME_FILES = ("review.gd", "active_ragdoll.gd", "physical_pose.gd", "web_status.gd", "review.tscn", "project.godot", "entry.gd", "entry.tscn")
 
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def prepare(destination):
+def prepare(destination, clean_site=True):
     project, site = destination / "project", destination / "site"
     project.mkdir(parents=True, exist_ok=True)
     # A failed export must not leave old payloads in a new deployment.
-    if site.exists():
+    if clean_site and site.exists():
         shutil.rmtree(site)
-    site.mkdir(parents=True)
+    site.mkdir(parents=True, exist_ok=True)
     catalog = json.loads((RUNTIME / "characters.json").read_text())
     assert catalog["schema_version"] == 1 and catalog["characters"]
     verified = []
@@ -62,6 +62,11 @@ def prepare(destination):
     (project / "characters.json").write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n")
     for name in RUNTIME_FILES:
         shutil.copyfile(AUTHORED / name, project / name)
+    arena = project / "testground"
+    arena.mkdir(exist_ok=True)
+    for source in (ROOT / "integrations/godot/testground").iterdir():
+        if source.suffix in {".gd", ".tscn"}:
+            shutil.copyfile(source, arena / source.name)
     shutil.copyfile(ROOT / "integrations/godot/web/shell.html", project / "web-shell.html")
     shutil.copyfile(ROOT / "integrations/godot/web/export_presets.cfg", project / "export_presets.cfg")
     return project, site, verified
@@ -80,7 +85,7 @@ def run(engine, project, arguments, log):
 def build(destination, engine, prepare_only=False):
     destination = destination.resolve()
     assert destination != ROOT and ROOT not in destination.parents or destination.is_relative_to(ROOT / "build"), "Use a build output directory"
-    project, site, assets = prepare(destination)
+    project, site, assets = prepare(destination, clean_site=not prepare_only)
     if prepare_only:
         return {"project":str(project), "site":str(site), "assets":assets}
     version = subprocess.check_output([engine, "--version"], text=True).strip()

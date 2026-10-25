@@ -2,7 +2,7 @@ config_version=5
 
 [application]
 config/name="Nordic Forest · Karaktärer och animationer"
-run/main_scene="res://review.tscn"
+run/main_scene="res://entry.tscn"
 config/features=PackedStringArray("4.7")
 
 [display]
