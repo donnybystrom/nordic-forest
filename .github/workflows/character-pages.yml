@@ -96,6 +96,18 @@ jobs:
           assert json.loads(report.read_text())['status'] == 'pass'
           shutil.copyfile(report, 'build/character-web/verification/damage-physics.json')
           PY
+      - name: Test permanent death, passive corpses, postmortem damage and traversal
+        run: |
+          build/godot-ci/godot --headless --path build/character-web/project --fixed-fps 120 --script res://testground/mortality_smoke.gd --log-file "$PWD/build/character-web/verification/mortality-physics.log" > build/character-web/verification/mortality-console.log 2>&1
+          python - <<'PYTEST'
+          from pathlib import Path
+          import json, shutil
+          log = Path('build/character-web/verification/mortality-console.log').read_text()
+          assert 'TESTGROUND_MORTALITY_PASS ' in log and 'SCRIPT ERROR:' not in log and 'ERROR:' not in log, log
+          report = Path('build/character-web/mortality-validation.json')
+          assert json.loads(report.read_text())['status'] == 'pass'
+          shutil.copyfile(report, 'build/character-web/verification/mortality-physics.json')
+          PYTEST
       - uses: actions/setup-node@v4
         with:
           node-version: '22'

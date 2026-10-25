@@ -1,6 +1,6 @@
 # Skadesystemets första prototyp
 
-Slå på **Meshskador och muskelförlust** i FPS-menyn. **1** väljer pistol, **2** en .44-spelprofil, **3** åtta hagel och **4** automateld när vänster musknapp hålls in. Alla använder tills vidare samma prototypvapen och magasin med 12 skott. Reglaget **Vävnadsförlust** ändrar geometri-/muskelverkan; **Total skottimpuls** ändrar den tidigare fysiska knuffen separat. Avstängda nya skador återställer inte redan skadade kroppar; **Spawna om grupp** gör det.
+Slå på **Meshskador och muskelförlust** i FPS-menyn. **1** väljer pistol, **2** en .44-spelprofil, **3** åtta hagel och **4** automateld när vänster musknapp hålls in. Alla använder tills vidare samma prototypvapen och magasin med 12 skott. Reglaget **Vävnadsförlust** ändrar geometri-/muskelverkan; **Total skottimpuls** ändrar den tidigare fysiska knuffen separat. Avstängda nya skador återställer inte redan skadade kroppar; **Spawna om grupp** ersätter levande zombier men behåller döda kroppar. Använd **Rensa döda kroppar** för att ta bort lik och deras större avskilda delar.
 
 ## Energi, vävnad och funktion
 
@@ -26,7 +26,34 @@ Den tidigare punktimpulsen tillämpas en gång vid träffen. Skadearbetet vänta
 
 Muskelhälsa och avskiljning är separata: `max(0, 1 − 4 × regional volymförlust)` ger en period med obrukbar men fortsatt fäst lem. Vid 48 % regional förlust frigörs lemmen vid sin befintliga led, inklusive underliggande delar. Det är en grov regional integritetsregel, **inte en löst geometrisk ben-/senbrottsyta**. Avskilda delar använder de befintliga fysikkropparna och nedströmslederna. Inkommande led, motorer och stöd tas bort; masscentrum räknas om och kvarvarande hudvikter kopplas bort från den avskilda grenen.
 
-Huvudet har dessutom en enkel ellipsoid som hjärnproxy med en ackumulerad speltröskel på 400 avsatta joule längs kanaler som korsar den. En kraftig central huvudträff eller avskilt huvud stoppar alla motorer, stöd, animation och återhämtning. Bröstskador har ingen generell HP-dödsregel. Ett skadat men fungerande bröst kan fortfarande resa sig; skadade/avskilda ben växlar referensen till krypning. Fotarbete och skadespecifika uppresningar behöver fortsatt utveckling.
+## Förflyttningsförmåga och permanent död
+
+Dödsregeln mäter återstående **potential**, inte aktuell hastighet. Stillastående, väggar, fall och tillfälliga UI-reglage för muskelkraft/höftstöd kan därför inte döda en frisk zombie. Muskelhälsan begränsar samma relativa motorstyrka som styr lederna; svagaste fysiska föräldralänken begränsar en kedja. Skadans funktion räknas om när hälsa, nervstyrka eller avskiljning ändras.
+
+```
+styrka_i_länk = min(länkens och föräldrarnas muskelhälsa) × nervstyrka
+benkapacitet = 0,7 × underben + 0,3 × fot
+armkapacitet = 0,7 × underarm + 0,3 × hand
+gång = (vänster benkapacitet + höger benkapacitet) / 2
+krypning = 0,35 × (vänster armkapacitet + höger armkapacitet)
+förflyttningspotential = max(gång, krypning)
+```
+
+En fungerande arm kan alltså fortfarande dra kroppen; förstörda händer/fötter nollar inte hela underarmen/underbenet. Under **8 %** potential i **0,35 s** blir tillståndet permanent dött; exakt noll bekräftas direkt. Benbortfall väljer krypreferensen om armarna har tillräcklig kapacitet. Vikterna och tröskeln är justerbara spelparametrar, inte uppmätt biomekanik eller en löst kraft-/friktionsmodell för varje pose. Krälandet och förmågan att dra kroppen med en enda lem behöver fortsatt rörelsetuning.
+
+Huvudet har en enkel ellipsoid som hjärnproxy. Kanaler som korsar den ackumulerar avsatt energi och använder `nervstyrka = max(0, 1 − hjärnenergi / 400 J)`. Detta ger nu gradvis global styrkeförlust via samma kapacitetsregel. Ett avskilt huvud nollar nervstyrkan. `set_neural_strength(remaining)` är anslutningspunkten för en senare beräkning från verklig förstörd hjärnvolym; nuvarande energiandel ska inte tolkas som sådan vävnadsprocent. En .44-träff centralt i hjärnproxyn nollar styrkan direkt. Bröstskador har ingen generell HP-dödsregel; benens kvarvarande drivförmåga kan hålla zombien vid liv.
+
+Vid död stängs AI, motorer, balans, referensanimation och uppresningslogik av permanent. Den dolda modell-/animationsreferensen, synliga AnimationPlayer och instansens uppresningsdata frigörs. En liten ägarnod med mesh, skadehistorik, hudbindningar och fysikdelar behålls så att liket fortfarande kan renderas, träffas och fragmenteras. Dödstillståndet är separat låst; reglage, nya klipp och uppresningsinställningar återupplivar aldrig det.
+
+De 17 dynamiska kropparna behåller återstående leder och vinkelgränser. Kontaktövervakning för död AI stängs av. Jolt får söva kroppen; dessutom får hela liket somna efter 1,25 s med alla delar under 0,1 m/s och 0,5 rad/s för att undvika långvarigt ledjitter. Sovande lik behåller permanenta benposer utan löpande poseuppdatering. Skott och fysiska kollisioner väcker passiv fysik och visuell benuppdatering, aldrig levande styrning. Vakna lik och stora likhögar kostar fortfarande fysik; lik är inte gratis eller statiska dekorationer.
+
+Låga kroppar kan fungera som stöd under levande zombier. Golvreferensen tar hänsyn till uppåtvända, långsamt rörliga likytor upp till 0,6 m över banan, medan faktiska fotkontakter/den befintliga räckviddsmarginalen fortfarande begränsar stödet. Levande kroppar är fortsatt hinder. Detta är provat över en liggande kropp med båda modellerna; generell klättring, stora högar och korrekt fotplacering återstår.
+
+## Skott mot lik och fördelning över bildrutor
+
+Punktimpulsen kommer direkt även på ett lik. Träffpunkt och sårkanal sparas i den träffade kroppsdelens lokala koordinater vid skottögonblicket, så att rörelse under väntan inte ändrar vilken del som träffades. Övrigt skadearbete läggs i samma händelsekö som levande använder, efter två fysiksteg. En rättvis gemensam kö behandlar högst **en agentomgång och åtta projektiler per renderad bildruta**; en hagelsvärm delar därmed geometriuppdatering, och en större kö sprids över flera bildrutor. Ett lik kör ingen egen skadepollning varje fysiksteg. Inga AI-/balansberäkningar behöver återstartas för att förfina strålen, ta bort vävnad eller skjuta av en lem.
+
+En enskild mesh-/sårkantsuppdatering eller lemutbakning är fortfarande atomär och kan ta flera millisekunder. Taket begränsar mängden arbete per bildruta, **inte ett garanterat millisekundtak**. Vid överlast ökar skadeköns fördröjning. Senare steg kan dela även geometriutbakningen i mindre jobb. Lik och större lemmar gallras inte automatiskt: 12-gränsen gäller levande, och minne/fysik växer med antalet kvarlämnade kroppar tills användaren rensar dem.
 
 ## Geometrin och kostnadstaken
 
@@ -34,17 +61,20 @@ Huvudet har dessutom en enkel ellipsoid som hjärnproxy med en ackumulerad spelt
 
 Friska instanser delar den ursprungliga GLB:n. Vid skada får instansen ett eget yttre indexbuffer. Borttagna cellers trianglar kollapsas till noll area genom små indexuppdateringar. En kompakt, skinnad inneryta och sårkant byggs enbart kring såren. Det ger faktisk ändring av rendergeometrin, utan en alfamask. Strålar förfinas mot de aktuellt deformerade, intakta trianglarna och kan passera genom befintliga hål. En ny kula stannar vid första intakta ytan; återstående projektilenergi genom flera kroppar simuleras ännu inte.
 
-De största lossnade cellerna bakas till texturerade, slutna skalfragment i den verkliga fysikposen. Högst **4 fragment per skadeomgång och 32 totalt** får egna kroppar; mindre överflödiga celler försvinner utan separata fysikfragment. Fragment lever sju sekunder och kolliderar med banan. Småfragment kastar inga skuggor. Deras kollisionsform är en liten sfär; karaktären använder fortsatt förenklade kapslar. Avskilda större lemmar behåller sina ledade kroppar och lever till nästa respawn. Flera hagel som når samma agent i samma fysiksteg delar en geometriuppdatering.
+De största lossnade cellerna bakas till texturerade, slutna skalfragment i den verkliga fysikposen. Högst **4 fragment per skadeomgång och 32 totalt** får egna kroppar; mindre överflödiga celler försvinner utan separata fysikfragment. Fragment lever sju sekunder och kolliderar med banan. Småfragment kastar inga skuggor. Deras kollisionsform är en liten sfär; karaktären använder fortsatt förenklade kapslar. Avskilda större lemmar behåller sina ledade kroppar och ligger kvar med liket tills **Rensa döda kroppar** används. Flera hagel som når samma agent i samma fysiksteg delar en geometriuppdatering.
 
 Godot 4.7:s [RenderingServer-indexuppdatering](https://docs.godotengine.org/en/stable/classes/class_renderingserver.html#class-renderingserver-method-mesh-surface-update-index-region) används för den yttre ytan. Hudvikter, cellgrannar och viktindex bakas i förväg. Ingen boolesk helmeshoperation, Delaunay-beräkning eller GPU-läsning behövs per kula. GLB-filer, animationer och originaltexturer ändras inte. De komprimerade `.dbin`-filerna genereras under ignorerade `build/` och följer med exporten, utan nya stora Git-filer.
 
 ## Verifiering och kvarstående gräns
+
+`mortality_smoke.gd` provar båda modellerna för fungerande krypväg, global nervpåverkan, permanent död, frigjorda animationsnoder, noll levande controllersteg efter död, sömn/väckning, skott som lossar en redan död underarm/hand, 24 projektiler i tre bildruteomgångar, gång över sovande lik samt 12 lik + 12 nya levande och uttrycklig rensning. `mortality-validation.json` redovisar fallen.
 
 `damage_smoke.gd` provar båda modellerna: energibudget, verkliga indexändringar med riktig renderare, hålstrålar, kort stråle till hud framför träffkapseln, huvudkollaps, samlade hagel, avslitna armar/underarmar/händer/lår/underben/fötter/huvuden, muskelbortfall med kvarvarande led, energistyrd avskiljning, skadad bröstkorg som reser sig efter en faktisk hagelavfyrning, 12 zombier under 72 begärda avfyrningar samt städning. Rapporten skiljer begärda avfyrningar från faktiska kroppsträffar. Godots headless-renderare verifierar inte GPU-indexändringen; den kontrollen körs bara med riktig rendering.
 
 ```sh
 python3 tools/build_character_web.py
 godot --headless --path build/character-web/project --fixed-fps 120 --script res://testground/damage_smoke.gd --log-file /tmp/damage-physics.log
+godot --headless --path build/character-web/project --fixed-fps 120 --script res://testground/mortality_smoke.gd --log-file /tmp/mortality-physics.log
 godot --path build/character-web/project --fixed-fps 120 --script res://testground/damage_smoke.gd --log-file /tmp/damage-render.log
 godot --path build/character-web/project --disable-vsync --script res://testground/damage_benchmark.gd --log-file /tmp/damage-benchmark.log
 node tools/test_testground_web.cjs --channel chrome

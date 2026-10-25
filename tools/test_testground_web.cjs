@@ -177,12 +177,32 @@ async function aimAt(index,bone){
   s=await until(n=>n.zombies[1].damage.removed_cells>0,'Automatic fire removes torso mesh cells');
   // The physical head can fall through the held firing line after a torso
   // hit. Chest-only survival is tested with recorded pellets in damage_smoke.
-  if(s.zombies[1].damage.fatal)assert(s.zombies[1].damage.brain_energy_j>=400||s.zombies[1].damage.severed.includes('Head'),'A terminal hit needs the brain/sever rule');
+  if(s.zombies[1].damage.fatal)assert(s.zombies[1].death_capacity.best<.08,'A terminal hit needs insufficient remaining movement capacity');
   assert(s.debris<=s.debris_limit);
   const automatic={shots:s.shots-autoStart,damage:s.zombies[1].damage,debris:s.debris,limit:s.debris_limit};
   await page.screenshot({path:path.join(out,'damage-automatic-torso.png')});
+  // A killed actor releases live resources, remains shootable, and does not
+  // occupy a living spawn slot. Exercise retention/cleanup through real UI.
+  s=await state();const corpseId=s.zombies[0].id,deadHits=s.zombies[0].hits,deadRebuilds=s.zombies[0].damage.rebuilds;
+  const liveTicks=s.zombies[0].live_ticks,motorTicks=s.zombies[0].motor_ticks;
+  assert(s.zombies[0].permanently_dead&&!s.zombies[0].animation_reference&&!s.zombies[0].agent_processing&&!s.zombies[0].motor_processing);
+  await page.keyboard.press('2');await until(n=>n.profile===1,'Heavy profile for corpse damage');
+  await aimAt(0,'LeftUpLeg');s=await state();
+  await page.mouse.down();await page.mouse.up();
+  s=await until(n=>n.zombies[0].hits>deadHits&&n.zombies[0].damage.rebuilds>deadRebuilds&&n.zombies[0].damage.pending===0,'Actual FPS bullet damages a passive corpse');
+  assert(s.zombies[0].permanently_dead&&s.zombies[0].live_ticks===liveTicks&&s.zombies[0].motor_ticks===motorTicks);
+  const corpseDamage=s.zombies[0].damage;
+  await page.keyboard.press('Tab');await until(n=>n.menu&&!n.captured,'Corpse spawn controls');
+  const livingBefore=s.living,corpsesBefore=s.corpses;
+  await control('add');s=await until(n=>n.living===livingBefore+1&&n.corpses===corpsesBefore,'Spawn another living zombie alongside retained corpses');
+  const retainedGeneration=s.generation;await control('spawn');
+  s=await until(n=>n.generation>retainedGeneration&&n.living===n.selected_count&&n.corpses===corpsesBefore,'Group respawn preserves dead bodies');
+  assert(s.zombies.some(z=>z.id===corpseId&&z.permanently_dead));
+  await page.screenshot({path:path.join(out,'retained-corpses-new-group.png')});
+  await control('clear_corpses');s=await until(n=>n.corpses===0&&n.zombies.length===n.living,'Explicit corpse cleanup');
+  assert(!s.zombies.some(z=>z.id===corpseId));
   assert.deepEqual(errors,[],'Browser and GDScript errors');
-  const report={damage_only:damageOnly,head_damage:headDamage,automatic_fire:automatic,status:'pass',url:target,pointer_lock:true,wasd:!damageOnly,mouselook:true,actual_headshot:hit,heavy_shoulder_knockdown:heavy,buckshot,recoveries,ads:!damageOnly,reload:true,group_spawn_and_animation_ui:true,follow_toggle:!damageOnly,console_errors:errors};
+  const report={corpse_damage:corpseDamage,permanent_passive_death:true,retained_corpses_and_spawn:true,explicit_corpse_cleanup:true,damage_only:damageOnly,head_damage:headDamage,automatic_fire:automatic,status:'pass',url:target,pointer_lock:true,wasd:!damageOnly,mouselook:true,actual_headshot:hit,heavy_shoulder_knockdown:heavy,buckshot,recoveries,ads:!damageOnly,reload:true,group_spawn_and_animation_ui:true,follow_toggle:!damageOnly,console_errors:errors};
   fs.writeFileSync(path.join(out,'validation.json'),JSON.stringify(report,null,2)+'\n');console.log('TESTGROUND_WEB_PASS',JSON.stringify(report));
 })().catch(async e=>{
   if(page){await page.screenshot({path:path.join(out,'failure.png')}).catch(()=>{});fs.writeFileSync(path.join(out,'failure.json'),JSON.stringify({state:await state().catch(()=>null),mouse_moves:await page.evaluate(()=>window.__testMouseMoves)},null,2));}

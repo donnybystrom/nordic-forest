@@ -43,6 +43,11 @@ var probe_enabled := false
 var probe_elapsed := 0.0
 var next_id := 0
 var impacts: Array[Node3D] = []
+var damage_queue: Array[Node3D] = []
+var damage_batches := 0
+var damage_batch_peak_ms := 0.0
+var clear_corpses_button: Button
+var collider_state := false
 
 func _ready() -> void:
 	catalog = JSON.parse_string(FileAccess.get_file_as_string("res://characters.json"))
@@ -145,9 +150,15 @@ func _build_world() -> void:
 func floor_height(at: Vector3) -> float:
 	var query := PhysicsRayQueryParameters3D.create(Vector3(at.x,3.0,at.z),Vector3(at.x,-1.0,at.z),1)
 	var result := get_world_3d().direct_space_state.intersect_ray(query)
-	if not result.is_empty() and result.collider.get_meta("walkable",false):
-		return float(result.position.y)
-	return 0.0
+	var base := float(result.position.y) if not result.is_empty() and result.collider.get_meta("walkable",false) else 0.0
+	# Low body piles can raise the reference, but never pull a foot to a corpse
+	# far above it. Normal contacts still provide the actual support gate.
+	var dead_query := PhysicsRayQueryParameters3D.create(Vector3(at.x,base+0.6,at.z),Vector3(at.x,base,at.z),32)
+	var dead_hit := get_world_3d().direct_space_state.intersect_ray(dead_query)
+	if not dead_hit.is_empty() and dead_hit.normal.dot(Vector3.UP)>0.45:
+		var body: RigidBody3D = dead_hit.collider
+		if body.linear_velocity.length()<1.5 and body.angular_velocity.length()<4.0: return maxf(base,float(dead_hit.position.y))
+	return base
 
 func steering_target(at: Vector3) -> Vector3:
 	var destination := player.global_position
@@ -243,8 +254,10 @@ func _build_ui() -> void:
 	box.add_child(formation)
 	var buttons := HBoxContainer.new()
 	box.add_child(buttons)
-	respawn_button = _button(buttons,"Spawna om grupp",spawn_group)
+	respawn_button = _button(buttons,"Spawna om grupp",func(): spawn_group(false))
 	add_button = _button(buttons,"Lägg till en",func(): spawn_one())
+	clear_corpses_button = _button(box,"Rensa döda kroppar",clear_corpses)
+	_label(box,"Högst 12 levande. Lik ligger kvar vid respawn.",13)
 	follow = CheckBox.new()
 	follow.text = "Följ spelaren (annars stå kvar)"
 	follow.focus_mode = Control.FOCUS_NONE
@@ -294,31 +307,73 @@ func set_menu(open: bool) -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE if open else Input.MOUSE_MODE_CAPTURED
 	player.aiming = false
 
-func spawn_group() -> void:
-	debris.clear()
-	latest_wound={}
-	mesh_damage_present=false
+func living_count() -> int:
+	var count := 0
 	for zombie in zombies:
-		zombie.dispose()
-	zombies.clear()
+		if not zombie.dead: count += 1
+	return count
+
+func clear_corpses() -> void:
+	for i in range(zombies.size()-1,-1,-1):
+		if zombies[i].dead:
+			damage_queue.erase(zombies[i])
+			zombies[i].dispose()
+			zombies.remove_at(i)
+
+func spawn_group(remove_corpses := true) -> void:
+	# Tests/startup may explicitly reset everything; the UI retains corpses.
+	if remove_corpses:
+		debris.clear()
+		latest_wound={}
+		mesh_damage_present=false
+	var retained: Array[Node3D] = []
+	for zombie in zombies:
+		if remove_corpses or not zombie.dead:
+			damage_queue.erase(zombie)
+			zombie.dispose()
+		else:
+			retained.append(zombie)
+	zombies = retained
 	for i in range(int(amount.value)):
 		spawn_one()
 	generation += 1
 
+func schedule_damage(zombie: Node3D) -> void:
+	if not damage_queue.has(zombie): damage_queue.append(zombie)
+
+func _process_damage() -> void:
+	# Fair, event-driven queue shared by living/dead. At most one actor batch
+	# per rendered frame, eight projectiles per batch (one full buckshot shot).
+	# Rebuild/sever is atomic, so this is a work bound, not a hard millisecond cap.
+	for attempt in range(damage_queue.size()):
+		var zombie: Node3D = damage_queue.pop_front()
+		if not is_instance_valid(zombie) or zombie.is_queued_for_deletion(): continue
+		if zombie.damage.pending.is_empty(): continue
+		if zombie.damage.pending[0].frame>Engine.get_physics_frames():
+			damage_queue.append(zombie)
+			continue
+		var start := Time.get_ticks_usec()
+		zombie.damage.flush()
+		damage_batch_peak_ms = maxf(damage_batch_peak_ms,float(Time.get_ticks_usec()-start)/1000.0)
+		damage_batches += 1
+		if not zombie.damage.pending.is_empty(): damage_queue.append(zombie)
+		break
+
 func spawn_one() -> Node3D:
-	if zombies.size() >= 12:
+	if living_count() >= 12:
 		return null
-	var model: int = zombies.size()%catalog.characters.size() if models.selected == 0 else models.selected-1
+	var model: int = next_id%catalog.characters.size() if models.selected == 0 else models.selected-1
 	var motion := ""
 	if motions.selected == 0:
-		motion = MOTIONS[zombies.size()%MOTIONS.size()]
+		motion = MOTIONS[next_id%MOTIONS.size()]
 	elif motions.selected >= 6:
 		motion = MOTIONS[0]
 	elif motions.selected >= 2:
 		motion = MOTIONS[motions.selected-2]
-	var index := zombies.size()
+	var index := living_count()
 	var spacing := 1.45 if formation.selected == 1 else 2.4
 	var spawn := Vector3((float(index%2)-0.5)*spacing,0,-3.8-float(index/2)*2.0)
+	spawn.y = floor_height(spawn)
 	var zombie := Agent.new()
 	add_child(zombie)
 	zombie.setup(self,next_id,model,spawn,motion)
@@ -350,6 +405,12 @@ func mark_impact(at: Vector3, normal: Vector3, wall: bool) -> void:
 
 func _process(delta: float) -> void:
 	if not is_instance_valid(player): return
+	_process_damage()
+	if collider_state!=show_colliders:
+		collider_state=show_colliders
+		for zombie in zombies:
+			if zombie.dead:
+				for part: Dictionary in zombie.physics.bodies: part.visual.visible=show_colliders
 	hit_flash = maxf(0.0,hit_flash-delta)
 	crosshair.modulate = Color("ddedab") if hit_flash>0.0 else Color.WHITE
 	ammo.text = "Laddar om..." if player.reload_time>0 else "%02d / 12  ·  R: ladda om" % player.magazine
@@ -358,7 +419,7 @@ func _process(delta: float) -> void:
 	for zombie in zombies:
 		if zombie.state in ["downed","recovering"]: fallen += 1
 		contacts += zombie.crowd_contacts
-	info.text = "%d zombier · %d fysikkroppar\n%s · %d nere/återhämtar · %d kroppskontakter\nWASD: gå · Shift: spring · Space: hoppa" % [zombies.size(),zombies.size()*17,"Följer dig" if follow_player else "Står kvar",fallen,contacts]
+	info.text = "%d levande · %d döda · %d fysikkroppar\n%s · %d nere/återhämtar · %d kroppskontakter\nWASD: gå · Shift: spring · Space: hoppa" % [living_count(),zombies.size()-living_count(),zombies.size()*17,"Följer dig" if follow_player else "Står kvar",fallen,contacts]
 	hint.text = "Tab: inställningar · 1/2/3/4: vapenprofil · högerklick: sikta"
 	if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED and not menu.visible:
 		hint.text = "Klicka i banan för att spela · Tab: inställningar"
@@ -381,7 +442,8 @@ func _process(delta: float) -> void:
 		if zombie.state=="recovering":
 			info.text += "\n%s · %s" % ["Mage" if zombie.recovery.kind=="prone" else "Rygg",zombie.recovery.stage]
 			break
-	add_button.disabled = zombies.size()>=12
+	add_button.disabled = living_count()>=12
+	clear_corpses_button.disabled = living_count()==zombies.size()
 	colliders_check.set_pressed_no_signal(show_colliders)
 	if probe_enabled:
 		probe_elapsed += delta
@@ -404,16 +466,20 @@ func _publish_probe() -> void:
 			parts[part.name] = {"position":[p.x,p.y,p.z],"screen":[screen.x,screen.y],"strength":zombie.physics.part_strength(part),"detached":part.get("detached",false)}
 		agents.append({"id":zombie.name,"model":zombie.characters[zombie.model_index].id,"clip":zombie.clip,
 			"root":[root.x,root.y,root.z],"anchor":[zombie.anchor.x,zombie.anchor.y,zombie.anchor.z],
-			"recovery_kind":zombie.recovery.kind,"recovery_stage":zombie.recovery.stage,
-			"recovery_time":zombie.recovery.time,"recovery_duration":zombie.recovery.duration() if not zombie.recovery.kind.is_empty() else 0,
+			"recovery_kind":zombie.recovery.kind if zombie.recovery!=null else "","recovery_stage":zombie.recovery.stage if zombie.recovery!=null else "",
+			"recovery_time":zombie.recovery.time if zombie.recovery!=null else 0,"recovery_duration":zombie.recovery.duration() if zombie.recovery!=null and not zombie.recovery.kind.is_empty() else 0,
 			"recovery_attempts":zombie.recovery_attempts,"recovery_completed":zombie.recovery_completed,"recovery_interruptions":zombie.recovery_interruptions,
-			"damage":zombie.damage.report(),"state":zombie.state,"hits":zombie.received_hits,"contacts":zombie.crowd_contacts,
+			"damage":zombie.damage.report(),"state":zombie.state,"permanently_dead":zombie.dead,"death_reason":zombie.death_reason,
+			"movement_capacity":zombie.physics.movement_capacity(),"death_capacity":zombie.death_capacity,
+			"live_ticks":zombie.live_ticks,"motor_ticks":zombie.physics.live_ticks,"corpse_pose_updates":zombie.physics.corpse_pose_updates,"corpse_sleep_promotions":zombie.physics.corpse_sleep_promotions,
+			"animation_reference":is_instance_valid(zombie.physics.target),"agent_processing":zombie.is_physics_processing(),"motor_processing":zombie.physics.is_physics_processing(),
+			"corpse_support_contacts":zombie.physics.corpse_support_contacts,"hits":zombie.received_hits,"contacts":zombie.crowd_contacts,
 			"stability":zombie.physics.stability,"support_distance":zombie.physics.support_distance,
 			"support_force":[zombie.physics.last_support_force.x,zombie.physics.last_support_force.y,zombie.physics.last_support_force.z],
 			"muscles":zombie.physics.muscles,"travel":zombie.travel,"skin_error":zombie.physics.max_skin_pose_error,"parts":parts})
 	var at := player.global_position
 	var popup := motions.get_popup()
-	var state := {"damage_enabled":damage_enabled,"debris":debris.pieces.size(),"debris_peak":debris.peak,"debris_limit":Debris.LIMIT,"scroll":settings_scroll.scroll_vertical,"generation":generation,"zombies":agents,"follow":follow_player,"menu":menu.visible,
+	var state := {"living":living_count(),"corpses":zombies.size()-living_count(),"damage_jobs":damage_queue.size(),"damage_batches":damage_batches,"damage_batch_peak_ms":damage_batch_peak_ms,"damage_enabled":damage_enabled,"debris":debris.pieces.size(),"debris_peak":debris.peak,"debris_limit":Debris.LIMIT,"scroll":settings_scroll.scroll_vertical,"generation":generation,"zombies":agents,"follow":follow_player,"menu":menu.visible,
 		"player":[at.x,at.y,at.z],"yaw":player.rotation.y,"pitch":player.pitch,"sensitivity":player.sensitivity,
 		"player_speed":Vector2(player.velocity.x,player.velocity.z).length(),
 		"captured":Input.mouse_mode==Input.MOUSE_MODE_CAPTURED,"fov":player.camera.fov,"shots":player.shots,"ammo":player.magazine,
@@ -421,5 +487,5 @@ func _publish_probe() -> void:
 		"motion_popup":[popup.position.x,popup.position.y,popup.size.x,popup.size.y],
 		"selected_count":amount.value,"count_focused":amount.get_line_edit().has_focus(),
 		"profile":shot_profile,"reloading":player.reload_time>0.0,"last_shot":player.last_shot,"impulse":shot_impulse,
-		"viewport":[1100,850],"controls":{"damage":_center(damage_check),"play":_center(play_button),"follow":_center(follow),"spawn":_center(respawn_button),"add":_center(add_button),"amount":_center(amount),"models":_center(models),"motions":_center(motions),"formation":_center(formation),"impulse":_center(impulse_slider),"profile":_center(profile)}}
+		"viewport":[1100,850],"controls":{"damage":_center(damage_check),"play":_center(play_button),"follow":_center(follow),"spawn":_center(respawn_button),"add":_center(add_button),"clear_corpses":_center(clear_corpses_button),"amount":_center(amount),"models":_center(models),"motions":_center(motions),"formation":_center(formation),"impulse":_center(impulse_slider),"profile":_center(profile)}}
 	JavaScriptBridge.eval("window.__testgroundDemo="+JSON.stringify(state)+";",true)

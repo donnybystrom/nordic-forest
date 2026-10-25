@@ -1,6 +1,8 @@
 extends Node3D
 ## Articulated rigid bodies, pose torques, bounded pelvis support and a drag spring.
 ## Layer 1: ground; layer 2: body; layer 4: ball. Nearby joint neighbors exempt.
+signal function_changed
+
 const PoseModifier = preload("res://physical_pose.gd")
 const SEGMENTS := [
 	["Hips", "Spine", 0.14, 0.13], ["Spine", "Spine2", 0.20, 0.145],
@@ -56,8 +58,18 @@ var upright := 1.0
 var support_grace := 0.0
 var recovery_pose := {}
 var recovery_reach := 0.0
+# Injury/neural capacity is independent of the lab's temporary strength slider.
+var neural_strength := 1.0
+var corpse := false
+var corpse_locals: Array[Transform3D] = []
+var live_ticks := 0
+var corpse_pose_updates := 0
+var corpse_support_contacts := 0
+var corpse_quiet_time := 0.0
+var corpse_sleep_promotions := 0
 
 func configure(owner_view: Node, options: Dictionary = {}) -> void:
+	set_process(false)
 	view = owner_view
 	free_balance = options.get("free_balance", false)
 	total_mass = float(view.characters[view.model_index].get("physics_mass_kg", 80.0))
@@ -82,6 +94,7 @@ func configure(owner_view: Node, options: Dictionary = {}) -> void:
 	reset_pose()
 
 func _sync_reference() -> void:
+	if corpse: return
 	var clip: String = view.selected_clip()
 	if clip != last_clip:
 		target_player.stop()
@@ -250,6 +263,7 @@ func _build_ball() -> void:
 	ball.add_child(ball_mesh)
 
 func reset_pose() -> void:
+	if corpse: return
 	_sync_reference()
 	ground_lift = 0.0
 	var initial_poses := {}
@@ -312,7 +326,7 @@ func _check_skin_pose() -> void:
 		max_skin_pose_error = maxf(max_skin_pose_error, expected.origin.distance_to(observed.origin))
 
 func root_body() -> RigidBody3D:
-	return by_bone[target_rig.find_bone("Hips")].body
+	return by_bone[view.skeleton.find_bone("Hips")].body
 
 func _target_body(entry: Dictionary) -> Transform3D:
 	if recovery_pose.has(entry.index): return recovery_pose[entry.index]
@@ -331,8 +345,9 @@ func _animation_body(entry: Dictionary) -> Transform3D:
 	return pose
 
 func _physics_process(delta: float) -> void:
-	if not is_instance_valid(view) or bodies.is_empty():
+	if corpse or not is_instance_valid(view) or bodies.is_empty():
 		return
+	live_ticks += 1
 	elapsed += delta
 	_sync_reference()
 	max_drive_torque = 0.0
@@ -388,7 +403,7 @@ func _physics_process(delta: float) -> void:
 		_apply_free_support(delta)
 	elif not passive and balance > 0.0:
 		var hips := root_body()
-		var destination := _target_body(by_bone[target_rig.find_bone("Hips")]).origin
+		var destination := _target_body(by_bone[view.skeleton.find_bone("Hips")]).origin
 		# A visible, bounded virtual pelvis support, NOT a self-balancing controller.
 		last_support_force = ((destination - hips.global_position) * 1800.0 - hips.linear_velocity * 320.0 + Vector3.UP * total_mass * 9.8) * balance
 		last_support_force = last_support_force.limit_length(total_mass * 9.8 * 2.0 * balance)
@@ -402,6 +417,7 @@ func _measure_support(delta: float) -> void:
 	center_of_mass = Vector3.ZERO
 	com_velocity = Vector3.ZERO
 	var contacts: Array[Vector3] = []
+	corpse_support_contacts = 0
 	for entry in bodies:
 		if entry.get("detached",false): continue
 		var body: RigidBody3D = entry.body
@@ -417,24 +433,25 @@ func _measure_support(delta: float) -> void:
 		for i in range(state.get_contact_count()):
 			var other := state.get_contact_collider_object(i)
 			var point := state.get_contact_local_position(i)
-			# Reject wall contacts and other characters as a standing platform.
-			if other is StaticBody3D and other.get_meta("walkable", false) and point.y < body.global_position.y:
+			var normal := state.get_contact_local_normal(i)
+			if is_support_surface(other) and (other is StaticBody3D or normal.dot(Vector3.UP)>0.45) and point.y < body.global_position.y:
 				contacts.append(point)
+				if other.get_meta("corpse",false): corpse_support_contacts += 1
 		# Animation can lift a foot briefly. Allow a short leg-reach margin, but
 		# expire the support once the feet leave this ground-reach margin.
 		var half_segment := maxf(float(entry.height)*0.5-float(entry.radius),0.0)
 		var bottom := body.global_position.y-absf((body.global_basis*entry.axis).y)*half_segment-float(entry.radius)
-		var query := PhysicsRayQueryParameters3D.create(body.global_position+Vector3.UP*0.3,body.global_position-Vector3.UP*0.7,1)
-		var floor_hit := get_world_3d().direct_space_state.intersect_ray(query)
-		if not floor_hit.is_empty() and floor_hit.collider.get_meta("walkable",false) and bottom-floor_hit.position.y<0.20:
+		var floor_hit := support_ray(body.global_position+Vector3.UP*0.3,body.global_position-Vector3.UP*0.7)
+		if not floor_hit.is_empty() and bottom-floor_hit.position.y<0.20:
 			contacts.append(floor_hit.position)
+			if floor_hit.collider.get_meta("corpse",false): corpse_support_contacts += 1
 	if not contacts.is_empty():
 		support_points = contacts
 		support_grace = 0.16
 	else:
 		support_grace = maxf(0.0, support_grace-delta)
 		if support_grace <= 0.0: support_points.clear()
-	var hips_entry: Dictionary = by_bone[target_rig.find_bone("Hips")]
+	var hips_entry: Dictionary = by_bone[view.skeleton.find_bone("Hips")]
 	var rotation_error := root_body().global_basis * _target_body(hips_entry).basis.inverse()
 	upright = (rotation_error * Vector3.UP).dot(Vector3.UP)
 	# Velocity shifts the projected COM towards the place it would need a new
@@ -457,7 +474,7 @@ func _measure_support(delta: float) -> void:
 func _apply_free_support(delta: float) -> void:
 	if passive or balance <= 0.0: return
 	var hips := root_body()
-	var entry: Dictionary = by_bone[target_rig.find_bone("Hips")]
+	var entry: Dictionary = by_bone[view.skeleton.find_bone("Hips")]
 	var desired := _target_body(entry)
 	var support_health := locomotion_strength()
 	var gain := stability * assistance_scale * balance * support_health
@@ -480,7 +497,7 @@ func _apply_free_support(delta: float) -> void:
 		# Bounded virtual hand/foot placement during this authored manoeuvre.
 		# Collision response remains active; no limb transform is overwritten.
 		for bone in ["LeftHand","RightHand","LeftFoot","RightFoot"]:
-			var limb: Dictionary = by_bone[target_rig.find_bone(bone)]
+			var limb: Dictionary = by_bone[view.skeleton.find_bone(bone)]
 			if part_strength(limb)<=0.0: continue
 			var body: RigidBody3D = limb.body
 			var error := _target_body(limb).origin-body.global_position
@@ -524,6 +541,7 @@ func end_drag() -> void:
 
 func shutdown() -> void:
 	set_physics_process(false)
+	set_process(false)
 	end_drag()
 	if is_instance_valid(modifier):
 		modifier.active = false
@@ -539,28 +557,29 @@ func shutdown() -> void:
 
 
 func part_strength(part: Dictionary) -> float:
-	if part.get("detached",false): return 0.0
+	if corpse or part.get("detached",false): return 0.0
 	var health: float=part.get("muscle_health",1.0)
 	var index: int=part.index
 	while by_bone[index].has("parent_index"):
 		index=by_bone[index].parent_index
 		health=minf(health,by_bone[index].get("muscle_health",1.0))
-	return health
+	return health * neural_strength
 
 func locomotion_strength() -> float:
 	var crawl := "Crawl" in last_clip
 	var strength := 0.0
 	for name in (["LeftArm","RightArm"] if crawl else ["LeftUpLeg","RightUpLeg"]):
 		var end_name: String=name.replace("UpLeg","Foot") if not crawl else name.replace("Arm","Hand")
-		strength+=part_strength(by_bone[target_rig.find_bone(end_name)])*0.5
+		strength+=part_strength(by_bone[view.skeleton.find_bone(end_name)])*0.5
 	return strength
 
 func injure(bone: String, remaining: float) -> void:
-	var part: Dictionary=by_bone[target_rig.find_bone(bone)]
-	part.muscle_health=minf(part.get("muscle_health",1.0),remaining)
+	var part: Dictionary=by_bone[view.skeleton.find_bone(bone)]
+	part.muscle_health=minf(part.get("muscle_health",1.0),clampf(remaining,0.0,1.0))
+	function_changed.emit()
 
 func detach(bone: String) -> Array:
-	var first: Dictionary=by_bone[target_rig.find_bone(bone)]
+	var first: Dictionary=by_bone[view.skeleton.find_bone(bone)]
 	if first.get("detached",false) or not first.has("parent_index"): return []
 	if is_instance_valid(first.get("joint")): first.joint.queue_free()
 	var pieces: Array=[]
@@ -581,6 +600,7 @@ func detach(bone: String) -> Array:
 				part.body.remove_collision_exception_with(other.body)
 				other.body.remove_collision_exception_with(part.body))
 	recount_mass()
+	function_changed.emit()
 	return pieces
 
 func recount_mass() -> void:
@@ -588,3 +608,112 @@ func recount_mass() -> void:
 	for part: Dictionary in bodies:
 		if not part.get("detached",false): total_mass+=part.body.mass
 	total_mass=maxf(total_mass,0.1)
+
+func set_neural_strength(remaining: float) -> void:
+	if corpse: return
+	neural_strength = minf(neural_strength,clampf(remaining,0.0,1.0))
+	function_changed.emit()
+
+func movement_capacity() -> Dictionary:
+	# Remaining potential, not observed speed: resting, falls and obstructions
+	# cannot kill. Forearms/shins retain partial dragging ability without hands/feet.
+	var legs := 0.0
+	var arms := 0.0
+	for side in ["Left","Right"]:
+		legs += 0.7*part_strength(by_bone[view.skeleton.find_bone(side+"Leg")])+0.3*part_strength(by_bone[view.skeleton.find_bone(side+"Foot")])
+		arms += 0.7*part_strength(by_bone[view.skeleton.find_bone(side+"ForeArm")])+0.3*part_strength(by_bone[view.skeleton.find_bone(side+"Hand")])
+	# A single useful arm can still drag a body. These normalized game weights
+	# and the mortality threshold are tunable, not a calibrated biomechanics model.
+	return {"walk":legs*0.5,"crawl":arms*0.35,"best":maxf(legs*0.5,arms*0.35),"neural":neural_strength}
+
+func become_corpse() -> void:
+	if corpse: return
+	corpse = true
+	passive = true
+	muscles = 0.0
+	balance = 0.0
+	assistance_scale = 0.0
+	recovery_support = false
+	recovery_reach = 0.0
+	desired_velocity = Vector3.ZERO
+	last_support_force = Vector3.ZERO
+	max_drive_torque = 0.0
+	recovery_pose.clear()
+	support_points.clear()
+	set_physics_process(false)
+	for bone in range(target_rig.get_bone_count()): corpse_locals.append(target_rig.get_bone_pose(bone))
+	if is_instance_valid(modifier):
+		modifier.active = false
+		modifier.queue_free()
+		modifier = null
+	# Permanent bone poses replace the transient modifier after animation stops.
+	# This lets sleeping corpses keep their final pose without per-frame skin work.
+	for part: Dictionary in bodies:
+		part.body.can_sleep = true
+		part.body.contact_monitor = false
+		part.body.max_contacts_reported = 0
+		for connection: Dictionary in part.body.body_entered.get_connections(): part.body.body_entered.disconnect(connection.callable)
+		part.body.set_meta("corpse",true)
+		part.body.collision_layer |= 32
+		part.body.sleeping_state_changed.connect(_corpse_wake)
+		part.visual.visible = debug_shapes
+	_write_corpse_pose()
+	target.queue_free()
+	target = null
+	target_rig = null
+	target_player = null
+	set_process(true)
+
+func _corpse_wake() -> void:
+	if corpse:
+		corpse_quiet_time = 0.0
+		set_process(true)
+
+func _process(delta: float) -> void:
+	if not corpse: return
+	_write_corpse_pose()
+	var awake := false
+	var quiet := true
+	for part: Dictionary in bodies:
+		if not part.body.sleeping: awake = true
+		if part.body.linear_velocity.length_squared()>0.01 or part.body.angular_velocity.length_squared()>0.25: quiet = false
+	if not awake:
+		set_process(false)
+		return
+	# Joint/contact jitter can prevent Jolt's per-body sleep. Settle the whole
+	# corpse island together after 1.25 s below 0.1 m/s and 0.5 rad/s. Bodies
+	# remain dynamic, with constraints and automatic collision/impulse wake-up.
+	corpse_quiet_time = corpse_quiet_time+delta if quiet else 0.0
+	if corpse_quiet_time>=1.25:
+		for part: Dictionary in bodies: part.body.sleeping = true
+		corpse_sleep_promotions += 1
+		set_process(false)
+
+func _write_corpse_pose() -> void:
+	var rig: Skeleton3D = view.skeleton
+	var inverse := rig.global_transform.affine_inverse()
+	for bone in range(rig.get_bone_count()):
+		if by_bone.has(bone):
+			var part: Dictionary = by_bone[bone]
+			rig.set_bone_global_pose(bone,inverse*part.body.global_transform*part.offset.affine_inverse())
+		else:
+			rig.set_bone_pose(bone,corpse_locals[bone])
+	corpse_pose_updates += 1
+
+func is_support_surface(other: Object) -> bool:
+	if other is StaticBody3D: return other.get_meta("walkable",false)
+	if other is RigidBody3D and other.get_meta("corpse",false):
+		# Fast-moving bodies are obstacles until slow enough to use as support.
+		return other.linear_velocity.length()<1.5 and other.angular_velocity.length()<4.0
+	return false
+
+func support_ray(from: Vector3, to: Vector3) -> Dictionary:
+	var excluded: Array[RID] = []
+	# Layer 32 contains corpses only; they retain layer 2 for all collisions.
+	for attempt in range(64):
+		var query := PhysicsRayQueryParameters3D.create(from,to,1|32,excluded)
+		var hit := get_world_3d().direct_space_state.intersect_ray(query)
+		if hit.is_empty(): return {}
+		if is_support_surface(hit.collider) and hit.normal.dot(Vector3.UP)>0.45: return hit
+		excluded.append(hit.rid)
+	return {}

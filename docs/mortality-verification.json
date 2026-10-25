@@ -1,0 +1,316 @@
+{
+  "date": "2026-10-25",
+  "status": "pass",
+  "scope": "Functional movement-capacity death; permanent passive, shootable corpses; retained corpse spawning and low-pile traversal.",
+  "source_sha256": {
+    "integrations/godot/character-review/active_ragdoll.gd": "c090aae71ca6d4662d29d4ddcb0e8763fb5bc7135bf355d16c49c84b1ba265e8",
+    "integrations/godot/testground/zombie_agent.gd": "60632fe81385335bf12ee1646095e0dfcca5fb8082afc9d1e66dcadf6720249d",
+    "integrations/godot/testground/mesh_damage.gd": "589b7f5cc65ded2382a74f001e135a84d0ba6ad6de9fce2bda588f3486f7c364",
+    "integrations/godot/testground/testground.gd": "7a1a48418508ed71e9e26b9bd6448aeb4144f9fa22b71bf99c3dc57b9f2f3b92",
+    "integrations/godot/testground/mortality_smoke.gd": "e5e1c4bcecd96235b57232c6a1e042b11ae53e56bb2089aeb6f848eee6c41dcb",
+    "tools/test_testground_web.cjs": "532bad7d9c0d4879aa47287074c4442149b4a100fbd8b5c3202833ab96d235cf"
+  },
+  "runtime": {
+    "cases": [
+      {
+        "model": 0,
+        "test": "no_false_death_when_passive_or_fallen"
+      },
+      {
+        "model": 0,
+        "test": "extremity_loss_retains_drag_capacity"
+      },
+      {
+        "model": 0,
+        "test": "all_routes_lost_permanent_passive_corpse"
+      },
+      {
+        "capacity_at_death": {
+          "best": 0.05,
+          "crawl": 0.035,
+          "neural": 0.05,
+          "walk": 0.05
+        },
+        "model": 0,
+        "test": "partial_neural_loss_and_irreversible_threshold_death"
+      },
+      {
+        "damage": {
+          "brain_energy_j": 0.0,
+          "budget_cm3": 1073.2176,
+          "cells_total": 1532,
+          "cpu_ms": 21.612,
+          "fatal": true,
+          "pending": 0,
+          "processed_projectiles": 3,
+          "rebuilds": 3,
+          "removed_cells": 87,
+          "removed_cm3": 1017.78554321209,
+          "sever_ms": 9.935,
+          "severed": [
+            "LeftForeArm",
+            "LeftHand"
+          ],
+          "wound": {
+            "budget_cm3": 357.7392,
+            "cells": 7,
+            "deposited_j": 894.348,
+            "energy_j": 1375.92,
+            "radius_m": 0.0275526071404601,
+            "region": "LeftForeArm",
+            "removed_cm3": 348.953718857956
+          }
+        },
+        "model": 0,
+        "shots": 3,
+        "test": "postmortem_energy_damage_severs_forearm"
+      },
+      {
+        "model": 1,
+        "test": "no_false_death_when_passive_or_fallen"
+      },
+      {
+        "model": 1,
+        "test": "extremity_loss_retains_drag_capacity"
+      },
+      {
+        "model": 1,
+        "test": "all_routes_lost_permanent_passive_corpse"
+      },
+      {
+        "capacity_at_death": {
+          "best": 0.05,
+          "crawl": 0.035,
+          "neural": 0.05,
+          "walk": 0.05
+        },
+        "model": 1,
+        "test": "partial_neural_loss_and_irreversible_threshold_death"
+      },
+      {
+        "damage": {
+          "brain_energy_j": 0.0,
+          "budget_cm3": 1788.696,
+          "cells_total": 2383,
+          "cpu_ms": 24.237,
+          "fatal": true,
+          "pending": 0,
+          "processed_projectiles": 5,
+          "rebuilds": 5,
+          "removed_cells": 150,
+          "removed_cm3": 1665.45898557524,
+          "sever_ms": 14.722,
+          "severed": [
+            "LeftForeArm",
+            "LeftHand"
+          ],
+          "wound": {
+            "budget_cm3": 357.7392,
+            "cells": 7,
+            "deposited_j": 894.348,
+            "energy_j": 1375.92,
+            "radius_m": 0.0318150102988413,
+            "region": "LeftForeArm",
+            "removed_cm3": 339.778919471428
+          }
+        },
+        "model": 1,
+        "shots": 5,
+        "test": "postmortem_energy_damage_severs_forearm"
+      },
+      {
+        "brain_energy_j": 894.348,
+        "model": 0,
+        "test": "delayed_channel_rotates_with_impact_body"
+      },
+      {
+        "brain_energy_j": 894.348,
+        "model": 1,
+        "test": "delayed_channel_rotates_with_impact_body"
+      },
+      {
+        "test": "twelve_corpses_plus_twelve_living_and_explicit_cleanup"
+      }
+    ],
+    "corpses": [
+      {
+        "live_ticks_after_death": 0,
+        "model": 0,
+        "motor_ticks_after_death": 0,
+        "passive_joints": 16,
+        "skin_error": 4.25727506581097e-07,
+        "sleep_pose_updates": 0,
+        "wake_displacement": 0.0922601595520973
+      },
+      {
+        "live_ticks_after_death": 0,
+        "model": 1,
+        "motor_ticks_after_death": 0,
+        "passive_joints": 16,
+        "skin_error": 4.85146642859036e-07,
+        "sleep_pose_updates": 0,
+        "wake_displacement": 0.0497959032654762
+      }
+    ],
+    "queue": {
+      "first_frame": 8,
+      "processed": 24,
+      "queued": 24,
+      "remaining_after_first": 16
+    },
+    "status": "pass",
+    "traversal": [
+      {
+        "corpse_support_samples": 684,
+        "distance_m": 3.97043204307556,
+        "max_floor_m": 0.318054616451263,
+        "model": 0,
+        "naturally_sleeping_before_contact": 17
+      },
+      {
+        "corpse_support_samples": 298,
+        "distance_m": 4.04058265686035,
+        "max_floor_m": 0.307220816612244,
+        "model": 1,
+        "naturally_sleeping_before_contact": 17
+      }
+    ]
+  },
+  "browser": {
+    "corpse_damage": {
+      "brain_energy_j": 894.348,
+      "budget_cm3": 715.4784,
+      "cells_total": 1532,
+      "cpu_ms": 18.7,
+      "fatal": true,
+      "pending": 0,
+      "processed_projectiles": 2,
+      "rebuilds": 2,
+      "removed_cells": 28,
+      "removed_cm3": 681.272124420502,
+      "sever_ms": 0,
+      "severed": [],
+      "wound": {
+        "budget_cm3": 357.7392,
+        "cells": 7,
+        "deposited_j": 894.348,
+        "energy_j": 1375.92,
+        "radius_m": 0.0251830964789844,
+        "region": "LeftUpLeg",
+        "removed_cm3": 324.582736124285
+      }
+    },
+    "permanent_passive_death": true,
+    "retained_corpses_and_spawn": true,
+    "explicit_corpse_cleanup": true,
+    "damage_only": true,
+    "head_damage": {
+      "brain_energy_j": 894.348,
+      "budget_cm3": 357.7392,
+      "cells_total": 1532,
+      "cpu_ms": 31.2,
+      "fatal": true,
+      "pending": 0,
+      "processed_projectiles": 1,
+      "rebuilds": 1,
+      "removed_cells": 21,
+      "removed_cm3": 356.689388296218,
+      "sever_ms": 0,
+      "severed": [],
+      "wound": {
+        "budget_cm3": 357.7392,
+        "cells": 21,
+        "deposited_j": 894.348,
+        "energy_j": 1375.92,
+        "radius_m": 0.0230156334023719,
+        "region": "Head",
+        "removed_cm3": 356.689388296218
+      }
+    },
+    "automatic_fire": {
+      "shots": 6,
+      "damage": {
+        "brain_energy_j": 0,
+        "budget_cm3": 1290.24,
+        "cells_total": 2383,
+        "cpu_ms": 17,
+        "fatal": false,
+        "pending": 0,
+        "processed_projectiles": 6,
+        "rebuilds": 6,
+        "removed_cells": 68,
+        "removed_cm3": 1230.97048229829,
+        "sever_ms": 0,
+        "severed": [],
+        "wound": {
+          "budget_cm3": 215.04,
+          "cells": 14,
+          "deposited_j": 537.6,
+          "energy_j": 1280,
+          "radius_m": 0.016148048140929,
+          "region": "Spine",
+          "removed_cm3": 212.922577091376
+        }
+      },
+      "debris": 28,
+      "limit": 32
+    },
+    "status": "pass",
+    "url": "http://127.0.0.1:55239/nordic-forest/",
+    "pointer_lock": true,
+    "wasd": false,
+    "mouselook": true,
+    "actual_headshot": null,
+    "heavy_shoulder_knockdown": null,
+    "buckshot": null,
+    "recoveries": [],
+    "ads": false,
+    "reload": true,
+    "group_spawn_and_animation_ui": true,
+    "follow_toggle": false,
+    "console_errors": []
+  },
+  "additional_checks": {
+    "python_tests": 95,
+    "damage_cases": 22,
+    "impact_regression": "pass",
+    "crowd_regression": "pass",
+    "recovery_regression": "pass",
+    "native_opengl_geometry_check": "pass"
+  },
+  "limits": [
+    "Tunable game capacity weights and 8% threshold; not calibrated biomechanics.",
+    "Brain proxy uses deposited energy, not measured destroyed brain tissue.",
+    "Damage batches are bounded to one actor and eight projectiles per rendered frame; atomic rebuild/sever has no hard millisecond cap.",
+    "Low-pile traversal tested over one corpse with each model; no general climbing/foot placement acceptance.",
+    "Dormant corpses retain dynamic bodies, constraints, mesh and damage state; no unlimited corpse count or cross-device FPS guarantee."
+  ],
+  "character_lab_browser": {
+    "status": "pass",
+    "url": "http://127.0.0.1:55315/nordic-forest/",
+    "renderer": "Chromium WebGL2/SwiftShader",
+    "cross_origin_isolated": false,
+    "characters": [
+      {
+        "model": "beach-tourist-male",
+        "clips": 13,
+        "ball_contacts": 5,
+        "max_hit_displacement_m": 0.048696400492703525,
+        "dragged_ball_distance_m": 0.2239238463772952,
+        "passive_hips_height_m": 0.198313981294632
+      },
+      {
+        "model": "beach-zombie-female",
+        "clips": 13,
+        "ball_contacts": 3,
+        "max_hit_displacement_m": 0.05622642211874385,
+        "dragged_ball_distance_m": 0.22310094688830273,
+        "passive_hips_height_m": 0.157441049814224
+      }
+    ],
+    "actual_mouse_drag": true,
+    "actual_canvas_buttons_and_keyboard": true,
+    "sliders": true,
+    "console_errors": []
+  }
+}

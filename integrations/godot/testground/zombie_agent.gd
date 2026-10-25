@@ -34,6 +34,15 @@ var recovery_interruptions := 0
 var recovery_completed := 0
 var resting_time := 0.0
 var upright_time := 0.0
+const MIN_MOVEMENT_CAPACITY := 0.08
+const DEATH_DELAY := 0.35
+var dead := false
+var death_reason := ""
+var death_capacity := {}
+var weakness_time := 0.0
+var weak := false
+var live_ticks := 0
+var functional_capacity := {}
 
 func setup(world: Node3D, index: int, model: int, spawn: Vector3, motion: String) -> void:
 	arena = world
@@ -64,11 +73,14 @@ func setup(world: Node3D, index: int, model: int, spawn: Vector3, motion: String
 	last_root = physics.root_body().global_position
 	damage=Damage.new()
 	damage.configure(self)
+	physics.function_changed.connect(_function_changed)
+	_function_changed()
 
 func selected_clip() -> String:
 	return clip
 
 func set_motion(motion: String, phase := 0.0) -> void:
+	if dead: return
 	clip = motion
 	player.stop()
 	skeleton.reset_bone_poses()
@@ -91,21 +103,22 @@ func receive_hit(body: RigidBody3D, point: Vector3, direction: Vector3, magnitud
 	body.sleeping = false
 	damage.queue_hit(body,point,direction,projectile,cell)
 	received_hits += 1
-	if state=="recovering":
+	if not dead and state=="recovering":
 		recovery_interruptions += 1
 		_enter_downed()
 	var bone := str(body.get_meta("bone"))
-	impact_momentum += impulse
-	var duration := clampf(impact_momentum.length() / physics.total_mass * 1.2, 0.12, 0.9)
-	if "Leg" in bone or bone == "Head":
-		duration *= 1.25
-	stagger_time = maxf(stagger_time, duration + 0.45)
-	support_pause = maxf(support_pause, duration)
-	if state == "active":
-		state = "stagger"
-		state_time = 0.0
-	anchor.x = root_position().x
-	anchor.z = root_position().z
+	if not dead:
+		impact_momentum += impulse
+		var duration := clampf(impact_momentum.length() / physics.total_mass * 1.2, 0.12, 0.9)
+		if "Leg" in bone or bone == "Head":
+			duration *= 1.25
+		stagger_time = maxf(stagger_time, duration + 0.45)
+		support_pause = maxf(support_pause, duration)
+		if state == "active":
+			state = "stagger"
+			state_time = 0.0
+		anchor.x = root_position().x
+		anchor.z = root_position().z
 	last_hit = {"zombie":name, "model":characters[model_index].id, "bone":bone,
 		"point":[point.x,point.y,point.z], "impulse":[impulse.x,impulse.y,impulse.z],
 		"impulse_ns":magnitude, "lever":[lever.x,lever.y,lever.z],
@@ -115,16 +128,16 @@ func receive_hit(body: RigidBody3D, point: Vector3, direction: Vector3, magnitud
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(physics):
 		return
-	damage.flush()
-	if state=="dead":
-		physics.passive=true
-		physics.desired_velocity=Vector3.ZERO
-		physics.recovery_support=false
-		physics.recovery_reach=0.0
-		return
+	if dead: return
+	live_ticks += 1
+	if weak:
+		weakness_time += delta
+		if weakness_time>=DEATH_DELAY:
+			kill("insufficient_movement")
+			return
 	# A missing/disabled leg changes the locomotion target, without granting
 	# standing support to an invisible foot. Further crawl tuning is separate.
-	if physics.part_strength(physics.by_bone[skeleton.find_bone("LeftFoot")])<0.15 or physics.part_strength(physics.by_bone[skeleton.find_bone("RightFoot")])<0.15:
+	if (physics.part_strength(physics.by_bone[skeleton.find_bone("LeftFoot")])<0.15 or physics.part_strength(physics.by_bone[skeleton.find_bone("RightFoot")])<0.15) and functional_capacity.crawl>=MIN_MOVEMENT_CAPACITY:
 		if "Crawl" not in clip:
 			if recovery.running: recovery.stop()
 			set_motion("Rodin_HumanZombieCrawl")
@@ -204,6 +217,7 @@ func _physics_process(delta: float) -> void:
 	physics.target.global_transform = Transform3D(Basis(Vector3.UP, heading), anchor)
 
 func _enter_downed() -> void:
+	if dead: return
 	if recovery.running: recovery.stop()
 	state="downed"
 	state_time=0.0
@@ -215,6 +229,7 @@ func _enter_downed() -> void:
 	for part: Dictionary in physics.bodies: physics.recovery_pose[part.index]=part.body.global_transform
 
 func start_lying(kind: String) -> void:
+	if dead: return
 	# Spawn-only placement for repeatable menu tests. During a real fall/get-up,
 	# the state machine never writes transforms or clears physical velocities.
 	var poses: Dictionary = recovery.sample(kind,0.0,anchor,heading)
@@ -231,14 +246,31 @@ func dispose() -> void:
 	queue_free()
 
 
-func kill() -> void:
+func _function_changed() -> void:
+	if dead: return
+	var capacity: Dictionary = physics.movement_capacity()
+	functional_capacity = capacity
+	weak = capacity.best<MIN_MOVEMENT_CAPACITY
+	if not weak: weakness_time=0.0
+	# Complete loss of drive is conclusive; near-threshold weakness gets a grace.
+	if capacity.best<=0.0: kill("insufficient_movement")
+
+func kill(reason := "insufficient_movement") -> void:
+	if dead: return
+	dead = true
+	death_reason = reason
+	death_capacity = physics.movement_capacity()
 	if recovery.running: recovery.stop()
 	player.pause()
-	for part: Dictionary in physics.bodies: part.body.can_sleep=true
-	state="dead"
-	physics.passive=true
-	physics.assistance_scale=0.0
-	physics.recovery_support=false
-	physics.recovery_reach=0.0
-	physics.desired_velocity=Vector3.ZERO
-	physics.recovery_pose.clear()
+	state = "dead"
+	set_physics_process(false)
+	physics.become_corpse()
+	player.queue_free()
+	player = null
+	# Keep the mesh, skin bindings, collision bodies and event-driven damage;
+	# release animation references and per-agent authored get-up state permanently.
+	recovery = null
+	impact_momentum = Vector3.ZERO
+	last_hit = {}
+	weak = false
+	damage.fatal = true

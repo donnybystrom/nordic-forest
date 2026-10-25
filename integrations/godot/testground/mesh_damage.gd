@@ -35,6 +35,8 @@ var severed: Array[String] = []
 var fatal := false
 var brain_energy_j := 0.0
 var exact_tests := 0
+var processed_projectiles := 0
+const PROJECTILES_PER_BATCH := 8
 
 func configure(owner_agent: Node3D) -> void:
 	agent=owner_agent
@@ -59,14 +61,15 @@ func refresh_skin(force := false) -> void:
 	matrix_frame=frame
 	vertex_cache.clear();inner_cache.clear()
 	var poses: Array[Transform3D]=[]
-	var rig: Skeleton3D=agent.physics.target_rig
+	var rig: Skeleton3D=agent.skeleton if agent.dead else agent.physics.target_rig
 	for bone in range(rig.get_bone_count()):
 		if agent.physics.by_bone.has(bone):
 			var part: Dictionary=agent.physics.by_bone[bone]
 			poses.append(part.body.global_transform*part.offset.affine_inverse())
 		else:
 			var parent:=rig.get_bone_parent(bone)
-			poses.append(poses[parent]*rig.get_bone_pose(bone) if parent>=0 else rig.global_transform*rig.get_bone_pose(bone))
+			var local: Transform3D=agent.physics.corpse_locals[bone] if agent.dead else rig.get_bone_pose(bone)
+			poses.append(poses[parent]*local if parent>=0 else rig.global_transform*local)
 	matrices.clear()
 	for bind in range(bind_bones.size()): matrices.append(poses[bind_bones[bind]]*source.skin.get_bind_pose(bind))
 	centers.resize(data.cells.size())
@@ -118,7 +121,8 @@ func refine_ray(origin: Vector3, direction: Vector3, limit: float) -> Dictionary
 
 func queue_hit(body: RigidBody3D, point: Vector3, direction: Vector3, payload: Dictionary, cell := -1) -> void:
 	if payload.is_empty() or not agent.arena.damage_enabled: return
-	pending.append({"body":body,"local_point":body.to_local(point),"direction":direction.normalized(),"payload":payload,"cell":cell,"frame":Engine.get_physics_frames()+2})
+	agent.arena.schedule_damage(agent)
+	pending.append({"body":body,"local_point":body.to_local(point),"local_direction":body.global_basis.inverse()*direction.normalized(),"direction":direction.normalized(),"payload":payload,"cell":cell,"frame":Engine.get_physics_frames()+2})
 
 func flush(force := false) -> void:
 	if pending.is_empty(): return
@@ -127,7 +131,10 @@ func flush(force := false) -> void:
 	refresh_skin(true)
 	var selected: Array[int]=[]
 	var directions:=Vector3.ZERO
-	while not pending.is_empty() and (force or pending[0].frame<=Engine.get_physics_frames()):
+	var processed:=0
+	while not pending.is_empty() and (force or (processed<PROJECTILES_PER_BATCH and pending[0].frame<=Engine.get_physics_frames())):
+		processed+=1
+		processed_projectiles+=1
 		var hit: Dictionary=pending.pop_front()
 		var ids:=_select(hit)
 		for id in ids:
@@ -143,7 +150,9 @@ func flush(force := false) -> void:
 
 func _select(hit: Dictionary) -> Array[int]:
 	var point: Vector3=hit.body.to_global(hit.local_point)
-	var direction: Vector3=hit.direction
+	# Follow the recorded local wound as the body turns; debris/impulse keep
+	# hit.direction, the original world-space bullet direction.
+	var direction: Vector3=(hit.body.global_basis*hit.local_direction).normalized()
 	var payload: Dictionary=hit.payload
 	var length:=0.35
 	var region:=str(hit.body.get_meta("bone"))
@@ -184,7 +193,7 @@ func _select(hit: Dictionary) -> Array[int]:
 			var b:=head.to_local(point+direction*maxf(length,0.30))/radii
 			if Geometry3D.get_closest_point_to_segment(Vector3.ZERO,a,b).length_squared()<=1.0:
 				brain_energy_j+=float(payload.deposited_j)
-				if brain_energy_j>=400.0: fatal=true;agent.kill()
+				agent.physics.set_neural_strength(1.0-clampf(brain_energy_j/400.0,0.0,1.0))
 	return ids
 
 func _update_function(selected: Array[int]) -> void:
@@ -216,7 +225,7 @@ func sever(region: String) -> void:
 		part.body.add_child(visual)
 		for id in ids: removed[id]=true
 	_remap_remaining_weights()
-	if region=="Head": fatal=true;agent.kill()
+	if region=="Head": fatal=true;agent.physics.set_neural_strength(0.0)
 	sever_ms=float(Time.get_ticks_usec()-started)/1000.0
 
 func _remap_remaining_weights() -> void:
@@ -405,4 +414,4 @@ func _rebuild_wound_surface() -> void:
 	mesh.surface_set_material(1,flesh)
 
 func report() -> Dictionary:
-	return {"cells_total":data.cells.size(),"removed_cells":removed.size(),"removed_cm3":removed_volume*1000000.0,"budget_cm3":budget_volume*1000000.0,"severed":severed.duplicate(),"fatal":fatal,"brain_energy_j":brain_energy_j,"wound":last_wound.duplicate(true),"cpu_ms":cpu_ms,"sever_ms":sever_ms,"rebuilds":rebuilds}
+	return {"cells_total":data.cells.size(),"removed_cells":removed.size(),"removed_cm3":removed_volume*1000000.0,"budget_cm3":budget_volume*1000000.0,"severed":severed.duplicate(),"fatal":fatal,"brain_energy_j":brain_energy_j,"wound":last_wound.duplicate(true),"cpu_ms":cpu_ms,"sever_ms":sever_ms,"rebuilds":rebuilds,"pending":pending.size(),"processed_projectiles":processed_projectiles}

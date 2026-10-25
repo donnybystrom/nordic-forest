@@ -89,7 +89,7 @@ See [Godot web export](https://docs.godotengine.org/en/stable/tutorials/export/e
 | F2 | Visa de förenklade träff- och kollisionskropparna |
 | 1 / 2 / 3 / 4 | Pistol, .44-spelprofil, hagelsvärm eller automateld; sätter även provimpulsen |
 
-Menyn väljer 1–12 zombier, en eller båda modellerna, rörelse och spridd eller trängre formation. **Spawna om grupp** tillämpar de valen; **Lägg till en** använder samma modell-/rörelseval utan att byta ut de andra. Rörelserna är vilopose, ostadig gång, gång, löpning och krypning. Blandat ger olika klipp och tidsfaser. **Följ spelaren** ändrar beteendet direkt; avstängt begär ingen förflyttning medan animation och fysik fortsätter. Kroppen kan fortfarande knuffas bort från sin startplats.
+Menyn väljer 1–12 levande zombier, en eller båda modellerna, rörelse och spridd eller trängre formation. **Spawna om grupp** ersätter de levande enligt valen och behåller liken; **Lägg till en** använder samma modell-/rörelseval utan att byta ut de andra. Döda tar inga levande spawnplatser. **Rensa döda kroppar** tar uttryckligen bort liken och deras lossnade lemmar. Rörelserna är vilopose, ostadig gång, gång, löpning och krypning. Blandat ger olika klipp och tidsfaser. **Följ spelaren** ändrar beteendet direkt; avstängt begär ingen förflyttning medan animation och fysik fortsätter. Kroppen kan fortfarande knuffas bort från sin startplats.
 
 Varje zombie har 17 fysiska kroppar och 16 leder, med kollisioner mellan olika zombier. Ragdoll-kropparnas föräldranod hålls stilla. Ledmotorerna följer animationens relativa rotation mellan barn och förälder och ger lika stora motriktade vridmoment på båda kropparna. De försöker därmed hålla en pose även under ett fall, utan att själva räta upp hela kroppen mot världen.
 
