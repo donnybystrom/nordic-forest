@@ -146,6 +146,8 @@ func run() -> void:
 		var sleeping := 0
 		for p: Dictionary in corpse.physics.bodies:
 			if p.body.sleeping: sleeping+=1
+		if sleeping!=17 or corpse.physics.is_processing():
+			for p: Dictionary in corpse.physics.bodies: print("CORPSE_SLEEP_DIAGNOSTIC model=",model," bone=",p.name," position=",p.body.global_position," linear=",p.body.linear_velocity," angular=",p.body.angular_velocity)
 		assert(sleeping==17 and not corpse.physics.is_processing(),"Settled corpse did not stop all body/pose work")
 		var sleeping_updates: int=corpse.physics.corpse_pose_updates
 		var walker=world.Agent.new()

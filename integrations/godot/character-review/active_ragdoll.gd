@@ -67,6 +67,7 @@ var corpse_pose_updates := 0
 var corpse_support_contacts := 0
 var corpse_quiet_time := 0.0
 var corpse_sleep_promotions := 0
+var corpse_rest_poses: Array[Transform3D] = []
 
 func configure(owner_view: Node, options: Dictionary = {}) -> void:
 	set_process(false)
@@ -667,26 +668,38 @@ func become_corpse() -> void:
 func _corpse_wake() -> void:
 	if corpse:
 		corpse_quiet_time = 0.0
+		corpse_rest_poses.clear()
 		set_process(true)
 
 func _process(delta: float) -> void:
 	if not corpse: return
 	_write_corpse_pose()
 	var awake := false
-	var quiet := true
-	for part: Dictionary in bodies:
-		if not part.body.sleeping: awake = true
-		if part.body.linear_velocity.length_squared()>0.01 or part.body.angular_velocity.length_squared()>0.25: quiet = false
+	var quiet := corpse_rest_poses.size()==bodies.size()
+	for i in range(bodies.size()):
+		var body: RigidBody3D = bodies[i].body
+		if not body.sleeping: awake = true
+		if quiet:
+			var before: Transform3D = corpse_rest_poses[i]
+			if before.origin.distance_to(body.global_position)>0.008 or before.basis.get_rotation_quaternion().angle_to(body.global_basis.get_rotation_quaternion())>0.06:
+				quiet = false
 	if not awake:
+		corpse_rest_poses.clear()
 		set_process(false)
 		return
-	# Joint/contact jitter can prevent Jolt's per-body sleep. Settle the whole
-	# corpse island together after 1.25 s below 0.1 m/s and 0.5 rad/s. Bodies
-	# remain dynamic, with constraints and automatic collision/impulse wake-up.
-	corpse_quiet_time = corpse_quiet_time+delta if quiet else 0.0
+	# Observe displacement over a full rest window: solver velocity jitter can
+	# be large even while a constrained body barely moves. Continuous rolling,
+	# dragging and falling exceed these pose bounds and restart the window.
+	if quiet:
+		corpse_quiet_time += delta
+	else:
+		corpse_quiet_time = 0.0
+		corpse_rest_poses.clear()
+		for part: Dictionary in bodies: corpse_rest_poses.append(part.body.global_transform)
 	if corpse_quiet_time>=1.25:
 		for part: Dictionary in bodies: part.body.sleeping = true
 		corpse_sleep_promotions += 1
+		corpse_rest_poses.clear()
 		set_process(false)
 
 func _write_corpse_pose() -> void:

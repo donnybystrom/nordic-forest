@@ -3,11 +3,11 @@
   "status": "pass",
   "scope": "Functional movement-capacity death; permanent passive, shootable corpses; retained corpse spawning and low-pile traversal.",
   "source_sha256": {
-    "integrations/godot/character-review/active_ragdoll.gd": "c090aae71ca6d4662d29d4ddcb0e8763fb5bc7135bf355d16c49c84b1ba265e8",
+    "integrations/godot/character-review/active_ragdoll.gd": "03f50b0c99eded6715b3b1543a60e20172697ef029c28c6a72dd65298a4aa3d4",
     "integrations/godot/testground/zombie_agent.gd": "60632fe81385335bf12ee1646095e0dfcca5fb8082afc9d1e66dcadf6720249d",
     "integrations/godot/testground/mesh_damage.gd": "589b7f5cc65ded2382a74f001e135a84d0ba6ad6de9fce2bda588f3486f7c364",
     "integrations/godot/testground/testground.gd": "7a1a48418508ed71e9e26b9bd6448aeb4144f9fa22b71bf99c3dc57b9f2f3b92",
-    "integrations/godot/testground/mortality_smoke.gd": "e5e1c4bcecd96235b57232c6a1e042b11ae53e56bb2089aeb6f848eee6c41dcb",
+    "integrations/godot/testground/mortality_smoke.gd": "829d31b5e0cdc445ec606e3e777f0c08c4e5fdbef4cc161f8ba06657186f846e",
     "tools/test_testground_web.cjs": "532bad7d9c0d4879aa47287074c4442149b4a100fbd8b5c3202833ab96d235cf"
   },
   "runtime": {
@@ -39,14 +39,14 @@
           "brain_energy_j": 0.0,
           "budget_cm3": 1073.2176,
           "cells_total": 1532,
-          "cpu_ms": 21.612,
+          "cpu_ms": 14.885,
           "fatal": true,
           "pending": 0,
           "processed_projectiles": 3,
           "rebuilds": 3,
           "removed_cells": 87,
           "removed_cm3": 1017.78554321209,
-          "sever_ms": 9.935,
+          "sever_ms": 7.318,
           "severed": [
             "LeftForeArm",
             "LeftHand"
@@ -92,14 +92,14 @@
           "brain_energy_j": 0.0,
           "budget_cm3": 1788.696,
           "cells_total": 2383,
-          "cpu_ms": 24.237,
+          "cpu_ms": 21.104,
           "fatal": true,
           "pending": 0,
           "processed_projectiles": 5,
           "rebuilds": 5,
           "removed_cells": 150,
           "removed_cm3": 1665.45898557524,
-          "sever_ms": 14.722,
+          "sever_ms": 12.315,
           "severed": [
             "LeftForeArm",
             "LeftHand"
@@ -312,5 +312,11 @@
     "actual_canvas_buttons_and_keyboard": true,
     "sliders": true,
     "console_errors": []
+  },
+  "sleep_rule": {
+    "window_seconds": 1.25,
+    "max_position_change_m": 0.008,
+    "max_rotation_change_rad": 0.06,
+    "basis": "Observed pose change over the full window, independent of solver velocity jitter."
   }
 }
